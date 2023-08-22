@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { PdmDashboardComponent } from './pdm-dashboard/pdm-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     SidebarComponent,
     DashboardComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PdmDashboardComponent
   ],
   imports: [
     BrowserModule,
