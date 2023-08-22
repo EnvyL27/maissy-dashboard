@@ -1,0 +1,180 @@
+<div class="relative sm:pl-6 md:pl-6 lg:pl-72 pr-6">
+    <!-- row 1 -->
+    <!-- <div class="relative flex flex-col min-w-0 break-words shadow-soft-2xl bg-white rounded-2xl mb-1 bg-clip-border">
+      <div class="flex-auto p-6"> -->
+    <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+      class="relative flex text-center flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+      <div class="flex-auto p-1">
+        <div class="wrapper">
+          <h5 class="typing-demo font-bold">
+            AM Dashboard
+          </h5>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 duration-2000 ">
+      <!-- card1 -->
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+              <div class="flex-none w-2/3 max-w-full px-3">
+                <div>
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
+                    Total Finding
+                  </p>
+                  <h5 class="mb-0 font-bold">
+                    {{pendingexecute + finishexecute + readyexecute}}
+                    <span> / Year</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="px-3 text-right basis-1/3">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="flex justify-center items-center pt-4">
+                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+              <div class="flex-none w-2/3 max-w-full px-3">
+                <div>
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
+                    On Progres WO
+                  </p>
+                  <h5 class="mb-0 font-bold">
+                    {{pendingexecute}}
+                    <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="px-3 text-right basis-1/3">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="flex justify-center items-center pt-4">
+                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+              <div class="flex-none w-2/3 max-w-full px-3">
+                <div>
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
+                    Ready Execute
+                  </p>
+                  <h5 class="mb-0 font-bold">
+                    {{readyexecute}}
+                    <span class="text-lime-500 ml-1">({{(readyexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="px-3 text-right basis-1/3">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="flex justify-center items-center pt-4">
+                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <div class="flex flex-row -mx-3">
+              <div class="flex-none w-2/3 max-w-full px-3">
+                <div>
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
+                    Finish Execute
+                  </p>
+                  <h5 class="mb-0 font-bold">
+                    {{finishexecute}}
+                    <span class="text-lime-500 ml-1">({{(finishexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                  </h5>
+                </div>
+              </div>
+              <div class="px-3 text-right basis-1/3">
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
+                    <div class="flex justify-center items-center pt-4">
+                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3">
+      <div class="w-full px-1 py-1 mx-auto">
+        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+          <div class="my-1 px-1 w-full max-w-full md:w-1/2 lg:my-6 lg:px-6">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
+              <div class="flex-auto p-4">
+                <h5 class="text-center font-semibold">Finding This Years</h5>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div class="flex-auto p-6">
+                <div style="height: 550px;">
+                    <canvas id="dum" width="400" height="300"></canvas>
+                </div>
+                <div class="px-6 pt-4 pb-2 text-center">
+                  <span style="background-color: #f47a60;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">On Progres: {{pendingexecute}}</span>
+                  <span style="background-color: #7fe7dc;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Ready: {{readyexecute}}</span>
+                  <span style="background-color: #316879" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Finish: {{finishexecute}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="my-1 px-1 w-full md:w-1/2 lg:my-6 lg:px-6">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
+              <div class="flex-auto p-4">
+                <h5 class="text-center font-semibold">Type Of Finding</h5>
+              </div>
+            </div>
+            <div
+              class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div class="flex-auto p-6">
+                <div class="flex justify-center" style="height: 550px;">
+                    <canvas id="donut"></canvas>
+                </div>
+                <div class="px-6 pt-4 pb-2 text-center">
+                  <span style="background-color: #316879;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Preventive: {{this.Setting}}</span>
+                  <span style="background-color: #f47a60" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Replacement: {{this.Replacement}}</span>
+                  <span style="background-color: #7fe7dc;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Improvement: {{this.Improvement}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- </div>
+    </div> -->
+  </div>
+  <!-- <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+    <ngx-spinner  bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"type="ball-beat"> <p style="font-size: 20px; color: white">{{deskripsi}}</p></ngx-spinner>
+  </div> -->
+  <!-- <ngx-spinner type="ball-beat"></ngx-spinner> -->
+  

@@ -1,0 +1,756 @@
+<div class="relative sm:pl-6 md:pl-6 lg:pl-72 pr-6">
+    <nav
+    class="my-1 px-1 w-full max-w-full relative flex flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border mb-6 mt-6 bg-white md:w-full lg:my-6 lg:px-6">
+    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+      <div *ngIf="router.url === '/'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">AM Dashboard</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">AM Dashboard</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/pdm_dashboard'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">PDM Dashboard</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">PDM Dashboard</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/am_m_oci1' || router.url === '/am_m_oci2' || router.url === '/am_m_fsb'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Order Monitoring</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Order Monitoring</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/pdm_m_oci1' || router.url === '/pdm_m_oci2' || router.url === '/pdm_m_fsb'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">PDM Monitoring</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">PDM Monitoring</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/cilt_m_oci1' || router.url === '/cilt_m_oci2' || router.url === '/cilt_m_fsb'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">CILT Monitoring</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">CILT Monitoring</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/cost_oci_1'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Cost Monitoring OCI 1</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Cost Monitoring OCI 1</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/cost_oci_2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Cost Monitoring OCI 2</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Cost Monitoring OCI 2</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/cost_fsb'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Cost Monitoring FSB</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Cost Monitoring FSB</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/apps_link'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Apps Link</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Apps Link</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/big5'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Alarm Analisis</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Alarm Analisis</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/cilt'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">CILT</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">CILT</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/addnode'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Add Node</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Add Node</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/addtables'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Add Tables</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Add Tables</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/games' || router.url === '/suit' || router.url === '/tictactoe'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Mini Games</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Mini Games</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/aboutus'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">About Apps</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">About Apps</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/oil'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Oil Lubricant</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Oil Lubricant</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/petline1'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pet Line - 1</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pet Line - 1</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/injectionmolder' || router.url === '/injectmolderpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Injection Molder</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Injection Molder</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/filler' || router.url === '/fillerpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Filler</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Filler</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/packrollerconveyor'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pack Roller Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pack Roller Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/caserpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Caser</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Caser</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/conveyorpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/palletiser' || router.url === '/palletiserpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Palletiser</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Palletiser</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/palletconveyor' || router.url === '/palletconveyorpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pallet Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pallet Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/packconveyor' || router.url === '/packconveyorpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pack Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pack Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/shrinktray'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Shrink Tray</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Shrink Tray</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/sheetfeeder' || router.url === '/sheetfeederpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Sheet Feeder</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Sheet Feeder</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/labeller' || router.url === '/labellerpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Labeller</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Labeller</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/divider'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Divider</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Divider</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/colorcode'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Color Code</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Color Code</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/krones'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Krones Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Krones Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/sanyu'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Sanyu Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Sanyu Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/sanyudividerpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Sanyu Divider</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Sanyu Divider</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/containerconveyor'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Container Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Container Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/bottleshower' || router.url === '/bottleblowerpt2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Bottle Shower</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Bottle Shower</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/petline2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pet Line - 2</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pet Line - 2</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/pet1'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pet 1 Agigators</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pet 1 Agigators</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/pet2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pet 2 Agigators</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pet 2 Agigators</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/filterpress1'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Filler Press 1</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Filler Press 1</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/filterpress2'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Filler Press 2</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Filler Press 2</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/dpcpump'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">CIP Pump x3</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">CIP Pump x3</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/oxonia'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Line 1 & 2 Oxonia Pump x4</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Line 1 & 2 Oxonia Pump x4</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/preparationroom'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Preparation Room</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Preparation Room</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/offlinepacking'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Offline Packing</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Offline Packing</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/grease'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Grase</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Grase</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/sprays'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Sprays</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Sprays</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/maintenanceproduct'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Maintenance Product</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Maintenance Product</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/paste'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Paste</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Paste</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/containeroffline'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Container Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Container Conveyor</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/robopacker'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Robo Packer</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Robo Packer</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/resealeroff'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Resealer</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Resealer</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/emptybox'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Empty Box</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Empty Box</h6>
+        </nav>
+      </div>
+      <div *ngIf="router.url === '/packconveyoroff'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">Pack Conveyor</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">Pack Conveyor</h6>
+        </nav>
+      </div>
+      <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+        <div class="flex items-center md:ml-auto md:pr-4">
+          <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+            <h5 class="ml-4 font-semibold">{{currentDate | date: 'EEEE, MMMM d, y, h:mm:ss'}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
