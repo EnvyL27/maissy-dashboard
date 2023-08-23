@@ -989,33 +989,33 @@ export class AmMOci1Component implements OnInit {
           //  ////////console.log(this.findingpending2);
         })
 
-        // new Chart('donutfp', {
-        //   type: 'doughnut',
-        //   data: {
-        //     labels: ['Preparation', 'Injection', 'Blow', 'Packing', 'Preform', 'Filling'],
-        //     datasets: [{
-        //       label: '# of Votes',
-        //       data: [this.preparation, this.injection, this.blow, this.packing, this.preform, this.filling],
-        //       backgroundColor: [
-        //         '#006d77',
-        //         '#83c5be',
-        //         '#BCD9B4',
-        //         '#FF9C7A',
-        //         '#e29578',
-        //         '#c6ac8f',
-        //       ],
-        //       borderColor: [
-        //         'white',
-        //         'white',
-        //         'white',
-        //         'white',
-        //         'white',
-        //         'white',
-        //       ],
-        //       borderWidth: 1
-        //     }]
-        //   },
-        // });
+        new Chart('donutfp', {
+          type: 'doughnut',
+          data: {
+            labels: ['Preparation', 'Injection', 'Blow', 'Packing', 'Preform', 'Filling'],
+            datasets: [{
+              label: '# of Votes',
+              data: [this.preparation, this.injection, this.blow, this.packing, this.preform, this.filling],
+              backgroundColor: [
+                '#006d77',
+                '#83c5be',
+                '#BCD9B4',
+                '#FF9C7A',
+                '#e29578',
+                '#c6ac8f',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
+          },
+        });
 
 
       }
