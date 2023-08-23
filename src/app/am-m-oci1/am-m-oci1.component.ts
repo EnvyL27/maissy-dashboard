@@ -430,6 +430,38 @@ export class AmMOci1Component implements OnInit {
             }
           }
         }
+        this.chartdestroy = new Chart("valuepermonthchart", {
+          type: "bar",
+          data: {
+            labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+              {
+                "label": "Total",
+                "data": [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember)],
+                "backgroundColor": "#777f83",
+              },
+              {
+                "label": "Close",
+                "data": [Math.round(this.januariclose), Math.round(this.febuariclose), Math.round(this.maretclose), Math.round(this.aprilclose), Math.round(this.meiclose), Math.round(this.juniclose), Math.round(this.juliclose), Math.round(this.agustusclose), Math.round(this.septemberclose), Math.round(this.oktoberclose), Math.round(this.novemberclose), Math.round(this.desemberclose)],
+                "backgroundColor": "#007bff",
+              },
+
+            ],
+
+
+          },
+          options: {
+            scales: {
+              yAxes:
+              {
+                ticks: {
+                  // beginAtZero: true
+                }
+              }
+
+            }
+          }
+        });
       }
       this.spinner.hide();
       this.resolved = true;
@@ -516,7 +548,87 @@ export class AmMOci1Component implements OnInit {
           }
         }
       }
+      
+      this.bar1report = new Chart("barreport", {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              "label": "Total WO",
+              "data": [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
+              "backgroundColor": "#7fe7dc",
+            },
+            {
+              "label": "Done WO",
+              "data": [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
+              "backgroundColor": "#316879",
+            },
+            {
+              "label": "Pending WO",
+              "data": [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
+              "backgroundColor": "#ff6e40",
+            },
 
+          ],
+
+
+        },
+        options: {
+          // scales: {
+          //   yAxes: 
+          //     {
+          //       ticks: {
+          //         beginAtZero: true
+          //       }
+          //     }
+            
+          // }
+        }
+      });
+      this.bar2report = new Chart("barreport2", {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              "label": "WO02 Corrective",
+              "data": [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
+              "backgroundColor": "#ffc13b",
+            },
+            {
+              "label": "WO03 Improvement",
+              "data": [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
+              "backgroundColor": "#7fe7dc",
+            },
+            {
+              "label": "WO06 Preventive",
+              "data": [Math.round((this.wo06donereport / this.totalwo06report) * 100)],
+              "backgroundColor": "#ff6e40",
+            },
+            {
+              "label": "WO07 Over Haul",
+              "data": [Math.round((this.wo07donereport / this.totalwo07report) * 100)],
+              "backgroundColor": "#1e3d59",
+            },
+          ],
+        },
+        // options: {
+        //   scales: {
+        //     yAxes: {
+        //       min: 0,
+        //       max: 100,
+        //       ticks: {
+
+        //         callback: function (value) { return value + "%" },
+        //         //beginAtZero: true
+        //       },
+        //       // scaleLabel: {
+        //       //   display: true,
+        //       //   labelString: "Percentage"
+        //       // }
+        //     }
+        //   }
+        // }
+      });
       this.spinner.hide();
       this.resolved = true;
     });
@@ -686,6 +798,88 @@ export class AmMOci1Component implements OnInit {
           }
         }
       });
+      this.bar1report = new Chart("barreport", {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              "label": "Total WO",
+              "data": [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
+              "backgroundColor": "#7fe7dc",
+            },
+            {
+              "label": "Done WO",
+              "data": [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
+              "backgroundColor": "#316879",
+            },
+            {
+              "label": "Pending WO",
+              "data": [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
+              "backgroundColor": "#ff6e40",
+            },
+
+          ],
+
+
+        },
+        // options: {
+        //   scales: {
+        //     yAxes: 
+        //       {
+        //         ticks: {
+        //           // beginAtZero: true
+        //         }
+        //       }
+            
+        //   }
+        // }
+      });
+      this.bar2report = new Chart("barreport2", {
+        type: "bar",
+        data: {
+          datasets: [
+            {
+              "label": "WO02 Corrective",
+              "data": [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
+              "backgroundColor": "#ffc13b",
+            },
+            {
+              "label": "WO03 Improvement",
+              "data": [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
+              "backgroundColor": "#7fe7dc",
+            },
+            {
+              "label": "WO06 Preventive",
+              "data": [Math.round((this.wo06donereport / this.totalwo06report) * 100)],
+              "backgroundColor": "#ff6e40",
+            },
+            {
+              "label": "WO07 Over Haul",
+              "data": [Math.round((this.wo07donereport / this.totalwo07report) * 100)],
+              "backgroundColor": "#1e3d59",
+            },
+          ],
+
+
+        },
+        // options: {
+        //   scales: {
+        //     yAxes: {
+        //       min: 0,
+        //       max: 100,
+        //       ticks: {
+
+        //         callback: function (value) { return value + "%" },
+        //         //beginAtZero: true
+        //       },
+        //       // scaleLabel: {
+        //       //   display: true,
+        //       //   labelString: "Percentage"
+        //       // }
+        //     }
+        //   }
+        // }
+      });
       this.service.getTotalApprovalOrderFinish('1').subscribe(data => {
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
@@ -823,7 +1017,38 @@ export class AmMOci1Component implements OnInit {
         this.oktober = this.oktober + this.oktoberclose;
         this.november = this.november + this.novemberclose;
         this.desember = this.desember + this.desemberclose;
+        new Chart("valuepermonthchart", {
+          type: "bar",
+          data: {
+            labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+              {
+                "label": "Total",
+                "data": [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember)],
+                "backgroundColor": "#777f83",
+              },
+              {
+                "label": "Close",
+                "data": [Math.round(this.januariclose), Math.round(this.febuariclose), Math.round(this.maretclose), Math.round(this.aprilclose), Math.round(this.meiclose), Math.round(this.juniclose), Math.round(this.juliclose), Math.round(this.agustusclose), Math.round(this.septemberclose), Math.round(this.oktoberclose), Math.round(this.novemberclose), Math.round(this.desemberclose)],
+                "backgroundColor": "#007bff",
+              },
 
+            ],
+
+
+          },
+          // options: {
+          //   scales: {
+          //     yAxes: 
+          //       {
+          //         ticks: {
+          //           // beginAtZero: true
+          //         }
+          //       }
+
+          //   }
+          // }
+        });
       });
       this.service.getTotalApproval().subscribe(data => {
         this.arrapproval.push(data);
@@ -1164,7 +1389,7 @@ export class AmMOci1Component implements OnInit {
                 },
                 {
                   label: 'Finish Execute',
-                  data: [this.finishexecute ],
+                  data: [this.finishexecute],
                   backgroundColor: [
                     '#316879'
                   ],
@@ -1279,9 +1504,9 @@ export class AmMOci1Component implements OnInit {
           });
 
 
-        
 
-          
+
+
           // this.spinner.hide();
           // this.resolved = true;
           console.log(this.pendingexecute);
