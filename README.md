@@ -25,9 +25,9 @@ Maissy is a comprehensive dashboard monitoring application designed to streamlin
 
 ### Prerequisites
 
-- Node.js (version x.x.x)
-- npm (version x.x.x)
-- Angular CLI (version x.x.x)
+- Node.js (version 16.14.0)
+- npm (version 8.3.1)
+- Angular CLI (version 15.1.6)
 
 ### Installation
 
