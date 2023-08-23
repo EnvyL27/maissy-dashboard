@@ -147,7 +147,24 @@ export class DashboardComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            },
+            }, options: {
+              scales: {
+                // x: {
+                //   ticks: {
+                //     display: true,
+                //   },
+                // },
+                y: {
+                  min: 0,
+                  max: 100,
+                  
+                  ticks: {
+                    display: true,
+                    
+                  },
+                },
+              },
+            }
           });
         })
 
