@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { AmMOci1Component } from './am-m-oci1/am-m-oci1.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomFilterPipe } from './custom-filter-pipe.pipe';
+import { AmMOci2Component } from './am-m-oci2/am-m-oci2.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { CustomFilterPipe } from './custom-filter-pipe.pipe';
     PdmDashboardComponent,
     AmMOci1Component,
     CustomFilterPipe,
+    AmMOci2Component,
 
   ],
   imports: [
