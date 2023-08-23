@@ -1,6 +1,6 @@
 # Maissy - Maintenance Integrated Smart System
 
-![Maissy Logo](https://drive.google.com/file/d/1Z8vu3_cGZqWE81mUTLklE9AXoRaf7BMN/view?usp=sharing) <!-- Remember to add your logo -->
+//![Maissy Logo](https://drive.google.com/file/d/1Z8vu3_cGZqWE81mUTLklE9AXoRaf7BMN/view?usp=sharing) <!-- Remember to add your logo -->
 
 Maissy is a comprehensive dashboard monitoring application designed to streamline and enhance the maintenance process of machines at PT Amerta Indah Otsuka. This application provides a user-friendly interface for monitoring various aspects of machine maintenance, helping to improve efficiency and productivity within the organization.
 
