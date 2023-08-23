@@ -622,8 +622,10 @@
               </div>
               </div>
             </div>
-            <div [ngClass]="!listjobfinish ? '': 'hidden'" class="relative py-4 flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-              <div class="flex-auto p-6">
+          </div>
+          <div class="px-1 w-full">
+            <div [ngClass]="!listjobfinish ? '': 'hidden'" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border ">
+              <div class="flex-auto p-6  px-2">
                 <p class="text-center" style="color: red;">Click NO WO Get Detail Part</p>
                 <div class="flex items-center text-center mb-4">
                   <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
@@ -645,29 +647,29 @@
                         " width="48" [(ngModel)]="tglsearch" (ngModelChange)="finddatachange()">
                   </div>
                 </div>
-                <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                  <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center mb-6">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <div class="overflow-x-auto relative shadow-lg sm:rounded-lg ">
+                  <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center mb-6 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-400">
                       <tr>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Section
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           NO WO
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Foto
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Deskripsi
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Proses Pengerjaan
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Executor
                         </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                        <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Total
                         </th>
                       </tr>
@@ -727,48 +729,50 @@
               </pagination-controls>
             </div>
           </div>
-          <div [ngClass]="!listjobfinish ? '': 'hidden'" class="my-1 px-1 w-full max-w-full md:w-full lg:my-6 lg:px-6">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-              <div class="flex-auto p-6">
-                <p class="text-center" style="color: red;" id="target2" #target2>Detail Part</p>
-                <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                  <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                      <tr>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
-                          Description Part
-                        </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
-                          Quantity
-                        </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
-                          Quantity Install
-                        </th>
-                        <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
-                          Prosentase (%)
-                        </th>
-                      </tr>
-                      <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700"
-                        *ngFor="let item of detailpartarr[0] | paginate: { id:'pagination4', currentPage: currentPage4, itemsPerPage: 5 }; let i = index ">
-                        <td>
-                          {{item.desc_part}}
-                        </td>
-                        <td>
-                          {{item.qty}}
-                        </td>
-                        <td>
-                          {{item.qty_install}}
-                        </td>
-                        <td>
-                          {{item.prosentase}} %
-                        </td>
-                      </tr>
-                    </thead>
-                  </table>
+          <div class="w-full px-1">
+            <div [ngClass]="!listjobfinish ? '': 'hidden'" class=" w-full max-w-full md:w-full py-2">
+              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                <div class="flex-auto p-6">
+                  <p class="text-center" style="color: red;" id="target2" #target2>Detail Part</p>
+                  <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+                    <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-400">
+                        <tr>
+                          <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                            Description Part
+                          </th>
+                          <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                            Quantity
+                          </th>
+                          <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                            Quantity Install
+                          </th>
+                          <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                            Prosentase (%)
+                          </th>
+                        </tr>
+                        <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700"
+                          *ngFor="let item of detailpartarr[0] | paginate: { id:'pagination4', currentPage: currentPage4, itemsPerPage: 5 }; let i = index ">
+                          <td>
+                            {{item.desc_part}}
+                          </td>
+                          <td>
+                            {{item.qty}}
+                          </td>
+                          <td>
+                            {{item.qty_install}}
+                          </td>
+                          <td>
+                            {{item.prosentase}} %
+                          </td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
+                <pagination-controls class="text-center" id="pagination4" (pageChange)="currentPage4 = $event">
+                </pagination-controls>
               </div>
-              <pagination-controls class="text-center" id="pagination4" (pageChange)="currentPage4 = $event">
-              </pagination-controls>
             </div>
           </div>
           <div class="w-full px-1 mx-auto">
