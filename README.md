@@ -31,7 +31,7 @@ Maissy is a comprehensive dashboard monitoring application designed to streamlin
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/yourusername/maissy.git`
+1. Clone the repository: `git clone https://github.com/uglysquid27/maissy.git`
 2. Navigate to the project directory: `cd maissy`
 3. Install backend dependencies: `npm install`
 4. Navigate to the `frontend` directory: `cd frontend`

@@ -488,7 +488,7 @@
               class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mt-1 mb-1 bg-clip-border">
               <div class="flex-auto p-6">
                 <p class="text-center" style="color: red;">Name Machine : {{funloc}}</p>
-                <p class="text-right" style="color: #42A3A7">Cost : {{total_cost | currency : 'IDR '}}</p>
+                <p class="text-right font-semibold" style="color: #42A3A7">Cost : {{total_cost | currency : 'IDR '}}</p>
                 <div class="flex items-center text-center">
                   <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
                     <h6
@@ -622,7 +622,7 @@
               </div>
               </div>
             </div>
-            <div [ngClass]="!listjobfinish ? '': 'hidden'" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div [ngClass]="!listjobfinish ? '': 'hidden'" class="relative py-4 flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
               <div class="flex-auto p-6">
                 <p class="text-center" style="color: red;">Click NO WO Get Detail Part</p>
                 <div class="flex items-center text-center mb-4">
