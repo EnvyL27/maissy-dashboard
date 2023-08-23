@@ -18,6 +18,7 @@ import { AmMOci1Component } from './am-m-oci1/am-m-oci1.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 import { AmMOci2Component } from './am-m-oci2/am-m-oci2.component';
+import { AmMFsbComponent } from './am-m-fsb/am-m-fsb.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { AmMOci2Component } from './am-m-oci2/am-m-oci2.component';
     AmMOci1Component,
     CustomFilterPipe,
     AmMOci2Component,
+    AmMFsbComponent,
 
   ],
   imports: [
