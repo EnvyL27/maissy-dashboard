@@ -1,6 +1,6 @@
 <main class="">
-<app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
+<app-navbar  [ngClass]="!isLoginRoute() ? '': 'hidden'"></app-navbar>
+<app-sidebar [ngClass]="!isLoginRoute() ? '': 'hidden'"></app-sidebar>
 <div >
   <!-- <body  onload = "JavaScript:AutoRefresh(1000);"> -->
   <!-- <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' "> -->
@@ -10,7 +10,7 @@
   <!-- </body> -->
   <!-- <ng-template #loading2> -->
   <!-- </ng-template> -->
-  <app-footer>
+  <app-footer  [ngClass]="!isLoginRoute() ? '': 'hidden'">
   </app-footer>
 </div>
 <div fixed-plugin *ngIf="isShow">

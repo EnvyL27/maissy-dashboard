@@ -19,6 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomFilterPipe } from './custom-filter-pipe.pipe';
 import { AmMOci2Component } from './am-m-oci2/am-m-oci2.component';
 import { AmMFsbComponent } from './am-m-fsb/am-m-fsb.component';
+import { PdmMOci1Component } from './pdm-m-oci1/pdm-m-oci1.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { AmMFsbComponent } from './am-m-fsb/am-m-fsb.component';
     CustomFilterPipe,
     AmMOci2Component,
     AmMFsbComponent,
+    PdmMOci1Component,
+    LoginComponent,
 
   ],
   imports: [

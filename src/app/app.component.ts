@@ -20,6 +20,9 @@ export class AppComponent {
   
   }
 
+  isLoginRoute() {
+    return this.router.url === '/login';
+  }
 
 
   @HostListener('window:scroll')

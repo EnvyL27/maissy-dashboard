@@ -1476,7 +1476,7 @@ else lain6
             <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
               routerLink="">
               <div
-                class="bg-gradient-to-tl from-stone-200 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>AM Dashboard</title>
@@ -1502,7 +1502,7 @@ else lain6
         </div>
         <ng-template #lain>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center px-4 text-slate-700 transition-colors"
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center px-4  transition-colors"
               routerLink="">
               <div
                 class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
@@ -1536,7 +1536,7 @@ else lain6
             <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
               routerLink="pdm_dashboard">
               <div
-                class="bg-gradient-to-tl from-stone-200 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                class="bg-gradient-to-tl from-stone-300 to-cyan-100 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>PDM Dashboard</title>
@@ -1599,7 +1599,7 @@ else lain6
           <li
             class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
             <div
-              class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5 text-slate-700">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Order Monitoring</title>
@@ -1625,39 +1625,39 @@ else lain6
             <br />
           </li>
           <li *ngIf="sub1" class="ml-6">
-            <ul class="py-2 space-y-2 ml-6">
+            <ul class="">
               <div *ngIf="router.url === '/am_m_oci1'; else kategori1">
                 <li class="ml-6">
                   <a routerLink="am_m_oci1"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group pl-11">OCI
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     1</a>
                 </li>
               </div>
               <ng-template #kategori1>
                 <li class="ml-6">
                   <a routerLink="am_m_oci1"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group  pl-11">OCI
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-11">OCI
                     1</a>
                 </li>
               </ng-template>
               <div *ngIf="router.url === '/am_m_oci2'; else kategori2">
                 <li class="ml-6">
                   <a routerLink="am_m_oci2"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group pl-11">OCI
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     2</a>
                 </li>
               </div>
               <ng-template #kategori2>
                 <li class="ml-6">
                   <a routerLink="am_m_oci2"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group pl-11">OCI
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     2</a>
                 </li>
               </ng-template>
               <div *ngIf="router.url === '/am_m_fsb'; else kategori3">
                 <li class="ml-6">
                   <a routerLink="am_m_fsb"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group pl-11">FSB</a>
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
                 </li>
               </div>
               <ng-template #kategori3>
@@ -1713,20 +1713,20 @@ else lain6
             <br />
           </li>
           <li *ngIf="sub1" class="ml-6">
-            <ul class="py-2 space-y-2 ml-6">
+            <ul class="">
               <li class="ml-6">
                 <a routerLink="am_m_oci1"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-400 transition duration-75 rounded-lg group pl-11">OCI
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
                   1</a>
               </li>
               <li class="ml-6">
                 <a routerLink="am_m_oci2"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-400 transition duration-75 rounded-lg group pl-11">OCI
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
                   2</a>
               </li>
               <li class="ml-6">
                 <a routerLink="am_m_fsb"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-400 transition duration-75 rounded-lg pl-11">FSB</a>
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg pl-11">FSB</a>
               </li>
               <!-- <li class="ml-6">
                 <a routerLink="am_m_fsb"
@@ -1771,45 +1771,45 @@ else lain6
             <br />
           </li>
           <li *ngIf="sub2" class="ml-6">
-            <ul class="py-2 space-y-2 ml-6">
+            <ul class="">
               <div *ngIf="router.url === '/pdm_m_oci1'; else kategori4">
                 <li class="ml-6">
                   <a routerLink="pdm_m_oci1"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     1</a>
                 </li>
               </div>
               <ng-template #kategori4>
                 <li class="ml-6">
                   <a routerLink="pdm_m_oci1"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     1</a>
                 </li>
               </ng-template>
               <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
                 <li class="ml-6">
                   <a routerLink="pdm_m_oci2"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     2</a>
                 </li>
               </div>
               <ng-template #kategori5>
                 <li class="ml-6">
                   <a routerLink="pdm_m_oci2"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                     2</a>
                 </li>
               </ng-template>
               <div *ngIf="router.url === '/pdm_m_fsb'; else kategori6">
                 <li class="ml-6">
                   <a routerLink="pdm_m_fsb"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
                 </li>
               </div>
               <ng-template #kategori6>
                 <li class="ml-6">
                   <a routerLink="pdm_m_fsb"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
                 </li>
               </ng-template>
             </ul>
@@ -1845,20 +1845,20 @@ else lain6
             <br />
           </li>
           <li *ngIf="sub2" class="ml-6">
-            <ul class="py-2 space-y-2 ml-6">
+            <ul class="">
               <li class="ml-6">
                 <a routerLink="pdm_m_oci1"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
                   1</a>
               </li>
               <li class="ml-6">
                 <a routerLink="pdm_m_oci2"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
                   2</a>
               </li>
               <li class="ml-6">
                 <a routerLink="pdm_m_fsb"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">FSB</a>
               </li>
             </ul>
           </li>
