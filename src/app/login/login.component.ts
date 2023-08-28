@@ -1,49 +1,90 @@
-import { AuthService } from '../service/auth/auth.service';
-import { Component, OnInit, Type } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+// import { AlertType } from 'src/app/services/alert/alert.model';
+// import { AlertService } from 'src/app/services/alert/alert.service';
+import { AuthService } from './../service/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-  constructor(private AuthService: AuthService, private router: Router) { }
-  loginForm!: FormGroup;
+export class LoginComponent {
+  form!: FormGroup;
+  showPassword: Boolean = false;
+  submitted = false;
 
-  alert: boolean = false;
-  alertMessage: any;
-
-
-  ngOnInit() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required])
-    })
+  constructor(
+    private authService: AuthService,
+    // private alertService: AlertService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.form = this.formBuilder.group({
+      nik: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  login() {
-    if (this.loginForm.value.password.length < 6) {
-      this.alert = true;
-      this.alertMessage = "Password must be greater than 6 characters";
-      setTimeout(() => {
-        this.alert = false;
-        this.alertMessage = "";
-      }, 2500);
+  get f() {
+    return this.form.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.form.invalid) {
       return;
     }
 
-    this.AuthService.Login(this.loginForm.value).subscribe((res: any) => {
-      this.AuthService.SetToken(res.token);
-      this.router.navigateByUrl('/dashboard');
-    }, (err: any) => {
-      this.alert = true;
-      this.alertMessage = err.error.message;
-      setTimeout(() => {
-        this.alert = false;
-        this.alertMessage = "";
-      }, 2500);
-    })
+    this.authService
+      .login(this.f['nik'].value, this.f['password'].value)
+      .subscribe(
+        (data) => {
+          // console.log(data.access_token);
+
+          this.authService.saveToken(data.access_token);
+          this.authService.saveUser(data.user);
+
+          console.log('Sign In Success');
+          // this.alertService.onCallAlert('Login Success', AlertType.Success);
+
+          // this.alertService.onCallAlert('Login Success', AlertType.Success);
+          this.reloadPage();
+        },
+        (err) => {
+          if (err.statusText == 'Unauthorized') {
+            console.log('Email or Pass Invalid');
+            // this.alertService.onCallAlert(
+            //   'Email or Password Invalid',
+            //   AlertType.Error
+            // );
+          } else {
+            // this.alertService.onCallAlert('Login Failed', AlertType.Error);
+            console.log('Sign In Failed');
+          }
+
+          // console.log(err.statusText);
+
+          // this.errorMessage = err.error.message;
+          // this.isLoginFailed = true;
+          // this.submitted = false;
+          this.submitted = false;
+          this.f['password'].setValue('');
+          // this.form.setValue({ email: '', password: '' });
+        },
+        () => {
+          this.submitted = false;
+        }
+      );
+  }
+
+  changeVisibilityPassword() {
+    this.showPassword = !this.showPassword;
+  }
+
+  reloadPage(): void {
+    this.router.navigate(['/']);
+    // window.location.reload();
   }
 }

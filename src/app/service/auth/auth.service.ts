@@ -1,69 +1,59 @@
-import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
-import { DOCUMENT } from '@angular/common';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+var authUrl = environment.baseUrlApi + 'auth/';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
+
+const TOKEN_KEY = 'auth-token';
+const USER_KEY = 'auth-user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  private dev = 'http://localhost:3000';
-
-  constructor(private HttpClient: HttpClient,  @Inject(DOCUMENT) private document: Document) { }
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+  constructor(private http: HttpClient, private router: Router) {}
+  login(nik: string, password: string): Observable<any> {
+    return this.http.post(
+      authUrl + 'signin',
+      {
+        nik,
+        password,
+      },
+      httpOptions
+    );
   }
 
-  // Login
-  Login(data: any) {
-    return this.HttpClient.post(this.dev + '/users/login', data);
-  }
-  // Register
-  Register(data: any) {
-    return this.HttpClient.post(this.dev + '/users/register', data);
+  signOut(): void {
+    window.sessionStorage.clear();
+    // window.location.reload();
+    this.router.navigate(['/']);
   }
 
-  // SetToken
-  SetToken(token: string) {
-    // this.cookieService.delete('TaxiApps');
-    // this.cookieService.set('TaxiApps', token, 8 / 24);
-    localStorage.setItem('TaxiApps', token);
-  }
-  // GetToken
-  GetToken() {
-    return localStorage.getItem('TaxiApps');
+  public saveToken(token: string): void {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-
-  // DeleteToken
-  DeleteToken() {
-    localStorage.removeItem('TaxiApps');
-    window.location.reload();
+  public getToken(): string | null {
+    return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  // GetPayload
-  GetPayload() {
-    const token = this.GetToken();
-    if (token) {
-      const payload = token.split('.')[1];
-      return JSON.parse(atob(payload));
-    } else {
-      return null;
+  public saveUser(user: any): void {
+    window.sessionStorage.removeItem(USER_KEY);
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
+
+  public getUser(): any {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
     }
-  }
 
-  // Error handling
-  errorHttpHandler(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = `Error ${error.error.message}`
-    }
-    else {
-      errorMessage = `Error code : ${error.status}\n${error.message}`
-    }
-    return throwError(errorMessage)
+    return {};
   }
 }
