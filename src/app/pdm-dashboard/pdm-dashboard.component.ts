@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CountService } from '../services/count.service';
+import { CountService } from '../service/master/count.service';
 
 @Component({
   selector: 'app-pdm-dashboard',

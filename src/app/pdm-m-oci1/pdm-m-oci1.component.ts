@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CountService } from '../services/count.service';
-import { TableUtil } from "../services/tabelUtil";
+import { CountService } from '../service/master/count.service';
+import { TableUtil } from "../service/tabelUtil";
 import { NgxCaptureService } from 'ngx-capture';
 import { tap } from 'rxjs';
 import * as moment from 'moment';

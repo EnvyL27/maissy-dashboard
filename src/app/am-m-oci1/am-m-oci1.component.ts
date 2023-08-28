@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import * as XLSX from 'xlsx';
 import { NgxCaptureService } from 'ngx-capture';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CountService } from '../services/count.service';
+import { CountService } from '../service/master/count.service';
 
 @Component({
   selector: 'app-am-m-oci1',

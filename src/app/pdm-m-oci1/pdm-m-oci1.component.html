@@ -1,9 +1,10 @@
 <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+  <div class="relative sm:pl-6 md:pl-6 lg:pl-72 pr-6">
     <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
       class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
       <div class="flex-auto p-1">
         <div class="wrapper">
-          <h5 class="typing-demo">PDM Monitoring - OCI 1
+          <h5 class="typing-demo font-bold">PDM Monitoring - OCI 1
           </h5>
         </div>
       </div>
@@ -26,8 +27,10 @@
                 </div>
               </div>
               <div class="px-3 text-right basis-1/3">
-                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                  <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                  <div class="flex justify-center items-center pt-4">
+                    <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                </div>
                 </div>
               </div>
             </div>
@@ -50,8 +53,10 @@
                 </div>
               </div>
               <div class="px-3 text-right basis-1/3">
-                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                  <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                  <div class="flex justify-center items-center pt-4">
+                    <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                </div>
                 </div>
               </div>
             </div>
@@ -74,8 +79,10 @@
                 </div>
               </div>
               <div class="px-3 text-right basis-1/3">
-                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                  <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                  <div class="flex justify-center items-center pt-4">
+                    <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                </div>
                 </div>
               </div>
             </div>
@@ -98,8 +105,10 @@
                 </div>
               </div>
               <div class="px-3 text-right basis-1/3">
-                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500">
-                  <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                   <div class="flex justify-center items-center pt-4">
+                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
                 </div>
               </div>
             </div>
@@ -108,31 +117,31 @@
       </div>
     </div>
   
-    <div [ngClass]="listoftotalsatisfactory ? '': 'hidden'" class="my-1 px-1 w-full md:w-full lg:my-6 lg:px-6 pt-6">
+    <div [ngClass]="listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
-          <p class="text-center">Total Satisfactory</p>
+          <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
   
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="excel-table">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left " id="excel-table">
+              <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
                 <tr>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     No
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Device Name
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
-                    Stat
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                    Status
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Get Date
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Do Date
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     PIC
                   </th>
                 </tr>
@@ -140,26 +149,26 @@
               <tbody
                 *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                 <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
-                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                     {{(currentPage-1) * 5 + i + 1}}
                   </th>
                   <!-- <td class="py-4 px-6">
                     {{findingpending.device_name}}
                   </td> -->
                   <td (click)="data(findingpending.device_name,findingpending.dodate)"
-                    class="py-4 px-6 font-medium font-semibold" style="color: black;">
+                    class="py-4 px-6 font-medium font-semibold text-gray-800">
                     <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.Stat}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.getdate}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.dodate}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.PIC}}
                   </td>
                 </tr>
@@ -172,31 +181,31 @@
       </div>
     </div>
   
-    <div [ngClass]="!listoftotalasset ? '': 'hidden'" class="my-1 px-1 w-full md:w-full lg:my-6 lg:px-6 pt-6">
+    <div [ngClass]="!listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center">Total Asset</p>
   
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="excel-table">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left" id="excel-table">
+              <thead class="text-xs text-gray-100 uppercase bg-gray-500">
                 <tr>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     No
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     Device Name
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     Funcloc
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     Name Area
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     Plan Date
                   </th>
-                  <th scope="col" class="py-3 px-6 dark:bg-gray-800 text-white" bgcolor="#878790">
+                  <th scope="col" class="py-3 px-6" bgcolor="#878790">
                     Section
                   </th>
                 </tr>
@@ -204,27 +213,27 @@
               <tbody
                 *ngFor="let findingpending of pdmassetlist | filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                 <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
-                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                     {{(currentPage-1) * 5 + i + 1}}
                   </th>
                   <!-- <td class="py-4 px-6">
                     {{findingpending.device_name}}
                   </td> -->
                   <td (click)="data(findingpending.device_name,findingpending.dodate)"
-                    class="py-4 px-6 font-medium font-semibold" style="color: black;">
+                    class="py-4 px-6 font-medium font-semibold text-gray-800">
                     <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
                   </td>
   
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.func_lock}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.name_area}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.plan_date}}
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-gray-800">
                     {{findingpending.section}}
                   </td>
                 </tr>
@@ -238,10 +247,10 @@
     </div>
   
     <div id="ss" #ss>
-      <div class="flex flex-wrap -mx-3">
-        <div class="w-full px-1 py-1 mx-auto">
+      <div class="flex flex-wrap">
+        <div class="w-full py-1 px-3 mx-auto">
           <div class="flex flex-wrap -mx-1 lg:-mx-3">
-            <div class="my-1 px-1 w-full max-w-full md:w-full lg:my-6 lg:px-6">
+            <div class="w-full max-w-full">
               <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <p class="text-left text-md">List Job Finish Today
@@ -276,15 +285,14 @@
                     </div>
                     <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                       <!-- <label for="date" class="mr-1">Date : </label> -->
-                      <input type="date" style=" border: 1px solid #c4c4c4;
+                      <input type="date" class="text-gray-100 bg-gray-600" style="border: 1px solid #c4c4c4;
                       border-radius: 5px;
-                      background-color: #fff;
                       padding: 3px 5px;
                       box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
                     " #masukandate width="48" [(ngModel)]="searchDate" (change)="date(masukandate)">
                     </div>
                   </div>
-                  <p class="text-center" style="color: red;">Click Device Name For Show Note And Chart Abnormal Asset</p>
+                  <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal Asset</p>
                   <div class="overflow-x-auto relative shadow-lg sm:rounded-lg" id="prinsection" #printsection>
                     <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center">
                       <thead class="text-gray-700 uppercase dark:text-gray-400">
@@ -1413,9 +1421,9 @@
     <!-- </div>
     </div> -->
   </div>
-  <div [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
-    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
-      <p style="font-size: 20px; color: white">{{deskripsi}}</p>
-    </ngx-spinner>
-  </div>
-  
+</div>
+<div [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+    <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+  </ngx-spinner>
+</div>
