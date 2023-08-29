@@ -249,3 +249,24 @@ a.styled-pointer:not([href]) {
 a.styled-pointer:hover {
 	color: blue;
 }
+
+.icon path {
+  fill: transparent;
+  stroke-width: 5;
+  stroke: #31e8ff;
+  animation: animate-under 5s linear forwards; /* Apply animation on load */
+}
+
+.icon.under path {
+  stroke-dasharray: 5;
+  stroke-dashoffset: 5;
+}
+
+@keyframes animate-under {
+  0% {
+    stroke-dashoffset: 5;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
