@@ -7,7 +7,7 @@ import { AmMOci2Component } from './am-m-oci2/am-m-oci2.component';
 import { AmMFsbComponent } from './am-m-fsb/am-m-fsb.component';
 import { PdmMOci1Component } from './pdm-m-oci1/pdm-m-oci1.component';
 import { LoginComponent } from './login/login.component';
-import { OnAuthGuard, OutAuthGuard } from './service/middleware/auth.guard';
+import { OutAuthGuard } from './service/guard/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [OutAuthGuard]},
