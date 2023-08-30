@@ -22,6 +22,7 @@ import { AmMFsbComponent } from './am-m-fsb/am-m-fsb.component';
 import { PdmMOci1Component } from './pdm-m-oci1/pdm-m-oci1.component';
 import { LoginComponent } from './login/login.component';
 import { PdmMOci2Component } from './pdm-m-oci2/pdm-m-oci2.component';
+import { PdmMFsbComponent } from './pdm-m-fsb/pdm-m-fsb.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { PdmMOci2Component } from './pdm-m-oci2/pdm-m-oci2.component';
     PdmMOci1Component,
     LoginComponent,
     PdmMOci2Component,
+    PdmMFsbComponent,
 
   ],
   imports: [
