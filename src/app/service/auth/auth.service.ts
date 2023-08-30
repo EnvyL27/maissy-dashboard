@@ -31,7 +31,7 @@ export class AuthService {
   signOut(): void {
     window.sessionStorage.clear();
     // window.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   public saveToken(token: string): void {
