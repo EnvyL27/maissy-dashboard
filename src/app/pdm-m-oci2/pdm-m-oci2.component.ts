@@ -10,7 +10,7 @@ import { ChartOptions } from './chart';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-pdm-m-oci1',
+  selector: 'app-pdm-m-oci2',
   templateUrl: './pdm-m-oci2.component.html',
   styleUrls: ['./pdm-m-oci2.component.css'],
   providers: [
