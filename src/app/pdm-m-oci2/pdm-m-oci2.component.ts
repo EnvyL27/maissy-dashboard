@@ -828,7 +828,7 @@ export class PdmMOci2Component implements OnInit {
     this.chartFunction();
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
-      this.service.getReadTotalPdmAssetoci1().subscribe(data => {
+      this.service.getReadTotalPdmAssetoci2().subscribe(data => {
         this.asset = data;
         Object.values(this.asset).forEach(data => {
           var array = Object.keys(data).map(function (key) {
@@ -838,7 +838,7 @@ export class PdmMOci2Component implements OnInit {
           for (let elem of this.asset2) {
             this.totalasset = elem.total;
           }
-          this.service.getOci1Valuemonth().subscribe(data => {
+          this.service.getOci2Valuemonth().subscribe(data => {
             this.valuemonth = data;
             Object.values(this.valuemonth).forEach(data => {
               // // //////console.log(data);
@@ -914,7 +914,7 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getReadPdmAssetoci1().subscribe(data=>{
+      this.service.getReadPdmAssetoci2().subscribe(data=>{
         this.pdmasset = data;
         //////console.log(this.pdmasset);
         Object.values(this.pdmasset).forEach(data => {
@@ -929,7 +929,7 @@ export class PdmMOci2Component implements OnInit {
         })
 
       });
-      this.service.getOci1fNotFinish().subscribe(data => {
+      this.service.getOci2fNotFinish().subscribe(data => {
         this.finishnot = data;
         // //////console.log(data);
         Object.values(this.finishnot).forEach(data => {
@@ -1053,7 +1053,7 @@ export class PdmMOci2Component implements OnInit {
       }
       );
       // this.fungsi
-      this.service.getReadFinishTodayoci1abnormal().subscribe(data => {
+      this.service.getReadFinishTodayoci2abnormal().subscribe(data => {
         this.abnormalasset = data;
         console.log(data);
         Object.values(this.abnormalasset).forEach(data => {
@@ -1130,7 +1130,7 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getTemperatureLineoci1().subscribe(data => {
+      this.service.getTemperatureLineoci2().subscribe(data => {
         this.temperature = data;
         Object.values(this.temperature).forEach(data => {
           // // //////console.log(data);
@@ -1147,7 +1147,7 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getAmpereLineoci1().subscribe(data => {
+      this.service.getAmpereLineoci2().subscribe(data => {
         this.ampere = data;
         Object.values(this.ampere).forEach(data => {
           // // //////console.log(data);
@@ -1163,7 +1163,7 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getVibrationLineoci1().subscribe(data => {
+      this.service.getVibrationLineoci2().subscribe(data => {
         this.vibration = data;
         Object.values(this.vibration).forEach(data => {
           // // //////console.log(data);
@@ -1179,7 +1179,7 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getReadFinishTodayoci1().subscribe(data => {
+      this.service.getReadFinishTodayoci2().subscribe(data => {
         ////console.log(data);
 
         this.totalfinishtoday = data;
@@ -1226,7 +1226,7 @@ export class PdmMOci2Component implements OnInit {
 
       }
       );
-      this.service.getReadPdmFinishoci1().subscribe(data => {
+      this.service.getReadPdmFinishoci2().subscribe(data => {
         this.finish = data;
         Object.values(this.finish).forEach(data => {
           var array = Object.keys(data).map(function (key) {
