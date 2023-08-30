@@ -30,7 +30,7 @@
                 <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
                   <div class="flex justify-center items-center pt-4">
                     <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
                   <div class="flex justify-center items-center pt-4">
                     <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@
                 <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
                   <div class="flex justify-center items-center pt-4">
                     <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,9 +106,9 @@
               </div>
               <div class="px-3 text-right basis-1/3">
                 <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
-                   <div class="flex justify-center items-center pt-4">
-                        <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
-                    </div>
+                  <div class="flex justify-center items-center pt-4">
+                    <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                  </div>
                 </div>
               </div>
             </div>
@@ -116,12 +116,12 @@
         </div>
       </div>
     </div>
-  
+
     <div [ngClass]="listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
-  
+
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left " id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
@@ -180,12 +180,12 @@
         </pagination-controls>
       </div>
     </div>
-  
+
     <div [ngClass]="!listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center">Total Asset</p>
-  
+
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left" id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500">
@@ -223,7 +223,7 @@
                     class="py-4 px-6 font-medium font-semibold text-gray-800">
                     <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
                   </td>
-  
+
                   <td class="py-4 px-6 text-gray-800">
                     {{findingpending.func_lock}}
                   </td>
@@ -245,13 +245,14 @@
         </pagination-controls>
       </div>
     </div>
-  
+
     <div id="ss" #ss>
       <div class="flex flex-wrap">
         <div class="w-full py-1 px-3 mx-auto">
           <div class="flex flex-wrap -mx-1 lg:-mx-3">
             <div class="w-full max-w-full">
-              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <p class="text-left text-md">List Job Finish Today
                     <button *ngIf="exportdata == false" (click)="generatePaginate()"
@@ -285,40 +286,51 @@
                     </div>
                     <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                       <!-- <label for="date" class="mr-1">Date : </label> -->
-                      <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48" [(ngModel)]="searchDate" (change)="date(masukandate)">
+                      <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48"
+                        [(ngModel)]="searchDate" (change)="date(masukandate)">
                     </div>
                   </div>
-                  <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal Asset</p>
+                  <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal
+                    Asset</p>
                   <div class="overflow-x-auto relative shadow-lg sm:rounded-lg" id="prinsection" #printsection>
                     <table border="1" class="w-full text-lg text-gray-500 text-center">
                       <thead class="text-gray-700 uppercase">
                         <tr>
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             NO
                           </th>
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             DEVICE NAME
                           </th>
-                          <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             2H
                           </th>
-                          <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             3H
                           </th>
-                          <th colspan="4" scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th colspan="4" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             AMPERE
                           </th>
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             Therm
                           </th>
-                        
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             VC
                           </th>
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             Status
                           </th>
-                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                          <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                            bgcolor="#878790">
                             PIC
                           </th>
                         </tr>
@@ -359,251 +371,273 @@
                         <tr class=""
                           *ngFor="let header of totalfinishtoday2| filter:searchText  | filter:searchDate | paginate: { currentPage: currentPage, itemsPerPage: showPaginate }| filterList:filtre:filterMetadata; let i = index; let first = first; let last = last;trackBy: trackElement"
                           [ngClass]="{ 'first': first, 'last': last}">
-                          <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
+                          <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
+                            bgcolor="#878790">
                             {{(currentPage-1) * showPaginate + i + 1}}
                           </th>
-                          <td (click)="data(header.device_name,header.dodate)" class="py-4 px-6 font-medium font-semibold"
-                            style="color: black;">
+                          <td (click)="data(header.device_name,header.dodate)"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black;">
                             <a (click)="abnormalAssetTable()" class="styled-pointer">{{header.device_name}}</a>
                           </td>
                           <!-- <td *ngIf="header.Two_H < 2" bgcolor="green" class="text-white text-center"> -->
-                            <td *ngIf="header.test_name == '2H' && header.Stat == 'Satisfactory'"
+                          <td *ngIf="header.test_name == '2H' && header.Stat == 'Satisfactory'"
                             class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;">
-                             {{header.Two_H}}
-                           </td>
-                           <td *ngIf="header.test_name == '2H' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.Two_H}}
                           </td>
-                           <td *ngIf="header.test_name == '2H' && header.Stat == 'Unacceptable'"
-                           class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
+                          <td *ngIf="header.test_name == '2H' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            {{header.Two_H}}
+                          </td>
+                          <td *ngIf="header.test_name == '2H' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
                             {{header.Two_H}}
                           </td>
                           <td *ngIf="header.test_name != '2H' && header.Stat != 'Good'"
-                          class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                           {{header.Two_H}}
-                         </td>
-                           <td *ngIf="header.Stat == 'Good'"
                             class="py-4 px-6 font-medium font-semibold" style="color: black">
-                             {{header.Two_H}}
-                           </td>
-                           <!-- <td
+                            {{header.Two_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
+                            {{header.Two_H}}
+                          </td>
+                          <!-- <td
                             class="py-4 px-6 font-medium font-semibold" style="color: black">
                              {{header.Two_H}}
                            </td> -->
                           <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.Thermal_Two_H}}
                           </td>
                           <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.Thermal_Two_H}}
                           </td>
                           <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.Thermal_Two_H}}
-                         </td>
-                         <td *ngIf="header.test_name != 'Thermal 2H' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.Thermal_Two_H}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.Thermal_Two_H}}
+                          </td>
+                          <td *ngIf="header.test_name != 'Thermal 2H' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.Thermal_Two_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.Thermal_Two_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.CF_Two_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.CF_Two_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.CF_Two_H}}
-                         </td>
-                         <td *ngIf="header.test_name != 'CF+ (2H)' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.CF_Two_H}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.CF_Two_H}}
+                          </td>
+                          <td *ngIf="header.test_name != 'CF+ (2H)' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.CF_Two_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.CF_Two_H}}
                           </td>
                           <!-- <td *ngIf="header.CF_Two_H == '-'" class="py-4 px-6 font-medium font-semibold" style="color: black">
                             {{header.CF_Two_H}}
                           </td> -->
                           <td *ngIf="header.test_name == '3H' && header.Stat == 'Satisfactory'"
-                          class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
-                           {{header.Three_H}}
-                         </td>
-                         <td *ngIf="header.test_name == '3H' && header.Stat == 'Unsatisfactory'"
-                          class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
-                           {{header.Three_H}}
-                         </td>
-                         <td *ngIf="header.test_name == '3H' && header.Stat == 'Unacceptable'"
-                         class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                          {{header.Three_H}}
-                        </td>
-                         <td *ngIf="header.test_name != '3H' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.Three_H}}
-                        </td>
-                         <td *ngIf="header.Stat == 'Good'"
-                          class="py-4 px-6 font-medium font-semibold" style="color: black">
-                           {{header.Three_H}}
-                         </td>
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            {{header.Three_H}}
+                          </td>
+                          <td *ngIf="header.test_name == '3H' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            {{header.Three_H}}
+                          </td>
+                          <td *ngIf="header.test_name == '3H' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.Three_H}}
+                          </td>
+                          <td *ngIf="header.test_name != '3H' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.Three_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
+                            {{header.Three_H}}
+                          </td>
                           <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.Thermal_Three_H}}
                           </td>
                           <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.Thermal_Three_H}}
                           </td>
                           <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.Thermal_Three_H}}
-                         </td>
-                         <td *ngIf="header.test_name != 'Thermal 3H' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.Thermal_Three_H}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.Thermal_Three_H}}
+                          </td>
+                          <td *ngIf="header.test_name != 'Thermal 3H' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.Thermal_Three_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.Thermal_Three_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.CF_Three_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.CF_Three_H}}
                           </td>
                           <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.CF_Three_H}}
-                         </td>
-                         <td *ngIf="header.test_name != 'CF+ (3H)' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.CF_Three_H}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.CF_Three_H}}
+                          </td>
+                          <td *ngIf="header.test_name != 'CF+ (3H)' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.CF_Three_H}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.CF_Three_H}}
                           </td>
                           <td *ngIf="header.test_name === 'R' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.R}}
                           </td>
                           <td *ngIf="header.test_name == 'R' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.R}}
                           </td>
                           <td *ngIf="header.test_name == 'R' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.R}}
-                         </td>
-                         <td *ngIf="header.test_name != 'R' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.R}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.R}}
+                          </td>
+                          <td *ngIf="header.test_name != 'R' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.R}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.R}}
                           </td>
                           <td *ngIf="header.test_name == 'S' && header.Stat == 'Satisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
                             {{header.S}}
                           </td>
                           <td *ngIf="header.test_name == 'S' && header.Stat == 'Unsatisfactory'"
-                           class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
                             {{header.S}}
                           </td>
                           <td *ngIf="header.test_name == 'S' && header.Stat == 'Unacceptable'"
-                          class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                           {{header.S}}
-                         </td>
-                         <td *ngIf="header.test_name != 'S' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.S}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'"
-                           class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.S}}
+                          </td>
+                          <td *ngIf="header.test_name != 'S' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.S}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
                             {{header.S}}
                           </td>
                           <td *ngIf="header.test_name == 'T' && header.Stat == 'Satisfactory'"
-                          class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
-                           {{header.T}}
-                         </td>
-                         <td *ngIf="header.test_name == 'T' && header.Stat == 'Unsatisfactory'"
-                          class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
-                           {{header.T}}
-                         </td>
-                         <td *ngIf="header.test_name == 'T' && header.Stat == 'Unacceptable'"
-                         class="py-4 px-6 font-medium font-semibold"  style="background-color: #EA8686;color: black">
-                          {{header.T}}
-                        </td>
-                        <td *ngIf="header.test_name != 'T' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.T}}
-                        </td>
-                         <td *ngIf="header.Stat == 'Good'"
-                          class="py-4 px-6 font-medium font-semibold" style="color: black">
-                           {{header.T}}
-                         </td>
-                         <td *ngIf="header.test_name == 'freq' && header.Stat == 'Satisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: #000000;">
-                          {{header.Frequency}}
-                        </td>
-                        <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unsatisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: #000000;">
-                          {{header.Frequency}}
-                        </td>
-                        <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unacceptable'" class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: #000000;">
-                          {{header.Frequency}}
-                        </td>
-                        <td *ngIf="header.test_name != 'freq' && header.Stat != 'Good'"
-                       class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                        {{header.Frequency}}
-                      </td>
-                        <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold" style="color: #000000;">
-                          {{header.Frequency}}
-                        </td>
-                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Satisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: #000000;">
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                            {{header.T}}
+                          </td>
+                          <td *ngIf="header.test_name == 'T' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                            {{header.T}}
+                          </td>
+                          <td *ngIf="header.test_name == 'T' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                            {{header.T}}
+                          </td>
+                          <td *ngIf="header.test_name != 'T' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.T}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: black">
+                            {{header.T}}
+                          </td>
+                          <td *ngIf="header.test_name == 'freq' && header.Stat == 'Satisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #FED033;color: #000000;">
+                            {{header.Frequency}}
+                          </td>
+                          <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #fea933;color: #000000;">
+                            {{header.Frequency}}
+                          </td>
+                          <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #EA8686;color: #000000;">
+                            {{header.Frequency}}
+                          </td>
+                          <td *ngIf="header.test_name != 'freq' && header.Stat != 'Good'"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.Frequency}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: #000000;">
+                            {{header.Frequency}}
+                          </td>
+                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Satisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #FED033;color: #000000;">
                             {{header.Thermal}}
                           </td>
-                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unsatisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: #000000;">
+                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #fea933;color: #000000;">
                             {{header.Thermal}}
                           </td>
-                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unacceptable'" class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: #000000;">
+                          <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #EA8686;color: #000000;">
                             {{header.Thermal}}
                           </td>
                           <td *ngIf="header.test_name != 'Thermal' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.Termal}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold" style="color: #000000;">
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.Termal}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: #000000;">
                             {{header.Thermal}}
                           </td>
-                        
+
                           <!-- <td class="py-4 px-6 font-medium font-semibold" style="color: black">
                             {{header.Frequency}}
                           </td> -->
-                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Satisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: #000000;">
+                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Satisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #FED033;color: #000000;">
                             {{header.VC}}
                           </td>
-                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unsatisfactory'" class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: #000000;">
+                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unsatisfactory'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #fea933;color: #000000;">
                             {{header.VC}}
                           </td>
-                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unacceptable'" class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: #000000;">
+                          <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unacceptable'"
+                            class="py-4 px-6 font-medium font-semibold"
+                            style="background-color: #EA8686;color: #000000;">
                             {{header.VC}}
                           </td>
                           <td *ngIf="header.test_name != 'VC' && header.Stat != 'Good'"
-                         class="py-4 px-6 font-medium font-semibold"  style="color: black">
-                          {{header.VC}}
-                        </td>
-                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold" style="color: #000000;">
+                            class="py-4 px-6 font-medium font-semibold" style="color: black">
+                            {{header.VC}}
+                          </td>
+                          <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                            style="color: #000000;">
                             {{header.VC}}
                           </td>
                           <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 text font-semibold text-center"
@@ -622,7 +656,8 @@
                             class="py-4 px-6 font-semibold text-center" bgcolor="#EA8686">
                             {{header.Stat}}
                           </td>
-                          <td *ngIf="header.Stat == 0 || header.Stat == '-'" class="py-4 px-6  font-semibold text-center">
+                          <td *ngIf="header.Stat == 0 || header.Stat == '-'"
+                            class="py-4 px-6  font-semibold text-center">
                             -
                           </td>
                           <td class="py-4 px-6 font-medium font-semibold" style="color: black">
@@ -651,12 +686,13 @@
                   <h5 class="text-center font-semibold text-2xl">OCI 1</h5>
                 </div>
               </div>
-              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6 ">
                   <div style="height: 400px;" class="pl-44">
-                    <canvas  id="donut" ></canvas>
+                    <canvas id="donut"></canvas>
                   </div>
-                  
+
                   <div class="px-6 pt-4 pb-2 text-center">
                     <span style="background-color: #3ed33e;"
                       class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Good:
@@ -682,7 +718,8 @@
                   <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
                 </div>
               </div>
-              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
                   <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
@@ -734,7 +771,7 @@
                     <div
                       class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                       <div class="flex-auto p-4">
-                        <h5 class="text-center font-bold" id="target" #target>Chart Abnormal Asset</h5>
+                        <h5 class="text-center font-semibold text-2xl" id="target" #target>Chart Abnormal Asset</h5>
                         <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
                       </div>
                     </div>
@@ -764,7 +801,7 @@
                       </div>
                       <canvas id="dumdum" width="310" height="300"></canvas>
                     </div>
-                    <div class="my-1 px-1 w-full md:w-4/12lg:my-6 lg:px-6">
+                    <div class="my-1 px-1 w-full md:w-4/12 lg:my-6 lg:px-6">
                       <div
                         class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                         <div class="flex-auto p-2">
@@ -778,7 +815,7 @@
               </div>
             </div>
             <!--end of card-->
-  
+
             <div [ngClass]="!forcapture ? '' : 'hidden'" class="px-1 w-full max-w-full md:w-full">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
@@ -786,8 +823,9 @@
                   <div
                     class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-4">
-                      <h5 class="text-center font-bold">List Abnormal Asset</h5>
-                      <p class="text-center" style="color: red;">Click Device Name For Show Note And Chart Abnormal Asset
+                      <h5 class="text-center font-semibold text-2xl">List Abnormal Asset</h5>
+                      <p class="text-center" style="color: red;">Click Device Name For Show Note And Chart Abnormal
+                        Asset
                       </p>
                     </div>
                   </div>
@@ -866,7 +904,7 @@
                   <div
                     class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-4">
-                      <h5 class="text-center font-bold">Finish Check And Not Yet (Section) </h5>
+                      <h5 class="text-center font-semibold text-2xl">Finish Check And Not Yet (Section) </h5>
                     </div>
                   </div>
                 </div>
@@ -915,7 +953,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolinj" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -942,7 +980,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolblow" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -969,7 +1007,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolfill" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -996,7 +1034,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolpack" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1023,7 +1061,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolkanesho" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1050,7 +1088,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolstu1" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1077,7 +1115,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolprepnull" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1104,7 +1142,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolinjnull" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1131,7 +1169,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolblow" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1158,7 +1196,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolfillnull" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1185,7 +1223,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolpacknull" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1212,7 +1250,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolkaneshonull" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1239,7 +1277,7 @@
                 </div>
               </div>
             </div>
-  
+
             <div *ngIf="boolstu1null" class="max-lg:grow p-2 w-full">
               <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
                 <h1 class="font-manrope font-[500] text-xl py-2">
@@ -1266,9 +1304,9 @@
                 </div>
               </div>
             </div>
-  
+
             <!--end of list-->
-  
+
             <div [ngClass]="!forcapture ? '' : 'hidden'" class="w-full px-1 py-1 mx-auto">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
@@ -1276,7 +1314,7 @@
                   <div
                     class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-4">
-                      <h5 class="text-center font-bold">
+                      <h5 class="text-center font-semibold text-2xl">
                         Total Data 1 Current Year </h5>
                     </div>
                   </div>
@@ -1292,9 +1330,9 @@
                 </div>
               </div>
             </div>
-            <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'"
-              class="my-1 px-1 w-full max-w-full md:w-full">
-              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'" class="my-1 px-1 w-full max-w-full md:w-full">
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <p class="text-left text-md">History Check
                     <button *ngIf="paginatereset == false" (click)="showallPaginate()"
@@ -1307,7 +1345,7 @@
                     <button *ngIf="paginatereset == true" (click)="resetPaginate()"
                       class="inline-block px-0 py-3 mb-0 font-bold leading-normal ml-4 uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">Reset</button>
                   </p>
-  
+
                   <div class="w-full max-w-full md:w-full">
                     <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
                       <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
@@ -1323,7 +1361,7 @@
                       </div>
                       <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
                         <!-- <label for="date" class="mr-1">Date : </label> -->
-                        <label>Start Date :</label><br />
+                        <label class="text-gray-300">Start Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
                       border-radius: 5px;
                       background-color: #fff;
@@ -1332,7 +1370,7 @@
                     " width="48" [(ngModel)]="searchDate1">
                       </div>
                       <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
-                        <label>End Date :</label><br />
+                        <label class="text-gray-300">End Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
                       border-radius: 5px;
                       background-color: #fff;
@@ -1341,7 +1379,9 @@
                     " width="48" [(ngModel)]="searchDate2">
                       </div>
                       <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
-                        <button (click)="daterange()" class="button button2">Find Data</button>
+                        <button (click)="daterange()"
+                          class="bg-cyan-500 hover:bg-blue-600 duration-200 rounded-full py-4 px-8 text-gray-100">Find
+                          Data</button>
                       </div>
                     </div>
                   </div>
@@ -1369,14 +1409,15 @@
                       <tbody>
                         <tr class="border-b border-gray-200 dark:border-gray-700"
                           *ngFor="let header of totalfinishtoday2down| filter:searchText3 | paginate: {  id:'pagination3',currentPage: currentPage3, itemsPerPage: showPaginate3 } let i = index; let first = first;">
-                          <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
+                          <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
+                            bgcolor="#878790">
                             {{(currentPage3-1) * showPaginate3 + i + 1}}
                           </th>
                           <!-- <td class="py-4 px-6 font-medium font-semibold" style="color: black;">
                             {{header.device_name}}
                           </td> -->
-                          <td (click)="data(header.device_name,header.dodate)" class="py-4 px-6 font-medium font-semibold"
-                            style="color: black;">
+                          <td (click)="data(header.device_name,header.dodate)"
+                            class="py-4 px-6 font-medium font-semibold" style="color: black;">
                             <a (click)="abnormalAssetTable()" class="styled-pointer">{{header.device_name}}</a>
                           </td>
                           <td class="py-4 px-6 font-medium font-semibold" style="color: black">
@@ -1401,7 +1442,8 @@
                             class="py-4 px-6 font-semibold text-center" bgcolor="#EA8686">
                             {{header.Stat}}
                           </td>
-                          <td *ngIf="header.Stat == 0 || header.Stat == '-'" class="py-4 px-6  font-semibold text-center">
+                          <td *ngIf="header.Stat == 0 || header.Stat == '-'"
+                            class="py-4 px-6  font-semibold text-center">
                             -
                           </td>
                         </tr>
