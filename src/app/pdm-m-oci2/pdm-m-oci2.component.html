@@ -1,1 +1,1470 @@
-<p>pdm-m-oci2 works!</p>
+<div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+    <div class="relative sm:pl-6 md:pl-6 lg:pl-72 pr-6">
+      <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+        class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+        <div class="flex-auto p-1">
+          <div class="wrapper">
+            <h5 class="typing-demo font-bold">PDM Monitoring - OCI 2
+            </h5>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3">
+        <!-- card1 -->
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+          <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div class="flex-auto p-4">
+              <div class="flex flex-row -mx-3">
+                <div class="flex-none w-2/3 max-w-full px-3">
+                  <div (click)="totalAsset()">
+                    <p class="mb-0 font-sans font-semibold leading-normal text-sm">
+                      Total Asset
+                    </p>
+                    <h5 class="mb-0 font-bold">
+                      {{totalasset}}
+                      <span> Asset</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="px-3 text-right basis-1/3">
+                  <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                    <div class="flex justify-center items-center pt-4">
+                      <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+          <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div class="flex-auto p-4">
+              <div class="flex flex-row -mx-3">
+                <div class="flex-none w-2/3 max-w-full px-3">
+                  <div>
+                    <p class="mb-0 font-sans font-semibold leading-normal text-sm">
+                      Total Good
+                    </p>
+                    <h5 class="mb-0 font-bold">
+                      {{good2}}
+                      <span class="text-lime-500 ml-1">({{((good2) * 100 / totalasset).toFixed(1)}} %)</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="px-3 text-right basis-1/3">
+                  <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                    <div class="flex justify-center items-center pt-4">
+                      <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+          <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div class="flex-auto p-4">
+              <div class="flex flex-row -mx-3">
+                <div class="flex-none w-2/3 max-w-full px-3">
+                  <div (click)="totalSatisfactory();">
+                    <p class="mb-0 font-sans font-semibold leading-normal text-xs">
+                      Total Satisfactory
+                    </p>
+                    <h5 class="mb-0 font-bold">
+                      {{satis2}}
+                      <span class="text-lime-500 ml-1">({{((satis2) * 100 / totalasset).toFixed(1)}} %)</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="px-3 text-right basis-1/3">
+                  <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                    <div class="flex justify-center items-center pt-4">
+                      <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+          <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div class="flex-auto p-4">
+              <div class="flex flex-row -mx-3">
+                <div class="flex-none w-2/3 max-w-full px-3">
+                  <div>
+                    <p class="mb-0 font-sans font-semibold leading-normal text-xs">
+                      Total Unsatisfactory and Unacceptable
+                    </p>
+                    <h5 class="mb-0 font-bold">
+                      {{unsatisf2+unacc2}}
+                      <span class="text-lime-500 ml-1">({{((unsatisf2+unacc2) * 100 / totalasset).toFixed(1)}} %)</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="px-3 text-right basis-1/3">
+                  <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-stone-300 to-cyan-200">
+                    <div class="flex justify-center items-center pt-4">
+                      <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div [ngClass]="listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-6">
+            <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
+  
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+              <table class="w-full text-sm text-left " id="excel-table">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
+                  <tr>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      No
+                    </th>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      Device Name
+                    </th>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      Status
+                    </th>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      Get Date
+                    </th>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      Do Date
+                    </th>
+                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                      PIC
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                      {{(currentPage-1) * 5 + i + 1}}
+                    </th>
+                    <!-- <td class="py-4 px-6">
+                      {{findingpending.device_name}}
+                    </td> -->
+                    <td (click)="data(findingpending.device_name,findingpending.dodate)"
+                      class="py-4 px-6 font-medium font-semibold text-gray-800">
+                      <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.Stat}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.getdate}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.dodate}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.PIC}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <pagination-controls class="text-center" id="paginationSatisfactory" (pageChange)="currentPage = $event">
+          </pagination-controls>
+        </div>
+      </div>
+  
+      <div [ngClass]="!listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-6">
+            <p class="text-center">Total Asset</p>
+  
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+              <table class="w-full text-sm text-left" id="excel-table">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500">
+                  <tr>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      No
+                    </th>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      Device Name
+                    </th>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      Funcloc
+                    </th>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      Name Area
+                    </th>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      Plan Date
+                    </th>
+                    <th scope="col" class="py-3 px-6" bgcolor="#878790">
+                      Section
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  *ngFor="let findingpending of pdmassetlist | filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                      {{(currentPage-1) * 5 + i + 1}}
+                    </th>
+                    <!-- <td class="py-4 px-6">
+                      {{findingpending.device_name}}
+                    </td> -->
+                    <td (click)="data(findingpending.device_name,findingpending.dodate)"
+                      class="py-4 px-6 font-medium font-semibold text-gray-800">
+                      <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
+                    </td>
+  
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.func_lock}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.name_area}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.plan_date}}
+                    </td>
+                    <td class="py-4 px-6 text-gray-800">
+                      {{findingpending.section}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <pagination-controls class="text-center" id="pagination1" (pageChange)="currentPage = $event">
+          </pagination-controls>
+        </div>
+      </div>
+  
+      <div id="ss" #ss>
+        <div class="flex flex-wrap">
+          <div class="w-full py-1 px-3 mx-auto">
+            <div class="flex flex-wrap -mx-1 lg:-mx-3">
+              <div class="w-full max-w-full">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-left text-md">List Job Finish Today
+                      <button *ngIf="exportdata == false" (click)="generatePaginate()"
+                        class="inline-block px-0 py-3 mb-0 font-bold leading-normal ml-4 uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">Click
+                        To Export Data</button>
+                      <button *ngIf="exportdata == true" (click)="print()"
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"><i
+                          class="mr-1 fas fa-file-pdf text-md"></i> PDF </button>
+                      <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        *ngIf="exportdata == true" (click)="exportTable()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Excel</button>
+                      <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        *ngIf="exportdata == true" (click)="capture()"><i class="fa fa-camera fa-1"></i>
+                        Capture (minimize screen)</button>
+                      <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        *ngIf="exportdata == true" (click)="done()"><i class="fa fa-window-close fa-1"></i>
+                        Reset</button>
+                    </p>
+                    <div class="flex items-center text-center mb-4">
+                      <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                        <span
+                          class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                          <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text"
+                          class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                          placeholder="Type here..." name="search" [(ngModel)]="searchText" />
+                      </div>
+                      <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
+                        <!-- <label for="date" class="mr-1">Date : </label> -->
+                        <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48"
+                          [(ngModel)]="searchDate" (change)="date(masukandate)">
+                      </div>
+                    </div>
+                    <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal
+                      Asset</p>
+                    <div class="overflow-x-auto relative shadow-lg sm:rounded-lg" id="prinsection" #printsection>
+                      <table border="1" class="w-full text-lg text-gray-500 text-center">
+                        <thead class="text-gray-700 uppercase">
+                          <tr>
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              NO
+                            </th>
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              DEVICE NAME
+                            </th>
+                            <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              2H
+                            </th>
+                            <th colspan="3" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              3H
+                            </th>
+                            <th colspan="4" scope="col" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              AMPERE
+                            </th>
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              Therm
+                            </th>
+  
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              VC
+                            </th>
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              Status
+                            </th>
+                            <th scope="col" rowspan="2" class="py-3 px-6 text-white border border-gray-100"
+                              bgcolor="#878790">
+                              PIC
+                            </th>
+                          </tr>
+                          <tr>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              2H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              Thermal 2H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              CF 2H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              3H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              Thermal 3H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              CF 3H
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              R
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              S
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              T
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              Freq
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class=""
+                            *ngFor="let header of totalfinishtoday2| filter:searchText  | filter:searchDate | paginate: { currentPage: currentPage, itemsPerPage: showPaginate }| filterList:filtre:filterMetadata; let i = index; let first = first; let last = last;trackBy: trackElement"
+                            [ngClass]="{ 'first': first, 'last': last}">
+                            <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
+                              bgcolor="#878790">
+                              {{(currentPage-1) * showPaginate + i + 1}}
+                            </th>
+                            <td (click)="data(header.device_name,header.dodate)"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black;">
+                              <a (click)="abnormalAssetTable()" class="styled-pointer">{{header.device_name}}</a>
+                            </td>
+                            <!-- <td *ngIf="header.Two_H < 2" bgcolor="green" class="text-white text-center"> -->
+                            <td *ngIf="header.test_name == '2H' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;">
+                              {{header.Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == '2H' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == '2H' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name != '2H' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Two_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.Two_H}}
+                            </td>
+                            <!-- <td
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                               {{header.Two_H}}
+                             </td> -->
+                            <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.Thermal_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.Thermal_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal 2H' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.Thermal_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name != 'Thermal 2H' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Thermal_Two_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.Thermal_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.CF_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.CF_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (2H)' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.CF_Two_H}}
+                            </td>
+                            <td *ngIf="header.test_name != 'CF+ (2H)' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.CF_Two_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.CF_Two_H}}
+                            </td>
+                            <!-- <td *ngIf="header.CF_Two_H == '-'" class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.CF_Two_H}}
+                            </td> -->
+                            <td *ngIf="header.test_name == '3H' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == '3H' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == '3H' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name != '3H' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Three_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.Thermal_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.Thermal_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal 3H' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.Thermal_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name != 'Thermal 3H' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Thermal_Three_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.Thermal_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.CF_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.CF_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name == 'CF+ (3H)' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.CF_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name != 'CF+ (3H)' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.CF_Three_H}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.CF_Three_H}}
+                            </td>
+                            <td *ngIf="header.test_name === 'R' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.R}}
+                            </td>
+                            <td *ngIf="header.test_name == 'R' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.R}}
+                            </td>
+                            <td *ngIf="header.test_name == 'R' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.R}}
+                            </td>
+                            <td *ngIf="header.test_name != 'R' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.R}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.R}}
+                            </td>
+                            <td *ngIf="header.test_name == 'S' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.S}}
+                            </td>
+                            <td *ngIf="header.test_name == 'S' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.S}}
+                            </td>
+                            <td *ngIf="header.test_name == 'S' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.S}}
+                            </td>
+                            <td *ngIf="header.test_name != 'S' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.S}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.S}}
+                            </td>
+                            <td *ngIf="header.test_name == 'T' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #FED033;color: black">
+                              {{header.T}}
+                            </td>
+                            <td *ngIf="header.test_name == 'T' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #fea933;color: black">
+                              {{header.T}}
+                            </td>
+                            <td *ngIf="header.test_name == 'T' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold" style="background-color: #EA8686;color: black">
+                              {{header.T}}
+                            </td>
+                            <td *ngIf="header.test_name != 'T' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.T}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: black">
+                              {{header.T}}
+                            </td>
+                            <td *ngIf="header.test_name == 'freq' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #FED033;color: #000000;">
+                              {{header.Frequency}}
+                            </td>
+                            <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #fea933;color: #000000;">
+                              {{header.Frequency}}
+                            </td>
+                            <td *ngIf="header.test_name == 'freq' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #EA8686;color: #000000;">
+                              {{header.Frequency}}
+                            </td>
+                            <td *ngIf="header.test_name != 'freq' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Frequency}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: #000000;">
+                              {{header.Frequency}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #FED033;color: #000000;">
+                              {{header.Thermal}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #fea933;color: #000000;">
+                              {{header.Thermal}}
+                            </td>
+                            <td *ngIf="header.test_name == 'Thermal' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #EA8686;color: #000000;">
+                              {{header.Thermal}}
+                            </td>
+                            <td *ngIf="header.test_name != 'Thermal' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Termal}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: #000000;">
+                              {{header.Thermal}}
+                            </td>
+  
+                            <!-- <td class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.Frequency}}
+                            </td> -->
+                            <td *ngIf="header.test_name == 'VC' && header.Stat == 'Satisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #FED033;color: #000000;">
+                              {{header.VC}}
+                            </td>
+                            <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unsatisfactory'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #fea933;color: #000000;">
+                              {{header.VC}}
+                            </td>
+                            <td *ngIf="header.test_name == 'VC' && header.Stat == 'Unacceptable'"
+                              class="py-4 px-6 font-medium font-semibold"
+                              style="background-color: #EA8686;color: #000000;">
+                              {{header.VC}}
+                            </td>
+                            <td *ngIf="header.test_name != 'VC' && header.Stat != 'Good'"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.VC}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 font-medium font-semibold"
+                              style="color: #000000;">
+                              {{header.VC}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 text font-semibold text-center"
+                              style="color: #000000;" bgcolor="#94D977">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Satisfactory'" class="py-4 px-6 font-semibold text-center"
+                              bgcolor="#FED033" style="color: #000000;">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Unsatisfactory'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#fea933">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Unacceptable'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#EA8686">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 0 || header.Stat == '-'"
+                              class="py-4 px-6  font-semibold text-center">
+                              -
+                            </td>
+                            <td class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.PIC}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h5 class="text-right text-md mt-4 mr-4" *ngIf="exportdata == true">Total Data :
+                      {{filterMetadata.count}}</h5>
+                  </div>
+                  <pagination-controls class="text-center" (pageChange)="currentPage = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap px-1">
+          <div class="w-full px-1 py-1 mx-auto">
+            <div class="flex flex-wrap lg:-mx-3">
+              <div class="w-full max-w-full md:w-1/2 pr-1">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <h5 class="text-center font-semibold text-2xl">OCI 1</h5>
+                  </div>
+                </div>
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6 ">
+                    <div style="height: 400px;" class="pl-44">
+                      <canvas id="donut"></canvas>
+                    </div>
+  
+                    <div class="px-6 pt-4 pb-2 text-center">
+                      <span style="background-color: #3ed33e;"
+                        class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Good:
+                        {{good}}</span>
+                      <span style="background-color: rgb(230, 230, 33);"
+                        class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">SatisFactory:
+                        {{satis}}</span>
+                      <span style="background-color: orange;"
+                        class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">UnSatisFactory:
+                        {{unsatisf}}</span>
+                      <span style="background-color: #ff3d3d;"
+                        class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Unacceptable:
+                        {{unacc}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full max-w-full md:w-1/2 pl-1">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-4">
+                    <h5 class="text-center font-semibold">Note Abnormal Asset</h5>
+                    <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
+                  </div>
+                </div>
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
+                    <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+                      <table border="1" class="w-full text-lg text-left text-gray-500 dark:text-gray-400 text-center">
+                        <tbody>
+                          <tr class="border-b border-gray-200 dark:border-gray-700">
+                            <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
+                              <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
+                              <label for="modal-btn">
+                                <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style=" width: 100%;
+                                height: auto;" class="center"></div>
+                                <div *ngIf="note != null">
+                                  <img src="{{picture}}" style=" width: 100%;
+                              max-width: 100px;
+                              height: auto;" class="center">
+                                </div>
+                              </label>
+                              <div class="modal">
+                                <div class="modal-wrap xl:ml-68.5">
+                                  <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" class="center"></div>
+                                  <div *ngIf="note != null">
+                                    <img src="{{picture}}" class="center">
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr class="border-b border-gray-200 dark:border-gray-700">
+                            <td width="100" class="font-medium p-6 mt-2 bg-gray-50" style="color: black;">
+                              <div *ngIf="note != null" [innerHTML]='note'></div>
+                              <div *ngIf="note == null">
+                                <p>Tidak Ada Data</p>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 class="text-right">Date Note : {{funlocabnormaldate}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Card of chart abnormal asset start-->
+              <div class="w-full px-1 py-1 mx-auto">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-4">
+                    <div (click)="abnormalAsset()">
+                      <div
+                        class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                        <div class="flex-auto p-4">
+                          <h5 class="text-center font-semibold text-2xl" id="target" #target>Chart Abnormal Asset</h5>
+                          <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div [ngClass]="chartofabnormatasset ? '': 'hidden'"
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
+                    <div class="flex flex-wrap -mx-1 lg:-mx-3">
+                      <div class="my-1 px-1 w-full max-w-full md:w-4/12 lg:my-6 lg:px-6">
+                        <div
+                          class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                          <div class="flex-auto p-2">
+                            <h5 class="text-center">Vibration</h5>
+                          </div>
+                        </div>
+                        <canvas id="dum" width="310" height="300"></canvas>
+                      </div>
+                      <div class="my-1 px-1 w-full md:w-4/12 lg:my-6 lg:px-6">
+                        <div
+                          class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                          <div class="flex-auto p-2">
+                            <h5 class="text-center">Ampere</h5>
+                          </div>
+                        </div>
+                        <canvas id="dumdum" width="310" height="300"></canvas>
+                      </div>
+                      <div class="my-1 px-1 w-full md:w-4/12 lg:my-6 lg:px-6">
+                        <div
+                          class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                          <div class="flex-auto p-2">
+                            <h5 class="text-center">Temperature</h5>
+                          </div>
+                        </div>
+                        <canvas id="dumdumdum" width="310" height="300"></canvas>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end of card-->
+  
+              <div [ngClass]="!forcapture ? '' : 'hidden'" class="px-1 w-full max-w-full md:w-full">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div (click)="listAbnormalAsset()">
+                    <div
+                      class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                      <div class="flex-auto p-4">
+                        <h5 class="text-center font-semibold text-2xl">List Abnormal Asset</h5>
+                        <p class="text-center" style="color: red;">Click Device Name For Show Note And Chart Abnormal
+                          Asset
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--start of list abnormal asset card-->
+                <div [ngClass]="!listofabnormatasset ? '': 'hidden'"
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <div class="flex items-center text-center mb-4">
+                      <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                        <span
+                          class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                          <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text"
+                          class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                          placeholder="Type here..." name="search" [(ngModel)]="searchText2" />
+                      </div>
+                    </div>
+                    <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+                      <table border="1" style="border-collapse: collapse;"
+                        class="w-full text-lg text-left text-gray-500 dark:text-gray-400">
+                        <thead class=" text-gray-700 uppercase dark:text-gray-400">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              Device
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              EXECUTION DATE
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white border border-gray-100" bgcolor="#878790">
+                              Status
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b border-gray-200 dark:border-gray-700"
+                            *ngFor="let getdata of selectorarrabnormal| filter:searchText2 |paginate: { id:'pagination2', currentPage: currentPage2, itemsPerPage: showPaginate2 }; let i = index;">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
+                              bgcolor="#878790">
+                              {{(currentPage2-1) * showPaginate2 + i + 1}}
+                            </th>
+                            <td (click)="data(getdata.device_name,getdata.dodate)" style="color: #000000;"
+                              class="py-4 px-6 py-4 px-6 font-medium font-semibold">
+                              <a class="styled-pointer">{{getdata.device_name}}</a>
+                            </td>
+                            <td style="color: #000000;" class="py-4 px-6 font-medium font-semibold">
+                              {{getdata.dodate}}
+                            </td>
+                            <td *ngIf="getdata.Stat == 'Unsatisfactory'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#FED033">
+                              {{getdata.Stat}}
+                            </td>
+                            <td *ngIf="getdata.Stat == 'Unacceptable'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#EA8686">
+                              {{getdata.Stat}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="pagination2" (pageChange)="currentPage2 = $event">
+                  </pagination-controls>
+                </div>
+                <!--end of card-->
+              </div>
+              <div [ngClass]="!forcapture ? '' : 'hidden'" class="w-full px-1 py-1 mx-auto">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div (click)="finishNotYet()">
+                    <div
+                      class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                      <div class="flex-auto p-4">
+                        <h5 class="text-center font-semibold text-2xl">Finish Check And Not Yet (Section) </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--start of finish not yet card-->
+                <div *ngIf="!finishnotyet"
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
+                    <div class="w-full">
+                      <!-- <canvas id="pdmchartfinishnot"></canvas> -->
+                      <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                        [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                        [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
+                        [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [xaxis]="chartOptions.xaxis"
+                        [colors]="chartOptions.colors"></apx-chart>
+                    </div>
+                  </div>
+                </div>
+                <!--end of card-->
+              </div>
+              <!--list of device name-->
+              <div *ngIf="boolprep" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK PREPARATION
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PREPARATION'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolinj" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK INJECTION
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'INJECTION'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolblow" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK BLOW
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'BLOW'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolfill" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK FILLER
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'FILL'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolpack" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK PACKING
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolkanesho" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK KANESHO
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PF Transfer/KANESHO'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolstu1" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    FINISH CHECK STU 1
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value != null && this.finish.name_area == 'STU1'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolprepnull" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK PREPARATION
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolinjnull" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK INJECTION
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'INJECTION'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolblow" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK BLOW
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'BLOW'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolfillnull" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK FILLER
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'FILL'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolpacknull" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK PACKING
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PACK'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolkaneshonull" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK KANESHO
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PF Transfer/KANESHO'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="boolstu1null" class="max-lg:grow p-2 w-full">
+                <div class="h-full bg-white px-8 py-5 rounded-lg overflow-hidden text-center relative drop-shadow-xl">
+                  <h1 class="font-manrope font-[500] text-xl py-2">
+                    NOT YET CHECK STU 1
+                  </h1>
+                  <div class="relative overflow-x-auto rounded-lg shadow-md">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-800 font-medium">
+                      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-900">
+                        <tr>
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Area</th> -->
+                          <!-- <th scope="col" class="px-3 py-2 text-center">Done</th> -->
+                          <th scope="col" class="px-3 py-2 text-center">Device Name</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let finish of finishnotlist">
+                        <tr *ngIf="this.finish.value == null && this.finish.name_area == 'STU1'"
+                          class="bg-white dark:border-gray-700">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+              <!--end of list-->
+  
+              <div [ngClass]="!forcapture ? '' : 'hidden'" class="w-full px-1 py-1 mx-auto">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div (click)="dataCurrentYear()">
+                    <div
+                      class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                      <div class="flex-auto p-4">
+                        <h5 class="text-center font-semibold text-2xl">
+                          Total Data 1 Current Year </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'"
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
+                    <div class="flex flex-wrap -mx-1 lg:-mx-3">
+                      <canvas id="valuepermonthchart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'" class="my-1 px-1 w-full max-w-full md:w-full">
+                <div
+                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-left text-md">History Check
+                      <button *ngIf="paginatereset == false" (click)="showallPaginate()"
+                        class="inline-block px-0 py-3 mb-0 font-bold leading-normal ml-4 uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">Show
+                        All Data</button>
+                      <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        *ngIf="paginatereset == true" (click)="exportTableExcel()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Excel</button>
+                      <button *ngIf="paginatereset == true" (click)="resetPaginate()"
+                        class="inline-block px-0 py-3 mb-0 font-bold leading-normal ml-4 uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700">Reset</button>
+                    </p>
+  
+                    <div class="w-full max-w-full md:w-full">
+                      <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
+                        <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
+                          <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                            <span
+                              class="text-sm ease-soft leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                              <i class="fas fa-search"></i>
+                            </span>
+                            <input type="text"
+                              class="pl-8.75 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                              placeholder="Type here..." name="search" [(ngModel)]="searchText3" />
+                          </div>
+                        </div>
+                        <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
+                          <!-- <label for="date" class="mr-1">Date : </label> -->
+                          <label class="text-gray-300">Start Date :</label><br />
+                          <input type="date" style=" border: 1px solid #c4c4c4;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="searchDate1">
+                        </div>
+                        <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
+                          <label class="text-gray-300">End Date :</label><br />
+                          <input type="date" style=" border: 1px solid #c4c4c4;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="searchDate2">
+                        </div>
+                        <div class="w-full max-w-full md:w-3/12 xl:w-3/12 xs:w-3/12">
+                          <button (click)="daterange()"
+                            class="bg-cyan-500 hover:bg-blue-600 duration-200 rounded-full py-4 px-8 text-gray-100">Find
+                            Data</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="overflow-x-auto relative shadow-lg sm:rounded-lg" id="printexcel" #printexcel>
+                      <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center">
+                        <thead class="text-gray-700 uppercase dark:text-gray-400">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                              Device Name
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                              PIC
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                              Execution
+                            </th>
+                            <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
+                              Status
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b border-gray-200 dark:border-gray-700"
+                            *ngFor="let header of totalfinishtoday2down| filter:searchText3 | paginate: {  id:'pagination3',currentPage: currentPage3, itemsPerPage: showPaginate3 } let i = index; let first = first;">
+                            <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
+                              bgcolor="#878790">
+                              {{(currentPage3-1) * showPaginate3 + i + 1}}
+                            </th>
+                            <!-- <td class="py-4 px-6 font-medium font-semibold" style="color: black;">
+                              {{header.device_name}}
+                            </td> -->
+                            <td (click)="data(header.device_name,header.dodate)"
+                              class="py-4 px-6 font-medium font-semibold" style="color: black;">
+                              <a (click)="abnormalAssetTable()" class="styled-pointer">{{header.device_name}}</a>
+                            </td>
+                            <td class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.PIC}}
+                            </td>
+                            <td class="py-4 px-6 font-medium font-semibold" style="color: black">
+                              {{header.dodate}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Good'" class="py-4 px-6 text font-semibold text-center"
+                              style="color: #000000;" bgcolor="#94D977">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Satisfactory'" class="py-4 px-6 font-semibold text-center"
+                              bgcolor="#F5FF25" style="color: #000000;">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Unsatisfactory'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#FED033">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 'Unacceptable'" style="color: #000000;"
+                              class="py-4 px-6 font-semibold text-center" bgcolor="#EA8686">
+                              {{header.Stat}}
+                            </td>
+                            <td *ngIf="header.Stat == 0 || header.Stat == '-'"
+                              class="py-4 px-6  font-semibold text-center">
+                              -
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="pagination3"
+                    (pageChange)="currentPage3 = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- </div>
+      </div> -->
+    </div>
+  </div>
+  <div [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+      <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+    </ngx-spinner>
+  </div>
