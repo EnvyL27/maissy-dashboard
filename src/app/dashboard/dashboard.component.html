@@ -1,3 +1,8 @@
+<div class="flex items-center justify-center z-50 absolute px-72 bg-green-200" *ngIf="showSuccessAlert">
+  <h3>Success Alert Message</h3>
+  <a class="close" (click)="closeSuccessAlert()">&times;</a>
+</div>
+
 <div class="relative sm:pl-6 md:pl-6 lg:pl-72 pr-6">
     <!-- row 1 -->
     <!-- <div class="relative flex flex-col min-w-0 break-words shadow-soft-2xl bg-white rounded-2xl mb-1 bg-clip-border">

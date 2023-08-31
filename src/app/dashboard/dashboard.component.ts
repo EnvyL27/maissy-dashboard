@@ -27,7 +27,11 @@ export class DashboardComponent implements OnInit {
   pendingexecute: number = 0;
   finishexecute: number = 0;
   readyexecute: number = 0;
+  showSuccessAlert : boolean = true;
   deskripsi: any = 'Loading..';
+  closeSuccessAlert(){
+
+  }
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
   async ngOnInit(): Promise<void> {
     window.scrollTo(0, 0);

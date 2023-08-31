@@ -59,6 +59,7 @@ export class LoginComponent {
             //   'Email or Password Invalid',
             //   AlertType.Error
             // );
+            '<div class="alert success-alert" ><h3>Success Alert Message < /h3>< a class="close" >& times; </a> < /div>'
           } else {
             // this.alertService.onCallAlert('Login Failed', AlertType.Error);
             console.log('Sign In Failed');
@@ -84,7 +85,9 @@ export class LoginComponent {
   }
 
   reloadPage(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/']), {
+      queryParams: { successAlert: true },
+    };
     // window.location.reload();
   }
 }
