@@ -1620,7 +1620,7 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="ammonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">Order Monitoring</span>
+              <span class="ml-1 duration-200 text-gray-600 opacity-100 pointer-events-none ease-soft">Order Monitoring</span>
             </button>
             <br />
           </li>
@@ -1766,7 +1766,7 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="pdmmonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">PDM Monitoring</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">PDM Monitoring</span>
             </button>
             <br />
           </li>
@@ -1873,7 +1873,7 @@ else lain6
             <li
               class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
               <div
-                class="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>CILT Monitoring</title>
@@ -1894,50 +1894,50 @@ else lain6
                 </svg>
               </div>
               <button type="button" (click)="ciltmonitoringsub()">
-                <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">CILT Monitoring</span>
+                <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">CILT Monitoring</span>
               </button>
               <br />
             </li>
             <li [ngClass]="ciltsub ? '': 'hidden'" class="ml-6">
-              <ul class="py-2 space-y-2 ml-6">
+              <ul class="py-2 space-y-2">
                 <div *ngIf="router.url === '/cilt_m_oci1'; else kategoricilt1">
                   <li class="ml-6">
                     <a routerLink="cilt_m_oci1"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                       1</a>
                   </li>
                 </div>
                 <ng-template #kategoricilt1>
                   <li class="ml-6">
                     <a routerLink="cilt_m_oci1"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                       1</a>
                   </li>
                 </ng-template>
                 <div *ngIf="router.url === '/cilt_m_oci2'; else kategoricilt2">
                   <li class="ml-6">
                     <a routerLink="cilt_m_oci2"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                       2</a>
                   </li>
                 </div>
                 <ng-template #kategoricilt2>
                   <li class="ml-6">
                     <a routerLink="cilt_m_oci2"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
                       2</a>
                   </li>
                 </ng-template>
                 <div *ngIf="router.url === '/cilt_m_fsb'; else kategoricilt3">
                   <li class="ml-6">
                     <a routerLink="cilt_m_fsb"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+                      class="ounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
                   </li>
                 </div>
                 <ng-template #kategoricilt3>
                   <li class="ml-6">
                     <a routerLink="cilt_m_fsb"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
                   </li>
                 </ng-template>
               </ul>
@@ -1974,24 +1974,24 @@ else lain6
         <br />
       </li>
       <li *ngIf="ciltsub" class="ml-6">
-        <ul class="py-2 space-y-2 ml-6">
+        <ul class="">
           <li class="ml-6">
             <a routerLink="cilt_m_oci1"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
               1</a>
           </li>
           <li class="ml-6">
             <a routerLink="cilt_m_oci2"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">OCI
+              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
               2</a>
           </li>
           <li class="ml-6">
             <a routerLink="cilt_m_fsb"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">FSB</a>
+              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">FSB</a>
           </li>
           <!-- <li class="ml-6">
             <a routerLink="cost_utilen"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">UTIL
+              class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 pl-11">UTIL
               - ENG</a>
           </li> -->
         </ul>

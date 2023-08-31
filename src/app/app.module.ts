@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { PdmMOci2Component } from './pdm-m-oci2/pdm-m-oci2.component';
 import { PdmMFsbComponent } from './pdm-m-fsb/pdm-m-fsb.component';
 import { AlertComponent } from './alert/alert.component';
+import { CiltMOci1Component } from './cilt-m-oci1/cilt-m-oci1.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AlertComponent } from './alert/alert.component';
     PdmMOci2Component,
     PdmMFsbComponent,
     AlertComponent,
+    CiltMOci1Component,
 
   ],
   imports: [
