@@ -25,6 +25,8 @@ import { PdmMOci2Component } from './pdm-m-oci2/pdm-m-oci2.component';
 import { PdmMFsbComponent } from './pdm-m-fsb/pdm-m-fsb.component';
 import { AlertComponent } from './alert/alert.component';
 import { CiltMOci1Component } from './cilt-m-oci1/cilt-m-oci1.component';
+import { CiltMOci2Component } from './cilt-m-oci2/cilt-m-oci2.component';
+import { CiltMFsbComponent } from './cilt-m-fsb/cilt-m-fsb.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { CiltMOci1Component } from './cilt-m-oci1/cilt-m-oci1.component';
     PdmMFsbComponent,
     AlertComponent,
     CiltMOci1Component,
+    CiltMOci2Component,
+    CiltMFsbComponent,
 
   ],
   imports: [
