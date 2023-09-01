@@ -12,6 +12,7 @@ import { CiltMOci1Component } from './cilt-m-oci1/cilt-m-oci1.component';
 import { CiltMOci2Component } from './cilt-m-oci2/cilt-m-oci2.component';
 import { CiltMFsbComponent } from './cilt-m-fsb/cilt-m-fsb.component';
 import { CostMOci1Component } from './cost-m-oci1/cost-m-oci1.component';
+import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'cilt_m_oci2', component: CiltMOci2Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_fsb', component: CiltMFsbComponent, canActivate: [AuthGuard]},
   {path: 'cost_m_oci1', component: CostMOci1Component, canActivate: [AuthGuard]},
+  {path: 'cost_m_oci2', component: CostMOci2Component, canActivate: [AuthGuard]},
 
 ];
 
