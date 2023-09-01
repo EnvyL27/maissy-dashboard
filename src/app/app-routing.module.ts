@@ -10,6 +10,7 @@ import { PdmMOci2Component } from './pdm-m-oci2/pdm-m-oci2.component';
 import { PdmMFsbComponent } from './pdm-m-fsb/pdm-m-fsb.component';
 import { CiltMOci1Component } from './cilt-m-oci1/cilt-m-oci1.component';
 import { CiltMOci2Component } from './cilt-m-oci2/cilt-m-oci2.component';
+import { CiltMFsbComponent } from './cilt-m-fsb/cilt-m-fsb.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'pdm_m_fsb', component: PdmMFsbComponent, canActivate: [AuthGuard]},
   {path: 'cilt_m_oci1', component: CiltMOci1Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_oci2', component: CiltMOci2Component, canActivate: [AuthGuard]},
+  {path: 'cilt_m_fsb', component: CiltMFsbComponent, canActivate: [AuthGuard]},
 
 ];
 
