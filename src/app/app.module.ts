@@ -29,6 +29,8 @@ import { CiltMOci2Component } from './cilt-m-oci2/cilt-m-oci2.component';
 import { CiltMFsbComponent } from './cilt-m-fsb/cilt-m-fsb.component';
 import { CostMOci1Component } from './cost-m-oci1/cost-m-oci1.component';
 import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
+import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
+import { AppsLinkComponent } from './apps-link/apps-link.component';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
     CiltMFsbComponent,
     CostMOci1Component,
     CostMOci2Component,
+    CostMFsbComponent,
+    AppsLinkComponent,
 
   ],
   imports: [
