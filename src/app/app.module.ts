@@ -1,11 +1,13 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PdmDashboardComponent } from './pdm-dashboard/pdm-dashboard.component';
@@ -31,6 +33,7 @@ import { CostMOci1Component } from './cost-m-oci1/cost-m-oci1.component';
 import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
 import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
 import { AppsLinkComponent } from './apps-link/apps-link.component';
+import { Big5Component } from './big5/big5.component';
 
 
 @NgModule({
@@ -58,10 +61,12 @@ import { AppsLinkComponent } from './apps-link/apps-link.component';
     CostMOci2Component,
     CostMFsbComponent,
     AppsLinkComponent,
+    Big5Component,
 
   ],
   imports: [
     BrowserModule,
+    NgxSpinnerModule,
     NgxPaginationModule,
     CommonModule,
     FormsModule,
@@ -69,7 +74,8 @@ import { AppsLinkComponent } from './apps-link/apps-link.component';
     AppRoutingModule,
     HttpClientModule,
     NgApexchartsModule,
-    NgxCaptureModule
+    NgxCaptureModule,
+    BrowserAnimationsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

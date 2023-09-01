@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
 
   }
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
+  
   async ngOnInit(): Promise<void> {
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {

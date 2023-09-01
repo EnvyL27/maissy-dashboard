@@ -256,7 +256,7 @@ export class AmMOci1Component implements OnInit {
   }
   detailpart(no_wo: any) {
     this.currentPage4 = 1;
-    this.spinner.show();
+    // this.spinner.show();
     this.resolved = false;
     this.detailpartarr.splice(0);
     this.service.getTotalPartReporting(no_wo).subscribe(data => {
@@ -265,8 +265,8 @@ export class AmMOci1Component implements OnInit {
         block: 'center',
         inline: 'center',
       });
-      this.spinner.show();
-      this.resolved = true;
+      // this.spinner.show();
+      // this.resolved = true;
       this.detailpartarr.push(data);
 
     });
@@ -324,7 +324,7 @@ export class AmMOci1Component implements OnInit {
     this.novemberclose = 0;
     this.desember = 0;
     this.desemberclose = 0;
-    this.spinner.show();
+    // this.spinner.show();
     this.resolved = false;
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
@@ -469,8 +469,8 @@ export class AmMOci1Component implements OnInit {
   }
   finddatachange() {
     this.reportharian.splice(0);
-    this.spinner.show();
-    this.resolved = false;
+    // this.spinner.show();
+    // this.resolved = false;
     this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
       this.resolved = true;
       this.spinner.hide();
@@ -481,7 +481,7 @@ export class AmMOci1Component implements OnInit {
 
   }
   finddata() {
-    this.spinner.show();
+    // this.spinner.show();
     this.resolved = false;
     if (this.bar1report != null && this.bar2report != null) {
       this.bar1report.destroy();
@@ -721,6 +721,7 @@ export class AmMOci1Component implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.spinner.show();
     this.showFinding();
     this.showFindingHistory();
     this.showFindingPending();
@@ -1170,6 +1171,7 @@ export class AmMOci1Component implements OnInit {
           // ////////console.log(this.funlockarr);
 
           // // ////////console.log(this.findingpending2);
+          this.spinner.hide();
         })
       });
       this.service.getReadFindingPending().subscribe(data => {
@@ -1242,7 +1244,7 @@ export class AmMOci1Component implements OnInit {
           },
         });
 
-
+        this.spinner.hide();
       }
       );
       this.service.getTotalFeeding().subscribe(data => {
@@ -1507,17 +1509,16 @@ export class AmMOci1Component implements OnInit {
 
 
 
-          // this.spinner.hide();
-          // this.resolved = true;
+          
+          this.resolved = true;
           console.log(this.pendingexecute);
         })
-      })
+        this.spinner.hide();}, (err)=>{this.spinner.hide();})
 
 
     }
     );
-    this.spinner.show();
-    this.loaddata = await this.loaddata;
+    
   }
 };
 

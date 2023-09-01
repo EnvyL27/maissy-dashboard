@@ -722,6 +722,7 @@ export class AmMOci2Component implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.showFinding();
+    this.spinner.show();
     this.showFindingHistory();
     this.showFindingPending();
     this.showHistoryPending();
@@ -1152,7 +1153,7 @@ export class AmMOci2Component implements OnInit {
           // // ////////console.log(this.totallevel2);
         })
 
-
+        this.spinner.hide();
       }
       );
       this.service.getFuncLocOci2().subscribe(data => {
@@ -1171,6 +1172,7 @@ export class AmMOci2Component implements OnInit {
 
           // // ////////console.log(this.findingpending2);
         })
+        this.spinner.hide();
       });
       this.service.getReadFindingPendingoci2().subscribe(data => {
         this.findingpending = data;
@@ -1242,7 +1244,7 @@ export class AmMOci2Component implements OnInit {
           },
         });
 
-
+        this.spinner.hide();
       }
       );
       this.service.getTotalFeeding().subscribe(data => {
@@ -1506,13 +1508,12 @@ export class AmMOci2Component implements OnInit {
           // this.resolved = true;
           console.log(this.pendingexecute);
         })
+        this.spinner.hide();
       })
 
 
     }
     );
-    this.spinner.show();
-    this.loaddata = await this.loaddata;
   }
 };
 

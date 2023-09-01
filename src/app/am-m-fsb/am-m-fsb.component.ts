@@ -268,7 +268,7 @@ export class AmMFsbComponent implements OnInit {
       this.spinner.show();
       this.resolved = true;
       this.detailpartarr.push(data);
-
+      this.spinner.hide();
     });
   }
   capture2() {
@@ -748,6 +748,7 @@ export class AmMFsbComponent implements OnInit {
       this.wo07donereport = 0;
       this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
         this.reportharian.push(data);
+        this.spinner.hide();
       })
 
 
@@ -797,6 +798,7 @@ export class AmMFsbComponent implements OnInit {
             }
           }
         }
+        this.spinner.hide();
       });
       this.bar1report = new Chart("barreport", {
         type: "bar",
@@ -885,6 +887,7 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.arrorderfinish[0]) {
           this.orderfinish = elem.total;
         }
+        this.spinner.hide();
       });
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
         this.arrshecdule.push(data);
@@ -892,6 +895,7 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
         }
+        this.spinner.hide();
       });
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
@@ -1049,6 +1053,7 @@ export class AmMFsbComponent implements OnInit {
           //   }
           // }
         });
+        this.spinner.hide();
       });
       this.service.getTotalApproval().subscribe(data => {
         this.arrapproval.push(data);
@@ -1063,7 +1068,7 @@ export class AmMFsbComponent implements OnInit {
             }
           }
         }
-
+        this.spinner.hide();
       });
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
@@ -1080,6 +1085,7 @@ export class AmMFsbComponent implements OnInit {
 
           // // ////////console.log(this.findingpending2);
         })
+        this.spinner.hide();
       });
       this.service.getReadfpSectionFSB().subscribe(data => {
         this.fpsect = data;
@@ -1096,6 +1102,7 @@ export class AmMFsbComponent implements OnInit {
 
           // // ////////console.log(this.findingpending2);
         })
+        this.spinner.hide();
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
@@ -1152,8 +1159,8 @@ export class AmMFsbComponent implements OnInit {
           // // ////////console.log(this.totallevel2);
         })
 
-
-      }
+        this.spinner.hide();
+      } 
       );
       this.service.getFuncLocFsb().subscribe(data => {
         this.funlock = data;
@@ -1171,6 +1178,7 @@ export class AmMFsbComponent implements OnInit {
 
           // // ////////console.log(this.findingpending2);
         })
+        this.spinner.hide();
       });
       this.service.getReadFindingPendingfsb().subscribe(data => {
         this.findingpending = data;
@@ -1242,7 +1250,7 @@ export class AmMFsbComponent implements OnInit {
           },
         });
 
-
+        this.spinner.hide();
       }
       );
       this.service.getTotalFeeding().subscribe(data => {
@@ -1511,6 +1519,7 @@ export class AmMFsbComponent implements OnInit {
           // this.resolved = true;
           console.log(this.pendingexecute);
         })
+        this.spinner.hide();
       })
 
 
