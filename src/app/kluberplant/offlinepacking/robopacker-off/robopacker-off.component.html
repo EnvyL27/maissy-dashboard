@@ -4,7 +4,7 @@
           class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-1">
             <div class="wrapper">
-              <h5 class="typing-demo font-bold">Container Conveyor
+              <h5 class="typing-demo font-bold">Robo Packer
               </h5>
             </div>
           </div>
@@ -12,30 +12,30 @@
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border mb-1">
           <div class="w-full px-1 py-1 mx-auto">
             <div class="flex flex-wrap -mx-1 lg:-mx-4">
-              <div class="my-1 px-1 w-full max-w-full md:w-7/12 lg:my-6 lg:px-6">
+              <div class="my-1 px-1 w-full max-w-full md:w-6/12 lg:my-6 lg:px-6">
                 <div id="content">
                   <h5 class="text-center mt-2">Click For Detail</h5>
                   <div id="number_container">
                     <ul>
                       <li><button (click)="show()" class="button button4 rounded-2xl">Lubrication Chart</button>
                       </li>
-                      <!-- <li><button routerLink="/bottleshower" class="button button4 rounded-2xl">Manual</button></li> -->
+                      <li><button (click)="bukapdf()" class="button button4 rounded-2xl">Manual</button></li>
                       <li><button routerLink="/offlinepacking" class="button button4 rounded-2xl">Offline Packing</button></li>
                     </ul>
                   </div>
                 </div>
-                <div class="my-1 px-1 w-full max-w-full ">
-                  <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                    <img src="assets/img/offpreplong.png" style=" width: 100%;
-                  width: auto;
-                  max-height: 300px;">
+                <div class="my-1 px-1 w-full max-w-full md:w-full lg:my-6 lg:px-6">
+                  <div class="relative shadow-lg sm:rounded-lg">
+                    <img src="assets/img/robolong.png" style="width: 100%;
+                    width: 70%;
+                    max-height: auto;margin-left: 10%;">
                   </div>
                 </div>
               </div>
-              <div class="my-1 px-1 w-full max-w-full md:w-5/12 lg:my-6 lg:px-6">
-                <h5 class="text-center mt-2">Container Conveyor</h5>
-                <img src="assets/img/offprep.png" style="width: 100%;
-                width: 70%;
+              <div class="my-1 px-1 w-full max-w-full md:w-6/12 lg:my-6 lg:px-6">
+                <h5 class="text-center mt-2">Robo Packer</h5>
+                <img src="assets/img/robo.png" style="width: 100%;
+                width: 98%;
                 max-height: auto;" class="mb-2 mt-2 center">
               </div>
             </div>
@@ -92,7 +92,7 @@
                   </thead>
                   <tbody>
                     <tr class="border-b border-gray-200 dark:border-gray-700"
-                      *ngFor="let header of containeroffarr | paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
+                      *ngFor="let header of robopackerarr | paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
                       <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
                         {{header.lubrication_point}}
                       </th>
@@ -237,11 +237,10 @@
           </div>
         </div>
       </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+          <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+            <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+          </ngx-spinner>
+        </div>
+      
 </div>
-
-  <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
-      <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
-        <p style="font-size: 20px; color: white">{{deskripsi}}</p>
-      </ngx-spinner>
-    </div>
-  

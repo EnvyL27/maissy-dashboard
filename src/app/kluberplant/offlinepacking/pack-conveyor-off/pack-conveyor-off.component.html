@@ -24,9 +24,9 @@
                     </ul>
                   </div>
                 </div>
-                <div class="my-1 px-1 w-full max-w-full ">
+                <div class="my-1 px-1 w-full max-w-full md:w-full lg:my-6 lg:px-6">
                   <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                    <img src="assets/img/offpreplong.png" style=" width: 100%;
+                    <img src="assets/img/pclong.png" style=" width: 100%;
                   width: auto;
                   max-height: 300px;">
                   </div>
@@ -34,7 +34,7 @@
               </div>
               <div class="my-1 px-1 w-full max-w-full md:w-5/12 lg:my-6 lg:px-6">
                 <h5 class="text-center mt-2">Container Conveyor</h5>
-                <img src="assets/img/offprep.png" style="width: 100%;
+                <img src="assets/img/pc.png" style="width: 100%;
                 width: 70%;
                 max-height: auto;" class="mb-2 mt-2 center">
               </div>
@@ -92,7 +92,7 @@
                   </thead>
                   <tbody>
                     <tr class="border-b border-gray-200 dark:border-gray-700"
-                      *ngFor="let header of containeroffarr | paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
+                      *ngFor="let header of packconveyoroffarr | paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
                       <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
                         {{header.lubrication_point}}
                       </th>
@@ -237,11 +237,10 @@
           </div>
         </div>
       </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+          <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+            <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+          </ngx-spinner>
+        </div>
+      
 </div>
-
-  <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
-      <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
-        <p style="font-size: 20px; color: white">{{deskripsi}}</p>
-      </ngx-spinner>
-    </div>
-  

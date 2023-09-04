@@ -42,6 +42,11 @@ import { OilComponent } from './kluber/oil/oil.component';
 import { SpraysComponent } from './kluber/sprays/sprays.component';
 import { MaintenanceproductComponent } from './kluber/maintenanceproduct/maintenanceproduct.component';
 import { PasteComponent } from './kluber/paste/paste.component';
+import { OfflinepackingComponent } from './kluberplant/offlinepacking/offlinepacking.component';
+import { EmptyboxOffComponent } from './kluberplant/offlinepacking/emptybox-off/emptybox-off.component';
+import { PackConveyorOffComponent } from './kluberplant/offlinepacking/pack-conveyor-off/pack-conveyor-off.component';
+import { ResealerOffComponent } from './kluberplant/offlinepacking/resealer-off/resealer-off.component';
+import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-off/robopacker-off.component';
 
 
 @NgModule({
@@ -78,6 +83,11 @@ import { PasteComponent } from './kluber/paste/paste.component';
     SpraysComponent,
     MaintenanceproductComponent,
     PasteComponent,
+    OfflinepackingComponent,
+    EmptyboxOffComponent,
+    PackConveyorOffComponent,
+    ResealerOffComponent,
+    RobopackerOffComponent,
 
   ],
   imports: [

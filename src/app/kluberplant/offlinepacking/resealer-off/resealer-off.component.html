@@ -4,7 +4,7 @@
           class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-1">
             <div class="wrapper">
-              <h5 class="typing-demo font-bold">Container Conveyor
+              <h5 class="typing-demo font-bold">Resealer
               </h5>
             </div>
           </div>
@@ -15,28 +15,21 @@
               <div class="my-1 px-1 w-full max-w-full md:w-7/12 lg:my-6 lg:px-6">
                 <div id="content">
                   <h5 class="text-center mt-2">Click For Detail</h5>
-                  <div id="number_container">
+                  <div id="number_container" class="mb-2">
                     <ul>
-                      <li><button (click)="show()" class="button button4 rounded-2xl">Lubrication Chart</button>
+                      <li>
+                        <button (click)="show()" class="button button4 rounded-2xl">Lubricantion Chart</button>
                       </li>
-                      <!-- <li><button routerLink="/bottleshower" class="button button4 rounded-2xl">Manual</button></li> -->
                       <li><button routerLink="/offlinepacking" class="button button4 rounded-2xl">Offline Packing</button></li>
                     </ul>
                   </div>
                 </div>
-                <div class="my-1 px-1 w-full max-w-full ">
-                  <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                    <img src="assets/img/offpreplong.png" style=" width: 100%;
-                  width: auto;
-                  max-height: 300px;">
-                  </div>
-                </div>
               </div>
               <div class="my-1 px-1 w-full max-w-full md:w-5/12 lg:my-6 lg:px-6">
-                <h5 class="text-center mt-2">Container Conveyor</h5>
-                <img src="assets/img/offprep.png" style="width: 100%;
-                width: 70%;
-                max-height: auto;" class="mb-2 mt-2 center">
+                <h5 class="text-center mt-2">Resealer</h5>
+                <img src="assets/img/resealeroff.png" style=" width: 100%;
+              width: 80%;
+              max-height: auto;" class="mb-2 center">
               </div>
             </div>
           </div>
@@ -92,7 +85,7 @@
                   </thead>
                   <tbody>
                     <tr class="border-b border-gray-200 dark:border-gray-700"
-                      *ngFor="let header of containeroffarr | paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
+                      *ngFor="let header of resealerarr |paginate: { currentPage: currentPage, itemsPerPage: 5 }; let i = index;">
                       <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
                         {{header.lubrication_point}}
                       </th>
@@ -112,7 +105,7 @@
                         {{header.qty}}
                       </td>
                       <td class="py-4 px-6 font-medium font-semibold" style="color: black">
-                        {{header.nsf_grade}}
+                        {{header.NSF_grade}}
                       </td>
                       <td class="font-medium font-semibold" style="color: black">
                         <img width="100%" height="100%" src="http://192.168.9.47/kluber_lubrication/files/{{header.method}}">
@@ -199,7 +192,7 @@
                                           {{header.qty}}
                                         </td>
                                         <td class="py-4 px-6 font-medium font-semibold" style="color: black">
-                                          {{header.nsf_grade}}
+                                          {{header.NSF_grade}}
                                         </td>
                                         <td class="font-medium font-semibold" style="color: black">
                                           <img width="100%" height="100%" src="http://192.168.9.47/kluber_lubrication/files/{{header.method}}">
@@ -237,11 +230,10 @@
           </div>
         </div>
       </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+          <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+            <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+          </ngx-spinner>
+        </div>
+      
 </div>
-
-  <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
-      <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
-        <p style="font-size: 20px; color: white">{{deskripsi}}</p>
-      </ngx-spinner>
-    </div>
-  
