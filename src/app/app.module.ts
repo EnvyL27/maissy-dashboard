@@ -34,6 +34,7 @@ import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
 import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
 import { AppsLinkComponent } from './apps-link/apps-link.component';
 import { Big5Component } from './big5/big5.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { Big5Component } from './big5/big5.component';
     CostMFsbComponent,
     AppsLinkComponent,
     Big5Component,
+    AboutusComponent,
 
   ],
   imports: [
