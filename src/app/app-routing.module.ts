@@ -30,6 +30,7 @@ import { PackConveyorOffComponent } from './kluberplant/offlinepacking/pack-conv
 import { ResealerOffComponent } from './kluberplant/offlinepacking/resealer-off/resealer-off.component';
 import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-off/robopacker-off.component';
 import { Petline1Component } from './kluberplant/petline1/petline1.component';
+import { InjectionMolderComponent } from './kluberplant/petline1/injection-molder/injection-molder.component';
 import { BottleShowerComponent } from './kluberplant/petline1/bottle-shower/bottle-shower.component';
 import { FillerComponent } from './kluberplant/petline1/filler/filler.component';
 import { ContainerConveyorComponent } from './kluberplant/petline1/container-conveyor/container-conveyor.component';
@@ -55,6 +56,13 @@ import { Sheetfeederpt2Component } from './kluberplant/petline2/sheetfeederpt2/s
 import { Packconveyorpt2Component } from './kluberplant/petline2/packconveyorpt2/packconveyorpt2.component';
 import { Palletconveyorpt2Component } from './kluberplant/petline2/palletconveyorpt2/palletconveyorpt2.component';
 import { Palletiserpt2Component } from './kluberplant/petline2/palletiserpt2/palletiserpt2.component';
+import { PreparationroomComponent } from './kluberplant/preparationroom/preparationroom.component';
+import { Pet1AgitatorsComponent } from './kluberplant/preparationroom/pet1-agitators/pet1-agitators.component';
+import { Pet2AgitatorsComponent } from './kluberplant/preparationroom/pet2-agitators/pet2-agitators.component';
+import { FilterPress1Component } from './kluberplant/preparationroom/filter-press1/filter-press1.component';
+import { FilterPress2Component } from './kluberplant/preparationroom/filter-press2/filter-press2.component';
+import { DpcPumpComponent } from './kluberplant/preparationroom/dpc-pump/dpc-pump.component';
+import { OxoniaComponent } from './kluberplant/preparationroom/oxonia/oxonia.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -91,6 +99,7 @@ const routes: Routes = [
   {path: 'emptybox', component: EmptyboxOffComponent, canActivate: [AuthGuard]},
   {path: 'packconveyoroff', component: PackConveyorOffComponent, canActivate: [AuthGuard]},
   {path: 'petline1', component: Petline1Component, canActivate: [AuthGuard]},
+  {path: 'injectionmolder', component: InjectionMolderComponent, canActivate: [AuthGuard]},
   {path: 'bottleshower', component: BottleShowerComponent, canActivate: [AuthGuard]},
   {path: 'filler', component: FillerComponent, canActivate: [AuthGuard]},
   {path: 'containerconveyor', component: ContainerConveyorComponent, canActivate: [AuthGuard]},
@@ -104,18 +113,25 @@ const routes: Routes = [
   {path: 'packrollerconveyor', component: PackRollerConveyorsComponent, canActivate: [AuthGuard]},
   {path: 'sanyu', component: SanyuComponent, canActivate: [AuthGuard]},
   {path: 'krones', component: KronesComponent, canActivate: [AuthGuard]},
-  {path: 'petline2', component: Petline2Component},
-  {path: 'injectmolderpt2', component: Injectionmolderpt2Component},
-  {path: 'bottleblowerpt2', component: Bottleblowerpt2Component},
-  {path: 'fillerpt2', component: Fillerpt2Component},
-  {path: 'conveyorpt2', component: Conveyorpt2Component},
-  {path: 'labellerpt2', component: Labellerpt2Component},
-  {path: 'sanyudividerpt2', component: Sanyudividerpt2Component},
-  {path: 'caserpt2', component: Caserpt2Component},
-  {path: 'sheetfeederpt2', component: Sheetfeederpt2Component},
-  {path: 'packconveyorpt2', component: Packconveyorpt2Component},
-  {path: 'palletconveyorpt2', component: Palletconveyorpt2Component},
-  {path: 'palletiserpt2', component: Palletiserpt2Component},
+  {path: 'petline2', component: Petline2Component, canActivate: [AuthGuard]},
+  {path: 'injectmolderpt2', component: Injectionmolderpt2Component, canActivate: [AuthGuard]},
+  {path: 'bottleblowerpt2', component: Bottleblowerpt2Component, canActivate: [AuthGuard]},
+  {path: 'fillerpt2', component: Fillerpt2Component, canActivate: [AuthGuard]},
+  {path: 'conveyorpt2', component: Conveyorpt2Component, canActivate: [AuthGuard]},
+  {path: 'labellerpt2', component: Labellerpt2Component, canActivate: [AuthGuard]},
+  {path: 'sanyudividerpt2', component: Sanyudividerpt2Component, canActivate: [AuthGuard]},
+  {path: 'caserpt2', component: Caserpt2Component, canActivate: [AuthGuard]},
+  {path: 'sheetfeederpt2', component: Sheetfeederpt2Component, canActivate: [AuthGuard]},
+  {path: 'packconveyorpt2', component: Packconveyorpt2Component, canActivate: [AuthGuard]},
+  {path: 'palletconveyorpt2', component: Palletconveyorpt2Component, canActivate: [AuthGuard]},
+  {path: 'palletiserpt2', component: Palletiserpt2Component, canActivate: [AuthGuard]},
+  {path: 'preparationroom', component: PreparationroomComponent, canActivate: [AuthGuard]},
+  {path: 'pet1', component: Pet1AgitatorsComponent, canActivate: [AuthGuard]},
+  {path: 'pet2', component: Pet2AgitatorsComponent, canActivate: [AuthGuard]},
+  {path: 'filterpress1', component: FilterPress1Component, canActivate: [AuthGuard]},
+  {path: 'filterpress2', component: FilterPress2Component, canActivate: [AuthGuard]},
+  {path: 'dpcpump', component: DpcPumpComponent, canActivate: [AuthGuard]},
+  {path: 'oxonia', component: OxoniaComponent, canActivate: [AuthGuard]},
 
 ];
 

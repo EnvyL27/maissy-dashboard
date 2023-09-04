@@ -74,6 +74,13 @@ import { Palletconveyorpt2Component } from './kluberplant/petline2/palletconveyo
 import { Palletiserpt2Component } from './kluberplant/petline2/palletiserpt2/palletiserpt2.component';
 import { Sanyudividerpt2Component } from './kluberplant/petline2/sanyudividerpt2/sanyudividerpt2.component';
 import { Sheetfeederpt2Component } from './kluberplant/petline2/sheetfeederpt2/sheetfeederpt2.component';
+import { PreparationroomComponent } from './kluberplant/preparationroom/preparationroom.component';
+import { DpcPumpComponent } from './kluberplant/preparationroom/dpc-pump/dpc-pump.component';
+import { FilterPress1Component } from './kluberplant/preparationroom/filter-press1/filter-press1.component';
+import { FilterPress2Component } from './kluberplant/preparationroom/filter-press2/filter-press2.component';
+import { OxoniaComponent } from './kluberplant/preparationroom/oxonia/oxonia.component';
+import { Pet1AgitatorsComponent } from './kluberplant/preparationroom/pet1-agitators/pet1-agitators.component';
+import { Pet2AgitatorsComponent } from './kluberplant/preparationroom/pet2-agitators/pet2-agitators.component';
 
 
 @NgModule({
@@ -142,6 +149,13 @@ import { Sheetfeederpt2Component } from './kluberplant/petline2/sheetfeederpt2/s
     Palletiserpt2Component,
     Sanyudividerpt2Component,
     Sheetfeederpt2Component,
+    PreparationroomComponent,
+    DpcPumpComponent,
+    FilterPress1Component,
+    FilterPress2Component,
+    OxoniaComponent,
+    Pet1AgitatorsComponent,
+    Pet2AgitatorsComponent,
 
   ],
   imports: [

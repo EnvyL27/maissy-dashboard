@@ -1,0 +1,79 @@
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6">
+    <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+          class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+              <h5 class="typing-demo font-bold">Preparation Room
+              </h5>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border mb-1">
+          <div id="content">
+            <h5 class="text-center mt-2">Click For Detail</h5>
+            <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+            <div id="number_container" class="mb-2">
+              <ul>
+                <li><button routerLink="/injectionmolder"  class="button button4 rounded-2xl">Injection
+                    Molder</button></li>
+                <li><button routerLink="/bottleshower"  class="button button4 rounded-2xl">Bottle
+                    Blower</button></li>
+                <li><button routerLink="/filler"  class="button button4 rounded-2xl">Filler</button></li>
+                <li><button routerLink="/containerconveyor"  class="button button4 rounded-2xl">Container
+                    Conveyors</button></li>
+                <li><button routerLink="/labeller"  class="button button4 rounded-2xl">Labeller</button>
+                </li>
+                <li><button routerLink="/divider"  class="button button4 rounded-2xl">Divider</button>
+                </li>
+                <li><button routerLink="/sheetfeeder"  class="button button4 rounded-2xl">Sheet
+                    Feeder</button></li>
+                <li><button routerLink="/shrinktray"  class="button button4 rounded-2xl">Packer Shnrik
+                    Tray</button></li>
+                <li><button routerLink="/packconveyor"  class="button button4 rounded-2xl">Pack
+                    Conveyors</button></li>
+                <li><button routerLink="/palletconveyor"  class="button button4 rounded-2xl">Pallet
+                    Conveyors</button></li>
+                <li><button routerLink="/packrollerconveyor"  class="button button4 rounded-2xl">Pallet
+                    Roller Conveyors</button></li>
+                <li><button routerLink="/palletiser"
+                    class="button button4 rounded-2xl">Palletiser</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        </div> -->
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl p-1 rounded-2xl bg-clip-border">
+          <p style="color: red;" class="text-center mt-4">use a maximum zoom of 67 percent in the browser (PC)</p>
+          <div class="overflow-x-auto relative shadow-lg">
+            <button routerLink="/pet1" style="margin-top: 310px; margin-left: 130px;"
+              class="button button4 rounded-2xl absolute">Pet 1<br />
+              Agitators</button>
+              <button routerLink="/filterpress2" style="margin-top: 415px; margin-left: 335px;"
+              class="button button4 rounded-2xl absolute">Filler<br />
+              Press 2</button>
+              <button routerLink="/filterpress1" style="margin-top: 420px; margin-left: 490px;"
+              class="button button4 rounded-2xl absolute">Filler<br />
+              Press 1</button>
+              <button routerLink="/pet2" style="margin-top: 190px; margin-left: 690px;"
+              class="button button4 rounded-2xl absolute">Pet 2<br />
+              Agitators</button>
+              <button routerLink="/dpcpump" style="margin-top: 320px; margin-left: 700px;"
+              class="button button4 rounded-2xl absolute">CIP<br />
+              Pumps x3</button>
+              <button routerLink="/oxonia" style="margin-top: 480px; margin-left: 650px;"
+              class="button button4 rounded-2xl absolute">Lines 1 & 2<br />
+              Oxonia Pump x4</button>
+            <img src="{{srcimage}}" style="
+            width: auto;
+            max-height: 700px;" class="mb-2 center">
+          </div>
+        </div>
+      </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+          <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+            <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+          </ngx-spinner>
+        </div>
+      
+</div>
