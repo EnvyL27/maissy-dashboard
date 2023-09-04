@@ -35,6 +35,11 @@ import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
 import { AppsLinkComponent } from './apps-link/apps-link.component';
 import { Big5Component } from './big5/big5.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContainerConveyorOffComponent } from './kluberplant/offlinepacking/container-conveyor-off/container-conveyor-off.component';
+import { ColorcodeComponent } from './kluber/colorcode/colorcode.component';
+import { GreaseComponent } from './kluber/grease/grease.component';
+import { OilComponent } from './kluber/oil/oil.component';
+import { SpraysComponent } from './kluber/sprays/sprays.component';
 
 
 @NgModule({
@@ -64,6 +69,11 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     AppsLinkComponent,
     Big5Component,
     AboutusComponent,
+    ContainerConveyorOffComponent,
+    ColorcodeComponent,
+    GreaseComponent,
+    OilComponent,
+    SpraysComponent,
 
   ],
   imports: [

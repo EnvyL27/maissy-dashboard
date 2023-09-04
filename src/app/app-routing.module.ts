@@ -17,6 +17,9 @@ import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
 import { AppsLinkComponent } from './apps-link/apps-link.component';
 import { Big5Component } from './big5/big5.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { GreaseComponent } from './kluber/grease/grease.component';
+import { OilComponent } from './kluber/oil/oil.component';
+import { ContainerConveyorOffComponent } from './kluberplant/offlinepacking/container-conveyor-off/container-conveyor-off.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -40,6 +43,9 @@ const routes: Routes = [
   {path: 'apps_link', component: AppsLinkComponent, canActivate: [AuthGuard]},
   {path: 'big5', component: Big5Component, canActivate: [AuthGuard]},
   {path: 'aboutus', component: AboutusComponent},
+  {path: 'grease', component: GreaseComponent},
+  {path: 'oil', component: OilComponent},
+  {path: 'containeroffline', component: ContainerConveyorOffComponent},
 
 ];
 
