@@ -23,7 +23,12 @@ import { SpraysComponent } from './kluber/sprays/sprays.component';
 import { PasteComponent } from './kluber/paste/paste.component';
 import { MaintenanceproductComponent } from './kluber/maintenanceproduct/maintenanceproduct.component';
 import { ColorcodeComponent } from './kluber/colorcode/colorcode.component';
+import { OfflinepackingComponent } from './kluberplant/offlinepacking/offlinepacking.component';
 import { ContainerConveyorOffComponent } from './kluberplant/offlinepacking/container-conveyor-off/container-conveyor-off.component';
+import { EmptyboxOffComponent } from './kluberplant/offlinepacking/emptybox-off/emptybox-off.component';
+import { PackConveyorOffComponent } from './kluberplant/offlinepacking/pack-conveyor-off/pack-conveyor-off.component';
+import { ResealerOffComponent } from './kluberplant/offlinepacking/resealer-off/resealer-off.component';
+import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-off/robopacker-off.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -54,6 +59,11 @@ const routes: Routes = [
   {path: 'colorcode', component: ColorcodeComponent, canActivate: [AuthGuard]},
   {path: 'maintenanceproduct', component: MaintenanceproductComponent, canActivate: [AuthGuard]},
   {path: 'containeroffline', component: ContainerConveyorOffComponent, canActivate: [AuthGuard]},
+  {path: 'offlinepacking', component: OfflinepackingComponent, canActivate: [AuthGuard]},
+  {path: 'robopacker', component: RobopackerOffComponent, canActivate: [AuthGuard]},
+  {path: 'resealeroff', component: ResealerOffComponent, canActivate: [AuthGuard]},
+  {path: 'emptybox', component: EmptyboxOffComponent, canActivate: [AuthGuard]},
+  {path: 'packconveyoroff', component: PackConveyorOffComponent, canActivate: [AuthGuard]},
 
 ];
 
