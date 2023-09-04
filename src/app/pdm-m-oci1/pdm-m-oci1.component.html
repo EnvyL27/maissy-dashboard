@@ -718,16 +718,15 @@
                   <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
                 </div>
               </div>
-              <div
+              <div 
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
                   <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
                     <table border="1" class="w-full text-lg text-left text-gray-500 dark:text-gray-400 text-center">
-                      <tbody>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
+                      <tbody style="height: 444px;">
+                        <tr class="border-b border-gray-200 ">
                           <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
-                            <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
                             <label for="modal-btn">
                               <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style=" width: 100%;
                               height: auto;" class="center"></div>
@@ -747,7 +746,7 @@
                             </div>
                           </td>
                         </tr>
-                        <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <tr class="border-b border-gray-100 ">
                           <td width="100" class="font-medium p-6 mt-2 bg-gray-50" style="color: black;">
                             <div *ngIf="note != null" [innerHTML]='note'></div>
                             <div *ngIf="note == null">
@@ -866,7 +865,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="border-b border-gray-200 dark:border-gray-700"
+                        <tr class="border-b border-gray-200 "
                           *ngFor="let getdata of selectorarrabnormal| filter:searchText2 |paginate: { id:'pagination2', currentPage: currentPage2, itemsPerPage: showPaginate2 }; let i = index;">
                           <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
                             bgcolor="#878790">
@@ -943,7 +942,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PREPARATION'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -970,7 +969,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'INJECTION'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -997,7 +996,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'BLOW'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1024,7 +1023,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'FILL'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1051,7 +1050,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1078,7 +1077,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PF Transfer/KANESHO'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1105,7 +1104,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'STU1'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1132,7 +1131,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1159,7 +1158,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'INJECTION'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1186,7 +1185,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'BLOW'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1213,7 +1212,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'FILL'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1240,7 +1239,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PACK'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1267,7 +1266,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PF Transfer/KANESHO'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1294,7 +1293,7 @@
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
                       <tr *ngIf="this.finish.value == null && this.finish.name_area == 'STU1'"
-                        class="bg-white dark:border-gray-700">
+                        class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1407,7 +1406,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr class="border-b border-gray-200 dark:border-gray-700"
+                        <tr class="border-b border-gray-200 "
                           *ngFor="let header of totalfinishtoday2down| filter:searchText3 | paginate: {  id:'pagination3',currentPage: currentPage3, itemsPerPage: showPaginate3 } let i = index; let first = first;">
                           <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
                             bgcolor="#878790">
