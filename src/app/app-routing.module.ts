@@ -29,6 +29,20 @@ import { EmptyboxOffComponent } from './kluberplant/offlinepacking/emptybox-off/
 import { PackConveyorOffComponent } from './kluberplant/offlinepacking/pack-conveyor-off/pack-conveyor-off.component';
 import { ResealerOffComponent } from './kluberplant/offlinepacking/resealer-off/resealer-off.component';
 import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-off/robopacker-off.component';
+import { Petline1Component } from './kluberplant/petline1/petline1.component';
+import { BottleShowerComponent } from './kluberplant/petline1/bottle-shower/bottle-shower.component';
+import { FillerComponent } from './kluberplant/petline1/filler/filler.component';
+import { ContainerConveyorComponent } from './kluberplant/petline1/container-conveyor/container-conveyor.component';
+import { LabellerComponent } from './kluberplant/petline1/labeller/labeller.component';
+import { DividerComponent } from './kluberplant/petline1/divider/divider.component';
+import { SheetFeederComponent } from './kluberplant/petline1/sheet-feeder/sheet-feeder.component';
+import { ShrinkTrayComponent } from './kluberplant/petline1/shrink-tray/shrink-tray.component';
+import { PackConveyorComponent } from './kluberplant/petline1/pack-conveyor/pack-conveyor.component';
+import { PalletConveyorComponent } from './kluberplant/petline1/pallet-conveyor/pallet-conveyor.component';
+import { PalletiserComponent } from './kluberplant/petline1/palletiser/palletiser.component';
+import { PackRollerConveyorsComponent } from './kluberplant/petline1/pack-roller-conveyors/pack-roller-conveyors.component';
+import { SanyuComponent } from './kluberplant/petline1/sanyu/sanyu.component';
+import { KronesComponent } from './kluberplant/petline1/krones/krones.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -64,6 +78,20 @@ const routes: Routes = [
   {path: 'resealeroff', component: ResealerOffComponent, canActivate: [AuthGuard]},
   {path: 'emptybox', component: EmptyboxOffComponent, canActivate: [AuthGuard]},
   {path: 'packconveyoroff', component: PackConveyorOffComponent, canActivate: [AuthGuard]},
+  {path: 'petline1', component: Petline1Component, canActivate: [AuthGuard]},
+  {path: 'bottleshower', component: BottleShowerComponent, canActivate: [AuthGuard]},
+  {path: 'filler', component: FillerComponent, canActivate: [AuthGuard]},
+  {path: 'containerconveyor', component: ContainerConveyorComponent, canActivate: [AuthGuard]},
+  {path: 'labeller', component: LabellerComponent, canActivate: [AuthGuard]},
+  {path: 'divider', component: DividerComponent, canActivate: [AuthGuard]},
+  {path: 'sheetfeeder', component: SheetFeederComponent, canActivate: [AuthGuard]},
+  {path: 'shrinktray', component: ShrinkTrayComponent, canActivate: [AuthGuard]},
+  {path: 'packconveyor', component: PackConveyorComponent, canActivate: [AuthGuard]},
+  {path: 'palletconveyor', component: PalletConveyorComponent, canActivate: [AuthGuard]},
+  {path: 'palletiser', component: PalletiserComponent, canActivate: [AuthGuard]},
+  {path: 'packrollerconveyor', component: PackRollerConveyorsComponent, canActivate: [AuthGuard]},
+  {path: 'sanyu', component: SanyuComponent, canActivate: [AuthGuard]},
+  {path: 'krones', component: KronesComponent, canActivate: [AuthGuard]},
 
 ];
 

@@ -1,0 +1,56 @@
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6"> 
+    <div  [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+          class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+              <h5 class="typing-demo font-bold">PET LINE - 1
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex flex-col min-w-0 break-words bg-white s hadow-soft-lg rounded-2xl bg-clip-border p-6">
+          <p style="color: red;" class="text-center mt-4">use a maximum zoom of 67 percent in the browser (PC)</p>
+          <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+            <button routerLink="/injectionmolder" style="margin-top: 57px; margin-left: 100px;"
+              class="button button4 rounded-2xl absolute">Injection <br />
+              Molder</button>
+            <button routerLink="/bottleshower" style="margin-top: 5px; margin-left: 300px;"
+              class="button button4 rounded-2xl absolute">Bottle <br /> Shower</button>
+            <button routerLink="/filler" style="margin-top: 270px; margin-left: 380px;"
+              class="button button4 rounded-2xl absolute">Filler</button>
+            <button routerLink="/containerconveyor" style="margin-top: 50px; margin-left: 730px;"
+              class="button button4 rounded-2xl absolute">Container <br /> Conveyors</button>
+            <button routerLink="/labeller" style="margin-top: 110px; margin-left: 940px;"
+              class="button button4 rounded-2xl absolute">Labeller</button>
+            <button routerLink="/divider" style="margin-top: 300px; margin-left: 920px;"
+              class="button button4 rounded-2xl absolute">Divider</button>
+            <button routerLink="/sheetfeeder" style="margin-top: 60px; margin-left: 1110px;"
+              class="button button4 rounded-2xl absolute">Sheet<br />
+              Feeder</button>
+            <button routerLink="/shrinktray" style="margin-top: 285px; margin-left: 1200px;"
+              class="button button4 rounded-2xl absolute">Packer<br />
+              Shrink <br /> Tray</button>
+            <button routerLink="/packconveyor" style="margin-top: 80px; margin-left: 1300px;"
+              class="button button4 rounded-2xl absolute">Pack<br />
+              Conveyor</button>
+            <button routerLink="/palletconveyor" style="margin-top: 80px; margin-left: 1420px;"
+              class="button button4 rounded-2xl absolute">Pallet<br />
+              Conveyor</button>
+              <button routerLink="/palletiser" style="margin-top: 90px; margin-left: 1540px;"
+              class="button button4 rounded-2xl absolute">Palletiser</button>
+              <button routerLink="/packrollerconveyor" style="margin-top: 270px; margin-left: 1460px;"
+              class="button button4 rounded-2xl absolute">Pack <br/> Roller <br /> Conveyor</button>
+            <img src="{{srcimage}}" style=" width: 100%;
+            width: auto;
+            max-height: 385px;" class="mb-2 center">
+          </div>
+        </div>
+      </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+          <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+        </ngx-spinner>
+      </div>
+      
+</div>

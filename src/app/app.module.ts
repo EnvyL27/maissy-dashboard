@@ -47,6 +47,21 @@ import { EmptyboxOffComponent } from './kluberplant/offlinepacking/emptybox-off/
 import { PackConveyorOffComponent } from './kluberplant/offlinepacking/pack-conveyor-off/pack-conveyor-off.component';
 import { ResealerOffComponent } from './kluberplant/offlinepacking/resealer-off/resealer-off.component';
 import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-off/robopacker-off.component';
+import { Petline1Component } from './kluberplant/petline1/petline1.component';
+import { BottleShowerComponent } from './kluberplant/petline1/bottle-shower/bottle-shower.component';
+import { ContainerConveyorComponent } from './kluberplant/petline1/container-conveyor/container-conveyor.component';
+import { DividerComponent } from './kluberplant/petline1/divider/divider.component';
+import { FillerComponent } from './kluberplant/petline1/filler/filler.component';
+import { InjectionMolderComponent } from './kluberplant/petline1/injection-molder/injection-molder.component';
+import { KronesComponent } from './kluberplant/petline1/krones/krones.component';
+import { LabellerComponent } from './kluberplant/petline1/labeller/labeller.component';
+import { PackConveyorComponent } from './kluberplant/petline1/pack-conveyor/pack-conveyor.component';
+import { PackRollerConveyorsComponent } from './kluberplant/petline1/pack-roller-conveyors/pack-roller-conveyors.component';
+import { PalletConveyorComponent } from './kluberplant/petline1/pallet-conveyor/pallet-conveyor.component';
+import { PalletiserComponent } from './kluberplant/petline1/palletiser/palletiser.component';
+import { SanyuComponent } from './kluberplant/petline1/sanyu/sanyu.component';
+import { SheetFeederComponent } from './kluberplant/petline1/sheet-feeder/sheet-feeder.component';
+import { ShrinkTrayComponent } from './kluberplant/petline1/shrink-tray/shrink-tray.component';
 
 
 @NgModule({
@@ -88,6 +103,21 @@ import { RobopackerOffComponent } from './kluberplant/offlinepacking/robopacker-
     PackConveyorOffComponent,
     ResealerOffComponent,
     RobopackerOffComponent,
+    Petline1Component,
+    BottleShowerComponent,
+    ContainerConveyorComponent,
+    DividerComponent,
+    FillerComponent,
+    InjectionMolderComponent,
+    KronesComponent,
+    LabellerComponent,
+    PackConveyorComponent,
+    PackRollerConveyorsComponent,
+    PalletConveyorComponent,
+    PalletiserComponent,
+    SanyuComponent,
+    SheetFeederComponent,
+    ShrinkTrayComponent,
 
   ],
   imports: [
