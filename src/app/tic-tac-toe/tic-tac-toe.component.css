@@ -1,0 +1,85 @@
+h1 {
+    color: orangered;
+    font-size: 45px;
+  }
+  
+  
+  #b1, #b2, #b3, #b4, #b5,
+  #b6, #b7, #b8, #b9 {
+    width: 80px;
+    height: 52px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 6px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  
+  #but {
+    box-sizing: border-box;
+    width: 95px;
+    height: 40px;
+    border: 1px solid black;
+    margin: auto;
+    border-radius: 4px;
+    font-family: Verdana,
+        Geneva, Tahoma, sans-serif;
+  
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  
+  #print {
+    font-family: Verdana,
+        Geneva, Tahoma, sans-serif;
+  
+    color: black;
+    font-size: 20px;
+  }
+  
+  
+  #main {
+    text-align: center;
+  }
+  
+  
+  #ins {
+    font-family: Verdana,
+        Geneva, Tahoma, sans-serif;
+  
+    color: dodgerblue;
+    font-size: 17px;
+  }
+  .wrapper {
+    /*This part is important for centering*/
+    /* height: 100vh; */
+    display: grid;
+    place-items: center;
+  }
+  
+  .typing-demo {
+    width: 11ch;
+    animation: typing 0.5s steps(11), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+  

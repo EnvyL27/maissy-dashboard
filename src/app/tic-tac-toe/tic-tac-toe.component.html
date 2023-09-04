@@ -1,0 +1,54 @@
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6"> 
+    <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+        class="relative flex flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+              <h5 class="typing-demo font-bold">Tic Tac Toe</h5>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex flex-col min-w-0 break-words shadow-soft-2xl bg-white rounded-2xl mb-1 bg-clip-border">
+          <div id="main">
+            <br><br>
+        
+            <input type="text" id="b1" onclick="myfunc_3(); myfunc();" readonly>
+        
+            <input type="text" id="b2" onclick="myfunc_4(); myfunc();" readonly>
+        
+            <input type="text" id="b3" onclick="myfunc_5(); myfunc();" readonly>
+            <br><br>
+        
+            <input type="text" id="b4" onclick="myfunc_6(); myfunc();" readonly>
+        
+            <input type="text" id="b5" onclick="myfunc_7(); myfunc();" readonly>
+        
+            <input type="text" id="b6" onclick="myfunc_8(); myfunc();" readonly>
+            <br><br>
+        
+            <input type="text" id="b7" onclick="myfunc_9(); myfunc();" readonly>
+        
+            <input type="text" id="b8" onclick="myfunc_10();myfunc();" readonly>
+        
+            <input type="text" id="b9" onclick="myfunc_11();myfunc();" readonly>
+        
+            <!-- Grid end here  -->
+            <br><br><br>
+            <!-- Button to reset game -->
+            <button id="but" (click)="refresh()">
+              RESET
+            </button>
+        
+            <br><br>
+        
+            <p id="print"></p>
+          </div>
+        </div>
+        </div>
+        <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+            <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+              <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+            </ngx-spinner>
+          </div>
+        
+</div>

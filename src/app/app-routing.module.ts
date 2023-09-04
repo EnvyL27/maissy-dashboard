@@ -63,6 +63,9 @@ import { FilterPress1Component } from './kluberplant/preparationroom/filter-pres
 import { FilterPress2Component } from './kluberplant/preparationroom/filter-press2/filter-press2.component';
 import { DpcPumpComponent } from './kluberplant/preparationroom/dpc-pump/dpc-pump.component';
 import { OxoniaComponent } from './kluberplant/preparationroom/oxonia/oxonia.component';
+import { GamesComponent } from './games/games.component';
+import { SuitComponent } from './suit/suit.component';
+import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -132,6 +135,9 @@ const routes: Routes = [
   {path: 'filterpress2', component: FilterPress2Component, canActivate: [AuthGuard]},
   {path: 'dpcpump', component: DpcPumpComponent, canActivate: [AuthGuard]},
   {path: 'oxonia', component: OxoniaComponent, canActivate: [AuthGuard]},
+  {path: 'games', component: GamesComponent, canActivate: [AuthGuard]},
+  {path: 'suit', component: SuitComponent, canActivate: [AuthGuard]},
+  {path: 'tictactoe', component: TicTacToeComponent, canActivate: [AuthGuard]},
 
 ];
 

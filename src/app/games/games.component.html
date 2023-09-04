@@ -1,0 +1,86 @@
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6">
+    <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <!-- <div class="relative flex flex-col min-w-0 break-words shadow-soft-2xl bg-white rounded-2xl mb-1 bg-clip-border">
+        <div class="flex-auto p-6">-->
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+         class="relative flex flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+              <h5 class="typing-demo font-bold">Get A Mouse</h5>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <form class="demo-content">
+              <input id="mole-title-toggle" style="width: 100%;" class="toggle mole-title-toggle" type="checkbox"
+                checked="checked" />
+              <div class="mole-title">
+                <p class="mole-title-chunks text-center">
+                  <span class="mole-title-far-left">Ge</span>
+                  <span class="mole-title-center-left">t-</span>
+                  <span class="mole-title-center">A</span>
+                  <span class="mole-title-center-right">-M</span>
+                  <span class="mole-title-far-right">ouse</span>
+                </p>
+                <label class="button mole-start-button" for="mole-title-toggle">Play</label>
+              </div>
+              <div class="mole-game">
+                <input id="mole-hole-far-left-toggle" class="toggle mole-hole-toggle" type="checkbox" />
+                <label class="mole-hole mole-hole-far-left" for="mole-hole-far-left-toggle"></label>
+                <div class="mole-hole mole-hole-far-left"></div>
+                <input id="mole-hole-center-left-toggle" class="toggle mole-hole-toggle" type="checkbox" />
+                <label class="mole-hole mole-hole-center-left" for="mole-hole-center-left-toggle"></label>
+                <div class="mole-hole mole-hole-center-left"></div>
+                <input id="mole-hole-center-toggle" class="toggle mole-hole-toggle" type="checkbox" />
+                <label class="mole-hole mole-hole-center" for="mole-hole-center-toggle"></label>
+                <div class="mole-hole mole-hole-center"></div>
+                <input id="mole-hole-center-right-toggle" class="toggle mole-hole-toggle" type="checkbox" />
+                <label class="mole-hole mole-hole-center-right" for="mole-hole-center-right-toggle"></label>
+                <div class="mole-hole mole-hole-center-right"></div>
+                <input id="mole-hole-far-right-toggle" class="toggle mole-hole-toggle" type="checkbox" />
+                <label class="mole-hole mole-hole-far-right" for="mole-hole-far-right-toggle"></label>
+                <div class="mole-hole mole-hole-far-right"></div>
+                <input id="mole-mole-0-toggle" class="toggle mole-mole-toggle" type="checkbox" />
+                <label class="mole-mole mole-mole-0" for="mole-mole-0-toggle"></label>
+                <input id="mole-mole-1-toggle" class="toggle mole-mole-toggle" type="checkbox" />
+                <label class="mole-mole mole-mole-1" for="mole-mole-1-toggle"></label>
+                <input id="mole-mole-2-toggle" class="toggle mole-mole-toggle" type="checkbox" />
+                <label class="mole-mole mole-mole-2" for="mole-mole-2-toggle"></label>
+                <input id="mole-mole-3-toggle" class="toggle mole-mole-toggle" type="checkbox" />
+                <label class="mole-mole mole-mole-3" for="mole-mole-3-toggle"></label>
+                <input id="mole-mole-4-toggle" class="toggle mole-mole-toggle" type="checkbox" />
+                <label class="mole-mole mole-mole-4" for="mole-mole-4-toggle"></label>
+                <p class="mole-score">current score</p>
+                <label class="button button-small mole-help-button" for="mole-help-toggle">pause/help</label>
+                <input id="mole-help-toggle" class="toggle mole-help-toggle" type="checkbox" />
+                <div class="mole-modal mole-help-modal">
+                  <p>Five moles and five holes. Click on the moles to hit them as they pop out. Be careful though&mdash;if
+                    you hit a hole when a mole isn't there, you damage the hole!</p>
+                  <input class="button mole-restart-button" type="reset" value="Restart" />
+                  <label class="button" for="mole-help-toggle">Continue</label>
+                </div>
+                <div class="mole-modal mole-win-modal">
+                  <p>Congratulations, shepherd! You got all of them. Those pesky moles won't be hurting your precious flock
+                    anymore.</p>
+                  <input class="button mole-restart-button" type="reset" value="Restart" />
+                </div>
+                <div class="mole-modal mole-loss-modal">
+                  <p>Oh no, all the holes are damaged! How will we ever catch those pesky moles now? Let's try that again.
+                  </p>
+                  <input class="button mole-restart-button" type="reset" value="Restart" />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- </div>
+      </div> -->
+      </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+          <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+        </ngx-spinner>
+      </div>
+      
+</div>

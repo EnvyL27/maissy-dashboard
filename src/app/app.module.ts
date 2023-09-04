@@ -81,6 +81,9 @@ import { FilterPress2Component } from './kluberplant/preparationroom/filter-pres
 import { OxoniaComponent } from './kluberplant/preparationroom/oxonia/oxonia.component';
 import { Pet1AgitatorsComponent } from './kluberplant/preparationroom/pet1-agitators/pet1-agitators.component';
 import { Pet2AgitatorsComponent } from './kluberplant/preparationroom/pet2-agitators/pet2-agitators.component';
+import { GamesComponent } from './games/games.component';
+import { SuitComponent } from './suit/suit.component';
+import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 
 
 @NgModule({
@@ -156,6 +159,9 @@ import { Pet2AgitatorsComponent } from './kluberplant/preparationroom/pet2-agita
     OxoniaComponent,
     Pet1AgitatorsComponent,
     Pet2AgitatorsComponent,
+    GamesComponent,
+    SuitComponent,
+    TicTacToeComponent,
 
   ],
   imports: [
