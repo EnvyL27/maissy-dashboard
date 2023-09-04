@@ -40,6 +40,8 @@ import { ColorcodeComponent } from './kluber/colorcode/colorcode.component';
 import { GreaseComponent } from './kluber/grease/grease.component';
 import { OilComponent } from './kluber/oil/oil.component';
 import { SpraysComponent } from './kluber/sprays/sprays.component';
+import { MaintenanceproductComponent } from './kluber/maintenanceproduct/maintenanceproduct.component';
+import { PasteComponent } from './kluber/paste/paste.component';
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import { SpraysComponent } from './kluber/sprays/sprays.component';
     GreaseComponent,
     OilComponent,
     SpraysComponent,
+    MaintenanceproductComponent,
+    PasteComponent,
 
   ],
   imports: [

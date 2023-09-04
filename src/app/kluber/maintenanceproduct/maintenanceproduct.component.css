@@ -6,8 +6,8 @@
   }
   
   .typing-demo {
-    width: 6ch;
-    animation: typing 0.4s steps(6), blink .3s step-end infinite alternate;
+    width: 19ch;
+    animation: typing 0.4s steps(19), blink .3s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     font-family: monospace;

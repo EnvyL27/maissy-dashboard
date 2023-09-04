@@ -19,6 +19,10 @@ import { Big5Component } from './big5/big5.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { GreaseComponent } from './kluber/grease/grease.component';
 import { OilComponent } from './kluber/oil/oil.component';
+import { SpraysComponent } from './kluber/sprays/sprays.component';
+import { PasteComponent } from './kluber/paste/paste.component';
+import { MaintenanceproductComponent } from './kluber/maintenanceproduct/maintenanceproduct.component';
+import { ColorcodeComponent } from './kluber/colorcode/colorcode.component';
 import { ContainerConveyorOffComponent } from './kluberplant/offlinepacking/container-conveyor-off/container-conveyor-off.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
@@ -42,10 +46,14 @@ const routes: Routes = [
   {path: 'cost_m_fsb', component: CostMFsbComponent, canActivate: [AuthGuard]},
   {path: 'apps_link', component: AppsLinkComponent, canActivate: [AuthGuard]},
   {path: 'big5', component: Big5Component, canActivate: [AuthGuard]},
-  {path: 'aboutus', component: AboutusComponent},
-  {path: 'grease', component: GreaseComponent},
-  {path: 'oil', component: OilComponent},
-  {path: 'containeroffline', component: ContainerConveyorOffComponent},
+  {path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]},
+  {path: 'grease', component: GreaseComponent, canActivate: [AuthGuard]},
+  {path: 'oil', component: OilComponent, canActivate: [AuthGuard]},
+  {path: 'sprays', component: SpraysComponent, canActivate: [AuthGuard]},
+  {path: 'paste', component: PasteComponent, canActivate: [AuthGuard]},
+  {path: 'colorcode', component: ColorcodeComponent, canActivate: [AuthGuard]},
+  {path: 'maintenanceproduct', component: MaintenanceproductComponent, canActivate: [AuthGuard]},
+  {path: 'containeroffline', component: ContainerConveyorOffComponent, canActivate: [AuthGuard]},
 
 ];
 

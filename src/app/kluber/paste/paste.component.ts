@@ -3,25 +3,26 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from 'src/app/service/master/count.service';
 
 @Component({
-  selector: 'app-sprays',
-  templateUrl: './sprays.component.html',
-  styleUrls: ['./sprays.component.css']
+  selector: 'app-paste',
+  templateUrl: './paste.component.html',
+  styleUrls: ['./paste.component.css']
 })
-export class SpraysComponent implements OnInit {
+export class PasteComponent implements OnInit {
+
   src: any;
   public resolved: boolean = false;
-  private spraysproduct: any;
-  sprays: object = {};
-  sprayslist: any = [];
+  private pasteproduct: any;
+  paste: object = {};
+  pastelist: any = [];
   loaddata: any;
   deskripsi: any = 'Loading..';
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
   async ngOnInit(): Promise<void> {
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
-    this.spraysproduct = this.service.getSpraysProduct().subscribe(data => {
-      this.sprays = data;
-      Object.values(this.sprays).forEach(data => {
+    this.pasteproduct = this.service.getPasteProduct().subscribe(data => {
+      this.paste = data;
+      Object.values(this.paste).forEach(data => {
         // // console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
@@ -29,7 +30,7 @@ export class SpraysComponent implements OnInit {
 
         // // console.log(array);
         for (let i = 0; i < array.length; i++) {
-          this.sprayslist.splice(this.sprayslist.lenght, 0, array[i]);
+          this.pastelist.splice(this.pastelist.lenght, 0, array[i]);
         }
 
         this.spinner.hide();
@@ -44,7 +45,4 @@ export class SpraysComponent implements OnInit {
   getpdf(link: any) {
     window.open("http://192.168.9.47/kluber_lubrication/files/" + link, "_blank");
   }
-
-
-
 }
