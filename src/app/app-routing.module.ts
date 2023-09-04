@@ -43,6 +43,18 @@ import { PalletiserComponent } from './kluberplant/petline1/palletiser/palletise
 import { PackRollerConveyorsComponent } from './kluberplant/petline1/pack-roller-conveyors/pack-roller-conveyors.component';
 import { SanyuComponent } from './kluberplant/petline1/sanyu/sanyu.component';
 import { KronesComponent } from './kluberplant/petline1/krones/krones.component';
+import { Petline2Component } from './kluberplant/petline2/petline2.component';
+import { Injectionmolderpt2Component } from './kluberplant/petline2/injectionmolderpt2/injectionmolderpt2.component';
+import { Bottleblowerpt2Component } from './kluberplant/petline2/bottleblowerpt2/bottleblowerpt2.component';
+import { Fillerpt2Component } from './kluberplant/petline2/fillerpt2/fillerpt2.component';
+import { Conveyorpt2Component } from './kluberplant/petline2/conveyorpt2/conveyorpt2.component';
+import { Labellerpt2Component } from './kluberplant/petline2/labellerpt2/labellerpt2.component';
+import { Sanyudividerpt2Component } from './kluberplant/petline2/sanyudividerpt2/sanyudividerpt2.component';
+import { Caserpt2Component } from './kluberplant/petline2/caserpt2/caserpt2.component';
+import { Sheetfeederpt2Component } from './kluberplant/petline2/sheetfeederpt2/sheetfeederpt2.component';
+import { Packconveyorpt2Component } from './kluberplant/petline2/packconveyorpt2/packconveyorpt2.component';
+import { Palletconveyorpt2Component } from './kluberplant/petline2/palletconveyorpt2/palletconveyorpt2.component';
+import { Palletiserpt2Component } from './kluberplant/petline2/palletiserpt2/palletiserpt2.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -92,6 +104,18 @@ const routes: Routes = [
   {path: 'packrollerconveyor', component: PackRollerConveyorsComponent, canActivate: [AuthGuard]},
   {path: 'sanyu', component: SanyuComponent, canActivate: [AuthGuard]},
   {path: 'krones', component: KronesComponent, canActivate: [AuthGuard]},
+  {path: 'petline2', component: Petline2Component},
+  {path: 'injectmolderpt2', component: Injectionmolderpt2Component},
+  {path: 'bottleblowerpt2', component: Bottleblowerpt2Component},
+  {path: 'fillerpt2', component: Fillerpt2Component},
+  {path: 'conveyorpt2', component: Conveyorpt2Component},
+  {path: 'labellerpt2', component: Labellerpt2Component},
+  {path: 'sanyudividerpt2', component: Sanyudividerpt2Component},
+  {path: 'caserpt2', component: Caserpt2Component},
+  {path: 'sheetfeederpt2', component: Sheetfeederpt2Component},
+  {path: 'packconveyorpt2', component: Packconveyorpt2Component},
+  {path: 'palletconveyorpt2', component: Palletconveyorpt2Component},
+  {path: 'palletiserpt2', component: Palletiserpt2Component},
 
 ];
 

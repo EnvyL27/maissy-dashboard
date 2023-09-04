@@ -62,6 +62,18 @@ import { PalletiserComponent } from './kluberplant/petline1/palletiser/palletise
 import { SanyuComponent } from './kluberplant/petline1/sanyu/sanyu.component';
 import { SheetFeederComponent } from './kluberplant/petline1/sheet-feeder/sheet-feeder.component';
 import { ShrinkTrayComponent } from './kluberplant/petline1/shrink-tray/shrink-tray.component';
+import { Petline2Component } from './kluberplant/petline2/petline2.component';
+import { Bottleblowerpt2Component } from './kluberplant/petline2/bottleblowerpt2/bottleblowerpt2.component';
+import { Caserpt2Component } from './kluberplant/petline2/caserpt2/caserpt2.component';
+import { Conveyorpt2Component } from './kluberplant/petline2/conveyorpt2/conveyorpt2.component';
+import { Fillerpt2Component } from './kluberplant/petline2/fillerpt2/fillerpt2.component';
+import { Injectionmolderpt2Component } from './kluberplant/petline2/injectionmolderpt2/injectionmolderpt2.component';
+import { Labellerpt2Component } from './kluberplant/petline2/labellerpt2/labellerpt2.component';
+import { Packconveyorpt2Component } from './kluberplant/petline2/packconveyorpt2/packconveyorpt2.component';
+import { Palletconveyorpt2Component } from './kluberplant/petline2/palletconveyorpt2/palletconveyorpt2.component';
+import { Palletiserpt2Component } from './kluberplant/petline2/palletiserpt2/palletiserpt2.component';
+import { Sanyudividerpt2Component } from './kluberplant/petline2/sanyudividerpt2/sanyudividerpt2.component';
+import { Sheetfeederpt2Component } from './kluberplant/petline2/sheetfeederpt2/sheetfeederpt2.component';
 
 
 @NgModule({
@@ -118,6 +130,18 @@ import { ShrinkTrayComponent } from './kluberplant/petline1/shrink-tray/shrink-t
     SanyuComponent,
     SheetFeederComponent,
     ShrinkTrayComponent,
+    Petline2Component,
+    Bottleblowerpt2Component,
+    Caserpt2Component,
+    Conveyorpt2Component,
+    Fillerpt2Component,
+    Injectionmolderpt2Component,
+    Labellerpt2Component,
+    Packconveyorpt2Component,
+    Palletconveyorpt2Component,
+    Palletiserpt2Component,
+    Sanyudividerpt2Component,
+    Sheetfeederpt2Component,
 
   ],
   imports: [
