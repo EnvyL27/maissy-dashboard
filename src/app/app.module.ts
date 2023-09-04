@@ -84,6 +84,7 @@ import { Pet2AgitatorsComponent } from './kluberplant/preparationroom/pet2-agita
 import { GamesComponent } from './games/games.component';
 import { SuitComponent } from './suit/suit.component';
 import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -162,6 +163,7 @@ import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
     GamesComponent,
     SuitComponent,
     TicTacToeComponent,
+    NotFoundComponent,
 
   ],
   imports: [

@@ -68,6 +68,7 @@ import { SuitComponent } from './suit/suit.component';
 import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -138,6 +139,7 @@ const routes: Routes = [
   {path: 'games', component: GamesComponent, canActivate: [AuthGuard]},
   {path: 'suit', component: SuitComponent, canActivate: [AuthGuard]},
   {path: 'tictactoe', component: TicTacToeComponent, canActivate: [AuthGuard]},
+  {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]},
 
 ];
 
