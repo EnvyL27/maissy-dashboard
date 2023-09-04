@@ -16,6 +16,7 @@ import { CostMOci2Component } from './cost-m-oci2/cost-m-oci2.component';
 import { CostMFsbComponent } from './cost-m-fsb/cost-m-fsb.component';
 import { AppsLinkComponent } from './apps-link/apps-link.component';
 import { Big5Component } from './big5/big5.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: 'cost_m_fsb', component: CostMFsbComponent, canActivate: [AuthGuard]},
   {path: 'apps_link', component: AppsLinkComponent, canActivate: [AuthGuard]},
   {path: 'big5', component: Big5Component, canActivate: [AuthGuard]},
+  {path: 'aboutus', component: AboutusComponent},
 
 ];
 

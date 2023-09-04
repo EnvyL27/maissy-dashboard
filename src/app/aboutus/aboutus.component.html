@@ -1,1 +1,117 @@
-<p>aboutus works!</p>
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6">
+    <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+        class="relative flex flex-col mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+            <h5 class="typing-demo font-bold">About Apps
+            </h5>
+          </div>
+          </div>
+        </div>
+      <div class="relative flex flex-col mb-4 min-w-0">
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-full mt-1 max-w-full px-3 lg-max:mt-6 xl:w-1/2">
+            <div
+              class="relative flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="p-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
+                <div class="flex flex-wrap -mx-3">
+                  <div class="flex justify-center w-full max-w-full px-3 shrink-0 md:w-full md:flex-none">
+                    <h6 class="mb-0 font-bold">APPLICATION INFORMATION</h6>
+                  </div>
+                  <!-- <div class="w-full max-w-full px-3 text-right shrink-0 md:w-4/12 md:flex-none">
+                    <a href="javascript:;" data-target="tooltip_trigger" data-placement="top">
+                    </a>
+                    <div data-target="tooltip" class="hidden px-2 py-1 text-center text-white bg-black rounded-lg text-sm"
+                      role="tooltip">
+                      <div
+                        class="invisible absolute h-2 w-2 bg-inherit before:visible before:absolute before:h-2 before:w-2 before:rotate-45 before:bg-inherit before:content-['']"
+                        data-popper-arrow></div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="flex-auto p-4">
+                <p style=" text-align: justify;" class="leading-normal text-sm">The smart maintenance system application aims to make it easier to monitor data on pdm sheets, am cheek sheets, and the big 5 alarms, not only that there is information related to lubrication system to make it easier to read and do. the data contained in the smart maintenance system is dynamic when the incoming data is updated automatically</p>
+                <ul class="flex flex-col pl-0 mb-0 rounded-lg ">
+                  <li class="center text-center">
+                    <img src="assets/img/maisylogo.png" style="width: 100%;">
+                  </li>
+                  <li class="relative block px-4 py-2 pl-0 leading-normal bg-white border-0 border-t-0 text-sm text-inherit" style="text-align: right; margin-top: 30px;">
+                    <strong class="text-slate-700">Apps Version: 0.0.2</strong>
+                  </li>
+                  <li>
+                    <a routerLink="docs" class="button button2">
+                      Docs
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w-full mt-1 max-w-full px-3 lg-max:mt-6 xl:w-1/2">
+            <div
+              class="w-full flex flex-col h-full min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
+              <!-- component -->
+              <form class="w-full p-6 max-w-lg" (submit)="sendEmail($event)">
+                <h5>please let us know if there are bugs or application improvisations</h5>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                     Nama
+                    </label>
+                    <input
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="text" placeholder="Name" [(ngModel)]="name" id="{{name}}" name="user_name">
+                  </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                      Phone Number
+                    </label>
+                    <input
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                      type="number" placeholder="Number"  [(ngModel)]="email" name="user_email">
+                  </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+                      Message
+                    </label>
+                    <textarea
+                      class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                      name="message" placeholder="Message" [(ngModel)]="pesan" id="{{pesan}}"></textarea>
+                  </div>
+                </div>
+                <div class="md:flex text-center">
+                  <div class="md:w-1/3" *ngIf="pesan != '' && email != null && name != '';else cek">
+                    <input
+                      class="shadow focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                      type="submit" value="Send" style="background-color: blue;transition-duration: 0.4s;">
+                      <p style="color: red;">{{load}}</p>
+                  </div>
+                  <ng-template #cek>
+                    <div class="md:w-1/3">
+                      <p>Please fill in the blank data</p>
+                      <h5 style="color: green;" class="text-center">{{sukses}}</h5>
+                    </div>
+                  </ng-template>
+                  <div class="md:w-2/3"></div>
+                </div>
+              </form>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+</div>
+
+  <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-beat">
+      <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+    </ngx-spinner>
+  </div>
+  
