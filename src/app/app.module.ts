@@ -85,6 +85,9 @@ import { GamesComponent } from './games/games.component';
 import { SuitComponent } from './suit/suit.component';
 import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ToastrModule } from 'ngx-toastr';
+import { SnkComponent } from './snk/snk.component';
+
 
 
 @NgModule({
@@ -164,10 +167,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SuitComponent,
     TicTacToeComponent,
     NotFoundComponent,
+    SnkComponent,
 
   ],
   imports: [
     BrowserModule,
+    ToastrModule.forRoot({timeOut: 10000,
+      positionClass: 'toast-top-right',
+      progressBar: true,
+      preventDuplicates: true,}),
     NgxSpinnerModule,
     NgxPaginationModule,
     CommonModule,

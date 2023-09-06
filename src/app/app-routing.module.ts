@@ -66,6 +66,7 @@ import { OxoniaComponent } from './kluberplant/preparationroom/oxonia/oxonia.com
 import { GamesComponent } from './games/games.component';
 import { SuitComponent } from './suit/suit.component';
 import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
+import { SnkComponent } from './snk/snk.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -139,6 +140,7 @@ const routes: Routes = [
   {path: 'games', component: GamesComponent, canActivate: [AuthGuard]},
   {path: 'suit', component: SuitComponent, canActivate: [AuthGuard]},
   {path: 'tictactoe', component: TicTacToeComponent, canActivate: [AuthGuard]},
+  {path: 'snakeladder', component: SnkComponent, canActivate: [AuthGuard]},
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]},
 
 ];

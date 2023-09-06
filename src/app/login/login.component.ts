@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 // import { AlertType } from 'src/app/services/alert/alert.model';
 // import { AlertService } from 'src/app/services/alert/alert.service';
 import { AuthService } from './../service/auth/auth.service';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,10 @@ export class LoginComponent {
   form!: FormGroup;
   showPassword: Boolean = false;
   submitted = false;
+  name: string = '';
 
   constructor(
+    public toastr: ToastrService,
     private authService: AuthService,
     // private alertService: AlertService,
     private formBuilder: FormBuilder,
@@ -25,6 +28,27 @@ export class LoginComponent {
       nik: ['', Validators.required],
       password: ['', Validators.required],
     });
+  }
+
+  showSuccess() {
+    this.toastr.success('HELLO ' + this.name + '!', 'Login Success',{
+      timeOut: 3000,
+    })
+  }
+  showError() {
+    this.toastr.error('Oops! It seems there was an issue with your NIK or password!', 'Login Failed', {
+      timeOut: 3000,
+    })
+  }
+  showInfo() {
+    this.toastr.info('everything is broken', 'Major Error', {
+      timeOut: 3000,
+    })
+  }
+  showWarning() {
+    this.toastr.warning('everything is broken', 'Major Error', {
+      timeOut: 3000,
+    })
   }
 
   get f() {
@@ -41,11 +65,13 @@ export class LoginComponent {
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
         (data) => {
-          // console.log(data.access_token);
+          // console.log(data);
+          // console.log(data.user[0].lg_name);
+          this.name = data.user[0].lg_name;
 
           this.authService.saveToken(data.access_token);
           this.authService.saveUser(data.user);
-
+          this.showSuccess()
           console.log('Sign In Success');
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
 
@@ -54,6 +80,7 @@ export class LoginComponent {
         },
         (err) => {
           if (err.statusText == 'Unauthorized') {
+            this.showError()
             console.log('Email or Pass Invalid');
             // this.alertService.onCallAlert(
             //   'Email or Password Invalid',
@@ -62,6 +89,7 @@ export class LoginComponent {
             '<div class="alert success-alert" ><h3>Success Alert Message < /h3>< a class="close" >& times; </a> < /div>'
           } else {
             // this.alertService.onCallAlert('Login Failed', AlertType.Error);
+            this.showError()
             console.log('Sign In Failed');
           }
 
