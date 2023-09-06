@@ -36,7 +36,7 @@ export class LoginComponent {
     })
   }
   showError() {
-    this.toastr.error('Oops! It seems there was an issue with your NIK or password!', 'Login Failed', {
+    this.toastr.error('Oops! something wrong!', 'Login Failed', {
       timeOut: 3000,
     })
   }
@@ -46,7 +46,7 @@ export class LoginComponent {
     })
   }
   showWarning() {
-    this.toastr.warning('everything is broken', 'Major Error', {
+    this.toastr.warning('Oops! It seems there was an issue with your NIK or password!', 'Login Failed', {
       timeOut: 3000,
     })
   }
@@ -72,7 +72,7 @@ export class LoginComponent {
           this.authService.saveToken(data.access_token);
           this.authService.saveUser(data.user);
           this.showSuccess()
-          console.log('Sign In Success');
+          // console.log('Sign In Success');
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
 
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
@@ -80,8 +80,8 @@ export class LoginComponent {
         },
         (err) => {
           if (err.statusText == 'Unauthorized') {
-            this.showError()
-            console.log('Email or Pass Invalid');
+            this.showWarning()
+            // console.log('Email or Pass Invalid');
             // this.alertService.onCallAlert(
             //   'Email or Password Invalid',
             //   AlertType.Error
