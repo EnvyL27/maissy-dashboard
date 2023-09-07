@@ -5,6 +5,8 @@ import { VERSION } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import { map, share, Subscription, timer } from 'rxjs';
+import { AuthService } from './../../service/auth/auth.service';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -22,7 +24,10 @@ export class SidebarComponent implements OnInit {
   public lubisub: boolean = false;
   public lubiplantsub: boolean = false;
   currentDate = new Date();
-  constructor(public router: Router,@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    public router: Router,
+    @Inject(DOCUMENT) private document: Document,
+    private authService: AuthService,) {}
   ngOnInit(): void {
     setInterval(() => {
       this.currentDate = new Date();
