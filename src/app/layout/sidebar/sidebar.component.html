@@ -403,7 +403,7 @@
         </li>
       </ng-template>
 
-  <div *ngIf="
+      <div *ngIf="
       router.url === '/cilt_m_oci1' ||
         router.url === '/cilt_m_oci2' ||
         router.url === '/cilt_m_fsb' ;
@@ -481,51 +481,51 @@
           </ul>
         </li>
       </div>
-  <ng-template #lainCilt>
-    <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-      <div
-        class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>CILT Monitoring</title>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-              <g transform="translate(1716.000000, 291.000000)">
-                <g transform="translate(453.000000, 454.000000)">
-                  <path class="fill-slate-800 opacity-60"
-                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
-                  </path>
-                  <path class="fill-slate-800"
-                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                  </path>
+      <ng-template #lainCilt>
+        <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+          <div
+            class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>CILT Monitoring</title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                  <g transform="translate(1716.000000, 291.000000)">
+                    <g transform="translate(453.000000, 454.000000)">
+                      <path class="fill-slate-800 opacity-60"
+                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                      </path>
+                      <path class="fill-slate-800"
+                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                      </path>
+                    </g>
+                  </g>
                 </g>
               </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <button type="button" (click)="ciltmonitoringsub()">
-        <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">CILT Monitoring</span>
-      </button>
-      <li *ngIf="ciltsub" class="ml-6">
-        <ul class="">
-          <li class="ml-6">
-            <a routerLink="cilt_m_oci1"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
-              1</a>
-          </li>
-          <li class="ml-6">
-            <a routerLink="cilt_m_oci2"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
-              2</a>
-          </li>
-          <li class="ml-6">
-            <a routerLink="cilt_m_fsb"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">FSB</a>
-          </li>
-        </ul>
-      </li>
-  </ng-template>
+            </svg>
+          </div>
+          <button type="button" (click)="ciltmonitoringsub()">
+            <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">CILT Monitoring</span>
+          </button>
+        <li *ngIf="ciltsub" class="ml-6">
+          <ul class="">
+            <li class="ml-6">
+              <a routerLink="cilt_m_oci1"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
+                1</a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="cilt_m_oci2"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
+                2</a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="cilt_m_fsb"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">FSB</a>
+            </li>
+          </ul>
+        </li>
+      </ng-template>
       <!--
   <li class="mt-0.5 w-full">
     <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
@@ -558,7 +558,7 @@
     </a>
   </li>
   --->
-  <div *ngIf="
+      <div *ngIf="
       router.url === '/cost_oci_1' ||
         router.url === '/cost_oci_2' ||
         router.url === '/cost_fsb' ;
@@ -636,51 +636,51 @@
           </ul>
         </li>
       </div>
-  <ng-template #lain22>
-    <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-      <div
-        class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>Cost Monitoring</title>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-              <g transform="translate(1716.000000, 291.000000)">
-                <g transform="translate(453.000000, 454.000000)">
-                  <path class="fill-slate-800 opacity-60"
-                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
-                  </path>
-                  <path class="fill-slate-800"
-                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                  </path>
+      <ng-template #lain22>
+        <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+          <div
+            class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Cost Monitoring</title>
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                  <g transform="translate(1716.000000, 291.000000)">
+                    <g transform="translate(453.000000, 454.000000)">
+                      <path class="fill-slate-800 opacity-60"
+                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                      </path>
+                      <path class="fill-slate-800"
+                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                      </path>
+                    </g>
+                  </g>
                 </g>
               </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <button type="button" (click)="costmonitoringsub()">
-        <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">Cost Monitoring</span>
-      </button>
-      <li *ngIf="subCost" class="ml-6">
-        <ul class="">
-          <li class="ml-6">
-            <a routerLink="cost_oci_1"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
-              1</a>
-          </li>
-          <li class="ml-6">
-            <a routerLink="cost_oci_2"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
-              2</a>
-          </li>
-          <li class="ml-6">
-            <a routerLink="cost_oci_fsb"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">FSB</a>
-          </li>
-        </ul>
-      </li>
-  </ng-template>
+            </svg>
+          </div>
+          <button type="button" (click)="costmonitoringsub()">
+            <span class="ml-1 duration-200 opacity-100 pointer-events-none ease-soft">Cost Monitoring</span>
+          </button>
+        <li *ngIf="subCost" class="ml-6">
+          <ul class="">
+            <li class="ml-6">
+              <a routerLink="cost_oci_1"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
+                1</a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="cost_oci_2"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">OCI
+                2</a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="cost_oci_fsb"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">FSB</a>
+            </li>
+          </ul>
+        </li>
+      </ng-template>
       <div *ngIf="
       router.url === '/apps_link'
         else lain5
@@ -1471,6 +1471,38 @@ else lain6
 
     <div class="items-center block w-auto overflow-auto grow basis-full pt-6">
       <ul class="flex flex-col pl-0 mb-0">
+        <div (click)="signOut()">
+          <li class="mt-0.5 w-full ">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 text-slate-700 hover:bg-red-400 hover:text-white duration-200">
+              <div 
+                class="bg-gradient-to-tl from-red-300 to-orange-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 489.9 489.9" xml:space="preserve">
+                  <g>
+                    <g>
+                      <g>
+                        <path d="M468.3,255.8c0.1-0.1,0.1-0.1,0.2-0.2c0.3-0.4,0.6-0.7,0.8-1.1c0.1-0.1,0.1-0.2,0.2-0.3c0.2-0.4,0.5-0.8,0.7-1.2
+				c0-0.1,0.1-0.2,0.1-0.2c0.2-0.4,0.4-0.8,0.6-1.3c0-0.1,0-0.1,0.1-0.2c0.2-0.4,0.3-0.9,0.5-1.4c0-0.1,0-0.2,0.1-0.2
+				c0.1-0.5,0.3-0.9,0.3-1.4c0-0.2,0-0.3,0.1-0.5c0.1-0.4,0.1-0.8,0.2-1.2c0.1-0.6,0.1-1.1,0.1-1.7c0-0.6,0-1.1-0.1-1.7
+				c0-0.4-0.1-0.8-0.2-1.2c0-0.2,0-0.3-0.1-0.5c-0.1-0.5-0.2-0.9-0.3-1.4c0-0.1,0-0.2-0.1-0.2c-0.1-0.5-0.3-0.9-0.5-1.4
+				c0-0.1,0-0.1-0.1-0.2c-0.2-0.4-0.4-0.9-0.6-1.3c0-0.1-0.1-0.2-0.1-0.2c-0.2-0.4-0.4-0.8-0.7-1.2c-0.1-0.1-0.1-0.2-0.2-0.3
+				c-0.3-0.4-0.5-0.8-0.8-1.1c-0.1-0.1-0.1-0.1-0.2-0.2c-0.4-0.4-0.7-0.9-1.2-1.3l-98.9-98.8c-6.7-6.7-17.6-6.7-24.3,0
+				c-6.7,6.7-6.7,17.6,0,24.3l69.6,69.6H136.8c-9.5,0-17.2,7.7-17.2,17.1c0,9.5,7.7,17.2,17.2,17.2h276.8l-69.1,69.1
+				c-6.7,6.7-6.7,17.6,0,24.3c3.3,3.3,7.7,5,12.1,5s8.8-1.7,12.1-5l98.3-98.3C467.5,256.6,467.9,256.2,468.3,255.8z" />
+                        <path d="M110.7,34.3h128c9.5,0,17.2-7.7,17.2-17.1c0-9.5-7.7-17.2-17.2-17.2h-128C59.4,0,17.6,41.8,17.6,93.1v303.7
+				c0,51.3,41.8,93.1,93.1,93.1h125.9c9.5,0,17.2-7.7,17.2-17.1c0-9.5-7.7-17.2-17.2-17.2H110.7c-32.4,0-58.8-26.4-58.8-58.8V93.1
+				C52,60.6,78.3,34.3,110.7,34.3z" />
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <span class="ml-1 opacity-100 pointer-events-none">Log out</span>
+            </a>
+          </li>
+        </div>
+
         <div *ngIf="router.url === '/'; else lain">
           <li class="mt-0.5 w-full">
             <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700"
@@ -1502,8 +1534,7 @@ else lain6
         </div>
         <ng-template #lain>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm my-0 mx-4 flex items-center px-4 "
-              routerLink="">
+            <a class="py-2.7 text-sm my-0 mx-4 flex items-center px-4 " routerLink="">
               <div
                 class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                 <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -1585,7 +1616,8 @@ else lain6
                   </g>
                 </svg>
               </div>
-              <span class="ml-1 duration-300 opacity-100 text-gray-500 pointer-events-none ease-soft">PDM Dashboard</span>
+              <span class="ml-1 duration-300 opacity-100 text-gray-500 pointer-events-none ease-soft">PDM
+                Dashboard</span>
             </a>
           </li>
         </ng-template>
@@ -1620,7 +1652,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="ammonitoringsub()">
-              <span class="ml-1 duration-200 text-gray-600 opacity-100 pointer-events-none ease-soft">Order Monitoring</span>
+              <span class="ml-1 duration-200 text-gray-600 opacity-100 pointer-events-none ease-soft">Order
+                Monitoring</span>
             </button>
             <br />
           </li>
@@ -1708,7 +1741,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="ammonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Order Monitoring</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Order
+                Monitoring</span>
             </button>
             <br />
           </li>
@@ -1766,7 +1800,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="pdmmonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">PDM Monitoring</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">PDM
+                Monitoring</span>
             </button>
             <br />
           </li>
@@ -1840,7 +1875,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="pdmmonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">PDM Monitoring</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">PDM
+                Monitoring</span>
             </button>
             <br />
           </li>
@@ -1870,133 +1906,135 @@ else lain6
           router.url === '/cilt_m_fsb' ;
         else lainCilt
       ">
-            <li
-              class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-              <div
-                class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <title>CILT Monitoring</title>
-                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(453.000000, 454.000000)">
-                          <path class="opacity-60"
-                            d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
-                          </path>
-                          <path class=""
-                            d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                          </path>
-                        </g>
+          <li
+            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+            <div
+              class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>CILT Monitoring</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(453.000000, 454.000000)">
+                        <path class="opacity-60"
+                          d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                        </path>
+                        <path class=""
+                          d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                        </path>
                       </g>
                     </g>
                   </g>
-                </svg>
+                </g>
+              </svg>
+            </div>
+            <button type="button" (click)="ciltmonitoringsub()">
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">CILT
+                Monitoring</span>
+            </button>
+            <br />
+          </li>
+          <li [ngClass]="ciltsub ? '': 'hidden'" class="ml-6">
+            <ul class="py-2 space-y-2">
+              <div *ngIf="router.url === '/cilt_m_oci1'; else kategoricilt1">
+                <li class="ml-6">
+                  <a routerLink="cilt_m_oci1"
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                    1</a>
+                </li>
               </div>
-              <button type="button" (click)="ciltmonitoringsub()">
-                <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">CILT Monitoring</span>
-              </button>
-              <br />
-            </li>
-            <li [ngClass]="ciltsub ? '': 'hidden'" class="ml-6">
-              <ul class="py-2 space-y-2">
-                <div *ngIf="router.url === '/cilt_m_oci1'; else kategoricilt1">
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_oci1"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                      1</a>
-                  </li>
-                </div>
-                <ng-template #kategoricilt1>
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_oci1"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                      1</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/cilt_m_oci2'; else kategoricilt2">
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_oci2"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                      2</a>
-                  </li>
-                </div>
-                <ng-template #kategoricilt2>
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_oci2"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                      2</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/cilt_m_fsb'; else kategoricilt3">
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_fsb"
-                      class="ounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
-                  </li>
-                </div>
-                <ng-template #kategoricilt3>
-                  <li class="ml-6">
-                    <a routerLink="cilt_m_fsb"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
-                  </li>
-                </ng-template>
-              </ul>
-            </li>
-          </div>
+              <ng-template #kategoricilt1>
+                <li class="ml-6">
+                  <a routerLink="cilt_m_oci1"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                    1</a>
+                </li>
+              </ng-template>
+              <div *ngIf="router.url === '/cilt_m_oci2'; else kategoricilt2">
+                <li class="ml-6">
+                  <a routerLink="cilt_m_oci2"
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                    2</a>
+                </li>
+              </div>
+              <ng-template #kategoricilt2>
+                <li class="ml-6">
+                  <a routerLink="cilt_m_oci2"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                    2</a>
+                </li>
+              </ng-template>
+              <div *ngIf="router.url === '/cilt_m_fsb'; else kategoricilt3">
+                <li class="ml-6">
+                  <a routerLink="cilt_m_fsb"
+                    class="ounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                </li>
+              </div>
+              <ng-template #kategoricilt3>
+                <li class="ml-6">
+                  <a routerLink="cilt_m_fsb"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                </li>
+              </ng-template>
+            </ul>
+          </li>
+        </div>
 
-      <ng-template #lainCilt>
-        <li
-        class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-        <div
-          class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-          <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <title>CILT Monitoring</title>
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                <g transform="translate(1716.000000, 291.000000)">
-                  <g transform="translate(453.000000, 454.000000)">
-                    <path class="fill-slate-800 opacity-60"
-                      d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
-                    </path>
-                    <path class="fill-slate-800"
-                      d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                    </path>
+        <ng-template #lainCilt>
+          <li
+            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+            <div
+              class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>CILT Monitoring</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(453.000000, 454.000000)">
+                        <path class="fill-slate-800 opacity-60"
+                          d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                        </path>
+                        <path class="fill-slate-800"
+                          d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                        </path>
+                      </g>
+                    </g>
                   </g>
                 </g>
-              </g>
-            </g>
-          </svg>
-        </div>
-        <button type="button" (click)="ciltmonitoringsub()">
-          <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">CILT Monitoring</span>
-        </button>
-        <br />
-      </li>
-      <li *ngIf="ciltsub" class="ml-6">
-        <ul class="">
-          <li class="ml-6">
-            <a routerLink="cilt_m_oci1"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
-              1</a>
+              </svg>
+            </div>
+            <button type="button" (click)="ciltmonitoringsub()">
+              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">CILT
+                Monitoring</span>
+            </button>
+            <br />
           </li>
-          <li class="ml-6">
-            <a routerLink="cilt_m_oci2"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
-              2</a>
-          </li>
-          <li class="ml-6">
-            <a routerLink="cilt_m_fsb"
-              class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">FSB</a>
-          </li>
-          <!-- <li class="ml-6">
+          <li *ngIf="ciltsub" class="ml-6">
+            <ul class="">
+              <li class="ml-6">
+                <a routerLink="cilt_m_oci1"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                  1</a>
+              </li>
+              <li class="ml-6">
+                <a routerLink="cilt_m_oci2"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                  2</a>
+              </li>
+              <li class="ml-6">
+                <a routerLink="cilt_m_fsb"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">FSB</a>
+              </li>
+              <!-- <li class="ml-6">
             <a routerLink="cost_utilen"
               class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">UTIL
               - ENG</a>
           </li> -->
-        </ul>
-      </li>
-      </ng-template>
+            </ul>
+          </li>
+        </ng-template>
         <!--
     <li class="mt-0.5 w-full">
       <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
@@ -2029,7 +2067,7 @@ else lain6
       </a>
     </li>
     --->
-    <div *ngIf="
+        <div *ngIf="
       router.url === '/cost_m_oci1' ||
         router.url === '/cost_m_oci2' ||
         router.url === '/cost_m_fsb' ;
@@ -2059,7 +2097,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="costmonitoringsub()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Cost Monitoring</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Cost
+                Monitoring</span>
             </button>
             <br />
           </li>
@@ -2109,59 +2148,60 @@ else lain6
           </li>
         </div>
 
-    <ng-template #lainCost>
-      <li
-      class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-      <div
-        class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-          <title>Cost Monitoring</title>
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-              <g transform="translate(1716.000000, 291.000000)">
-                <g transform="translate(453.000000, 454.000000)">
-                  <path class="fill-slate-800 opacity-60"
-                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
-                  </path>
-                  <path class="fill-slate-800"
-                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                  </path>
+        <ng-template #lainCost>
+          <li
+            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+            <div
+              class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
+              <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>Cost Monitoring</title>
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <g transform="translate(1716.000000, 291.000000)">
+                      <g transform="translate(453.000000, 454.000000)">
+                        <path class="fill-slate-800 opacity-60"
+                          d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z">
+                        </path>
+                        <path class="fill-slate-800"
+                          d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
+                        </path>
+                      </g>
+                    </g>
+                  </g>
                 </g>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <button type="button" (click)="costmonitoringsub()">
-        <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Cost Monitoring</span>
-      </button>
-      <br />
-    </li>
-    <li *ngIf="subCost" class="ml-6">
-      <ul class="">
-        <li class="ml-6">
-          <a routerLink="cost_m_oci1"
-            class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">OCI
-            1</a>
-        </li>
-        <li class="ml-6">
-          <a routerLink="cost_m_oci2"
-            class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">OCI
-            2</a>
-        </li>
-        <li class="ml-6">
-          <a routerLink="cost_m_fsb"
-            class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">FSB</a>
-        </li>
-        <!-- <li class="ml-6">
+              </svg>
+            </div>
+            <button type="button" (click)="costmonitoringsub()">
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Cost
+                Monitoring</span>
+            </button>
+            <br />
+          </li>
+          <li *ngIf="subCost" class="ml-6">
+            <ul class="">
+              <li class="ml-6">
+                <a routerLink="cost_m_oci1"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">OCI
+                  1</a>
+              </li>
+              <li class="ml-6">
+                <a routerLink="cost_m_oci2"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">OCI
+                  2</a>
+              </li>
+              <li class="ml-6">
+                <a routerLink="cost_m_fsb"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75  pl-11">FSB</a>
+              </li>
+              <!-- <li class="ml-6">
           <a routerLink="cost_utilen"
             class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">UTIL
             - ENG</a>
         </li> -->
-      </ul>
-    </li>
-    </ng-template>
+            </ul>
+          </li>
+        </ng-template>
 
         <div *ngIf="
         router.url === '/apps_link'
@@ -2266,7 +2306,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="big5sub()">
-              <span class="ml-1 duration-300 opacity-100 text-gray-600 pointer-events-none ease-soft">Alarm Analisis</span>
+              <span class="ml-1 duration-300 opacity-100 text-gray-600 pointer-events-none ease-soft">Alarm
+                Analisis</span>
             </button>
           </li>
           <li *ngIf="sub4" class="ml-6">
@@ -2316,7 +2357,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="big5sub()">
-              <span class="ml-1 duration-300 opacity-100 text-gray-600 pointer-events-none ease-soft">Alarm Analisis</span>
+              <span class="ml-1 duration-300 opacity-100 text-gray-600 pointer-events-none ease-soft">Alarm
+                Analisis</span>
             </button>
           </li>
           <li *ngIf="sub4" class="ml-6">
@@ -2366,7 +2408,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="lubiClick()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Lubricant Information</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-600 pointer-events-none ease-soft">Lubricant
+                Information</span>
             </button>
             <br />
           </li>
@@ -2476,7 +2519,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="lubiClick()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Lubricant Information</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Lubricant
+                Information</span>
             </button>
             <br />
           </li>
@@ -2704,7 +2748,8 @@ else lain6
               </svg>
             </div>
             <button type="button" (click)="lubiPlantClick()">
-              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Plant Lubricantion</span>
+              <span class="ml-1 duration-200 opacity-100 text-gray-500 pointer-events-none ease-soft">Plant
+                Lubricantion</span>
             </button>
             <br />
           </li>

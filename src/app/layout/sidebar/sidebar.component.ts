@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import { map, share, Subscription, timer } from 'rxjs';
 import { AuthService } from './../../service/auth/auth.service';
+import { ToastrService } from 'ngx-toastr'
 
 
 @Component({
@@ -25,6 +26,7 @@ export class SidebarComponent implements OnInit {
   public lubiplantsub: boolean = false;
   currentDate = new Date();
   constructor(
+    public toastr: ToastrService,
     public router: Router,
     @Inject(DOCUMENT) private document: Document,
     private authService: AuthService,) {}
@@ -32,6 +34,17 @@ export class SidebarComponent implements OnInit {
     setInterval(() => {
       this.currentDate = new Date();
     }, 1000);
+  }
+
+  showInfo() {
+    this.toastr.info('Thank you for using MAISSY! 😁', 'Log out Success', {
+      timeOut: 3000,
+    })
+  }
+  
+  signOut(){
+    this.authService.signOut()
+    this.showInfo()
   }
 
   lubiPlantClick(){
