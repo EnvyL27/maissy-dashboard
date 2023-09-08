@@ -1442,15 +1442,7 @@ export class AmMOci2Component implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
           console.log(this.temuanperday_data);
@@ -1489,15 +1481,7 @@ export class AmMOci2Component implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            },
           });
 
 

@@ -1442,15 +1442,7 @@ export class AmMOci1Component implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
           new Chart('totalfinding', {
@@ -1468,15 +1460,7 @@ export class AmMOci1Component implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
           new Chart('totalfindingbulan', {

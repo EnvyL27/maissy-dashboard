@@ -1448,15 +1448,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
           new Chart('totalfinding', {
@@ -1474,15 +1466,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
           new Chart('totalfindingbulan', {
@@ -1500,15 +1484,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
+            }, 
           });
 
 
