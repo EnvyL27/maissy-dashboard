@@ -112,7 +112,7 @@
             <div class="w-full space-y-1">
               <label class="text-[#D89C60] font-manrope" for="nikEmployee">NIK Employee</label>
               <input id="nikEmployee" type="text" formControlName="nik"
-                class="block w-full px-4 py-2 text-[#D89C60] font-manrope font-semibold bg-white border border-gray-300 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" />
+                class="block w-full px-4 py-2 text-[#D89C60] font-manrope font-semibold bg-white border border-gray-300 rounded-md focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40 focus:outline-none focus:ring" />
               <div *ngIf="submitted && f['nik'].errors" class="invalid-feedback">
                 <div *ngIf="f['nik'].errors['required']" class="text-red-500 dark:text-red-500 text-sm text-end">
                   NIK is required
@@ -134,7 +134,7 @@
                   </svg>
                 </a>
                 <input id="password" formControlName="password" [type]="this.showPassword ? 'text' : 'password'"
-                  class="block w-full px-4 py-2 text-[#D89C60] font-manrope font-semibold bg-white border border-gray-300 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring" />
+                  class="block w-full px-4 py-2 text-[#D89C60] font-manrope font-semibold bg-white border border-gray-300 rounded-md focus:border-orange-400 focus:ring-orange-300 focus:ring-opacity-40 focus:outline-none focus:ring" />
               </div>
               <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
                 <div *ngIf="f['password'].errors['required']" class="text-red-500 dark:text-red-500 text-sm text-end">
