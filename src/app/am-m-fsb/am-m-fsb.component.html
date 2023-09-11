@@ -182,7 +182,7 @@
       <div class="flex flex-wrap mx-3 w-full">
         <div class="w-full px-1 py-1 mx-auto">
           <div class="flex flex-wrap lg:-mx-4">
-            <div class="px-1 w-full max-w-full md:w-8/12 ">
+            <div class="px-1 w-full max-w-full md:w-8/12 "  id="ssTotal" #ssTotal>
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
                 <div class="flex-auto p-4 ">
@@ -192,6 +192,23 @@
               <div
                 class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
+                  <div class="grid grid-cols-2 items-start text-start mb-4">
+                    <div class="items-start text-start">
+                      <button
+                      class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                      (click)="totalCapture()"><i class="fa fa-camera fa-1"></i>
+                      Capture</button>
+                    </div>
+                    <div class="items-end text-end">
+                      <label for="month" class="mr-1 text-gray-600 font-semibold">Month : </label>
+                      <input type="month" style=" border: 1px solid #c4c4c4;
+                            border-radius: 5px;
+                            background-color: #fff;
+                            padding: 3px 5px;
+                            box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                          " width="48" [(ngModel)]="month" (ngModelChange)="totaldataChange()">
+                    </div>
+                </div>
                   <div style="height: 500px;">
                       <canvas id="dum" class="py-4"></canvas>
                   </div>
