@@ -42,7 +42,12 @@ export class AmMOci2Component implements OnInit {
 
   }
 
-  constructor(private service: CountService, private spinner: NgxSpinnerService, private captureService: NgxCaptureService, private httpClient: HttpClient) { }
+  constructor(
+    public toastr: ToastrService,
+    private service: CountService, 
+    private spinner: NgxSpinnerService, 
+    private captureService: NgxCaptureService, 
+    private httpClient: HttpClient) { }
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
@@ -65,6 +70,14 @@ export class AmMOci2Component implements OnInit {
   absoluteIndex4(indexOnPage: number): number {
     return this.itemsPerPage4 * (this.currentPage4 - 1) + indexOnPage;
   }
+
+  showInfo() {
+    this.toastr.info('If the image is cracked, try to resize the screen size!', 'Important!', {
+      timeOut: 7000,
+      positionClass: 'toast-top-left'
+    })
+  }
+
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;

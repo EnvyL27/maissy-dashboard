@@ -43,6 +43,7 @@ export class AmMFsbComponent implements OnInit {
   }
 
   constructor(
+    public toastr: ToastrService,
     private service: CountService, 
     private spinner: NgxSpinnerService, 
     private captureService: NgxCaptureService, 
@@ -69,6 +70,14 @@ export class AmMFsbComponent implements OnInit {
   absoluteIndex4(indexOnPage: number): number {
     return this.itemsPerPage4 * (this.currentPage4 - 1) + indexOnPage;
   }
+
+  showInfo() {
+    this.toastr.info('If the image is cracked, try to resize the screen size!', 'Important!', {
+      timeOut: 7000,
+      positionClass: 'toast-top-left'
+    })
+  }
+  
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
