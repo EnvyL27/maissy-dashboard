@@ -218,8 +218,10 @@ export class AmMOci1Component implements OnInit {
   taptapTotal!: ElementRef;
   totaldata: any = [];
   pendingexecute: number = 0;
+  pendingexecutetop: number = 0;
   chartdestroy: any;
   finishexecute: number = 0;
+  finishexecutetop: number = 0;
   imgBase64 = '';
   tgl1: any = moment().format("YYYY-MM") + "-01";
   tgl2: any = moment().format("YYYY-MM-DD");
@@ -229,6 +231,7 @@ export class AmMOci1Component implements OnInit {
   autodate: any = moment().format("YYYY");
   month: any = moment().format("M");
   readyexecute: number = 0;
+  readyexecutetop: number = 0;
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild("target2")
@@ -1483,23 +1486,23 @@ export class AmMOci1Component implements OnInit {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulan == this.month) { this.finishexecute += 1; }
+                if (elem.bulan == this.month) { this.finishexecute += 1; this.finishexecutetop += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1; }
+                if (elem.bulan == this.month) { this.readyexecute += 1; this.readyexecutetop += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulan == this.month) { this.pendingexecute += 1; }
+                  if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
 
                   this.temuanperday_data_temp.push(elem)
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulan == this.month) { this.pendingexecute += 1; }
+                if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               }

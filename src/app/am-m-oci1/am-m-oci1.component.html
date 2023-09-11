@@ -21,7 +21,7 @@
                     Total Finding
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{pendingexecute + finishexecute + readyexecute}}
+                    {{pendingexecutetop + finishexecutetop + readyexecutetop}}
                     <span> / Month</span>
                   </h5>
                 </div>
@@ -50,9 +50,9 @@
                   On Progres WO
                 </p>
                 <h5 class="mb-0 font-bold">
-                  {{pendingexecute}}
-                  <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / (pendingexecute + finishexecute +
-                    readyexecute)).toFixed(1)}}
+                  {{pendingexecutetop}}
+                  <span class="text-lime-500 ml-1">({{(pendingexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                    readyexecutetop)).toFixed(1)}}
                     %)</span>
                 </h5>
               </div>
@@ -79,9 +79,9 @@
                   Ready Execute
                 </p>
                 <h5 class="mb-0 font-bold">
-                  {{readyexecute}}
-                  <span class="text-lime-500 ml-1">({{(readyexecute * 100 / (pendingexecute + finishexecute +
-                    readyexecute)).toFixed(1)}} %)</span>
+                  {{readyexecutetop}}
+                  <span class="text-lime-500 ml-1">({{(readyexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                    readyexecutetop)).toFixed(1)}} %)</span>
                 </h5>
               </div>
             </div>
@@ -107,9 +107,9 @@
                   Finish Execute
                 </p>
                 <h5 class="mb-0 font-bold">
-                  {{finishexecute}}
-                  <span class="text-lime-500 ml-1">({{(finishexecute * 100 / (pendingexecute + finishexecute +
-                    readyexecute)).toFixed(1)}}
+                  {{finishexecutetop}}
+                  <span class="text-lime-500 ml-1">({{(finishexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                    readyexecutetop)).toFixed(1)}}
                     %)</span>
                 </h5>
               </div>
