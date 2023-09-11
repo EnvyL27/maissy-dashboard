@@ -257,6 +257,17 @@ export class AmMFsbComponent implements OnInit {
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
     //console.log(this.funloclist);
   }
+  totalCapture() {
+    const element = document.getElementById('ssTotal')!;
+    html2canvas(element).then(canvas => {
+      // `canvas` contains the captured content as an image.
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'totalreport.png';
+      this.showInfo();
+      link.click();
+    });
+  }
   capture() {
     this.captureService
       .getImage(this.taptap.nativeElement, true)
