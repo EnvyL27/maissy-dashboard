@@ -1555,7 +1555,7 @@ export class AmMFsbComponent implements OnInit {
 
           });
 
-          new Chart('dum', {
+          this.dum = new Chart('dum', {
             type: 'bar',
             data: {
               labels: [""],
