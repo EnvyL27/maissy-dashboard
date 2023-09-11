@@ -6,6 +6,8 @@ import * as XLSX from 'xlsx';
 import { NgxCaptureService } from 'ngx-capture';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
+import html2canvas from 'html2canvas';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-am-m-oci2',

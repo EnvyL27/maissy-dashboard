@@ -6,6 +6,8 @@ import * as XLSX from 'xlsx';
 import { NgxCaptureService } from 'ngx-capture';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
+import html2canvas from 'html2canvas';
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-am-m-fsb',
@@ -40,7 +42,11 @@ export class AmMFsbComponent implements OnInit {
 
   }
 
-  constructor(private service: CountService, private spinner: NgxSpinnerService, private captureService: NgxCaptureService, private httpClient: HttpClient) { }
+  constructor(
+    private service: CountService, 
+    private spinner: NgxSpinnerService, 
+    private captureService: NgxCaptureService, 
+    private httpClient: HttpClient) { }
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
