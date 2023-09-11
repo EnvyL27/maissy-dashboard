@@ -10,18 +10,17 @@
     </div>
     <div class="flex flex-wrap -mx-3 duration-2000">
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-  
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-4">
             <div class="flex flex-row -mx-3">
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div (click)="showFinding()">
                   <div>
-                    <p class="mb-0 font-sans font-semibold leading-normal text-lg">
+                    <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                       Total Finding
                     </p>
-                    <h5 class="mb-0 font-bold text-lg">
-                      {{pendingexecute + finishexecute + readyexecute}}
+                    <h5 class="mb-0 font-bold">
+                      {{pendingexecutetop + finishexecutetop + readyexecutetop}}
                       <span> / Month</span>
                     </h5>
                   </div>
@@ -46,13 +45,13 @@
             <div class="flex flex-row -mx-3">
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
-                  <p class="mb-0 font-sans font-semibold leading-normal text-lg">
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                     On Progres WO
                   </p>
-                  <h5 class="mb-0 font-bold text-lg">
-                    {{pendingexecute}}
-                    <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / (pendingexecute + finishexecute +
-                      readyexecute)).toFixed(1)}}
+                  <h5 class="mb-0 font-bold">
+                    {{pendingexecutetop}}
+                    <span class="text-lime-500 ml-1">({{(pendingexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                      readyexecutetop)).toFixed(1)}}
                       %)</span>
                   </h5>
                 </div>
@@ -75,13 +74,13 @@
             <div class="flex flex-row -mx-3">
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
-                  <p class="mb-0 font-sans font-semibold leading-normal text-lg">
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                     Ready Execute
                   </p>
-                  <h5 class="mb-0 font-bold text-lg">
-                    {{readyexecute}}
-                    <span class="text-lime-500 ml-1">({{(readyexecute * 100 / (pendingexecute + finishexecute +
-                      readyexecute)).toFixed(1)}} %)</span>
+                  <h5 class="mb-0 font-bold">
+                    {{readyexecutetop}}
+                    <span class="text-lime-500 ml-1">({{(readyexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                      readyexecutetop)).toFixed(1)}} %)</span>
                   </h5>
                 </div>
               </div>
@@ -103,13 +102,13 @@
             <div class="flex flex-row -mx-3">
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
-                  <p class="mb-0 font-sans font-semibold leading-normal text-lg">
+                  <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                     Finish Execute
                   </p>
-                  <h5 class="mb-0 font-bold text-lg">
-                    {{finishexecute}}
-                    <span class="text-lime-500 ml-1">({{(finishexecute * 100 / (pendingexecute + finishexecute +
-                      readyexecute)).toFixed(1)}}
+                  <h5 class="mb-0 font-bold">
+                    {{finishexecutetop}}
+                    <span class="text-lime-500 ml-1">({{(finishexecutetop * 100 / (pendingexecutetop + finishexecutetop +
+                      readyexecutetop)).toFixed(1)}}
                       %)</span>
                   </h5>
                 </div>
