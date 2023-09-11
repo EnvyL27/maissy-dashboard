@@ -22,6 +22,7 @@
     "aos": "^2.3.4",
     "apexcharts": "^3.41.1",
     "chart.js": "^4.3.3",
+    "html2canvas": "^1.4.1",
     "json-server": "^0.17.3",
     "moment": "^2.29.4",
     "ng-apexcharts": "^1.8.0",

@@ -6,6 +6,9 @@ import * as XLSX from 'xlsx';
 import { NgxCaptureService } from 'ngx-capture';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
+import html2canvas from 'html2canvas';
+import { ToastrService } from 'ngx-toastr'
+
 
 @Component({
   selector: 'app-am-m-oci1',
@@ -40,7 +43,12 @@ export class AmMOci1Component implements OnInit {
 
   }
 
-  constructor(private service: CountService, private spinner: NgxSpinnerService, private captureService: NgxCaptureService, private httpClient: HttpClient) { }
+  constructor( 
+    public toastr: ToastrService,
+    private service: CountService,
+    private spinner: NgxSpinnerService, 
+    private captureService: NgxCaptureService, 
+    private httpClient: HttpClient) { }
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
@@ -63,6 +71,14 @@ export class AmMOci1Component implements OnInit {
   absoluteIndex4(indexOnPage: number): number {
     return this.itemsPerPage4 * (this.currentPage4 - 1) + indexOnPage;
   }
+
+  showInfo() {
+    this.toastr.info('If the image is cracked, try to resize the screen size!', 'Important!', {
+      timeOut: 7000,
+      positionClass: 'toast-top-left'
+    })
+  }
+
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
@@ -185,6 +201,7 @@ export class AmMOci1Component implements OnInit {
   totalfinding4: any;
   bar1report: any;
   bar2report: any;
+  dum: any;
   funlock: object = {};
   funlockarr: any = [];
   funloclist: any = [];
@@ -197,6 +214,9 @@ export class AmMOci1Component implements OnInit {
   @ViewChild("ss3")
   taptap3!: ElementRef;
   datarange: any = [];
+  @ViewChild("ssTotal")
+  taptapTotal!: ElementRef;
+  totaldata: any = [];
   pendingexecute: number = 0;
   chartdestroy: any;
   finishexecute: number = 0;
@@ -242,9 +262,28 @@ export class AmMOci1Component implements OnInit {
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
     //console.log(this.funloclist);
   }
+  // totalCapture(){
+  //   this.captureService
+  //   .getImage(this.taptapTotal.nativeElement, true)
+  //   .subscribe((img: any) => {
+  //     this.imgBase64 = img;
+  //     this.downloadJson();
+  //   });
+  // }
+  totalCapture() {
+    const element = document.getElementById('ssTotal')!;
+    html2canvas(element).then(canvas => {
+      // `canvas` contains the captured content as an image.
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'totalreport.png';
+      this.showInfo();
+      link.click();
+    });
+  }
   capture() {
     this.captureService
-      .getImage(this.taptap.nativeElement, true)
+      .getImage(this.taptapTotal.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
@@ -467,6 +506,7 @@ export class AmMOci1Component implements OnInit {
       this.resolved = true;
     });
   }
+
   finddatachange() {
     this.reportharian.splice(0);
     // this.spinner.show();
@@ -476,9 +516,177 @@ export class AmMOci1Component implements OnInit {
       this.spinner.hide();
       this.reportharian.push(data);
     })
+  }
+  totaldataChange() {
+    this.pendingexecute = this.readyexecute = this.finishexecute = 0; 
+
+    // this.spinner.show();
+    // this.resolved = false;
+    console.log(this.month);
+    
+    this.service.getTotalFeeding().subscribe(data => {
+      this.totalfm = data;
+      console.log(data);
+
+      // ////////console.log(this.totalfm);
+      var date: any = [];
+      Object.values(this.totalfm).forEach(data => {
+        ////////console.log(data);
+
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
+        }
+        // //////console.log(this.totalfm2);
 
 
+        this.totalfm2.forEach((elem: any, i: number) => {
+          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            date.push(elem.tanggal_temuan)
+          }
+          //console.log(elem.tanggal_temuan);
 
+          if (elem.id_area == 1) {
+
+
+            if (elem.status_pengerjaan == 'Done') {
+              if (elem.bulanTahun == this.month) { this.finishexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+            else if (elem.status2 == 'READY') {
+              if (elem.bulanTahun == this.month) { this.readyexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
+              if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
+                if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+
+                this.temuanperday_data_temp.push(elem)
+              }
+            }
+            else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
+              if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+          }
+
+
+        })
+
+
+        this.temuanperday_data_temp.forEach((element: any) => {
+          //console.log(this.screenWidth);
+
+          if (element.tahun == this.autodate) {
+            if (element.bulan == 1) {
+              this.termuanperday_jan++
+            } else if (element.bulan == 2) {
+              this.termuanperday_feb++
+            } else if (element.bulan == 3) {
+              this.termuanperday_mar++
+            } else if (element.bulan == 4) {
+              this.termuanperday_apr++
+            } else if (element.bulan == 5) {
+              this.termuanperday_mei++
+            } else if (element.bulan == 6) {
+              this.termuanperday_jun++
+            } else if (element.bulan == 7) {
+              this.termuanperday_jul++
+            } else if (element.bulan == 8) {
+              this.termuanperday_ags++
+            } else if (element.bulan == 9) {
+              this.termuanperday_sep++
+            } else if (element.bulan == 10) {
+              this.termuanperday_nov++
+            } else if (element.bulan == 11) {
+              this.termuanperday_okt++
+            } else if (element.bulan == 12) {
+              this.termuanperday_des++
+            }
+          }
+        });
+
+        date.forEach((element: any) => {
+
+          this.temuanperday_data_temp.forEach((elem: any) => {
+            if (elem.bulanTahun == this.month) {
+              if (elem.tanggal_temuan == element) {
+                this.temuanperday_dum++
+              }
+            }
+          });
+          if (this.temuanperday_dum != 0) {
+            this.temuanperday_label.push(element)
+            this.temuanperday_data.push(this.temuanperday_dum)
+          }
+
+          this.temuanperday_dum = 0
+
+        });
+
+        this.dum.destroy();
+
+        this.dum = new Chart('dum', {
+          type: 'bar',
+          data: {
+            labels: [""],
+            datasets: [
+              {
+                label: 'Total Finding',
+                data: [this.pendingexecute + this.readyexecute + this.finishexecute],
+                backgroundColor: [
+                  '#7fe7dc'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'On Progress WO',
+                data: [this.pendingexecute],
+                backgroundColor: [
+                  '#ffc13b'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Ready Execute',
+                data: [this.readyexecute],
+                backgroundColor: [
+                  '#ff6e40'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Finish Execute',
+                data: [this.finishexecute],
+                backgroundColor: [
+                  '#316879'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+            ]
+          },
+        });
+        
+        this.resolved = true;
+        console.log(this.pendingexecute);
+      })
+      this.spinner.hide();}, (err)=>{this.spinner.hide();})
   }
   finddata() {
     // this.spinner.show();
@@ -1351,7 +1559,7 @@ export class AmMOci1Component implements OnInit {
 
           });
 
-          new Chart('dum', {
+          this.dum = new Chart('dum', {
             type: 'bar',
             data: {
               labels: [""],

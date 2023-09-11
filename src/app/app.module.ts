@@ -185,7 +185,7 @@ import { SnkComponent } from './snk/snk.component';
     HttpClientModule,
     NgApexchartsModule,
     NgxCaptureModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
