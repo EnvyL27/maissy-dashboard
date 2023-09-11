@@ -194,6 +194,17 @@
             <div
               class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
               <div class="flex-auto p-6">
+                <div class="flex items-end text-end mb-4">
+                  <div class="w-full max-w-full">
+                    <!-- <label for="date" class="mr-1">Date : </label> -->
+                    <input type="date" style=" border: 1px solid #c4c4c4;
+                          border-radius: 5px;
+                          background-color: #fff;
+                          padding: 3px 5px;
+                          box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                        " width="48" [(ngModel)]="tglsearch" (ngModelChange)="finddatachange()">
+                  </div>
+                </div>
                 <div style="height: 500px;">
                     <canvas id="dum" class="py-4"></canvas>
                 </div>
@@ -225,7 +236,7 @@
             <div
               class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
               <div class="flex-auto p-6">
-                <div class="flex justify-center" style="height: 460px;">
+                <div class="flex justify-center" style="height: 510px;">
                   <canvas id="donut2"></canvas>
                 </div>
                 <div class="px-6 pt-4 pb-2 text-center">

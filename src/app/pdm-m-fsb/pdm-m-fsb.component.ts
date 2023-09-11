@@ -891,20 +891,20 @@ export class PdmMFsbComponent implements OnInit {
 
                 },
                 options: {
-                  scales: {
-                    yAxes: {
-                      min: 0,
-                      ticks: {
+                  // scales: {
+                  //   yAxes: {
+                  //     min: 0,
+                  //     ticks: {
                         
-                        callback: function (value) { return value + "%" },
-                        //beginAtZero: true
-                      },
-                      // scaleLabel: {
-                      //   display: true,
-                      //   labelString: "Percentage"
-                      // }
-                    }
-                  }
+                  //       callback: function (value) { return value + "%" },
+                  //       //beginAtZero: true
+                  //     },
+                  //     // scaleLabel: {
+                  //     //   display: true,
+                  //     //   labelString: "Percentage"
+                  //     // }
+                  //   }
+                  // }
                 }
               });
             })
