@@ -202,6 +202,7 @@ export class AmMOci1Component implements OnInit {
   bar1report: any;
   bar2report: any;
   dum: any;
+  donut2: any;
   funlock: object = {};
   funlockarr: any = [];
   funloclist: any = [];
@@ -521,11 +522,76 @@ export class AmMOci1Component implements OnInit {
     })
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = 0; 
-
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
+    this.totalfm = [];
+    this.totalfm2 = [];
+    console.log(this.pendingexecute);
+    
     // this.spinner.show();
     // this.resolved = false;
     console.log(this.month);
+
+    // this.service.getTotalFeeding().subscribe(data => {
+    //   this.totallevel = data;
+
+    //   Object.values(this.totallevel).forEach(data => {
+    //     // // ////////console.log(data);
+    //     var array = Object.keys(data).map(function (key) {
+    //       return data[key];
+    //     });
+    //     // ////////console.log(array);
+
+    //     // // ////////console.log(array);
+    //     for (let i = 0; i < array.length; i++) {
+    //       if (data[i].id_area == 1)
+    //         this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+    //     }
+    //     for (var i = 0; i < this.totallevel2.length; i++) {
+    //       if(this.totallevel2[i].bulanTahun == this.month){
+    //       if (this.totallevel2[i].id_area = 1) {
+    //         if (this.totallevel2[i].level === 'Low') {
+    //           this.low += 1;
+    //         }
+    //         if (this.totallevel2[i].level === 'Medium') {
+    //           this.medium += 1;
+    //         }
+    //         if (this.totallevel2[i].level === 'High') {
+    //           this.high += 1;
+    //         }
+    //       }
+    //     }
+
+    //     this.donut2.destroy();
+
+    //     }
+    //     this.donut2 = new Chart('donut2', {
+    //       type: 'doughnut',
+    //       data: {
+    //         labels: ['Low', 'Medium', 'High'],
+    //         datasets: [{
+    //           label: '# of Votes',
+    //           data: [this.low, this.medium, this.high],
+    //           backgroundColor: [
+    //             '#626d71',
+    //             '#ffc13b',
+    //             '#ff6e40',
+    //           ],
+    //           borderColor: [
+    //             'white',
+    //             'white',
+    //             'white',
+    //           ],
+    //           borderWidth: 1
+    //         }]
+    //       },
+    //     });
+    //     // // ////////console.log(this.medium);m
+    //     // // ////////console.log(this.totallevel2);
+    //   })
+
+
+    // }
+    // );
     
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
@@ -546,6 +612,8 @@ export class AmMOci1Component implements OnInit {
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
+          console.log(i);
+          
           if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
@@ -579,58 +647,7 @@ export class AmMOci1Component implements OnInit {
 
 
         })
-
-
-        this.temuanperday_data_temp.forEach((element: any) => {
-          //console.log(this.screenWidth);
-
-          if (element.tahun == this.autodate) {
-            if (element.bulan == 1) {
-              this.termuanperday_jan++
-            } else if (element.bulan == 2) {
-              this.termuanperday_feb++
-            } else if (element.bulan == 3) {
-              this.termuanperday_mar++
-            } else if (element.bulan == 4) {
-              this.termuanperday_apr++
-            } else if (element.bulan == 5) {
-              this.termuanperday_mei++
-            } else if (element.bulan == 6) {
-              this.termuanperday_jun++
-            } else if (element.bulan == 7) {
-              this.termuanperday_jul++
-            } else if (element.bulan == 8) {
-              this.termuanperday_ags++
-            } else if (element.bulan == 9) {
-              this.termuanperday_sep++
-            } else if (element.bulan == 10) {
-              this.termuanperday_nov++
-            } else if (element.bulan == 11) {
-              this.termuanperday_okt++
-            } else if (element.bulan == 12) {
-              this.termuanperday_des++
-            }
-          }
-        });
-
-        date.forEach((element: any) => {
-
-          this.temuanperday_data_temp.forEach((elem: any) => {
-            if (elem.bulanTahun == this.month) {
-              if (elem.tanggal_temuan == element) {
-                this.temuanperday_dum++
-              }
-            }
-          });
-          if (this.temuanperday_dum != 0) {
-            this.temuanperday_label.push(element)
-            this.temuanperday_data.push(this.temuanperday_dum)
-          }
-
-          this.temuanperday_dum = 0
-
-        });
-
+        
         this.dum.destroy();
 
         this.dum = new Chart('dum', {
@@ -1311,7 +1328,7 @@ export class AmMOci1Component implements OnInit {
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        // ////////console.log(this.totallevel);
+        console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
           // // ////////console.log(data);
@@ -1326,6 +1343,7 @@ export class AmMOci1Component implements OnInit {
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
+            if(this.totallevel2[i].bulan == this.month){
             if (this.totallevel2[i].id_area = 1) {
               if (this.totallevel2[i].level === 'Low') {
                 this.low += 1;
@@ -1337,9 +1355,10 @@ export class AmMOci1Component implements OnInit {
                 this.high += 1;
               }
             }
+          }
 
           }
-          new Chart('donut2', {
+          this.donut2 = new Chart('donut2', {
             type: 'doughnut',
             data: {
               labels: ['Low', 'Medium', 'High'],
