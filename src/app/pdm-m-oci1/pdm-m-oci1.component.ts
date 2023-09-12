@@ -647,7 +647,19 @@ export class PdmMOci1Component implements OnInit {
           }
         },
         scales: {
-          
+          x: {
+            beginAtZero: true, // You can add options for the x-axis here
+          },
+          'B': {
+            type: 'linear',
+            position: 'left',
+            min: 0, // Define the min value for the left y-axis if needed
+          },
+          'A': {
+            type: 'linear',
+            position: 'right',
+            min: 0, // Define the min value for the right y-axis if needed
+          },
         },
       }
     });
