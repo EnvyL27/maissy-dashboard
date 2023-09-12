@@ -525,73 +525,76 @@ export class AmMOci1Component implements OnInit {
     this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
     this.totalfm = [];
     this.totalfm2 = [];
+    this.totallevel = [];
+    this.totallevel2 = [];
+
     console.log(this.pendingexecute);
     
     // this.spinner.show();
     // this.resolved = false;
     console.log(this.month);
 
-    // this.service.getTotalFeeding().subscribe(data => {
-    //   this.totallevel = data;
+    this.service.getTotalFeeding().subscribe(data => {
+      this.totallevel = data;
 
-    //   Object.values(this.totallevel).forEach(data => {
-    //     // // ////////console.log(data);
-    //     var array = Object.keys(data).map(function (key) {
-    //       return data[key];
-    //     });
-    //     // ////////console.log(array);
+      Object.values(this.totallevel).forEach(data => {
+        // // ////////console.log(data);
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        // ////////console.log(array);
 
-    //     // // ////////console.log(array);
-    //     for (let i = 0; i < array.length; i++) {
-    //       if (data[i].id_area == 1)
-    //         this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
-    //     }
-    //     for (var i = 0; i < this.totallevel2.length; i++) {
-    //       if(this.totallevel2[i].bulanTahun == this.month){
-    //       if (this.totallevel2[i].id_area = 1) {
-    //         if (this.totallevel2[i].level === 'Low') {
-    //           this.low += 1;
-    //         }
-    //         if (this.totallevel2[i].level === 'Medium') {
-    //           this.medium += 1;
-    //         }
-    //         if (this.totallevel2[i].level === 'High') {
-    //           this.high += 1;
-    //         }
-    //       }
-    //     }
+        // // ////////console.log(array);
+        for (let i = 0; i < array.length; i++) {
+          if (data[i].id_area == 1)
+            this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+        }
+        for (var i = 0; i < this.totallevel2.length; i++) {
+          if(this.totallevel2[i].bulanTahun == this.month){
+          if (this.totallevel2[i].id_area = 1) {
+            if (this.totallevel2[i].level === 'Low') {
+              this.low += 1;
+            }
+            if (this.totallevel2[i].level === 'Medium') {
+              this.medium += 1;
+            }
+            if (this.totallevel2[i].level === 'High') {
+              this.high += 1;
+            }
+          }
+        }
 
-    //     this.donut2.destroy();
+        this.donut2.destroy();
 
-    //     }
-    //     this.donut2 = new Chart('donut2', {
-    //       type: 'doughnut',
-    //       data: {
-    //         labels: ['Low', 'Medium', 'High'],
-    //         datasets: [{
-    //           label: '# of Votes',
-    //           data: [this.low, this.medium, this.high],
-    //           backgroundColor: [
-    //             '#626d71',
-    //             '#ffc13b',
-    //             '#ff6e40',
-    //           ],
-    //           borderColor: [
-    //             'white',
-    //             'white',
-    //             'white',
-    //           ],
-    //           borderWidth: 1
-    //         }]
-    //       },
-    //     });
-    //     // // ////////console.log(this.medium);m
-    //     // // ////////console.log(this.totallevel2);
-    //   })
+        }
+        this.donut2 = new Chart('donut2', {
+          type: 'doughnut',
+          data: {
+            labels: ['Low', 'Medium', 'High'],
+            datasets: [{
+              label: '# of Votes',
+              data: [this.low, this.medium, this.high],
+              backgroundColor: [
+                '#626d71',
+                '#ffc13b',
+                '#ff6e40',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
+          },
+        });
+        // // ////////console.log(this.medium);m
+        // // ////////console.log(this.totallevel2);
+      })
 
 
-    // }
-    // );
+    }
+    );
     
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
@@ -612,7 +615,7 @@ export class AmMOci1Component implements OnInit {
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
-          console.log(i);
+          // console.log(i);
           
           if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
