@@ -227,6 +227,7 @@ export class AmMOci2Component implements OnInit {
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
   month: any = moment().format("M");
+  bulan: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
   @ViewChild("target")
@@ -1323,7 +1324,7 @@ export class AmMOci2Component implements OnInit {
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        // console.log(this.totallevel);
+        console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
           // // ////////console.log(data);
@@ -1334,26 +1335,29 @@ export class AmMOci2Component implements OnInit {
 
           // // ////////console.log(array);
           for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 2)
+            if (data[i].id_area == 1)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+            console.log(this.totallevel2);
+            console.log(this.totallevel2.lenght);
+            
+            
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
             if(this.totallevel2[i].bulan == this.month){
-              if (this.totallevel2[i].id_area = 2) {
-                if (this.totallevel2[i].level === 'Low') {
-                  this.low += 1;
-                }
-                if (this.totallevel2[i].level === 'Medium') {
-                  this.medium += 1;
-                }
-                if (this.totallevel2[i].level === 'High') {
-                  this.high += 1;
-                }
+            if (this.totallevel2[i].id_area = 2) {
+              if (this.totallevel2[i].level === 'Low') {
+                this.low += 1;
+              }
+              if (this.totallevel2[i].level === 'Medium') {
+                this.medium += 1;
+              }
+              if (this.totallevel2[i].level === 'High') {
+                this.high += 1;
               }
             }
           }
-          console.log(this.low + ' i ' + this.medium + ' k ' + this.high);
-          
+
+          }
           this.donut2 = new Chart('donut2', {
             type: 'doughnut',
             data: {
@@ -1379,7 +1383,7 @@ export class AmMOci2Component implements OnInit {
           // // ////////console.log(this.totallevel2);
         })
 
-        this.spinner.hide();
+
       }
       );
       this.service.getFuncLocOci2().subscribe(data => {

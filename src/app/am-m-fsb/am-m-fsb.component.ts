@@ -44,9 +44,9 @@ export class AmMFsbComponent implements OnInit {
 
   constructor(
     public toastr: ToastrService,
-    private service: CountService, 
-    private spinner: NgxSpinnerService, 
-    private captureService: NgxCaptureService, 
+    private service: CountService,
+    private spinner: NgxSpinnerService,
+    private captureService: NgxCaptureService,
     private httpClient: HttpClient) { }
   itemsPerPage: number = 0;
   math = Math;
@@ -77,7 +77,7 @@ export class AmMFsbComponent implements OnInit {
       positionClass: 'toast-top-left'
     })
   }
-  
+
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
@@ -228,6 +228,7 @@ export class AmMFsbComponent implements OnInit {
   month: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  donut2: any;
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild("target2")
@@ -511,12 +512,78 @@ export class AmMFsbComponent implements OnInit {
 
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = 0; 
-
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = this.low = this.medium = this.high = 0;
+    this.totalfm = [];
+    this.totalfm2 = [];
+    this.totallevel = [];
+    this.totallevel2 = [];
     // this.spinner.show();
     // this.resolved = false;
     console.log(this.month);
-    
+
+this.service.getTotalFeeding().subscribe(data => {
+      this.totallevel = data;
+
+      Object.values(this.totallevel).forEach(data => {
+        // // ////////console.log(data);
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        // ////////console.log(array);
+
+        // // ////////console.log(array);
+        for (let i = 0; i < array.length; i++) {
+          if (data[i].id_area == 1)
+            this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+        }
+
+        for (var i = 0; i < this.totallevel2.length; i++) {
+          if (this.totallevel2[i].bulanTahun == this.month) {
+              if (this.totallevel2[i].id_area = 3) {
+                if (this.totallevel2[i].level === 'Low') {
+                  this.low += 1;
+                }
+                if (this.totallevel2[i].level === 'Medium') {
+                  this.medium += 1;
+                }
+                if (this.totallevel2[i].level === 'High') {
+                  this.high += 1;
+                }
+              }
+            }
+        }
+
+        this.donut2.destroy();
+
+        this.donut2 = new Chart('donut2', {
+          type: 'doughnut',
+          data: {
+            labels: ['Low', 'Medium', 'High'],
+            datasets: [{
+              label: '# of Votes',
+              data: [this.low, this.medium, this.high],
+              backgroundColor: [
+                '#626d71',
+                '#ffc13b',
+                '#ff6e40',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
+          },
+        });
+        // // ////////console.log(this.medium);m
+        // // ////////console.log(this.totallevel2);
+      })
+
+
+    }
+    );
+
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
       console.log(data);
@@ -675,11 +742,12 @@ export class AmMFsbComponent implements OnInit {
             ]
           },
         });
-        
+
         this.resolved = true;
         console.log(this.pendingexecute);
       })
-      this.spinner.hide();}, (err)=>{this.spinner.hide();})
+      this.spinner.hide();
+    }, (err) => { this.spinner.hide(); })
   }
   finddata() {
     this.spinner.show();
@@ -749,7 +817,7 @@ export class AmMFsbComponent implements OnInit {
           }
         }
       }
-      
+
       this.bar1report = new Chart("barreport", {
         type: "bar",
         data: {
@@ -782,7 +850,7 @@ export class AmMFsbComponent implements OnInit {
           //         beginAtZero: true
           //       }
           //     }
-            
+
           // }
         }
       });
@@ -1033,7 +1101,7 @@ export class AmMFsbComponent implements OnInit {
         //           // beginAtZero: true
         //         }
         //       }
-            
+
         //   }
         // }
       });
@@ -1307,7 +1375,7 @@ export class AmMFsbComponent implements OnInit {
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        // ////////console.log(this.totallevel);
+        console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
           // // ////////console.log(data);
@@ -1318,10 +1386,11 @@ export class AmMFsbComponent implements OnInit {
 
           // // ////////console.log(array);
           for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 3)
+            if (data[i].id_area == 1)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
+            if(this.totallevel2[i].bulan == this.month){
             if (this.totallevel2[i].id_area = 3) {
               if (this.totallevel2[i].level === 'Low') {
                 this.low += 1;
@@ -1333,9 +1402,10 @@ export class AmMFsbComponent implements OnInit {
                 this.high += 1;
               }
             }
+          }
 
           }
-          new Chart('donut2', {
+          this.donut2 = new Chart('donut2', {
             type: 'doughnut',
             data: {
               labels: ['Low', 'Medium', 'High'],
@@ -1360,8 +1430,8 @@ export class AmMFsbComponent implements OnInit {
           // // ////////console.log(this.totallevel2);
         })
 
-        this.spinner.hide();
-      } 
+
+      }
       );
       this.service.getFuncLocFsb().subscribe(data => {
         this.funlock = data;
@@ -1649,7 +1719,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, 
+            },
           });
 
           new Chart('totalfinding', {
@@ -1667,7 +1737,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, 
+            },
           });
 
           new Chart('totalfindingbulan', {
@@ -1685,7 +1755,7 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            }, 
+            },
           });
 
 
