@@ -234,8 +234,10 @@ export class AmMOci1Component implements OnInit {
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
   month: any = moment().format("M");
+  bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  listoftotalfinding : any = [];
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild("target2")
@@ -1553,9 +1555,19 @@ export class AmMOci1Component implements OnInit {
               }
             }
 
+            // console.log(this.temuanperday_data_temp);
+            
+
 
           })
 
+          this.temuanperday_data_temp.forEach((element: any) => {
+            if(element.bulan == this.bulan){
+              this.listoftotalfinding.push(element)
+            }
+          });
+          console.log(this.listoftotalfinding);
+          
 
           this.temuanperday_data_temp.forEach((element: any) => {
             ////console.log(this.screenWidth);
