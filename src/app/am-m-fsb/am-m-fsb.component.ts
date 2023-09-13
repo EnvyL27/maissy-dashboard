@@ -20,7 +20,7 @@ export class AmMFsbComponent implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    ////////console.log(this.findingpending2);
+    //////////console.log(this.findingpending2);
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
     ws["!cols"] = [{ wch: 10 },
@@ -234,22 +234,22 @@ export class AmMFsbComponent implements OnInit {
   @ViewChild("target2")
   target2!: ElementRef;
   data($event: any) {
-    // //console.log(this.scree);
+    // ////console.log(this.scree);
 
     this.target.nativeElement.scrollIntoView();
     //   behavior: 'smooth',
     //   block: 'center',
     //   inline: 'center',
     // });
-    //// ////////console.log($event);
+    //// //////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
-    //console.log(this.funloc);
+    ////console.log(this.funloc);
 
-    // ////////console.log(this.funloc);
+    // //////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
-        ////////console.log(this.orderarr);
+        //////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -260,7 +260,7 @@ export class AmMFsbComponent implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
-    //console.log(this.funloclist);
+    ////console.log(this.funloclist);
   }
   totalCapture() {
     const element = document.getElementById('ssTotal')!;
@@ -360,7 +360,7 @@ export class AmMFsbComponent implements OnInit {
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
       this.totaldata1year.push(data);
-      ////////console.log(data);
+      //////////console.log(data);
 
       for (let elem of this.totaldata1year[0]) {
         if (elem.bulan == 'January') {
@@ -519,19 +519,19 @@ export class AmMFsbComponent implements OnInit {
     this.totallevel2 = [];
     // this.spinner.show();
     // this.resolved = false;
-    console.log(this.month);
+    //console.log(this.month);
 
 this.service.getTotalFeeding().subscribe(data => {
       this.totallevel = data;
 
       Object.values(this.totallevel).forEach(data => {
-        // // ////////console.log(data);
+        // // //////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        // ////////console.log(array);
+        // //////////console.log(array);
 
-        // // ////////console.log(array);
+        // // //////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           if (data[i].id_area == 1)
             this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -576,8 +576,8 @@ this.service.getTotalFeeding().subscribe(data => {
             }]
           },
         });
-        // // ////////console.log(this.medium);m
-        // // ////////console.log(this.totallevel2);
+        // // //////////console.log(this.medium);m
+        // // //////////console.log(this.totallevel2);
       })
 
 
@@ -586,12 +586,12 @@ this.service.getTotalFeeding().subscribe(data => {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      console.log(data);
+      //console.log(data);
 
-      // ////////console.log(this.totalfm);
+      // //////////console.log(this.totalfm);
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
-        ////////console.log(data);
+        //////////console.log(data);
 
         var array = Object.keys(data).map(function (key) {
           return data[key];
@@ -599,14 +599,14 @@ this.service.getTotalFeeding().subscribe(data => {
         for (let i = 0; i < array.length; i++) {
           this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
         }
-        // //////console.log(this.totalfm2);
+        // ////////console.log(this.totalfm2);
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
           if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
-          //console.log(elem.tanggal_temuan);
+          ////console.log(elem.tanggal_temuan);
 
           if (elem.id_area == 1) {
 
@@ -639,7 +639,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
 
         this.temuanperday_data_temp.forEach((element: any) => {
-          //console.log(this.screenWidth);
+          ////console.log(this.screenWidth);
 
           if (element.tahun == this.autodate) {
             if (element.bulan == 1) {
@@ -744,7 +744,7 @@ this.service.getTotalFeeding().subscribe(data => {
         });
 
         this.resolved = true;
-        console.log(this.pendingexecute);
+        //console.log(this.pendingexecute);
       })
       this.spinner.hide();
     }, (err) => { this.spinner.hide(); })
@@ -1178,7 +1178,7 @@ this.service.getTotalFeeding().subscribe(data => {
       });
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
         this.arrshecdule.push(data);
-        // //////console.log('hoi', data);
+        // ////////console.log('hoi', data);
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
         }
@@ -1186,9 +1186,9 @@ this.service.getTotalFeeding().subscribe(data => {
       });
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-        // //////console.log(this.totaldata1year);
-        // //////console.log(this.tgl3);
-        // //////console.log(this.tgl4);
+        // ////////console.log(this.totaldata1year);
+        // ////////console.log(this.tgl3);
+        // ////////console.log(this.tgl4);
 
 
 
@@ -1297,8 +1297,8 @@ this.service.getTotalFeeding().subscribe(data => {
         this.febuari = this.febuari + this.febuariclose;
         this.maret = this.maret + this.maretclose;
         this.april = this.april + this.aprilclose;
-        // //////console.log(this.mei);
-        // //////console.log(this.meiclose);
+        // ////////console.log(this.mei);
+        // ////////console.log(this.meiclose);
 
         this.mei = this.mei + this.meiclose;
         this.juni = this.juni + this.juniclose;
@@ -1347,7 +1347,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
         for (let elem of this.arrapproval[0].get) {
           if (elem.id_area == '3') {
-            // //////console.log(elem);
+            // ////////console.log(elem);
             if (elem.status == 'Submit') {
               this.approvalfinding += 1;
             } else if (elem.status == 'Approved' || elem.status == 'Not Yet') {
@@ -1360,49 +1360,49 @@ this.service.getTotalFeeding().subscribe(data => {
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
-          ////////console.log(data);
+          //////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////console.log(array);
+          // // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-          ////////console.log(this.orderarr);
+          //////////console.log(this.orderarr);
 
-          // // ////////console.log(this.findingpending2);
+          // // //////////console.log(this.findingpending2);
         })
         this.spinner.hide();
       });
       this.service.getReadfpSectionFSB().subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
-          // // ////////console.log(data);
+          // // //////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////console.log(array);
+          // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-          // ////////console.log(this.fpsectarr);
+          // //////////console.log(this.fpsectarr);
 
-          // // ////////console.log(this.findingpending2);
+          // // //////////console.log(this.findingpending2);
         })
         this.spinner.hide();
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        console.log(this.totallevel);
+        //console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
-          // // ////////console.log(data);
+          // // //////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////console.log(array);
+          // //////////console.log(array);
 
-          // // ////////console.log(array);
+          // // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (data[i].id_area == 1)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -1444,8 +1444,8 @@ this.service.getTotalFeeding().subscribe(data => {
               }]
             },
           });
-          // // ////////console.log(this.medium);m
-          // // ////////console.log(this.totallevel2);
+          // // //////////console.log(this.medium);m
+          // // //////////console.log(this.totallevel2);
         })
 
 
@@ -1454,35 +1454,35 @@ this.service.getTotalFeeding().subscribe(data => {
       this.service.getFuncLocFsb().subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
-          // ////////console.log(data);
+          // //////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////console.log(array);
+          // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
 
-          // ////////console.log(this.funlockarr);
+          // //////////console.log(this.funlockarr);
 
-          // // ////////console.log(this.findingpending2);
+          // // //////////console.log(this.findingpending2);
         })
         this.spinner.hide();
       });
       this.service.getReadFindingPendingfsb().subscribe(data => {
         this.findingpending = data;
         Object.values(this.findingpending).forEach(data => {
-          ////////console.log(data);
+          //////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////console.log(array);
+          // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (array[i].status != "CLOSED" && array[i].status != "TECO") {
               this.findingpending2.splice(this.findingpending2.lenght, 0, array[i]);
             }
           }
-          // ////////console.log(this.findingpending2);
+          // //////////console.log(this.findingpending2);
 
           for (var i = 0; i < this.findingpending2.length; i++) {
             if (this.findingpending2[i].area == "FSB") {
@@ -1508,7 +1508,7 @@ this.service.getTotalFeeding().subscribe(data => {
             }
           }
 
-          //  ////////console.log(this.findingpending2);
+          //  //////////console.log(this.findingpending2);
         })
 
         new Chart('donutfp', {
@@ -1544,12 +1544,12 @@ this.service.getTotalFeeding().subscribe(data => {
       );
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        console.log(data);
+        //console.log(data);
 
-        // ////////console.log(this.totalfm);
+        // //////////console.log(this.totalfm);
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          ////////console.log(data);
+          //////////console.log(data);
 
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1557,14 +1557,14 @@ this.service.getTotalFeeding().subscribe(data => {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // //////console.log(this.totalfm2);
+          // ////////console.log(this.totalfm2);
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
-            //console.log(elem.tanggal_temuan);
+            ////console.log(elem.tanggal_temuan);
 
             if (elem.id_area == 1) {
 
@@ -1597,7 +1597,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
 
           this.temuanperday_data_temp.forEach((element: any) => {
-            //console.log(this.screenWidth);
+            ////console.log(this.screenWidth);
 
             if (element.tahun == this.autodate) {
               if (element.bulan == 1) {
@@ -1782,7 +1782,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
           // this.spinner.hide();
           // this.resolved = true;
-          console.log(this.pendingexecute);
+          //console.log(this.pendingexecute);
         })
         this.spinner.hide();
       })
