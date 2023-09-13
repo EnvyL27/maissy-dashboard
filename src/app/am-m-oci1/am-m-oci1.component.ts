@@ -779,87 +779,107 @@ export class AmMOci1Component implements OnInit {
           }
         }
       }
+
+      console.log(this.wo02donereport);
       
-      this.bar1report = new Chart("barreport", {
-        type: "bar",
-        data: {
-          datasets: [
-            {
-              "label": "Total WO",
-              "data": [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
-              "backgroundColor": "#7fe7dc",
-            },
-            {
-              "label": "Done WO",
-              "data": [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
-              "backgroundColor": "#316879",
-            },
-            {
-              "label": "Pending WO",
-              "data": [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
-              "backgroundColor": "#ff6e40",
-            },
+      this.bar1report.destroy();
 
-          ],
+      this.bar1report = new Chart('barreport', {
+          type: 'bar',
+          data: {
+            labels: [""],
+            datasets: [
+              {
+                label: 'Total WO',
+                data: [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
+                backgroundColor: [
+                  '#7fe7dc'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Done WO',
+                data: [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
+                backgroundColor: [
+                  '#316879'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Pending WO',
+                data: [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
+                backgroundColor: [
+                  '#ff6e40'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+            ]
+          },
+        });
 
+      this.bar2report.destroy();
 
-        },
-        options: {
-          // scales: {
-          //   yAxes: 
-          //     {
-          //       ticks: {
-          //         beginAtZero: true
-          //       }
-          //     }
-            
-          // }
-        }
-      });
-      this.bar2report = new Chart("barreport2", {
-        type: "bar",
-        data: {
-          datasets: [
-            {
-              "label": "WO02 Corrective",
-              "data": [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
-              "backgroundColor": "#ffc13b",
-            },
-            {
-              "label": "WO03 Improvement",
-              "data": [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
-              "backgroundColor": "#7fe7dc",
-            },
-            {
-              "label": "WO06 Preventive",
-              "data": [Math.round((this.wo06donereport / this.totalwo06report) * 100)],
-              "backgroundColor": "#ff6e40",
-            },
-            {
-              "label": "WO07 Over Haul",
-              "data": [Math.round((this.wo07donereport / this.totalwo07report) * 100)],
-              "backgroundColor": "#1e3d59",
-            },
-          ],
-        },
-        // options: {
-        //   scales: {
-        //     yAxes: {
-        //       min: 0,
-        //       max: 100,
-        //       ticks: {
-
-        //         callback: function (value) { return value + "%" },
-        //         //beginAtZero: true
-        //       },
-        //       // scaleLabel: {
-        //       //   display: true,
-        //       //   labelString: "Percentage"
-        //       // }
-        //     }
-        //   }
-        // }
-      });
+      this.bar2report = new Chart('barreport2', {
+          type: 'bar',
+          data: {
+            labels: [""],
+            datasets: [
+              {
+                label: 'WO02 Corrective',
+                data: [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
+                backgroundColor: [
+                  '#ffc13b'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'WO03 Improvement',
+                data : [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
+                backgroundColor: [
+                  '#7fe7dc'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'WO06 Preventive',
+                data:[Math.round((this.wo06donereport / this.totalwo06report) * 100)],
+                backgroundColor: [
+                  '#ff6e40'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'WO07 Over Haul',
+                data:[Math.round((this.wo07donereport / this.totalwo07report) * 100)],
+                backgroundColor: [
+                  '#1e3d59'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+            ]
+          },
+        });
       this.spinner.hide();
       this.resolved = true;
     });
