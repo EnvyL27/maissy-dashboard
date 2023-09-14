@@ -694,6 +694,8 @@ export class AmMOci1Component implements OnInit {
     this.booljannull = this.boolFebnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = false;
     this.boolMarnull = !this.boolMarnull;
     this.cdr.detectChanges();
+    
+    
   }
   changeAprnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
