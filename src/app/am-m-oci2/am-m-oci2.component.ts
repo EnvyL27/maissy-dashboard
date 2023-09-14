@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import * as moment from 'moment';
 import * as XLSX from 'xlsx';
@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr'
+import { ChartOptions } from './chart';
 
 @Component({
   selector: 'app-am-m-oci2',
@@ -15,7 +16,7 @@ import { ToastrService } from 'ngx-toastr'
   styleUrls: ['./am-m-oci2.component.css']
 })
 export class AmMOci2Component implements OnInit {
-
+  public chartOptions!: Partial<ChartOptions> | any;
 
   exportexcel(): void {
     /* pass here the table id */
@@ -47,7 +48,8 @@ export class AmMOci2Component implements OnInit {
     private service: CountService,
     private spinner: NgxSpinnerService,
     private captureService: NgxCaptureService,
-    private httpClient: HttpClient) { }
+    private httpClient: HttpClient,
+    private cdr: ChangeDetectorRef) { }
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
@@ -183,6 +185,19 @@ export class AmMOci2Component implements OnInit {
   november: number = 0;
   detailpartarr: any = [];
   desember: number = 0;
+  januarielem: any = [];
+  febuarielem:  any = [];
+  maretelem:  any = [];
+  aprilelem:  any = [];
+  meielem:  any = [];
+  junielem:  any = [];
+  julielem:  any = [];
+  agustuselem:  any = [];
+  septemberelem:  any = [];
+  oktoberelem:  any = [];
+  novemberelem:  any = [];
+  detailpartarrelem: any = [];
+  desemberelem:  any = [];
   januariclose: number = 0;
   febuariclose: number = 0;
   maretclose: number = 0;
@@ -195,6 +210,18 @@ export class AmMOci2Component implements OnInit {
   oktoberclose: number = 0;
   novemberclose: number = 0;
   desemberclose: number = 0;
+  januaricloseelem:  any = [];
+  febuaricloseelem:  any = [];
+  maretcloseelem:  any = [];
+  aprilcloseelem:  any = [];
+  meicloseelem:  any = [];
+  junicloseelem:  any = [];
+  julicloseelem:  any = [];
+  agustuscloseelem:  any = [];
+  septembercloseelem:  any = [];
+  oktobercloseelem:  any = [];
+  novembercloseelem:  any = [];
+  desembercloseelem:  any = [];
   total_cost: number = 0;
   totalfinding2: any;
   totalfinding3: any;
