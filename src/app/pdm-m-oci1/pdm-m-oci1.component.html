@@ -949,9 +949,9 @@
                         <th scope="col" class="px-3 py-2 text-center">Device Name</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let finish of finishnotlist">
+                    <tbody *ngFor="let finish of finishnotlist ">
                       <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PREPARATION'"
-                        class="bg-white ">
+                        class="bg-white " >
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -959,6 +959,7 @@
                     </tbody>
                   </table>
                 </div>
+                
               </div>
             </div>
 
@@ -976,16 +977,20 @@
                         <th scope="col" class="px-3 py-2 text-center">Device Name</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'INJECTION'"
-                        class="bg-white ">
-                        <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
-                        <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
-                        <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                    <tbody>
+                      <tr *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfci', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                        <div *ngIf="this.finish.value != null && this.finish.name_area == 'INJECTION'"
+                          class="bg-white ">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                      </div>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                <pagination-controls class="text-center" id="paginationfci" (pageChange)="currentPage = $event">
+                </pagination-controls>
               </div>
             </div>
 
@@ -1057,16 +1062,20 @@
                         <th scope="col" class="px-3 py-2 text-center">Device Name</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'"
-                        class="bg-white ">
-                        <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
-                        <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
-                        <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                    <tbody class="text-center">
+                      <tr *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfcpack', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                        <div *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'"
+                          class="bg-white ">
+                          <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
+                          <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
+                          <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
+                      </div>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                <pagination-controls class="text-center" id="paginationfcpack" (pageChange)="currentPage = $event">
+                </pagination-controls>
               </div>
             </div>
 

@@ -146,43 +146,61 @@
                     Finding
                   </th>
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                    Status
+                    Status 1 
+                  </th>
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                    Status 2 
+                  </th>
+                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                    Status Pengerjaan
                   </th>
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Tanggal temuan
                   </th>
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                    Level
+                  </th>
+                  <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Do Date
-                  </th>
-                  <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                  </th> -->
+                  <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     PIC
-                  </th>
+                  </th> -->
                 </tr>
               </thead>
-              <!-- <tbody
-                *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+              <tbody
+                *ngFor="let findingpending of listoftotalfinding | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                 <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
                   <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                     {{(currentPage-1) * 5 + i + 1}}
                   </th>
-                  <td (click)="data(findingpending.device_name,findingpending.dodate)"
-                    class="py-4 px-6 font-medium font-semibold text-gray-800">
-                    <a (click)="abnormalAssetTable()" class="styled-pointer">{{findingpending.device_name}}</a>
+                  <td
+                    class="py-4 px-6 font-medium text-center font-semibold text-gray-800">
+                    {{findingpending.finding}}
                   </td>
                   <td class="py-4 px-6 text-gray-800">
-                    {{findingpending.Stat}}
+                    {{findingpending.status1}}
                   </td>
                   <td class="py-4 px-6 text-gray-800">
-                    {{findingpending.getdate}}
+                    {{findingpending.status2}}
                   </td>
                   <td class="py-4 px-6 text-gray-800">
+                    {{findingpending.status_pengerjaan}}
+                  </td>
+                  <td class="py-4 px-6 text-gray-800">
+                    {{findingpending.tanggal_temuan}}
+                  </td>
+                  <td class="py-4 px-6 text-gray-800">
+                    {{findingpending.level}}
+                  </td>
+                  <!-- <td class="py-4 px-6 text-gray-800">
                     {{findingpending.dodate}}
-                  </td>
-                  <td class="py-4 px-6 text-gray-800">
+                  </td> -->
+                  <!-- <td class="py-4 px-6 text-gray-800">
                     {{findingpending.PIC}}
-                  </td>
+                  </td> -->
                 </tr>
-              </tbody> -->
+              </tbody>
             </table>
           </div>
         </div>
@@ -875,7 +893,7 @@
               </div>
             </div>
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
-              [ngClass]="!listofMonthlyReport ? '': 'hidden'">
+              *ngIf="!listofMonthlyReport ? '': 'hidden'">
               <div class="flex-auto p-6">
                 <div class="w-full max-w-full md:w-full">
                   <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
@@ -909,8 +927,12 @@
                   Capture</button>
                 <div id="ss" #ss>
                   <h2 class="text-center text-2xl text-blue-500">Grafik Work Order OC1 {{autodate}}</h2>
-                  <div class="flex flex-wrap -mx-1 lg:-mx-3">
-                    <canvas id="valuepermonthchart"></canvas>
+                  <div class="w-full">
+                    <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                    [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                    [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
+                    [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [xaxis]="chartOptions.xaxis"
+                    [colors]="chartOptions.colors"></apx-chart>
                   </div>
                 </div>
               </div>
