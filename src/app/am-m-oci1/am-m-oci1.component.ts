@@ -413,126 +413,127 @@ export class AmMOci1Component implements OnInit {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.januariclose += 1
-              this.januaricloseelem = elem
+              this.januaricloseelem.push(elem)
             } else {
               this.januari += 1;
-              this.januarielem = elem
+              this.januarielem.push(elem)
             }
           }
         } else if (elem.bulan == 'February') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.febuariclose += 1
-              this.febuaricloseelem = elem
+              this.febuaricloseelem.push(elem)
             } else {
               this.febuari += 1;
-              this.febuarielem = elem
+              this.febuarielem.push(elem)
             }
           }
         } else if (elem.bulan == 'March') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.maretclose += 1;
-              this.maretcloseelem = elem
+              this.maretcloseelem.push(elem)
             } else {
               this.maret += 1;
-              this.maretelem = elem
+              this.maretelem.push(elem)
             }
           }
         } else if (elem.bulan == 'April') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.aprilclose += 1;
-              this.aprilcloseelem = elem
+              this.aprilcloseelem.push(elem)
             }
             else {
               this.april += 1;
-              this.aprilelem = elem
+              this.aprilelem.push(elem)
             }
           }
         } else if (elem.bulan == 'May') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.meiclose += 1;
-              this.meicloseelem = elem
+              this.meicloseelem.push(elem)
             } else {
               this.mei += 1;
-              this.meielem = elem
+              this.meielem.push(elem)
             }
           }
         } else if (elem.bulan == 'June') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.juniclose += 1;
-              this.junicloseelem = elem
+              this.junicloseelem.push(elem)
             } else {
               this.juni += 1;
-              this.junielem = elem
+              this.junielem.push(elem)
             }
           }
         } else if (elem.bulan == 'July') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.juliclose += 1;
-              this.julicloseelem = elem
+              this.julicloseelem.push(elem)
             } else {
               this.juli += 1;
-              this.julielem = elem
+              this.julielem.push(elem)
             }
           }
         } else if (elem.bulan == 'August') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.agustusclose += 1;
-              this.agustuscloseelem = elem
+              this.agustuscloseelem.push(elem)
             } else {
               this.agustus += 1;
-              this.agustuselem = elem
+              this.agustuselem.push(elem)
             }
           }
         } else if (elem.bulan == 'September') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.septemberclose += 1;
-              this.septembercloseelem = elem
+              this.septembercloseelem.push(elem)
             } else {
               this.september += 1;
-              this.septemberelem = elem
+              this.septemberelem.push(elem)
             }
           }
         } else if (elem.bulan == 'October') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.oktoberclose += 1;
-              this.oktobercloseelem = elem
+              this.oktobercloseelem.push(elem)
             } else {
               this.oktober += 1;
-              this.oktoberelem = elem
+              this.oktoberelem.push(elem)
             }
           }
         } else if (elem.bulan == 'November') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.novemberclose += 1;
-              this.novembercloseelem = elem
+              this.novembercloseelem.push(elem)
             } else {
               this.november += 1;
-              this.novemberelem = elem
+              this.novemberelem.push(elem)
             }
           }
         } else if (elem.bulan == 'December') {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.teco_date != null) {
               this.desemberclose += 1;
-              this.desembercloseelem = elem
+              this.desembercloseelem.push(elem)
             } else {
               this.desember += 1;
-              this.desemberelem = elem
+              this.desemberelem.push(elem)
             }
           }
         }
-
-        this. chartqFunction();
+        
+        
+        this.chartFunction();
 
       //   this.chartdestroy?.destroy();
       //   this.chartdestroy = new Chart("valuepermonthchart", {
@@ -570,7 +571,10 @@ export class AmMOci1Component implements OnInit {
       }
       this.spinner.hide();
       this.resolved = true;
+    
+      
     });
+    
   }
 
   booljan: Boolean = false;
@@ -747,7 +751,7 @@ export class AmMOci1Component implements OnInit {
   }
 
 
-  chartqFunction(){
+  chartFunction(){
     this.chartOptions = {
       series: [
         {
@@ -765,7 +769,7 @@ export class AmMOci1Component implements OnInit {
         events: {
           click: (event: any, chartContext: any, config: any) => {
             // ////////console.log(config);
-
+            console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -808,8 +812,38 @@ export class AmMOci1Component implements OnInit {
             if (config.dataPointIndex == '6' && config.seriesIndex == '1') {
               this.changeJulnull();
             }
+            if (config.dataPointIndex == '8' && config.seriesIndex == '0') {
+              this.changeAgu();
+            }
+            if (config.dataPointIndex == '8' && config.seriesIndex == '1') {
+              this.changeAgunull();
+            }
+            if (config.dataPointIndex == '9' && config.seriesIndex == '0') {
+              this.changeSep();
+            }
+            if (config.dataPointIndex == '9' && config.seriesIndex == '1') {
+              this.changeSepnull();
+            }
+            if (config.dataPointIndex == '10' && config.seriesIndex == '0') {
+              this.changeOkt();
+            }
+            if (config.dataPointIndex == '10' && config.seriesIndex == '1') {
+              this.changeOktnull();
+            }
+            if (config.dataPointIndex == '11' && config.seriesIndex == '0') {
+              this.changeNov();
+            }
+            if (config.dataPointIndex == '11' && config.seriesIndex == '1') {
+              this.changeNovnull();
+            }
+            if (config.dataPointIndex == '12' && config.seriesIndex == '0') {
+              this.changeDes();
+            }
+            if (config.dataPointIndex == '12' && config.seriesIndex == '1') {
+              this.changeDesnull();
+            }
              if (config.dataPointIndex == '-1') {
-              this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = false;
+              this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
             }
           },
         },
@@ -1314,6 +1348,7 @@ export class AmMOci1Component implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.chartFunction();
     this.spinner.show();
     this.showFinding();
     this.showFindingHistory();
