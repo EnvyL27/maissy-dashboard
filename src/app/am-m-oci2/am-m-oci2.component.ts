@@ -257,6 +257,7 @@ export class AmMOci2Component implements OnInit {
   bulan: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  listoftotalfinding : any = [];
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild("target2")
@@ -909,13 +910,13 @@ export class AmMOci2Component implements OnInit {
 
         // // //////////console.log(array);
         for (let i = 0; i < array.length; i++) {
-          if (data[i].id_area == 1)
+          if (data[i].id_area == 2)
             this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
         }
 
         for (var i = 0; i < this.totallevel2.length; i++) {
           if (this.totallevel2[i].bulanTahun == this.month) {
-              if (this.totallevel2[i].id_area = 1) {
+              if (this.totallevel2[i].id_area == 2) {
                 if (this.totallevel2[i].level === 'Low') {
                   this.low += 1;
                 }
@@ -981,12 +982,12 @@ export class AmMOci2Component implements OnInit {
         this.totalfm2.forEach((elem: any, i: number) => {
           // //console.log(i);
 
-          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+          if (elem.id_area == 2 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
           ////console.log(elem.tanggal_temuan);
 
-          if (elem.id_area == 1) {
+          if (elem.id_area == 2) {
 
 
             if (elem.status_pengerjaan == 'Done') {
@@ -1011,6 +1012,13 @@ export class AmMOci2Component implements OnInit {
               this.temuanperday_data_temp.push(elem)
             }
           }
+
+          this.temuanperday_data_temp.forEach((element: any) => {
+            if(element.bulan == this.bulan){
+              this.listoftotalfinding.push(element)
+            }
+          });
+          console.log(this.listoftotalfinding);
 
 
         })
@@ -1725,7 +1733,7 @@ export class AmMOci2Component implements OnInit {
 
           // // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 1)
+            if (data[i].id_area == 2)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
             //console.log(this.totallevel2);
             //console.log(this.totallevel2.lenght);
@@ -1734,7 +1742,7 @@ export class AmMOci2Component implements OnInit {
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
             if(this.totallevel2[i].bulan == this.month){
-            if (this.totallevel2[i].id_area = 2) {
+            if (this.totallevel2[i].id_area == 2) {
               if (this.totallevel2[i].level === 'Low') {
                 this.low += 1;
               }
@@ -1886,12 +1894,12 @@ export class AmMOci2Component implements OnInit {
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
-            if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            if (elem.id_area == 2 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
             ////console.log(elem.tanggal_temuan);
 
-            if (elem.id_area == 1) {
+            if (elem.id_area == 2) {
 
 
               if (elem.status_pengerjaan == 'Done') {
@@ -1916,6 +1924,13 @@ export class AmMOci2Component implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
             }
+
+            this.temuanperday_data_temp.forEach((element: any) => {
+              if(element.bulan == this.bulan){
+                this.listoftotalfinding.push(element)
+              }
+            });
+            console.log(this.listoftotalfinding);
 
 
           })

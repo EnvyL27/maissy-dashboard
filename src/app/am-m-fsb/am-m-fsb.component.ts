@@ -254,8 +254,10 @@ export class AmMFsbComponent implements OnInit {
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
   month: any = moment().format("M");
+  bulan: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  listoftotalfinding : any = [];
   donut2: any;
   @ViewChild("target")
   target!: ElementRef;
@@ -905,7 +907,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
         // // //////////console.log(array);
         for (let i = 0; i < array.length; i++) {
-          if (data[i].id_area == 1)
+          if (data[i].id_area == 3)
             this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
         }
 
@@ -958,7 +960,6 @@ this.service.getTotalFeeding().subscribe(data => {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      //console.log(data);
 
       // //////////console.log(this.totalfm);
       var date: any = [];
@@ -975,12 +976,12 @@ this.service.getTotalFeeding().subscribe(data => {
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
-          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+          if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
           ////console.log(elem.tanggal_temuan);
-
-          if (elem.id_area == 1) {
+          
+          if (elem.id_area == 3) {
 
 
             if (elem.status_pengerjaan == 'Done') {
@@ -1001,13 +1002,18 @@ this.service.getTotalFeeding().subscribe(data => {
             }
             else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
               if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
-
+              
+              
               this.temuanperday_data_temp.push(elem)
             }
           }
-
-
         })
+
+        this.temuanperday_data_temp.forEach((element: any) => {
+          if(element.bulan == this.bulan){
+            this.listoftotalfinding.push(element)
+          }
+        });
 
 
         this.temuanperday_data_temp.forEach((element: any) => {
@@ -1297,6 +1303,7 @@ this.service.getTotalFeeding().subscribe(data => {
   showFinding() {
     if (this.totalfindinglist == false) {
       this.totalfindinglist = true;
+      console.log('sini');
     } else if (this.totalfindinglist == true) {
       this.totalfindinglist = false;
     }
@@ -1777,7 +1784,7 @@ this.service.getTotalFeeding().subscribe(data => {
 
           // // //////////console.log(array);
           for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 1)
+            if (data[i].id_area == 3)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
@@ -1934,12 +1941,12 @@ this.service.getTotalFeeding().subscribe(data => {
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
-            if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
             ////console.log(elem.tanggal_temuan);
 
-            if (elem.id_area == 1) {
+            if (elem.id_area == 3) {
 
 
               if (elem.status_pengerjaan == 'Done') {
@@ -1964,6 +1971,12 @@ this.service.getTotalFeeding().subscribe(data => {
                 this.temuanperday_data_temp.push(elem)
               }
             }
+
+            this.temuanperday_data_temp.forEach((element: any) => {
+              if(element.bulan == this.bulan){
+                this.listoftotalfinding.push(element)
+              }
+            });
 
 
           })
