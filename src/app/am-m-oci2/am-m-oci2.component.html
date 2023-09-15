@@ -794,15 +794,15 @@
             <div class="w-full px-1 mx-auto">
               <div (click)="showMonthlyReport()">
                 <div
-                class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
-                <div class="flex-auto p-6">
-                  <h5 class="text-center text-2xl font-semibold">
-                    Monthly Report Work Order </h5>
+                  class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <h5 class="text-center text-2xl font-semibold">
+                      Monthly Report Work Order </h5>
+                  </div>
                 </div>
               </div>
-              </div>
-              <div
-              class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border" [ngClass]="!listofMonthlyReport ? '': 'hidden'">
+              <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
+                *ngIf="listofMonthlyReport ? '': 'hidden'">
                 <div class="flex-auto p-6">
                   <div class="w-full max-w-full md:w-full">
                     <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
@@ -810,20 +810,20 @@
                         <!-- <label for="date" class="mr-1">Date : </label> -->
                         <label>Start Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
-                      border-radius: 5px;
-                      background-color: #fff;
-                      padding: 3px 5px;
-                      box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                    " width="48" [(ngModel)]="tgl3">
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="tgl3">
                       </div>
                       <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                         <label>End Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
-                      border-radius: 5px;
-                      background-color: #fff;
-                      padding: 3px 5px;
-                      box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                    " width="48" [(ngModel)]="tgl4">
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="tgl4">
                       </div>
                       <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                         <button (click)="finddata2()" class="button button2">Find Data</button>
@@ -835,753 +835,753 @@
                     (click)="capture()"><i class="fa fa-camera fa-1"></i>
                     Capture</button>
                   <div id="ss" #ss>
-                    <h2 class="text-center" style="color: blue;">Grafik Work Order OC2 {{autodate}}</h2>
+                    <h2 class="text-center text-2xl text-blue-500">Grafik Work Order OC1 {{autodate}}</h2>
                     <div class="w-full">
                       <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
-                      [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
-                      [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
-                      [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [xaxis]="chartOptions.xaxis"
-                      [colors]="chartOptions.colors"></apx-chart>
+                        [dataLabels]="chartOptions.dataLabels" [plotOptions]="chartOptions.plotOptions"
+                        [yaxis]="chartOptions.yaxis" [legend]="chartOptions.legend" [fill]="chartOptions.fill"
+                        [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip" [xaxis]="chartOptions.xaxis"
+                        [colors]="chartOptions.colors"></apx-chart>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-<!--start of apex dropdown-->
-<div class="w-full">
-  <div [ngClass]="booljan ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO January</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of januarielem | filter:searchText | paginate: { id: 'januaripaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="januaripaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="booljannull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO January</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of januaricloseelem | filter:searchText | paginate: { id: 'januariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="januariclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolFeb ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO February</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of febuarielem | filter:searchText | paginate: { id: 'februaripaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="februaripaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolFebnull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO February</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of febuaricloseelem | filter:searchText | paginate: { id: 'februariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="februariclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolMar ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO March</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of maretelem | filter:searchText | paginate: { id: 'maretpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="maretpaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolMarnull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO March</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of maretcloseelem | filter:searchText | paginate: { id: 'marclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="marclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolApr ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO April</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of aprilelem | filter:searchText | paginate: { id: 'aprilpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="aprilpaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolAprnull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO April</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of aprilcloseelem | filter:searchText | paginate: { id: 'aprclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="aprclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolMay ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO May</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of meielem | filter:searchText | paginate: { id: 'maypaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="maypaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolMaynull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO May</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of meicloseelem | filter:searchText | paginate: { id: 'mayclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="mayclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolJun ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO June</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of junielem | filter:searchText | paginate: { id: 'junpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="junpaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolJunnull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO June</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of junicloseelem | filter:searchText | paginate: { id: 'junclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="junclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolJul ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO July</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of julielem | filter:searchText | paginate: { id: 'julpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="julpaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolJulnull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO July</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of julicloseelem | filter:searchText | paginate: { id: 'julclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="julclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-  <div [ngClass]="boolAgu ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Total WO July</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Teco Date
-                </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of agustuselem | filter:searchText | paginate: { id: 'agpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="agpaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-  <div [ngClass]="boolAgunull ? '': 'hidden'" class="my-1 w-full md:w-full">
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-      <div class="flex-auto p-6">
-        <p class="text-center py-4 text-gray-800 font-semibold">Close WO July</p>
-
-        <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-          <table class="w-full text-sm text-left " id="excel-table">
-            <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-              <tr>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  No
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Description
-                </th>
-                <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                  Order type
-                </th>
-                <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                Teco Date
-              </th> -->
-              </tr>
-            </thead>
-            <tbody
-              *ngFor="let findingpending of agustuscloseelem | filter:searchText | paginate: { id: 'agclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-              <tr
-                class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                  {{(currentPage-1) * 5 + i + 1}}
-                </th>
-                <td class="py-4 px-6">
-                  {{findingpending.description}}
-                </td>
-                <td class="py-4 px-6 ">
-                  {{findingpending.order_type}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <pagination-controls class="text-center" id="agclosepaginate" (pageChange)="currentPage = $event">
-      </pagination-controls>
-    </div>
-  </div>
-
-</div>
-<!--end of apex dropdown-->
-
+            <!--start of apex dropdown-->
+            <div class="w-full">
+              <div [ngClass]="booljan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO January</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of januarielem | filter:searchText | paginate: { id: 'januaripaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="januaripaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="booljannull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO January</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of januaricloseelem | filter:searchText | paginate: { id: 'januariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="januariclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolFeb ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO February</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of febuarielem | filter:searchText | paginate: { id: 'februaripaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="februaripaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolFebnull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO February</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of febuaricloseelem | filter:searchText | paginate: { id: 'februariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="februariclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolMar ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO March</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of maretelem | filter:searchText | paginate: { id: 'maretpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="maretpaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolMarnull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO March</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of maretcloseelem | filter:searchText | paginate: { id: 'marclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="marclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolApr ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO April</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of aprilelem | filter:searchText | paginate: { id: 'aprilpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="aprilpaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolAprnull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO April</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of aprilcloseelem | filter:searchText | paginate: { id: 'aprclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="aprclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolMay ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO May</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of meielem | filter:searchText | paginate: { id: 'maypaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="maypaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolMaynull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO May</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of meicloseelem | filter:searchText | paginate: { id: 'mayclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="mayclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolJun ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO June</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of junielem | filter:searchText | paginate: { id: 'junpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="junpaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolJunnull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO June</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of junicloseelem | filter:searchText | paginate: { id: 'junclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="junclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolJul ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO July</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of julielem | filter:searchText | paginate: { id: 'julpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="julpaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolJulnull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO July</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of julicloseelem | filter:searchText | paginate: { id: 'julclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="julclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+              <div [ngClass]="boolAgu ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Total WO July</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Teco Date
+                            </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of agustuselem | filter:searchText | paginate: { id: 'agpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="agpaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+              <div [ngClass]="boolAgunull ? '': 'hidden'" class="my-1 w-full md:w-full">
+                <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6">
+                    <p class="text-center py-4 text-gray-800 font-semibold">Close WO July</p>
+    
+                    <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                      <table class="w-full text-sm text-left " id="excel-table">
+                        <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                          <tr>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Description
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Order type
+                            </th>
+                            <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                            Teco Date
+                          </th> -->
+                          </tr>
+                        </thead>
+                        <tbody
+                          *ngFor="let findingpending of agustuscloseelem | filter:searchText | paginate: { id: 'agclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                          <tr
+                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                              {{(currentPage-1) * 5 + i + 1}}
+                            </th>
+                            <td class="py-4 px-6">
+                              {{findingpending.description}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.order_type}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <pagination-controls class="text-center" id="agclosepaginate" (pageChange)="currentPage = $event">
+                  </pagination-controls>
+                </div>
+              </div>
+    
+            </div>
+            <!--end of apex dropdown-->
+    
             <div [ngClass]="!listofMonthlyReport ? '': 'hidden'" class="my-1 px-1 w-full max-w-full md:w-full">
               <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
@@ -1591,20 +1591,20 @@
                         <!-- <label for="date" class="mr-1">Date : </label> -->
                         <label>Start Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
-                      border-radius: 5px;
-                      background-color: #fff;
-                      padding: 3px 5px;
-                      box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                    " width="48" [(ngModel)]="tgl1">
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="tgl1">
                       </div>
                       <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                         <label>End Date :</label><br />
                         <input type="date" style=" border: 1px solid #c4c4c4;
-                      border-radius: 5px;
-                      background-color: #fff;
-                      padding: 3px 5px;
-                      box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                    " width="48" [(ngModel)]="tgl2">
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="tgl2">
                       </div>
                       <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                         <button (click)="finddata()" class="button button2">Find Data</button>
@@ -1633,7 +1633,8 @@
                           <span style="background-color: #316879;"
                             class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Done
                             WO:
-                            {{this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport}}</span>
+                            {{this.wo02donereport + this.wo03donereport + this.wo06donereport +
+                            this.wo07donereport}}</span>
                           <span style="background-color: #ff6e40;"
                             class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Pending
                             WO:

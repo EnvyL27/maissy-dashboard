@@ -650,6 +650,8 @@ export class AmMOci1Component implements OnInit {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolAgu = !this.boolAgu;
     this.cdr.detectChanges();
+    console.log(this.boolAgu);
+    
   }
   changeSep() {
     this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
@@ -679,76 +681,74 @@ export class AmMOci1Component implements OnInit {
 
   changeJannull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = false;
+    this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljannull = !this.booljannull;
     this.cdr.detectChanges();
   }
   changeFebnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = false;
+    this.booljannull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolFebnull = !this.boolFebnull;
     this.cdr.detectChanges();
   }
   changeMarnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = false;
+    this.booljannull = this.boolFebnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolMarnull = !this.boolMarnull;
     this.cdr.detectChanges();
-    
-    
   }
   changeAprnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolAprnull = !this.boolAprnull;
     this.cdr.detectChanges();
   }
   changeMaynull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolJunnull = this.boolJulnull = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolMaynull = !this.boolMaynull;
     this.cdr.detectChanges();
   }
   changeJunnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJulnull = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolJunnull = !this.boolJunnull;
     this.cdr.detectChanges();
   }
   changeJulnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolJulnull = !this.boolJulnull;
     this.cdr.detectChanges();
   }
   changeAgunull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
-    this.boolJulnull = !this.boolJulnull;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
+    this.boolAgunull = !this.boolAgunull;
     this.cdr.detectChanges();
   }
   changeSepnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
-    this.boolJulnull = !this.boolJulnull;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolAgunull = this.boolJulnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
+    this.boolSepnull = !this.boolSepnull;
     this.cdr.detectChanges();
   }
   changeOktnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
-    this.boolJulnull = !this.boolJulnull;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolAgunull = this.boolSepnull = this.boolJulnull = this.boolNovnull = this.boolDesnull = false;
+    this.boolOktnull = !this.boolOktnull;
     this.cdr.detectChanges();
   }
   changeNovnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
-    this.boolJulnull = !this.boolJulnull;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolJulnull = this.boolDesnull = false;
+    this.boolNovnull = !this.boolNovnull;
     this.cdr.detectChanges();
   }
   changeDesnull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = false;
-    this.boolJulnull = !this.boolJulnull;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolJulnull = false;
+    this.boolDesnull = !this.boolDesnull;
     this.cdr.detectChanges();
   }
 
@@ -771,7 +771,7 @@ export class AmMOci1Component implements OnInit {
         events: {
           click: (event: any, chartContext: any, config: any) => {
             // ////////console.log(config);
-            console.log(this.maretcloseelem);
+            // console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -814,34 +814,34 @@ export class AmMOci1Component implements OnInit {
             if (config.dataPointIndex == '6' && config.seriesIndex == '1') {
               this.changeJulnull();
             }
-            if (config.dataPointIndex == '8' && config.seriesIndex == '0') {
+            if (config.dataPointIndex == '7' && config.seriesIndex == '0') {
               this.changeAgu();
             }
-            if (config.dataPointIndex == '8' && config.seriesIndex == '1') {
+            if (config.dataPointIndex == '7' && config.seriesIndex == '1') {
               this.changeAgunull();
             }
-            if (config.dataPointIndex == '9' && config.seriesIndex == '0') {
+            if (config.dataPointIndex == '8' && config.seriesIndex == '0') {
               this.changeSep();
             }
-            if (config.dataPointIndex == '9' && config.seriesIndex == '1') {
+            if (config.dataPointIndex == '8' && config.seriesIndex == '1') {
               this.changeSepnull();
             }
-            if (config.dataPointIndex == '10' && config.seriesIndex == '0') {
+            if (config.dataPointIndex == '9' && config.seriesIndex == '0') {
               this.changeOkt();
             }
-            if (config.dataPointIndex == '10' && config.seriesIndex == '1') {
+            if (config.dataPointIndex == '9' && config.seriesIndex == '1') {
               this.changeOktnull();
             }
-            if (config.dataPointIndex == '11' && config.seriesIndex == '0') {
+            if (config.dataPointIndex == '10' && config.seriesIndex == '0') {
               this.changeNov();
             }
-            if (config.dataPointIndex == '11' && config.seriesIndex == '1') {
+            if (config.dataPointIndex == '10' && config.seriesIndex == '1') {
               this.changeNovnull();
             }
-            if (config.dataPointIndex == '12' && config.seriesIndex == '0') {
+            if (config.dataPointIndex == '11' && config.seriesIndex == '0') {
               this.changeDes();
             }
-            if (config.dataPointIndex == '12' && config.seriesIndex == '1') {
+            if (config.dataPointIndex == '11' && config.seriesIndex == '1') {
               this.changeDesnull();
             }
              if (config.dataPointIndex == '-1') {
