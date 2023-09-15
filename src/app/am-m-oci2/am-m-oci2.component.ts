@@ -1334,6 +1334,7 @@ export class AmMOci2Component implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.chartFunction()
     this.showFinding();
     this.spinner.show();
     this.showFindingHistory();
