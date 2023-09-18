@@ -22,7 +22,9 @@ export class AmMOci1Component implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    //////////console.log(this.findingpending2);
+    ////////////console.log(this.findingpending2);
+    console.log(this.findingpending2);
+    
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
     ws["!cols"] = [{ wch: 10 },
@@ -270,22 +272,22 @@ export class AmMOci1Component implements OnInit {
   @ViewChild("target2")
   target2!: ElementRef;
   data($event: any) {
-    // ////console.log(this.scree);
+    // //////console.log(this.scree);
 
     this.target.nativeElement.scrollIntoView();
     //   behavior: 'smooth',
     //   block: 'center',
     //   inline: 'center',
     // });
-    //// //////////console.log($event);
+    //// ////////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
-    ////console.log(this.funloc);
+    //////console.log(this.funloc);
 
-    // //////////console.log(this.funloc);
+    // ////////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
-        //////////console.log(this.orderarr);
+        ////////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -296,7 +298,7 @@ export class AmMOci1Component implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
-    ////console.log(this.funloclist);
+    //////console.log(this.funloclist);
   }
   // totalCapture(){
   //   this.captureService
@@ -406,7 +408,7 @@ export class AmMOci1Component implements OnInit {
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
       this.totaldata1year.push(data);
-      //////////console.log(data);
+      ////////////console.log(data);
 
       for (let elem of this.totaldata1year[0]) {
         if (elem.bulan == 'January') {
@@ -577,6 +579,523 @@ export class AmMOci1Component implements OnInit {
     
   }
 
+  exportwo(): void {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    // console.log(this.januarielem);
+    
+    ////////////console.log(this.findingpending2);
+    if(this.booljan == true){
+      const janexport : any = []
+      janexport.push(this.januarielem)
+      console.log(janexport);
+      
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJanuari.xlsx');
+    }else if(this.booljannull == true){
+      const janexport : any = []
+      janexport.push(this.januaricloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJanuariClose.xlsx');
+    }else if(this.boolFeb == true){
+      const janexport : any = []
+      janexport.push(this.febuarielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOFebruari.xlsx');
+    }else if(this.boolFebnull == true){
+      const janexport : any = []
+      janexport.push(this.febuaricloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOFebruariClose.xlsx');
+    }else if(this.boolMar == true){
+      const janexport : any = []
+      janexport.push(this.maretelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMaret.xlsx');
+    }else if(this.boolMarnull == true){
+      const janexport : any = []
+      janexport.push(this.maretcloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMaretClose.xlsx');
+    }else if(this.boolApr == true){
+      const janexport : any = []
+      janexport.push(this.aprilelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOApril.xlsx');
+    }else if(this.boolAprnull == true){
+      const janexport : any = []
+      janexport.push(this.aprilcloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAprilClose.xlsx');
+    }else if(this.boolMay == true){
+      const janexport : any = []
+      janexport.push(this.meielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMei.xlsx');
+    }else if(this.boolMaynull == true){
+      const janexport : any = []
+      janexport.push(this.meicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMeiClose.xlsx');
+    }else if(this.boolJun == true){
+      const janexport : any = []
+      janexport.push(this.junielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuni.xlsx');
+    }else if(this.boolJunnull == true){
+      const janexport : any = []
+      janexport.push(this.junicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuniClose.xlsx');
+    }else if(this.boolJul == true){
+      const janexport : any = []
+      janexport.push(this.julielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuli.xlsx');
+    }else if(this.boolJulnull == true){
+      const janexport : any = []
+      janexport.push(this.julicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuliClose.xlsx');
+    }else if(this.boolAgu == true){
+      const janexport : any = []
+      janexport.push(this.agustuselem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAgustus.xlsx');
+    }else if(this.boolAgunull == true){
+      const janexport : any = []
+      janexport.push(this.agustuscloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAgustusClose.xlsx');
+    }else if(this.boolSep == true){
+      const janexport : any = []
+      janexport.push(this.septemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOSeptember.xlsx');
+    }else if(this.boolSepnull == true){
+      const janexport : any = []
+      janexport.push(this.septembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOSeptemberClose.xlsx');
+    }else if(this.boolOkt == true){
+      const janexport : any = []
+      janexport.push(this.oktoberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOOktober.xlsx');
+    }else if(this.boolOktnull == true){
+      const janexport : any = []
+      janexport.push(this.oktobercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOOktoberClose.xlsx');
+    }else if(this.boolNov == true){
+      const janexport : any = []
+      janexport.push(this.novemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WONovember.xlsx');
+    }else if(this.boolNovnull == true){
+      const janexport : any = []
+      janexport.push(this.novembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WONovemberClose.xlsx');
+    }else if(this.boolDes == true){
+      const janexport : any = []
+      janexport.push(this.desemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WODesember.xlsx');
+    }else if(this.boolDesnull == true){
+      const janexport : any = []
+      janexport.push(this.desembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WODesemberClose.xlsx');
+    }
+    
+    
+
+  }
+
   booljan: Boolean = false;
   boolFeb: Boolean = false;
   boolMar: Boolean = false;
@@ -650,7 +1169,7 @@ export class AmMOci1Component implements OnInit {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolAgu = !this.boolAgu;
     this.cdr.detectChanges();
-    console.log(this.boolAgu);
+    //console.log(this.boolAgu);
     
   }
   changeSep() {
@@ -770,8 +1289,8 @@ export class AmMOci1Component implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // ////////console.log(config);
-            // console.log(this.maretcloseelem);
+            // //////////console.log(config);
+            // //console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -906,23 +1425,23 @@ export class AmMOci1Component implements OnInit {
     this.totallevel = [];
     this.totallevel2 = [];
 
-    //console.log(this.pendingexecute);
+    ////console.log(this.pendingexecute);
     
     // this.spinner.show();
     // this.resolved = false;
-    //console.log(this.month);
+    ////console.log(this.month);
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totallevel = data;
 
       Object.values(this.totallevel).forEach(data => {
-        // // //////////console.log(data);
+        // // ////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        // //////////console.log(array);
+        // ////////////console.log(array);
 
-        // // //////////console.log(array);
+        // // ////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           if (data[i].id_area == 1)
             this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -966,8 +1485,8 @@ export class AmMOci1Component implements OnInit {
             }]
           },
         });
-        // // //////////console.log(this.medium);m
-        // // //////////console.log(this.totallevel2);
+        // // ////////////console.log(this.medium);m
+        // // ////////////console.log(this.totallevel2);
       })
 
 
@@ -976,12 +1495,12 @@ export class AmMOci1Component implements OnInit {
     
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      //console.log(data);
+      ////console.log(data);
 
-      // //////////console.log(this.totalfm);
+      // ////////////console.log(this.totalfm);
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
-        //////////console.log(data);
+        ////////////console.log(data);
 
         var array = Object.keys(data).map(function (key) {
           return data[key];
@@ -989,16 +1508,16 @@ export class AmMOci1Component implements OnInit {
         for (let i = 0; i < array.length; i++) {
           this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
         }
-        // ////////console.log(this.totalfm2);
+        // //////////console.log(this.totalfm2);
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
-          // //console.log(i);
+          // ////console.log(i);
           
           if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
-          ////console.log(elem.tanggal_temuan);
+          //////console.log(elem.tanggal_temuan);
 
           if (elem.id_area == 1) {
 
@@ -1085,7 +1604,7 @@ export class AmMOci1Component implements OnInit {
         });
         
         this.resolved = true;
-        //console.log(this.pendingexecute);
+        ////console.log(this.pendingexecute);
       })
       this.spinner.hide();}, (err)=>{this.spinner.hide();})
   }
@@ -1158,7 +1677,7 @@ export class AmMOci1Component implements OnInit {
         }
       }
 
-      //console.log(this.wo02donereport);
+      ////console.log(this.wo02donereport);
       
       this.bar1report.destroy();
 
@@ -1519,16 +2038,16 @@ export class AmMOci1Component implements OnInit {
       });
       this.service.getTotalApprovalShcedule('1').subscribe(data => {
         this.arrshecdule.push(data);
-        // ////////console.log('hoi', data);
+        // //////////console.log('hoi', data);
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
         }
       });
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-        // ////////console.log(this.totaldata1year);
-        // ////////console.log(this.tgl3);
-        // ////////console.log(this.tgl4);
+        // //////////console.log(this.totaldata1year);
+        // //////////console.log(this.tgl3);
+        // //////////console.log(this.tgl4);
 
 
 
@@ -1637,8 +2156,8 @@ export class AmMOci1Component implements OnInit {
         this.febuari = this.febuari + this.febuariclose;
         this.maret = this.maret + this.maretclose;
         this.april = this.april + this.aprilclose;
-        // ////////console.log(this.mei);
-        // ////////console.log(this.meiclose);
+        // //////////console.log(this.mei);
+        // //////////console.log(this.meiclose);
 
         this.mei = this.mei + this.meiclose;
         this.juni = this.juni + this.juniclose;
@@ -1687,7 +2206,7 @@ export class AmMOci1Component implements OnInit {
 
         for (let elem of this.arrapproval[0].get) {
           if (elem.id_area == '1') {
-            // ////////console.log(elem);
+            // //////////console.log(elem);
             if (elem.status == 'Submit') {
               this.approvalfinding += 1;
             } else if (elem.status == 'Approved' || elem.status == 'Not Yet') {
@@ -1700,47 +2219,47 @@ export class AmMOci1Component implements OnInit {
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
-          //////////console.log(data);
+          ////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////console.log(array);
+          // // ////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-          //////////console.log(this.orderarr);
+          ////////////console.log(this.orderarr);
 
-          // // //////////console.log(this.findingpending2);
+          // // ////////////console.log(this.findingpending2);
         })
       });
       this.service.getReadfpSection().subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
-          // // //////////console.log(data);
+          // // ////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////console.log(array);
+          // ////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-          // //////////console.log(this.fpsectarr);
+          // ////////////console.log(this.fpsectarr);
 
-          // // //////////console.log(this.findingpending2);
+          // // ////////////console.log(this.findingpending2);
         })
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        //console.log(this.totallevel);
+        ////console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
-          // // //////////console.log(data);
+          // // ////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////console.log(array);
+          // ////////////console.log(array);
 
-          // // //////////console.log(array);
+          // // ////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (data[i].id_area == 1)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -1782,8 +2301,8 @@ export class AmMOci1Component implements OnInit {
               }]
             },
           });
-          // // //////////console.log(this.medium);m
-          // // //////////console.log(this.totallevel2);
+          // // ////////////console.log(this.medium);m
+          // // ////////////console.log(this.totallevel2);
         })
 
 
@@ -1792,35 +2311,35 @@ export class AmMOci1Component implements OnInit {
       this.service.getFuncLoc().subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
-          // //////////console.log(data);
+          // ////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////console.log(array);
+          // ////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
 
-          // //////////console.log(this.funlockarr);
+          // ////////////console.log(this.funlockarr);
 
-          // // //////////console.log(this.findingpending2);
+          // // ////////////console.log(this.findingpending2);
           this.spinner.hide();
         })
       });
       this.service.getReadFindingPending().subscribe(data => {
         this.findingpending = data;
         Object.values(this.findingpending).forEach(data => {
-          //////////console.log(data);
+          ////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////console.log(array);
+          // ////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (array[i].status != "CLOSED" && array[i].status != "TECO") {
               this.findingpending2.splice(this.findingpending2.lenght, 0, array[i]);
             }
           }
-          // //////////console.log(this.findingpending2);
+          // ////////////console.log(this.findingpending2);
 
           for (var i = 0; i < this.findingpending2.length; i++) {
             if (this.findingpending2[i].area == "OCI-1") {
@@ -1846,7 +2365,7 @@ export class AmMOci1Component implements OnInit {
             }
           }
 
-          //  //////////console.log(this.findingpending2);
+          //  ////////////console.log(this.findingpending2);
         })
 
         new Chart('donutfp', {
@@ -1885,7 +2404,7 @@ export class AmMOci1Component implements OnInit {
         this.totalfm = data;
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          //console.log(data);
+          ////console.log(data);
 
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1893,14 +2412,14 @@ export class AmMOci1Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // ////////console.log(this.totalfm2);
+          // //////////console.log(this.totalfm2);
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
-            ////console.log(elem.tanggal_temuan);
+            //////console.log(elem.tanggal_temuan);
 
             if (elem.id_area == 1) {
 
@@ -1928,7 +2447,7 @@ export class AmMOci1Component implements OnInit {
               }
             }
 
-            // console.log(this.temuanperday_data_temp);
+            // //console.log(this.temuanperday_data_temp);
             
 
 
@@ -1939,11 +2458,11 @@ export class AmMOci1Component implements OnInit {
               this.listoftotalfinding.push(element)
             }
           });
-          console.log(this.listoftotalfinding);
+          //console.log(this.listoftotalfinding);
           
 
           this.temuanperday_data_temp.forEach((element: any) => {
-            ////console.log(this.screenWidth);
+            //////console.log(this.screenWidth);
 
             if (element.tahun == this.autodate) {
               if (element.bulan == 1) {
@@ -2142,7 +2661,7 @@ export class AmMOci1Component implements OnInit {
 
           
           this.resolved = true;
-          //console.log(this.pendingexecute);
+          ////console.log(this.pendingexecute);
         })
         this.spinner.hide();}, (err)=>{this.spinner.hide();})
 

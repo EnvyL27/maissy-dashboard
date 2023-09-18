@@ -133,7 +133,7 @@
     
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left " id="excel-table">
-                <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
                   <tr>
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       No
@@ -167,7 +167,7 @@
                 <tbody
                   *ngFor="let findingpending of listoftotalfinding | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                   <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
-                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-center">
                       {{(currentPage-1) * 5 + i + 1}}
                     </th>
                     <td class="py-4 px-6 font-medium text-center font-semibold text-gray-800">

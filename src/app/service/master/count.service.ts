@@ -45,23 +45,23 @@ export class CountService {
     this.big5load = this.httpClient.get(api + "big5/get").subscribe(data => {
       this.bigFiveObject = data;
       Object.values(this.bigFiveObject).forEach(data => {
-        // //console.log(data);
+        // ////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        // //console.log(array);
+        // ////console.log(array);
         for (let i = 0; i < array.length; i++) {
-          // //console.log(i)
+          // ////console.log(i)
           var arrayy = Object.keys(array[i + 1]).map(function (key) {
             return array[i + 1][key];
           });
-          // //console.log(arrayy);
+          // ////console.log(arrayy);
           let data: object = {};
           for (let j = 0; j < arrayy.length; j++) {
             var arrayyy = Object.keys(arrayy[j]).map(function (key) {
               return arrayy[j][key];
             });
-            // //console.log(arrayyy);
+            // ////console.log(arrayyy);
             for (let k = 0; k < arrayyy.length; k++) {
               data = {
                 name: array[i],
@@ -93,14 +93,14 @@ export class CountService {
     var url = api + "big5/getbydate";
     this.httpClient.post(url, { name: namee, startDate: start, endDate: end }).subscribe(data => {
       this.bigFiveObject = data;
-      // //console.log(this.bigFiveObject);
+      // ////console.log(this.bigFiveObject);
       Object.values(this.bigFiveObject).forEach(data => {
-        // //console.log(data);
+        // ////console.log(data);
         var array = Object.keys(data).map(function (key) {
-          // //console.log(data[key]);S
+          // ////console.log(data[key]);S
           return data[key];
         });
-        // //console.log(array);
+        // ////console.log(array);
         for (let i = 0; i < array.length; i++) {
           var arrayy = Object.keys(array[i]).map(function (key) {
             return array[i][key];
@@ -117,7 +117,7 @@ export class CountService {
           this.bigFiveByMachineName.splice(this.bigFiveByMachineName.length, 0, arrayy[0]);
           this.bigFiveByMachineValue.splice(this.bigFiveByMachineValue.length, 0, arrayy[1]);
           this.bigFiveDescription.splice(this.bigFiveDescription.length, 0, des);
-          // //console.log(des);
+          // ////console.log(des);
         }
       })
     });
@@ -125,23 +125,23 @@ export class CountService {
   }
 
   insertNewNode() {
-    // //console.log(this.bigFiveByMachineId.length);
+    // ////console.log(this.bigFiveByMachineId.length);
     for (let i = 0; i < this.bigFiveByMachineId.length; i++) {
       if (this.bigFiveByMachineId[i].name == this.machine) {
         this.idmachine = this.bigFiveByMachineId[i].id
         break;
       }
     };
-    // //console.log(this.idmachine);
+    // ////console.log(this.idmachine);
     var url = api + "alarm/create";
     this.httpClient.post(url, { device: this.device, node: this.node, description: this.description, tableId: this.idmachine }).subscribe(data => {
-      // //console.log(data);
+      // ////console.log(data);
     });
   }
 
   deleteNode() {
-    // //console.log(this.bigFiveByMachineId.length);
-    // //console.log(this.idmachine);
+    // ////console.log(this.bigFiveByMachineId.length);
+    // ////console.log(this.idmachine);
     var url = api + "alarm/delete";
     const options = {
       headers: new HttpHeaders({
@@ -155,7 +155,7 @@ export class CountService {
       },
     };
     this.httpClient.delete(url, options).subscribe(data => {
-      // //console.log(data);
+      // ////console.log(data);
     });
   }
 
@@ -164,31 +164,31 @@ export class CountService {
     this.httpClient.get(api + "alarm/get").subscribe(data => {
       this.listNodeObject = data;
       Object.values(this.listNodeObject).forEach(data => {
-        // //console.log(data);
+        // ////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        //console.log(array.length);
+        ////console.log(array.length);
         for (let i = 0; i < array.length; i++) {
           this.listNode.splice(this.listNode.length, 0, array[i]);
         }
       });
-      // //console.log(this.listNode);
+      // ////console.log(this.listNode);
     });
   }
 
   insertNewTable() {
-    // //console.log(this.bigFiveByMachineId.length);
-    // //console.log(this.idmachine);
+    // ////console.log(this.bigFiveByMachineId.length);
+    // ////console.log(this.idmachine);
     var url = api + "table/create";
     this.httpClient.post(url, { name: this.table }).subscribe(data => {
-      // //console.log(data);
+      // ////console.log(data);
     });
   }
 
   deleteTable() {
-    // //console.log(this.bigFiveByMachineId.length);
-    // //console.log(this.idmachine);
+    // ////console.log(this.bigFiveByMachineId.length);
+    // ////console.log(this.idmachine);
     var url = api + "table/delete";
     const options = {
       headers: new HttpHeaders({
@@ -199,7 +199,7 @@ export class CountService {
       },
     };
     this.httpClient.delete(url, options).subscribe(data => {
-      // //console.log(data);
+      // ////console.log(data);
     });
   }
   getOrder() {

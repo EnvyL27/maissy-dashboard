@@ -423,7 +423,7 @@
                   </div>
                   <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500" id="excel-table">
-                      <thead class="text-xs text-center text-gray-300 uppercase bg-gray-300">
+                      <thead class="text-xs text-center text-gray-300 uppercase bg-gray-300 text-center">
                         <tr >
                           <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                             No
@@ -453,7 +453,7 @@
                       </thead>
                       <tbody
                         *ngFor="let findingpending of findingpending2 | filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                        <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                        <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                           <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{(currentPage-1) * 5 + i + 1}}
                           </th>
