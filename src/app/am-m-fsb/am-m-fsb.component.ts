@@ -515,10 +515,12 @@ export class AmMFsbComponent implements OnInit {
             }
           }
         }
-        
-        
-        this.chartFunction();
 
+      
+        this.chartFunction();
+      
+        
+        
       //   this.chartdestroy?.destroy();
       //   this.chartdestroy = new Chart("valuepermonthchart", {
       //     type: "bar",
@@ -745,7 +747,7 @@ export class AmMFsbComponent implements OnInit {
       series: [
         {
           name: "Total",
-          data: [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember)]
+          data: [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember), Math.round(this.januariclose), Math.round(this.febuariclose), Math.round(this.maretclose), Math.round(this.aprilclose), Math.round(this.meiclose), Math.round(this.juniclose), Math.round(this.juliclose), Math.round(this.agustusclose), Math.round(this.septemberclose), Math.round(this.oktoberclose), Math.round(this.novemberclose), Math.round(this.desemberclose)],
         },
         {
           name: "Closed",

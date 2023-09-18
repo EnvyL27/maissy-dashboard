@@ -416,6 +416,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.januariclose += 1
               this.januaricloseelem.push(elem)
+              this.januari += 1;
+              this.januarielem.push(elem)
             } else {
               this.januari += 1;
               this.januarielem.push(elem)
@@ -426,6 +428,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.febuariclose += 1
               this.febuaricloseelem.push(elem)
+              this.febuari += 1;
+              this.febuarielem.push(elem)
             } else {
               this.febuari += 1;
               this.febuarielem.push(elem)
@@ -436,6 +440,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.maretclose += 1;
               this.maretcloseelem.push(elem)
+              this.maret += 1;
+              this.maretelem.push(elem)
             } else {
               this.maret += 1;
               this.maretelem.push(elem)
@@ -446,6 +452,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.aprilclose += 1;
               this.aprilcloseelem.push(elem)
+              this.april += 1;
+              this.aprilelem.push(elem)
             }
             else {
               this.april += 1;
@@ -457,6 +465,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.meiclose += 1;
               this.meicloseelem.push(elem)
+              this.mei += 1;
+              this.meielem.push(elem)
             } else {
               this.mei += 1;
               this.meielem.push(elem)
@@ -467,6 +477,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.juniclose += 1;
               this.junicloseelem.push(elem)
+              this.juni += 1;
+              this.junielem.push(elem)
             } else {
               this.juni += 1;
               this.junielem.push(elem)
@@ -477,6 +489,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.juliclose += 1;
               this.julicloseelem.push(elem)
+              this.juli += 1;
+              this.julielem.push(elem)
             } else {
               this.juli += 1;
               this.julielem.push(elem)
@@ -487,6 +501,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.agustusclose += 1;
               this.agustuscloseelem.push(elem)
+              this.agustus += 1;
+              this.agustuselem.push(elem)
             } else {
               this.agustus += 1;
               this.agustuselem.push(elem)
@@ -497,6 +513,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.septemberclose += 1;
               this.septembercloseelem.push(elem)
+              this.september += 1;
+              this.septemberelem.push(elem)
             } else {
               this.september += 1;
               this.septemberelem.push(elem)
@@ -507,6 +525,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.oktoberclose += 1;
               this.oktobercloseelem.push(elem)
+              this.oktober += 1;
+              this.oktoberelem.push(elem)
             } else {
               this.oktober += 1;
               this.oktoberelem.push(elem)
@@ -517,6 +537,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.novemberclose += 1;
               this.novembercloseelem.push(elem)
+              this.november += 1;
+              this.novemberelem.push(elem)
             } else {
               this.november += 1;
               this.novemberelem.push(elem)
@@ -527,6 +549,8 @@ export class AmMOci1Component implements OnInit {
             if (elem.teco_date != null) {
               this.desemberclose += 1;
               this.desembercloseelem.push(elem)
+              this.desember += 1;
+              this.desemberelem.push(elem)
             } else {
               this.desember += 1;
               this.desemberelem.push(elem)
