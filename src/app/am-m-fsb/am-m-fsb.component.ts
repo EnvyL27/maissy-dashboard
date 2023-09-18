@@ -398,6 +398,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.januariclose += 1
               this.januaricloseelem.push(elem)
+              this.januari += 1;
+              this.januarielem.push(elem)
             } else {
               this.januari += 1;
               this.januarielem.push(elem)
@@ -408,6 +410,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.febuariclose += 1
               this.febuaricloseelem.push(elem)
+              this.febuari += 1;
+              this.febuarielem.push(elem)
             } else {
               this.febuari += 1;
               this.febuarielem.push(elem)
@@ -418,6 +422,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.maretclose += 1;
               this.maretcloseelem.push(elem)
+              this.maret += 1;
+              this.maretelem.push(elem)
             } else {
               this.maret += 1;
               this.maretelem.push(elem)
@@ -428,6 +434,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.aprilclose += 1;
               this.aprilcloseelem.push(elem)
+              this.april += 1;
+              this.aprilelem.push(elem)
             }
             else {
               this.april += 1;
@@ -439,6 +447,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.meiclose += 1;
               this.meicloseelem.push(elem)
+              this.mei += 1;
+              this.meielem.push(elem)
             } else {
               this.mei += 1;
               this.meielem.push(elem)
@@ -449,6 +459,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.juniclose += 1;
               this.junicloseelem.push(elem)
+              this.juni += 1;
+              this.junielem.push(elem)
             } else {
               this.juni += 1;
               this.junielem.push(elem)
@@ -459,6 +471,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.juliclose += 1;
               this.julicloseelem.push(elem)
+              this.juli += 1;
+              this.julielem.push(elem)
             } else {
               this.juli += 1;
               this.julielem.push(elem)
@@ -469,6 +483,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.agustusclose += 1;
               this.agustuscloseelem.push(elem)
+              this.agustus += 1;
+              this.agustuselem.push(elem)
             } else {
               this.agustus += 1;
               this.agustuselem.push(elem)
@@ -479,6 +495,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.septemberclose += 1;
               this.septembercloseelem.push(elem)
+              this.september += 1;
+              this.septemberelem.push(elem)
             } else {
               this.september += 1;
               this.septemberelem.push(elem)
@@ -489,6 +507,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.oktoberclose += 1;
               this.oktobercloseelem.push(elem)
+              this.oktober += 1;
+              this.oktoberelem.push(elem)
             } else {
               this.oktober += 1;
               this.oktoberelem.push(elem)
@@ -499,6 +519,8 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.novemberclose += 1;
               this.novembercloseelem.push(elem)
+              this.november += 1;
+              this.novemberelem.push(elem)
             } else {
               this.november += 1;
               this.novemberelem.push(elem)
@@ -509,18 +531,18 @@ export class AmMFsbComponent implements OnInit {
             if (elem.teco_date != null) {
               this.desemberclose += 1;
               this.desembercloseelem.push(elem)
+              this.desember += 1;
+              this.desemberelem.push(elem)
             } else {
               this.desember += 1;
               this.desemberelem.push(elem)
             }
           }
         }
-
-      
+        
+        
         this.chartFunction();
-      
-        
-        
+
       //   this.chartdestroy?.destroy();
       //   this.chartdestroy = new Chart("valuepermonthchart", {
       //     type: "bar",
@@ -560,6 +582,523 @@ export class AmMFsbComponent implements OnInit {
     
       
     });
+  }
+
+  exportwo(): void {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    // console.log(this.januarielem);
+    
+    ////////////console.log(this.findingpending2);
+    if(this.booljan == true){
+      const janexport : any = []
+      janexport.push(this.januarielem)
+      console.log(janexport);
+      
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJanuari.xlsx');
+    }else if(this.booljannull == true){
+      const janexport : any = []
+      janexport.push(this.januaricloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJanuariClose.xlsx');
+    }else if(this.boolFeb == true){
+      const janexport : any = []
+      janexport.push(this.febuarielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOFebruari.xlsx');
+    }else if(this.boolFebnull == true){
+      const janexport : any = []
+      janexport.push(this.febuaricloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOFebruariClose.xlsx');
+    }else if(this.boolMar == true){
+      const janexport : any = []
+      janexport.push(this.maretelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMaret.xlsx');
+    }else if(this.boolMarnull == true){
+      const janexport : any = []
+      janexport.push(this.maretcloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMaretClose.xlsx');
+    }else if(this.boolApr == true){
+      const janexport : any = []
+      janexport.push(this.aprilelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOApril.xlsx');
+    }else if(this.boolAprnull == true){
+      const janexport : any = []
+      janexport.push(this.aprilcloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAprilClose.xlsx');
+    }else if(this.boolMay == true){
+      const janexport : any = []
+      janexport.push(this.meielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMei.xlsx');
+    }else if(this.boolMaynull == true){
+      const janexport : any = []
+      janexport.push(this.meicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOMeiClose.xlsx');
+    }else if(this.boolJun == true){
+      const janexport : any = []
+      janexport.push(this.junielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuni.xlsx');
+    }else if(this.boolJunnull == true){
+      const janexport : any = []
+      janexport.push(this.junicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuniClose.xlsx');
+    }else if(this.boolJul == true){
+      const janexport : any = []
+      janexport.push(this.julielem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuli.xlsx');
+    }else if(this.boolJulnull == true){
+      const janexport : any = []
+      janexport.push(this.julicloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOJuliClose.xlsx');
+    }else if(this.boolAgu == true){
+      const janexport : any = []
+      janexport.push(this.agustuselem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAgustus.xlsx');
+    }else if(this.boolAgunull == true){
+      const janexport : any = []
+      janexport.push(this.agustuscloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOAgustusClose.xlsx');
+    }else if(this.boolSep == true){
+      const janexport : any = []
+      janexport.push(this.septemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOSeptember.xlsx');
+    }else if(this.boolSepnull == true){
+      const janexport : any = []
+      janexport.push(this.septembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOSeptemberClose.xlsx');
+    }else if(this.boolOkt == true){
+      const janexport : any = []
+      janexport.push(this.oktoberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOOktober.xlsx');
+    }else if(this.boolOktnull == true){
+      const janexport : any = []
+      janexport.push(this.oktobercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WOOktoberClose.xlsx');
+    }else if(this.boolNov == true){
+      const janexport : any = []
+      janexport.push(this.novemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WONovember.xlsx');
+    }else if(this.boolNovnull == true){
+      const janexport : any = []
+      janexport.push(this.novembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WONovemberClose.xlsx');
+    }else if(this.boolDes == true){
+      const janexport : any = []
+      janexport.push(this.desemberelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WODesember.xlsx');
+    }else if(this.boolDesnull == true){
+      const janexport : any = []
+      janexport.push(this.desembercloseelem)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'WODesemberClose.xlsx');
+    }
+    
+    
+
   }
 
   booljan: Boolean = false;
@@ -747,7 +1286,7 @@ export class AmMFsbComponent implements OnInit {
       series: [
         {
           name: "Total",
-          data: [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember), Math.round(this.januariclose), Math.round(this.febuariclose), Math.round(this.maretclose), Math.round(this.aprilclose), Math.round(this.meiclose), Math.round(this.juniclose), Math.round(this.juliclose), Math.round(this.agustusclose), Math.round(this.septemberclose), Math.round(this.oktoberclose), Math.round(this.novemberclose), Math.round(this.desemberclose)],
+          data: [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember)]
         },
         {
           name: "Closed",
