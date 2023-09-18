@@ -321,8 +321,9 @@ export class PdmMOci1Component implements OnInit {
   november: number = 0;
   desember: number = 0;
   subbar: any;
-  listoftotalasset: boolean = true;
-  listoftotalsatisfactory: boolean = true;
+  listoftotalasset: boolean = false;
+  listoftotalsatisfactory: boolean = false;
+  listoftotalgood : boolean = false;
   chartofabnormatasset: boolean = true;
   listofabnormatasset: boolean = false;
   finishnotyet: boolean = false;
@@ -776,19 +777,17 @@ export class PdmMOci1Component implements OnInit {
   }
 
   totalAsset(){
-    if(this.listoftotalasset == false){
-      this.listoftotalasset = true;
-    }else if(this.listoftotalasset == true){
-      this.listoftotalasset = false;
-    }
+    this.listofsatisfactory = true
+    this.listoftotalasset =  !this.listoftotalasset
+    console.log(this.listoftotalasset);
+    
   }
 
   totalSatisfactory(){
-    if(this.listoftotalsatisfactory == false){
-      this.listoftotalsatisfactory = true;
-    }else if(this.listoftotalsatisfactory == true){
-      this.listoftotalsatisfactory = false;
-    }
+    this.listoftotalasset = true
+    this.listoftotalsatisfactory = !this.listoftotalsatisfactory
+    console.log(this.listoftotalsatisfactory);
+    
   }
 
   abnormalAssetTable(){

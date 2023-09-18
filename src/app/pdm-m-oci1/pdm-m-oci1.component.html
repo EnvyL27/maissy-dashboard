@@ -117,7 +117,7 @@
       </div>
     </div>
 
-    <div [ngClass]="listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
+    <div [ngClass]="!listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <div [ngClass]="!listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
+    <div [ngClass]="listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center">Total Asset</p>
