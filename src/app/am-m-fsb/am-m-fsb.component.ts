@@ -263,6 +263,12 @@ export class AmMFsbComponent implements OnInit {
   target!: ElementRef;
   @ViewChild("target2")
   target2!: ElementRef;
+  Setting: number = 0;
+  Replacement: number = 0;
+  Improvement: number = 0;
+  totalkategori: object = {};
+  totalkategoriarr: any = [];
+  
   data($event: any) {
     // //////console.log(this.scree);
 
