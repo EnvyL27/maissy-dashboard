@@ -233,6 +233,7 @@ export class PdmMOci2Component implements OnInit {
   totalfinishtoday2down: any = [];
   abnormal: object = {};
   listofsatisfactory: any = [];
+  listofgood: any = [];
   totalabnormal: any = [];
   totalabnormallist: any = [];
   vibration: object = {};
@@ -321,8 +322,9 @@ export class PdmMOci2Component implements OnInit {
   november: number = 0;
   desember: number = 0;
   subbar: any;
-  listoftotalasset: boolean = true;
-  listoftotalsatisfactory: boolean = true;
+  listoftotalasset: boolean = false;
+  listoftotalsatisfactory: boolean = false;
+  listoftotalgood: boolean = false;
   chartofabnormatasset: boolean = true;
   listofabnormatasset: boolean = false;
   finishnotyet: boolean = false;
@@ -776,19 +778,25 @@ export class PdmMOci2Component implements OnInit {
   }
 
   totalAsset(){
-    if(this.listoftotalasset == false){
-      this.listoftotalasset = true;
-    }else if(this.listoftotalasset == true){
-      this.listoftotalasset = false;
-    }
+    this.listoftotalsatisfactory = true
+    this.listoftotalgood = false
+    this.listoftotalasset =  !this.listoftotalasset
+    // console.log(this.listoftotalasset);
+    
+  }
+
+  totalgood(){
+    this.listoftotalasset = false
+    this.listoftotalsatisfactory = true
+    this.listoftotalgood = !this.listoftotalgood
   }
 
   totalSatisfactory(){
-    if(this.listoftotalsatisfactory == false){
-      this.listoftotalsatisfactory = true;
-    }else if(this.listoftotalsatisfactory == true){
-      this.listoftotalsatisfactory = false;
-    }
+    this.listoftotalasset = false
+    this.listoftotalgood = false
+    this.listoftotalsatisfactory = !this.listoftotalsatisfactory
+    // console.log(this.listoftotalsatisfactory);
+    
   }
 
   abnormalAssetTable(){
@@ -1083,6 +1091,7 @@ export class PdmMOci2Component implements OnInit {
           for (let elem of this.abnormalassetlist) {
             if (elem.Stat == 'Good') {
               this.good2 += 1;
+              this.listofgood.splice(this.listofgood.get, 0, elem)
             } else if (elem.Stat == 'Satisfactory') {
               this.satis2 += 1;
               this.listofsatisfactory.splice(this.listofsatisfactory.get, 0, elem)

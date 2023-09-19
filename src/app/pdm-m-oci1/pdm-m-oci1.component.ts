@@ -781,7 +781,7 @@ export class PdmMOci1Component implements OnInit {
     this.listoftotalsatisfactory = true
     this.listoftotalgood = false
     this.listoftotalasset =  !this.listoftotalasset
-    console.log(this.listoftotalasset);
+    // console.log(this.listoftotalasset);
     
   }
 
@@ -795,7 +795,7 @@ export class PdmMOci1Component implements OnInit {
     this.listoftotalasset = false
     this.listoftotalgood = false
     this.listoftotalsatisfactory = !this.listoftotalsatisfactory
-    console.log(this.listoftotalsatisfactory);
+    // console.log(this.listoftotalsatisfactory);
     
   }
 
