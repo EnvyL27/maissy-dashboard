@@ -233,6 +233,7 @@ export class PdmMOci1Component implements OnInit {
   totalfinishtoday2down: any = [];
   abnormal: object = {};
   listofsatisfactory: any = [];
+  listofgood: any = [];
   totalabnormal: any = [];
   totalabnormallist: any = [];
   vibration: object = {};
@@ -777,14 +778,22 @@ export class PdmMOci1Component implements OnInit {
   }
 
   totalAsset(){
-    this.listofsatisfactory = true
+    this.listoftotalsatisfactory = true
+    this.listoftotalgood = false
     this.listoftotalasset =  !this.listoftotalasset
     console.log(this.listoftotalasset);
     
   }
 
+  totalgood(){
+    this.listoftotalasset = false
+    this.listoftotalsatisfactory = true
+    this.listoftotalgood = !this.listoftotalgood
+  }
+
   totalSatisfactory(){
-    this.listoftotalasset = true
+    this.listoftotalasset = false
+    this.listoftotalgood = false
     this.listoftotalsatisfactory = !this.listoftotalsatisfactory
     console.log(this.listoftotalsatisfactory);
     
@@ -1082,6 +1091,7 @@ export class PdmMOci1Component implements OnInit {
           for (let elem of this.abnormalassetlist) {
             if (elem.Stat == 'Good') {
               this.good2 += 1;
+              this.listofgood.splice(this.listofgood.get, 0, elem)
             } else if (elem.Stat == 'Satisfactory') {
               this.satis2 += 1;
               this.listofsatisfactory.splice(this.listofsatisfactory.get, 0, elem)
