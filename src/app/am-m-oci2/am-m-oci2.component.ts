@@ -601,7 +601,7 @@ export class AmMOci2Component implements OnInit {
       janexport.push(this.januarielem)
       console.log(janexport);
       
-      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
         { wch: 10 },
@@ -622,7 +622,7 @@ export class AmMOci2Component implements OnInit {
       const janexport : any = []
       janexport.push(this.januaricloseelem)
       console.log(janexport);
-      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
         { wch: 10 },

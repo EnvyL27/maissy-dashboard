@@ -8,6 +8,7 @@ import { tap } from 'rxjs';
 import * as moment from 'moment';
 import { ChartOptions } from './chart';
 import { DatePipe } from '@angular/common';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-pdm-m-oci1',
@@ -385,6 +386,81 @@ export class PdmMOci1Component implements OnInit {
     this.showPaginate3 = 5;
     this.paginatereset = !this.paginatereset;
   }
+
+  exportwo(): void {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    // console.log(this.januarielem);
+    
+    ////////////console.log(this.findingpending2);
+    if(this.listoftotalasset == true){
+      const janexport : any = []
+      janexport.push(this.pdmassetlist)
+      console.log(janexport);
+      
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'PDM_Asset.xlsx');
+    }else if(this.listoftotalgood == true){
+      const janexport : any = []
+      janexport.push(this.listofgood)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'PDM_List_Good.xlsx');
+    }else if(this.listoftotalsatisfactory == false){
+      const janexport : any = []
+      janexport.push(this.listofsatisfactory)
+      console.log(janexport);
+      const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+      ws["!cols"] = [{ wch: 10 },
+        { wch: 60 },
+        { wch: 10 },
+        { wch: 40 },
+        { wch: 30 },
+        { wch: 15 },
+        { wch: 15 },
+        { wch: 10 },
+        { wch: 15 }];
+    
+        /* generate workbook and add the worksheet */
+        const wb: XLSX.WorkBook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+        /* save to file */
+        XLSX.writeFile(wb, 'PDM_List_Satisfactory.xlsx');
+    }
+
+  }
+
   print(): void {
     let printContents, popupWin: any;
     printContents = this.myNameElem.nativeElement.innerHTML;

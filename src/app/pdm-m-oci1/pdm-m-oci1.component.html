@@ -121,7 +121,10 @@
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
-
+          <button
+          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+          Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left " id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
@@ -185,7 +188,10 @@
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold">Total Good</p>
-
+          <button
+          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+          Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left " id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
@@ -248,8 +254,11 @@
     <div [ngClass]="listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
-          <p class="text-center py-4 text-gray-800 font-semibold">Total Asset</p>
-
+          <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Asset</p>
+          <button
+          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+          Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left" id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500">
