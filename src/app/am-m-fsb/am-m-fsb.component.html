@@ -932,10 +932,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Teco Date
@@ -950,10 +956,16 @@
                               {{(currentPage-1) * 5 + i + 1}}
                             </th>
                             <td class="py-4 px-6">
+                              {{findingpending.no_wo}}
+                            </td>
+                            <td class="py-4 px-6">
                               {{findingpending.description}}
                             </td>
                             <td class="py-4 px-6 ">
                               {{findingpending.order_type}}
+                            </td>
+                            <td class="py-4 px-6 ">
+                              {{findingpending.status}}
                             </td>
                           </tr>
                         </tbody>
@@ -981,10 +993,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Teco Date
@@ -994,17 +1012,23 @@
                         <tbody
                           *ngFor="let findingpending of januaricloseelem | filter:searchText | paginate: { id: 'januariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                           <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1030,10 +1054,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Teco Date
@@ -1043,17 +1073,23 @@
                         <tbody
                           *ngFor="let findingpending of febuarielem | filter:searchText | paginate: { id: 'februaripaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                           <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1079,10 +1115,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Teco Date
@@ -1092,17 +1134,23 @@
                         <tbody
                           *ngFor="let findingpending of febuaricloseelem | filter:searchText | paginate: { id: 'februariclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                           <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1128,10 +1176,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Teco Date
@@ -1141,17 +1195,23 @@
                         <tbody
                           *ngFor="let findingpending of maretelem | filter:searchText | paginate: { id: 'maretpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                           <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1176,10 +1236,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1189,17 +1255,23 @@
                         <tbody
                           *ngFor="let findingpending of maretcloseelem | filter:searchText | paginate: { id: 'marclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                           <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1220,9 +1292,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1230,25 +1305,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of aprilelem | filter:searchText | paginate: { id: 'aprilpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1273,10 +1357,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1285,18 +1375,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of aprilcloseelem | filter:searchText | paginate: { id: 'aprclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1317,9 +1413,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1327,25 +1426,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of meielem | filter:searchText | paginate: { id: 'maypaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1370,10 +1478,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1382,18 +1496,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of meicloseelem | filter:searchText | paginate: { id: 'mayclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1414,9 +1534,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1424,25 +1547,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of junielem | filter:searchText | paginate: { id: 'junpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1467,10 +1599,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1479,18 +1617,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of junicloseelem | filter:searchText | paginate: { id: 'junclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1511,9 +1655,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1521,25 +1668,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of julielem | filter:searchText | paginate: { id: 'julpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1564,10 +1720,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1576,18 +1738,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of julicloseelem | filter:searchText | paginate: { id: 'julclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1608,9 +1776,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1618,25 +1789,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of agustuselem | filter:searchText | paginate: { id: 'agpaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1661,10 +1841,16 @@
                               No
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1673,18 +1859,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of agustuscloseelem | filter:searchText | paginate: { id: 'agclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1705,9 +1897,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1715,25 +1910,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of septemberelem | filter:searchText | paginate: { id: 'seppaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1753,15 +1957,21 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                           <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1770,18 +1980,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of septembercloseelem | filter:searchText | paginate: { id: 'sepclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1802,9 +2018,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1812,25 +2031,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of oktoberelem | filter:searchText | paginate: { id: 'oktppaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1850,15 +2078,21 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                           <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1867,18 +2101,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of oktobercloseelem | filter:searchText | paginate: { id: 'oktclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1899,9 +2139,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -1909,25 +2152,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of novemberelem | filter:searchText | paginate: { id: 'novppaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1947,15 +2199,21 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                           <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -1964,18 +2222,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of novembercloseelem | filter:searchText | paginate: { id: 'novclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -1996,9 +2260,12 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                         <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
@@ -2006,25 +2273,34 @@
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
                             </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
+                            </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                              Teco Date
-                            </th> -->
+                            Teco Date
+                          </th> -->
                           </tr>
                         </thead>
                         <tbody
                           *ngFor="let findingpending of desemberelem | filter:searchText | paginate: { id: 'desppaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
@@ -2044,15 +2320,21 @@
                     <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
                       <table class="w-full text-sm text-left " id="excel-table">
                         <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
-                          <tr>
+                           <tr>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               No
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              No WO
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Description
                             </th>
                             <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                               Order type
+                            </th>
+                            <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                              Status
                             </th>
                             <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                             Teco Date
@@ -2061,18 +2343,24 @@
                         </thead>
                         <tbody
                           *ngFor="let findingpending of desembercloseelem | filter:searchText | paginate: { id: 'desclosepaginate', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                          <tr
-                            class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
-                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                              {{(currentPage-1) * 5 + i + 1}}
-                            </th>
-                            <td class="py-4 px-6">
-                              {{findingpending.description}}
-                            </td>
-                            <td class="py-4 px-6 ">
-                              {{findingpending.order_type}}
-                            </td>
-                          </tr>
+                           <tr
+                          class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-gray-600 text-center">
+                          <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                            {{(currentPage-1) * 5 + i + 1}}
+                          </th>
+                          <td class="py-4 px-6">
+                            {{findingpending.no_wo}}
+                          </td>
+                          <td class="py-4 px-6">
+                            {{findingpending.description}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.order_type}}
+                          </td>
+                          <td class="py-4 px-6 ">
+                            {{findingpending.status}}
+                          </td>
+                        </tr>
                         </tbody>
                       </table>
                     </div>
