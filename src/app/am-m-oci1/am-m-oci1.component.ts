@@ -410,54 +410,7 @@ export class AmMOci1Component implements OnInit {
     // this.spinner.show();
     this.resolved = false;
 
-    this.service.getCountTotalFinding().subscribe(data => {
-      this.totalkategori = data;
-      console.log(data);
-      
-      Object.values(this.totalkategori).forEach(data => {
-        // // ////console.log(data);
-        var array = Object.keys(data).map(function (key) {
-          return data[key];
-        });
-        // // ////console.log(array);
-        for (let i = 0; i < array.length; i++) {
-          this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
-        }
-        for (var i = 0; i < this.totalkategoriarr.length; i++) {
-          if (this.totalkategoriarr[i].kategori === 'Preventive') {
-            this.Setting += 1;
-          }
-          if (this.totalkategoriarr[i].kategori === 'Replacement') {
-            this.Replacement += 1;
-          }
-          if (this.totalkategoriarr[i].kategori === 'Improvement') {
-            this.Improvement += 1;
-          }
-        }
-        new Chart('typefinding', {
-          type: 'doughnut',
-          data: {
-            labels: ["Setting", "Replacement", "Improvement"],
-            datasets: [{
-              label: 'Data',
-              data: [this.Setting, this.Replacement, this.Improvement],
-              backgroundColor: [
-                '#316879',
-                '#f47a60',
-                '#7fe7dc',
-              ],
-              borderColor: [
-                'white',
-                'white',
-                'white',
-              ],
-              borderWidth: 1
-            }]
-          },
-        });
-      })
-    }
-    );
+    
     
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
@@ -1977,6 +1930,55 @@ export class AmMOci1Component implements OnInit {
       this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
         this.reportharian.push(data);
       })
+
+      this.service.getCountTotalFinding().subscribe(data => {
+        this.totalkategori = data;
+        console.log(data);
+        
+        Object.values(this.totalkategori).forEach(data => {
+          // // ////console.log(data);
+          var array = Object.keys(data).map(function (key) {
+            return data[key];
+          });
+          // // ////console.log(array);
+          for (let i = 0; i < array.length; i++) {
+            this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
+          }
+          for (var i = 0; i < this.totalkategoriarr.length; i++) {
+            if (this.totalkategoriarr[i].kategori === 'Preventive') {
+              this.Setting += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Replacement') {
+              this.Replacement += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Improvement') {
+              this.Improvement += 1;
+            }
+          }
+          new Chart('typefinding', {
+            type: 'doughnut',
+            data: {
+              labels: ["Setting", "Replacement", "Improvement"],
+              datasets: [{
+                label: 'Data',
+                data: [this.Setting, this.Replacement, this.Improvement],
+                backgroundColor: [
+                  '#316879',
+                  '#f47a60',
+                  '#7fe7dc',
+                ],
+                borderColor: [
+                  'white',
+                  'white',
+                  'white',
+                ],
+                borderWidth: 1
+              }]
+            },
+          });
+        })
+      }
+      );
 
 
 
