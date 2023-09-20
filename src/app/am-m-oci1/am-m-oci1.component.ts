@@ -84,6 +84,7 @@ export class AmMOci1Component implements OnInit {
   }
 
   fileName = 'FindingPendingOCI1.xlsx';
+  typefinding: any;
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
   totalfm: object = {};
@@ -1455,6 +1456,63 @@ export class AmMOci1Component implements OnInit {
     this.totalfm2 = [];
     this.totallevel = [];
     this.totallevel2 = [];
+    this.totalkategori = [];
+    this.totalkategoriarr = [];
+
+    this.service.getCountTotalFinding().subscribe(data => {
+      this.totalkategori = data;
+      
+      
+      Object.values(this.totalkategori).forEach(data => {
+        // // ////console.log(data);
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        // // ////console.log(array);
+        for (let i = 0; i < array.length; i++) {
+          this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
+        }
+        
+        for (var i = 0; i < this.totalkategoriarr.length; i++) {
+          if(this.totalkategoriarr[i].bulanTahun == this.month){
+            if (this.totalkategoriarr[i].kategori === 'Preventive') {
+              this.Setting += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Replacement') {
+              this.Replacement += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Improvement') {
+              this.Improvement += 1;
+            }
+          }
+        }
+
+        this.typefinding.destroy()
+
+        this.typefinding = new Chart('typefinding', {
+          type: 'doughnut',
+          data: {
+            labels: ["Setting", "Replacement", "Improvement"],
+            datasets: [{
+              label: 'Data',
+              data: [this.Setting, this.Replacement, this.Improvement],
+              backgroundColor: [
+                '#316879',
+                '#f47a60',
+                '#7fe7dc',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
+          },
+        });
+      })
+    }
+    );
 
     ////console.log(this.pendingexecute);
     
@@ -1933,7 +1991,7 @@ export class AmMOci1Component implements OnInit {
 
       this.service.getCountTotalFinding().subscribe(data => {
         this.totalkategori = data;
-        console.log(data);
+        
         
         Object.values(this.totalkategori).forEach(data => {
           // // ////console.log(data);
@@ -1944,18 +2002,26 @@ export class AmMOci1Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
+          console.log(this.totalkategoriarr[0].bulan);
+          console.log(this.month + ' bulan');
+          
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
-            if (this.totalkategoriarr[i].kategori === 'Preventive') {
-              this.Setting += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Replacement') {
-              this.Replacement += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Improvement') {
-              this.Improvement += 1;
+            if(this.totalkategoriarr[i].bulan == this.month){
+              if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                this.Setting += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                this.Replacement += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                this.Improvement += 1;
+              }
             }
           }
-          new Chart('typefinding', {
+
+          // this.typefinding.destroy()
+
+          this.typefinding = new Chart('typefinding', {
             type: 'doughnut',
             data: {
               labels: ["Setting", "Replacement", "Improvement"],
@@ -2591,6 +2657,54 @@ export class AmMOci1Component implements OnInit {
 
           });
 
+          new Chart('totalfinding', {
+            type: 'bar',
+            data: {
+              labels: this.temuanperday_label,
+              datasets: [
+                {
+                  label: 'Total Finding Per Hari',
+                  data: this.temuanperday_data,
+                  backgroundColor: '#CBFFA9',
+                  borderColor: [
+                    'white',
+                  ],
+                  borderWidth: 1
+                },
+              ]
+            }, 
+          });
+
+          // this.findingbulan3?.destroy();
+
+          new Chart('totalfindingbulan', {
+            type: 'bar',
+            data: {
+              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+              datasets: [
+                {
+                  label: 'Total Finding Per Bulan',
+                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+                  backgroundColor: '#7fe7dc',
+                  borderColor: [
+                    'white',
+                  ],
+                  borderWidth: 1
+                },
+              ]
+            }, options: {
+              scales: {
+                yAxes: {
+                  ticks: {
+                    // beginAtZero: true
+                  }
+                }
+              }
+            }
+          });
+
+          
+
           this.dum = new Chart('dum', {
             type: 'bar',
             data: {
@@ -2667,6 +2781,9 @@ export class AmMOci1Component implements OnInit {
             },
           });
 
+          console.log(this.temuanperday_data);
+          
+
           // this.findingbulan?.destroy();
 
           // this.findingbulan = new Chart('totalfindingbulan', {
@@ -2687,55 +2804,9 @@ export class AmMOci1Component implements OnInit {
           //   }, 
           // });
 
-          this.findingbulan2?.destroy();
+          // this.findingbulan2?.destroy();
 
-          this.findingbulan2 = new Chart('totalfinding', {
-            type: 'bar',
-            data: {
-              labels: this.temuanperday_label,
-              datasets: [
-                {
-                  label: 'Total Finding Per Hari',
-                  data: this.temuanperday_data,
-                  backgroundColor: '#CBFFA9',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            }, 
-          });
-
-          this.findingbulan3?.destroy();
-
-          this.findingbulan3 = new Chart('totalfindingbulan', {
-            type: 'bar',
-            data: {
-              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-              datasets: [
-                {
-                  label: 'Total Finding Per Bulan',
-                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-                  backgroundColor: '#7fe7dc',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            }, options: {
-              scales: {
-                yAxes: {
-                  ticks: {
-                    // beginAtZero: true
-                  }
-                }
-              }
-            }
-          });
-
-
+        
 
 
 

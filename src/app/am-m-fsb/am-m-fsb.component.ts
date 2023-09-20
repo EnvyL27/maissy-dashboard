@@ -154,6 +154,7 @@ export class AmMFsbComponent implements OnInit {
   coba: any = [];
   donut: any = [];
   dum: any;
+  typefinding: any;
   temuanperday: any = [];
   temuanperday_label: any = [];
   temuanperday_data: any = [];
@@ -1437,16 +1438,76 @@ export class AmMFsbComponent implements OnInit {
 
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = this.low = this.medium = this.high = 0;
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];
     this.totallevel2 = [];
+    this.totalkategori = [];
+    this.totalkategoriarr = [];
+
+    this.service.getCountTotalFinding().subscribe(data => {
+      this.totalkategori = data;
+      
+      
+      Object.values(this.totalkategori).forEach(data => {
+        // // ////console.log(data);
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        // // ////console.log(array);
+        for (let i = 0; i < array.length; i++) {
+          this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
+        }
+        
+        for (var i = 0; i < this.totalkategoriarr.length; i++) {
+          if(this.totalkategoriarr[i].bulanTahun == this.month){
+            if (this.totalkategoriarr[i].kategori === 'Preventive') {
+              this.Setting += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Replacement') {
+              this.Replacement += 1;
+            }
+            if (this.totalkategoriarr[i].kategori === 'Improvement') {
+              this.Improvement += 1;
+            }
+          }
+        }
+
+        this.typefinding.destroy()
+
+        this.typefinding = new Chart('typefinding', {
+          type: 'doughnut',
+          data: {
+            labels: ["Setting", "Replacement", "Improvement"],
+            datasets: [{
+              label: 'Data',
+              data: [this.Setting, this.Replacement, this.Improvement],
+              backgroundColor: [
+                '#316879',
+                '#f47a60',
+                '#7fe7dc',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
+          },
+        });
+      })
+    }
+    );
+
+    ////console.log(this.pendingexecute);
+    
     // this.spinner.show();
     // this.resolved = false;
     ////console.log(this.month);
 
-this.service.getTotalFeeding().subscribe(data => {
+    this.service.getTotalFeeding().subscribe(data => {
       this.totallevel = data;
 
       Object.values(this.totallevel).forEach(data => {
@@ -1458,28 +1519,27 @@ this.service.getTotalFeeding().subscribe(data => {
 
         // // ////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
-          if (data[i].id_area == 3)
+          if (data[i].id_area == 1)
             this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
         }
-
         for (var i = 0; i < this.totallevel2.length; i++) {
-          if (this.totallevel2[i].bulanTahun == this.month) {
-              if (this.totallevel2[i].id_area = 3) {
-                if (this.totallevel2[i].level === 'Low') {
-                  this.low += 1;
-                }
-                if (this.totallevel2[i].level === 'Medium') {
-                  this.medium += 1;
-                }
-                if (this.totallevel2[i].level === 'High') {
-                  this.high += 1;
-                }
-              }
+          if(this.totallevel2[i].bulanTahun == this.month){
+          if (this.totallevel2[i].id_area = 1) {
+            if (this.totallevel2[i].level === 'Low') {
+              this.low += 1;
             }
+            if (this.totallevel2[i].level === 'Medium') {
+              this.medium += 1;
+            }
+            if (this.totallevel2[i].level === 'High') {
+              this.high += 1;
+            }
+          }
         }
 
         this.donut2.destroy();
 
+        }
         this.donut2 = new Chart('donut2', {
           type: 'doughnut',
           data: {
@@ -1508,9 +1568,10 @@ this.service.getTotalFeeding().subscribe(data => {
 
     }
     );
-
+    
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
+      ////console.log(data);
 
       // ////////////console.log(this.totalfm);
       var date: any = [];
@@ -1527,12 +1588,14 @@ this.service.getTotalFeeding().subscribe(data => {
 
 
         this.totalfm2.forEach((elem: any, i: number) => {
-          if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+          // ////console.log(i);
+          
+          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
           //////console.log(elem.tanggal_temuan);
-          
-          if (elem.id_area == 3) {
+
+          if (elem.id_area == 1) {
 
 
             if (elem.status_pengerjaan == 'Done') {
@@ -1553,70 +1616,14 @@ this.service.getTotalFeeding().subscribe(data => {
             }
             else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
               if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
-              
-              
+
               this.temuanperday_data_temp.push(elem)
             }
           }
+
+
         })
-
-        this.temuanperday_data_temp.forEach((element: any) => {
-          if(element.bulan == this.bulan){
-            this.listoftotalfinding.push(element)
-          }
-        });
-
-
-        this.temuanperday_data_temp.forEach((element: any) => {
-          //////console.log(this.screenWidth);
-
-          if (element.tahun == this.autodate) {
-            if (element.bulan == 1) {
-              this.termuanperday_jan++
-            } else if (element.bulan == 2) {
-              this.termuanperday_feb++
-            } else if (element.bulan == 3) {
-              this.termuanperday_mar++
-            } else if (element.bulan == 4) {
-              this.termuanperday_apr++
-            } else if (element.bulan == 5) {
-              this.termuanperday_mei++
-            } else if (element.bulan == 6) {
-              this.termuanperday_jun++
-            } else if (element.bulan == 7) {
-              this.termuanperday_jul++
-            } else if (element.bulan == 8) {
-              this.termuanperday_ags++
-            } else if (element.bulan == 9) {
-              this.termuanperday_sep++
-            } else if (element.bulan == 10) {
-              this.termuanperday_nov++
-            } else if (element.bulan == 11) {
-              this.termuanperday_okt++
-            } else if (element.bulan == 12) {
-              this.termuanperday_des++
-            }
-          }
-        });
-
-        date.forEach((element: any) => {
-
-          this.temuanperday_data_temp.forEach((elem: any) => {
-            if (elem.bulanTahun == this.month) {
-              if (elem.tanggal_temuan == element) {
-                this.temuanperday_dum++
-              }
-            }
-          });
-          if (this.temuanperday_dum != 0) {
-            this.temuanperday_label.push(element)
-            this.temuanperday_data.push(this.temuanperday_dum)
-          }
-
-          this.temuanperday_dum = 0
-
-        });
-
+        
         this.dum.destroy();
 
         this.dum = new Chart('dum', {
@@ -1671,12 +1678,11 @@ this.service.getTotalFeeding().subscribe(data => {
             ]
           },
         });
-
+        
         this.resolved = true;
         ////console.log(this.pendingexecute);
       })
-      this.spinner.hide();
-    }, (err) => { this.spinner.hide(); })
+      this.spinner.hide();}, (err)=>{this.spinner.hide();})
   }
   finddata() {
     this.spinner.show();
@@ -1969,7 +1975,62 @@ this.service.getTotalFeeding().subscribe(data => {
         this.spinner.hide();
       })
 
+      this.service.getCountTotalFinding().subscribe(data => {
+        this.totalkategori = data;
+        
+        
+        Object.values(this.totalkategori).forEach(data => {
+          // // ////console.log(data);
+          var array = Object.keys(data).map(function (key) {
+            return data[key];
+          });
+          // // ////console.log(array);
+          for (let i = 0; i < array.length; i++) {
+            this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
+          }
+          console.log(this.totalkategoriarr[0].bulan);
+          console.log(this.month + ' bulan');
+          
+          for (var i = 0; i < this.totalkategoriarr.length; i++) {
+            if(this.totalkategoriarr[i].bulan == this.month){
+              if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                this.Setting += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                this.Replacement += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                this.Improvement += 1;
+              }
+            }
+          }
 
+          // this.typefinding.destroy()
+
+          this.typefinding = new Chart('typefinding', {
+            type: 'doughnut',
+            data: {
+              labels: ["Setting", "Replacement", "Improvement"],
+              datasets: [{
+                label: 'Data',
+                data: [this.Setting, this.Replacement, this.Improvement],
+                backgroundColor: [
+                  '#316879',
+                  '#f47a60',
+                  '#7fe7dc',
+                ],
+                borderColor: [
+                  'white',
+                  'white',
+                  'white',
+                ],
+                borderWidth: 1
+              }]
+            },
+          });
+        })
+      }
+      );
 
       this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
         this.datarange.push(data);
@@ -2565,6 +2626,9 @@ this.service.getTotalFeeding().subscribe(data => {
             }
           });
 
+          console.log(this.termuanperday_jan);
+          
+
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
@@ -2582,6 +2646,43 @@ this.service.getTotalFeeding().subscribe(data => {
             this.temuanperday_dum = 0
 
           });
+
+          new Chart('totalfinding', {
+            type: 'bar',
+            data: {
+              labels: this.temuanperday_label,
+              datasets: [
+                {
+                  label: 'Total Finding Per Hari',
+                  data: this.temuanperday_data,
+                  backgroundColor: '#CBFFA9',
+                  borderColor: [
+                    'white',
+                  ],
+                  borderWidth: 1
+                },
+              ]
+            },
+          });
+
+          new Chart('totalfindingbulan', {
+            type: 'bar',
+            data: {
+              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+              datasets: [
+                {
+                  label: 'Total Finding Per Bulan',
+                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+                  backgroundColor: '#7fe7dc',
+                  borderColor: [
+                    'white',
+                  ],
+                  borderWidth: 1
+                },
+              ]
+            },
+          });
+
 
           this.dum = new Chart('dum', {
             type: 'bar',
@@ -2659,60 +2760,25 @@ this.service.getTotalFeeding().subscribe(data => {
             },
           });
 
-          new Chart('totalfindingbulan', {
-            type: 'bar',
-            data: {
-              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-              datasets: [
-                {
-                  label: 'Total Finding Bulan',
-                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-                  backgroundColor: '#FFD6A5',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
+          // new Chart('totalfindingbulan', {
+          //   type: 'bar',
+          //   data: {
+          //     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+          //     datasets: [
+          //       {
+          //         label: 'Total Finding Bulan',
+          //         data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+          //         backgroundColor: '#FFD6A5',
+          //         borderColor: [
+          //           'white',
+          //         ],
+          //         borderWidth: 1
+          //       },
+          //     ]
+          //   },
+          // });
 
-          new Chart('totalfinding', {
-            type: 'bar',
-            data: {
-              labels: this.temuanperday_label,
-              datasets: [
-                {
-                  label: 'Total Finding Per Hari',
-                  data: this.temuanperday_data,
-                  backgroundColor: '#CBFFA9',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
-
-          new Chart('totalfindingbulan', {
-            type: 'bar',
-            data: {
-              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-              datasets: [
-                {
-                  label: 'Total Finding Per Bulan',
-                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-                  backgroundColor: '#7fe7dc',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
-
+        
 
 
 
