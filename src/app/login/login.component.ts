@@ -65,14 +65,14 @@ export class LoginComponent {
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
         (data) => {
-          // ////console.log(data);
-          // ////console.log(data.user[0].lg_name);
+          // //////console.log(data);
+          // //////console.log(data.user[0].lg_name);
           this.name = data.user[0].lg_name;
 
           this.authService.saveToken(data.access_token);
           this.authService.saveUser(data.user);
           this.showSuccess()
-          // ////console.log('Sign In Success');
+          // //////console.log('Sign In Success');
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
 
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
@@ -81,7 +81,7 @@ export class LoginComponent {
         (err) => {
           if (err.statusText == 'Unauthorized') {
             this.showWarning()
-            // ////console.log('Email or Pass Invalid');
+            // //////console.log('Email or Pass Invalid');
             // this.alertService.onCallAlert(
             //   'Email or Password Invalid',
             //   AlertType.Error
@@ -90,10 +90,10 @@ export class LoginComponent {
           } else {
             // this.alertService.onCallAlert('Login Failed', AlertType.Error);
             this.showError()
-            ////console.log('Sign In Failed');
+            //////console.log('Sign In Failed');
           }
 
-          // ////console.log(err.statusText);
+          // //////console.log(err.statusText);
 
           // this.errorMessage = err.error.message;
           // this.isLoginFailed = true;
