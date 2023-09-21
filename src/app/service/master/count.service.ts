@@ -626,6 +626,9 @@ export class CountService {
   getTotalApprovalShcedule(id_area: any){
     return this.httpClient.post(api + "totalapprovalshcedule", {id_area :id_area});
   }
+  getTotalApprovalCreateOrder(id_area: any){
+    return this.httpClient.post(api + "totalapprovalcreateorder", {id_area :id_area});
+  }
   getReportingHarianam(tgl: any,id_area: any){
     return this.httpClient.post(api + "reportingharianam", {tgl: tgl,id_area :id_area});
   }

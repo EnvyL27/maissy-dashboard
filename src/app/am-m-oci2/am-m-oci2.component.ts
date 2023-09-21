@@ -1459,14 +1459,20 @@ export class AmMOci2Component implements OnInit {
         
         for (var i = 0; i < this.totalkategoriarr.length; i++) {
           if(this.totalkategoriarr[i].bulanTahun == this.month){
-            if (this.totalkategoriarr[i].kategori === 'Preventive') {
-              this.Setting += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Replacement') {
-              this.Replacement += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Improvement') {
-              this.Improvement += 1;
+            if(this.totalkategoriarr[i].id_area == 2){
+              console.log(this.totalkategoriarr[i].bulanTahun + ' bt');
+              console.log(this.month);
+              
+              
+              if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                this.Setting += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                this.Replacement += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                this.Improvement += 1;
+              }
             }
           }
         }
@@ -1988,14 +1994,16 @@ export class AmMOci2Component implements OnInit {
           
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
             if(this.totalkategoriarr[i].bulan == this.month){
-              if (this.totalkategoriarr[i].kategori === 'Preventive') {
-                this.Setting += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Replacement') {
-                this.Replacement += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Improvement') {
-                this.Improvement += 1;
+              if(this.totalkategoriarr[i].id_area == 2){
+                if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                  this.Setting += 1;
+                }
+                if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                  this.Replacement += 1;
+                }
+                if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                  this.Improvement += 1;
+                }
               }
             }
           }
@@ -2159,6 +2167,13 @@ export class AmMOci2Component implements OnInit {
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.orderfinish = elem.total;
+        }
+      });
+      this.service.getTotalApprovalCreateOrder('2').subscribe(data => {
+        this.arrorderfinish = []
+        this.arrorderfinish.push(data);
+        for (let elem of this.arrorderfinish[0]) {
+          this.createorderfinding = elem.total;
         }
       });
       this.service.getTotalApprovalShcedule('2').subscribe(data => {
@@ -2325,21 +2340,21 @@ export class AmMOci2Component implements OnInit {
           // }
         });
       });
-      this.service.getTotalApproval().subscribe(data => {
-        this.arrapproval.push(data);
+      // this.service.getTotalApproval().subscribe(data => {
+      //   this.arrapproval.push(data);
 
-        for (let elem of this.arrapproval[0].get) {
-          if (elem.id_area == '2') {
-            // ////////////console.log(elem);
-            if (elem.status == 'Submit') {
-              this.approvalfinding += 1;
-            } else if (elem.status == 'Approved' || elem.status == 'Not Yet') {
-              this.createorderfinding += 1;
-            }
-          }
-        }
+      //   for (let elem of this.arrapproval[0].get) {
+      //     if (elem.id_area == '2') {
+      //       // ////////////console.log(elem);
+      //       if (elem.status == 'Submit') {
+      //         this.approvalfinding += 1;
+      //       } else if (elem.status == 'Create' || elem.status == 'Emergency' || elem.status == null) {
+      //         this.createorderfinding += 1;
+      //       }
+      //     }
+      //   }
 
-      });
+      // });
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {

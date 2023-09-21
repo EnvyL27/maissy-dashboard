@@ -1462,14 +1462,16 @@ export class AmMFsbComponent implements OnInit {
         
         for (var i = 0; i < this.totalkategoriarr.length; i++) {
           if(this.totalkategoriarr[i].bulanTahun == this.month){
-            if (this.totalkategoriarr[i].kategori === 'Preventive') {
-              this.Setting += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Replacement') {
-              this.Replacement += 1;
-            }
-            if (this.totalkategoriarr[i].kategori === 'Improvement') {
-              this.Improvement += 1;
+            if(this.totalkategoriarr[i].id_area == 3){
+              if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                this.Setting += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                this.Replacement += 1;
+              }
+              if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                this.Improvement += 1;
+              }
             }
           }
         }
@@ -1993,14 +1995,16 @@ export class AmMFsbComponent implements OnInit {
           
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
             if(this.totalkategoriarr[i].bulan == this.month){
-              if (this.totalkategoriarr[i].kategori === 'Preventive') {
-                this.Setting += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Replacement') {
-                this.Replacement += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Improvement') {
-                this.Improvement += 1;
+              if(this.totalkategoriarr[i].id_area == 3){
+                if (this.totalkategoriarr[i].kategori === 'Preventive') {
+                  this.Setting += 1;
+                }
+                if (this.totalkategoriarr[i].kategori === 'Replacement') {
+                  this.Replacement += 1;
+                }
+                if (this.totalkategoriarr[i].kategori === 'Improvement') {
+                  this.Improvement += 1;
+                }
               }
             }
           }
