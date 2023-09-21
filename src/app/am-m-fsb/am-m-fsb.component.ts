@@ -2172,6 +2172,13 @@ export class AmMFsbComponent implements OnInit {
         }
         this.spinner.hide();
       });
+      this.service.getTotalApprovalCreateOrder('3').subscribe(data => {
+        this.arrorderfinish = []
+        this.arrorderfinish.push(data);
+        for (let elem of this.arrorderfinish[0]) {
+          this.createorderfinding = elem.total;
+        }
+      });
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
         this.arrshecdule.push(data);
         // ////////////console.log('hoi', data);
@@ -2338,21 +2345,21 @@ export class AmMFsbComponent implements OnInit {
         });
         this.spinner.hide();
       });
-      this.service.getTotalApproval().subscribe(data => {
-        this.arrapproval.push(data);
+      // this.service.getTotalApproval().subscribe(data => {
+      //   this.arrapproval.push(data);
 
-        for (let elem of this.arrapproval[0].get) {
-          if (elem.id_area == '3') {
-            // ////////////console.log(elem);
-            if (elem.status == 'Submit') {
-              this.approvalfinding += 1;
-            } else if (elem.status == 'Approved' || elem.status == 'Not Yet') {
-              this.createorderfinding += 1;
-            }
-          }
-        }
-        this.spinner.hide();
-      });
+      //   for (let elem of this.arrapproval[0].get) {
+      //     if (elem.id_area == '3') {
+      //       // ////////////console.log(elem);
+      //       if (elem.status == 'Submit') {
+      //         this.approvalfinding += 1;
+      //       } else if (elem.status == 'Approved' || elem.status == 'Not Yet') {
+      //         this.createorderfinding += 1;
+      //       }
+      //     }
+      //   }
+      //   this.spinner.hide();
+      // });
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
