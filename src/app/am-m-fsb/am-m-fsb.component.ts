@@ -2179,6 +2179,13 @@ export class AmMFsbComponent implements OnInit {
           this.createorderfinding = elem.total;
         }
       });
+      this.service.getTotalApprovalSpv('3').subscribe(data => {
+        this.arrorderfinish = []
+        this.arrorderfinish.push(data);
+        for (let elem of this.arrorderfinish[0]) {
+          this.approvalfinding = elem.total;
+        }
+      });
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
         this.arrshecdule.push(data);
         // ////////////console.log('hoi', data);

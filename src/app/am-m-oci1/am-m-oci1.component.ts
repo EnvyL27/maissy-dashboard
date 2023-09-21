@@ -2194,6 +2194,13 @@ export class AmMOci1Component implements OnInit {
           this.createorderfinding = elem.total;
         }
       });
+      this.service.getTotalApprovalSpv('1').subscribe(data => {
+        this.arrorderfinish = []
+        this.arrorderfinish.push(data);
+        for (let elem of this.arrorderfinish[0]) {
+          this.approvalfinding = elem.total;
+        }
+      });
       this.service.getTotalApprovalShcedule('1').subscribe(data => {
         this.arrshecdule.push(data);
         // ////////////console.log('hoi', data);
