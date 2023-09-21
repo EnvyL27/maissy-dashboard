@@ -632,6 +632,9 @@ export class CountService {
   getTotalApprovalSpv(id_area: any){
     return this.httpClient.post(api + "totalapprovalspv", {id_area :id_area});
   }
+  getTotalApprovalReadyExecution(id_area: any){
+    return this.httpClient.post(api + "totalapprovalreadyexecution", {id_area :id_area});
+  }
   getReportingHarianam(tgl: any,id_area: any){
     return this.httpClient.post(api + "reportingharianam", {tgl: tgl,id_area :id_area});
   }

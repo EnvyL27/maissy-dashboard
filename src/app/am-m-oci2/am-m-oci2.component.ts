@@ -2183,6 +2183,13 @@ export class AmMOci2Component implements OnInit {
           this.approvalfinding = elem.total;
         }
       });
+      this.service.getTotalApprovalReadyExecution('2').subscribe(data => {
+        this.arrorderfinish = []
+        this.arrorderfinish.push(data);
+        for (let elem of this.arrorderfinish[0]) {
+          this.readyexecutetop = elem.total;
+        }
+      });
       this.service.getTotalApprovalShcedule('2').subscribe(data => {
         this.arrshecdule.push(data);
         // ////////////console.log('hoi', data);
@@ -2582,7 +2589,7 @@ export class AmMOci2Component implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1; this.readyexecutetop += 1; }
+                if (elem.bulan == this.month) { this.readyexecute += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
