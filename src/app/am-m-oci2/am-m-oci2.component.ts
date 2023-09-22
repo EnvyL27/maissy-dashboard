@@ -23,7 +23,7 @@ export class AmMOci2Component implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    //////////////console.log(this.findingpending2);
+    ////////////////console.log(this.findingpending2);
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
     ws["!cols"] = [{ wch: 10 },
@@ -273,22 +273,22 @@ export class AmMOci2Component implements OnInit {
   totalkategoriarr: any = [];
   
   data($event: any) {
-    // ////////console.log(this.scree);
+    // //////////console.log(this.scree);
 
     this.target.nativeElement.scrollIntoView();
     //   behavior: 'smooth',
     //   block: 'center',
     //   inline: 'center',
     // });
-    //// //////////////console.log($event);
+    //// ////////////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
-    ////////console.log(this.funloc);
+    //////////console.log(this.funloc);
 
-    // //////////////console.log(this.funloc);
+    // ////////////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
-        //////////////console.log(this.orderarr);
+        ////////////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -299,7 +299,7 @@ export class AmMOci2Component implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
-    ////////console.log(this.funloclist);
+    //////////console.log(this.funloclist);
   }
   totalCapture() {
     const element = document.getElementById('ssTotal')!;
@@ -396,13 +396,13 @@ export class AmMOci2Component implements OnInit {
   exportwo(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    // //console.log(this.januarielem);
+    // ////console.log(this.januarielem);
     
-    //////////////console.log(this.findingpending2);
+    ////////////////console.log(this.findingpending2);
     if(this.booljan == true){
       const janexport : any = []
       janexport.push(this.januarielem)
-      //console.log(janexport);
+      ////console.log(janexport);
       
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
@@ -424,7 +424,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.booljannull == true){
       const janexport : any = []
       janexport.push(this.januaricloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -445,7 +445,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolFeb == true){
       const janexport : any = []
       janexport.push(this.febuarielem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -466,7 +466,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolFebnull == true){
       const janexport : any = []
       janexport.push(this.febuaricloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -487,7 +487,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolMar == true){
       const janexport : any = []
       janexport.push(this.maretelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -508,7 +508,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolMarnull == true){
       const janexport : any = []
       janexport.push(this.maretcloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -529,7 +529,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolApr == true){
       const janexport : any = []
       janexport.push(this.aprilelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -550,7 +550,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolAprnull == true){
       const janexport : any = []
       janexport.push(this.aprilcloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -571,7 +571,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolMay == true){
       const janexport : any = []
       janexport.push(this.meielem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -592,7 +592,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolMaynull == true){
       const janexport : any = []
       janexport.push(this.meicloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -613,7 +613,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolJun == true){
       const janexport : any = []
       janexport.push(this.junielem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -634,7 +634,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolJunnull == true){
       const janexport : any = []
       janexport.push(this.junicloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -655,7 +655,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolJul == true){
       const janexport : any = []
       janexport.push(this.julielem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -676,7 +676,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolJulnull == true){
       const janexport : any = []
       janexport.push(this.julicloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -697,7 +697,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolAgu == true){
       const janexport : any = []
       janexport.push(this.agustuselem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -718,7 +718,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolAgunull == true){
       const janexport : any = []
       janexport.push(this.agustuscloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -739,7 +739,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolSep == true){
       const janexport : any = []
       janexport.push(this.septemberelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -760,7 +760,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolSepnull == true){
       const janexport : any = []
       janexport.push(this.septembercloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -781,7 +781,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolOkt == true){
       const janexport : any = []
       janexport.push(this.oktoberelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -802,7 +802,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolOktnull == true){
       const janexport : any = []
       janexport.push(this.oktobercloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -823,7 +823,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolNov == true){
       const janexport : any = []
       janexport.push(this.novemberelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -844,7 +844,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolNovnull == true){
       const janexport : any = []
       janexport.push(this.novembercloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -865,7 +865,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolDes == true){
       const janexport : any = []
       janexport.push(this.desemberelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -886,7 +886,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.boolDesnull == true){
       const janexport : any = []
       janexport.push(this.desembercloseelem)
-      //console.log(janexport);
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -1104,8 +1104,8 @@ export class AmMOci2Component implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // ////////////console.log(config);
-            ////console.log(this.maretcloseelem);
+            // //////////////console.log(config);
+            //////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -1251,11 +1251,11 @@ export class AmMOci2Component implements OnInit {
       
       
       Object.values(this.totalkategori).forEach(data => {
-        // // //////console.log(data);
+        // // ////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        // // //////console.log(array);
+        // // ////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
         }
@@ -1263,8 +1263,8 @@ export class AmMOci2Component implements OnInit {
         for (var i = 0; i < this.totalkategoriarr.length; i++) {
           if(this.totalkategoriarr[i].bulanTahun == this.month){
             if(this.totalkategoriarr[i].id_area == 2){
-              console.log(this.totalkategoriarr[i].bulanTahun + ' bt');
-              console.log(this.month);
+              //console.log(this.totalkategoriarr[i].bulanTahun + ' bt');
+              //console.log(this.month);
               
               
               if (this.totalkategoriarr[i].kategori === 'Preventive') {
@@ -1307,14 +1307,118 @@ export class AmMOci2Component implements OnInit {
     }
     );
 
-    //////console.log(this.pendingexecute);
+    ////////console.log(this.pendingexecute);
     
     // this.spinner.show();
     // this.resolved = false;
-    //////console.log(this.month);
+    ////////console.log(this.month);
+    this.service.getTotalFeeding().subscribe(data => {
+      this.totalfm = data;
+      var date: any = [];
+      Object.values(this.totalfm).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
+        }
+        this.totalfm2.forEach((elem: any, i: number) => {
+          if (elem.id_area == 2 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            date.push(elem.tanggal_temuan)
+          }
+          if (elem.id_area == 2) {
 
+
+            if (elem.status_pengerjaan == 'Done') {
+              if (elem.bulanTahun == this.month) { this.finishexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+            else if (elem.status2 == 'READY') {
+              if (elem.bulanTahun == this.month) { this.readyexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
+              if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
+                if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+
+                this.temuanperday_data_temp.push(elem)
+              }
+            }
+            else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
+              if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+          }
+
+
+        })
+        
+        this.dum.destroy();
+
+        this.dum = new Chart('dum', {
+          type: 'bar',
+          data: {
+            labels: [""],
+            datasets: [
+              {
+                label: 'Total Finding',
+                data: [this.pendingexecute + this.readyexecute + this.finishexecute],
+                backgroundColor: [
+                  '#7fe7dc'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'On Progress WO',
+                data: [this.pendingexecute],
+                backgroundColor: [
+                  '#ffc13b'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Ready Execute',
+                data: [this.readyexecute],
+                backgroundColor: [
+                  '#ff6e40'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+              {
+                label: 'Finish Execute',
+                data: [this.finishexecute],
+                backgroundColor: [
+                  '#316879'
+                ],
+                borderColor: [
+                  'white'
+                ],
+                borderWidth: 1
+              },
+            ]
+          },
+        });
+        
+        this.resolved = true;
+      })
+      
+      }, (error: any) => { }, () => {
+        this.spinner.hide();
+      })
  
   }
+  
   finddata() {
     this.spinner.show();
     this.resolved = false;
@@ -1604,7 +1708,7 @@ export class AmMOci2Component implements OnInit {
 
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-        console.log(data);
+        //console.log(data);
   
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
@@ -1763,76 +1867,76 @@ export class AmMOci2Component implements OnInit {
         this.spinner.hide();
       });
 
-      this.service.getTotalFeeding().subscribe(data => {
-        this.totallevel = data;
+      // this.service.getTotalFeeding().subscribe(data => {
+      //   this.totallevel = data;
   
-        Object.values(this.totallevel).forEach(data => {
-          // // //////////////console.log(data);
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          // //////////////console.log(array);
+      //   Object.values(this.totallevel).forEach(data => {
+      //     // // ////////////////console.log(data);
+      //     var array = Object.keys(data).map(function (key) {
+      //       return data[key];
+      //     });
+      //     // ////////////////console.log(array);
   
-          // // //////////////console.log(array);
-          for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 1)
-              this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
-          }
-          for (var i = 0; i < this.totallevel2.length; i++) {
-            if(this.totallevel2[i].bulanTahun == this.month){
-            if (this.totallevel2[i].id_area = 1) {
-              if (this.totallevel2[i].level === 'Low') {
-                this.low += 1;
-              }
-              if (this.totallevel2[i].level === 'Medium') {
-                this.medium += 1;
-              }
-              if (this.totallevel2[i].level === 'High') {
-                this.high += 1;
-              }
-            }
-          }
+      //     // // ////////////////console.log(array);
+      //     for (let i = 0; i < array.length; i++) {
+      //       if (data[i].id_area == 1)
+      //         this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+      //     }
+      //     for (var i = 0; i < this.totallevel2.length; i++) {
+      //       if(this.totallevel2[i].bulanTahun == this.month){
+      //       if (this.totallevel2[i].id_area = 1) {
+      //         if (this.totallevel2[i].level === 'Low') {
+      //           this.low += 1;
+      //         }
+      //         if (this.totallevel2[i].level === 'Medium') {
+      //           this.medium += 1;
+      //         }
+      //         if (this.totallevel2[i].level === 'High') {
+      //           this.high += 1;
+      //         }
+      //       }
+      //     }
   
-          this.donut2.destroy();
+      //     this.donut2.destroy();
   
-          }
-          this.donut2 = new Chart('donut2', {
-            type: 'doughnut',
-            data: {
-              labels: ['Low', 'Medium', 'High'],
-              datasets: [{
-                label: '# of Votes',
-                data: [this.low, this.medium, this.high],
-                backgroundColor: [
-                  '#626d71',
-                  '#ffc13b',
-                  '#ff6e40',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-          // // //////////////console.log(this.medium);m
-          // // //////////////console.log(this.totallevel2);
-        })
+      //     }
+      //     this.donut2 = new Chart('donut2', {
+      //       type: 'doughnut',
+      //       data: {
+      //         labels: ['Low', 'Medium', 'High'],
+      //         datasets: [{
+      //           label: '# of Votes',
+      //           data: [this.low, this.medium, this.high],
+      //           backgroundColor: [
+      //             '#626d71',
+      //             '#ffc13b',
+      //             '#ff6e40',
+      //           ],
+      //           borderColor: [
+      //             'white',
+      //             'white',
+      //             'white',
+      //           ],
+      //           borderWidth: 1
+      //         }]
+      //       },
+      //     });
+      //     // // ////////////////console.log(this.medium);m
+      //     // // ////////////////console.log(this.totallevel2);
+      //   })
   
   
-      }
-      );
+      // }
+      // );
       
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        //////console.log(data);
+        ////////console.log(data);
   
-        // //////////////console.log(this.totalfm);
+        // ////////////////console.log(this.totalfm);
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          //////////////console.log(data);
+          ////////////////console.log(data);
   
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1840,16 +1944,16 @@ export class AmMOci2Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // ////////////console.log(this.totalfm2);
+          // //////////////console.log(this.totalfm2);
   
   
           this.totalfm2.forEach((elem: any, i: number) => {
-            // //////console.log(i);
+            // ////////console.log(i);
             
             if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
-            ////////console.log(elem.tanggal_temuan);
+            //////////console.log(elem.tanggal_temuan);
   
             if (elem.id_area == 1) {
   
@@ -1936,7 +2040,7 @@ export class AmMOci2Component implements OnInit {
           });
           
           this.resolved = true;
-          //////console.log(this.pendingexecute);
+          ////////console.log(this.pendingexecute);
         })
         }, (error: any) => { }, () => {
           this.spinner.hide();
@@ -1963,16 +2067,16 @@ export class AmMOci2Component implements OnInit {
         
         
         Object.values(this.totalkategori).forEach(data => {
-          // // //////console.log(data);
+          // // ////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////console.log(array);
+          // // ////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
-          //console.log(this.totalkategoriarr[0].bulan);
-          //console.log(this.month + ' bulan');
+          ////console.log(this.totalkategoriarr[0].bulan);
+          ////console.log(this.month + ' bulan');
           
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
             if(this.totalkategoriarr[i].bulan == this.month){
@@ -2210,7 +2314,7 @@ export class AmMOci2Component implements OnInit {
         })
       ).subscribe(data => {
         this.arrshecdule.push(data);
-        // ////////////console.log('hoi', data);
+        // //////////////console.log('hoi', data);
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
         }
@@ -2223,9 +2327,9 @@ export class AmMOci2Component implements OnInit {
         })
       ).subscribe(data => {
         this.totaldata1year.push(data);
-        // ////////////console.log(this.totaldata1year);
-        // ////////////console.log(this.tgl3);
-        // ////////////console.log(this.tgl4);
+        // //////////////console.log(this.totaldata1year);
+        // //////////////console.log(this.tgl3);
+        // //////////////console.log(this.tgl4);
 
 
 
@@ -2334,8 +2438,8 @@ export class AmMOci2Component implements OnInit {
         this.febuari = this.febuari + this.febuariclose;
         this.maret = this.maret + this.maretclose;
         this.april = this.april + this.aprilclose;
-        // ////////////console.log(this.mei);
-        // ////////////console.log(this.meiclose);
+        // //////////////console.log(this.mei);
+        // //////////////console.log(this.meiclose);
 
         this.mei = this.mei + this.meiclose;
         this.juni = this.juni + this.juniclose;
@@ -2383,7 +2487,7 @@ export class AmMOci2Component implements OnInit {
 
       //   for (let elem of this.arrapproval[0].get) {
       //     if (elem.id_area == '2') {
-      //       // ////////////console.log(elem);
+      //       // //////////////console.log(elem);
       //       if (elem.status == 'Submit') {
       //         this.approvalfinding += 1;
       //       } else if (elem.status == 'Create' || elem.status == 'Emergency' || elem.status == null) {
@@ -2402,17 +2506,17 @@ export class AmMOci2Component implements OnInit {
       ).subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
-          //////////////console.log(data);
+          ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////console.log(array);
+          // // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-          //////////////console.log(this.orderarr);
+          ////////////////console.log(this.orderarr);
 
-          // // //////////////console.log(this.findingpending2);
+          // // ////////////////console.log(this.findingpending2);
         })
       });
       this.service.getReadfpSectionOci2().pipe(
@@ -2424,89 +2528,83 @@ export class AmMOci2Component implements OnInit {
       ).subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
-          // // //////////////console.log(data);
+          // // ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////////console.log(array);
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-          // //////////////console.log(this.fpsectarr);
+          // ////////////////console.log(this.fpsectarr);
 
-          // // //////////////console.log(this.findingpending2);
+          // // ////////////////console.log(this.findingpending2);
         })
       });
-      this.service.getTotalFeeding().pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
-        this.totallevel = data;
-        //////console.log(this.totallevel);
+      // this.service.getTotalFeeding().subscribe(data => {
+      //   this.totallevel = data;
+      //   ////////console.log(this.totallevel);
 
-        Object.values(this.totallevel).forEach(data => {
-          // // //////////////console.log(data);
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          // //////////////console.log(array);
+      //   Object.values(this.totallevel).forEach(data => {
+      //     // // ////////////////console.log(data);
+      //     var array = Object.keys(data).map(function (key) {
+      //       return data[key];
+      //     });
+      //     // ////////////////console.log(array);
 
-          // // //////////////console.log(array);
-          for (let i = 0; i < array.length; i++) {
-            if (data[i].id_area == 2)
-              this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
-            //////console.log(this.totallevel2);
-            //////console.log(this.totallevel2.lenght);
+      //     // // ////////////////console.log(array);
+      //     for (let i = 0; i < array.length; i++) {
+      //       if (data[i].id_area == 2)
+      //         this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
+      //       ////////console.log(this.totallevel2);
+      //       ////////console.log(this.totallevel2.lenght);
             
             
-          }
-          for (var i = 0; i < this.totallevel2.length; i++) {
-            if(this.totallevel2[i].bulan == this.month){
-            if (this.totallevel2[i].id_area == 2) {
-              if (this.totallevel2[i].level === 'Low') {
-                this.low += 1;
-              }
-              if (this.totallevel2[i].level === 'Medium') {
-                this.medium += 1;
-              }
-              if (this.totallevel2[i].level === 'High') {
-                this.high += 1;
-              }
-            }
-          }
+      //     }
+      //     for (var i = 0; i < this.totallevel2.length; i++) {
+      //       if(this.totallevel2[i].bulan == this.month){
+      //       if (this.totallevel2[i].id_area == 2) {
+      //         if (this.totallevel2[i].level === 'Low') {
+      //           this.low += 1;
+      //         }
+      //         if (this.totallevel2[i].level === 'Medium') {
+      //           this.medium += 1;
+      //         }
+      //         if (this.totallevel2[i].level === 'High') {
+      //           this.high += 1;
+      //         }
+      //       }
+      //     }
 
-          }
-          this.donut2 = new Chart('donut2', {
-            type: 'doughnut',
-            data: {
-              labels: ['Low', 'Medium', 'High'],
-              datasets: [{
-                label: '# of Votes',
-                data: [this.low, this.medium, this.high],
-                backgroundColor: [
-                  '#626d71',
-                  '#ffc13b',
-                  '#ff6e40',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-          // // //////////////console.log(this.medium);m
-          // // //////////////console.log(this.totallevel2);
-        })
+      //     }
+      //     this.donut2 = new Chart('donut2', {
+      //       type: 'doughnut',
+      //       data: {
+      //         labels: ['Low', 'Medium', 'High'],
+      //         datasets: [{
+      //           label: '# of Votes',
+      //           data: [this.low, this.medium, this.high],
+      //           backgroundColor: [
+      //             '#626d71',
+      //             '#ffc13b',
+      //             '#ff6e40',
+      //           ],
+      //           borderColor: [
+      //             'white',
+      //             'white',
+      //             'white',
+      //           ],
+      //           borderWidth: 1
+      //         }]
+      //       },
+      //     });
+      //     // // ////////////////console.log(this.medium);m
+      //     // // ////////////////console.log(this.totallevel2);
+      //   })
 
 
-      }
-      );
+      // }
+      // );
       this.service.getFuncLocOci2().pipe(
         catchError((error) => {
           // Handle the error here
@@ -2516,18 +2614,18 @@ export class AmMOci2Component implements OnInit {
       ).subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
-          // //////////////console.log(data);
+          // ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////////console.log(array);
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
 
-          // //////////////console.log(this.funlockarr);
+          // ////////////////console.log(this.funlockarr);
 
-          // // //////////////console.log(this.findingpending2);
+          // // ////////////////console.log(this.findingpending2);
         })
        
       }, (error: any) => { }, () => {
@@ -2536,17 +2634,17 @@ export class AmMOci2Component implements OnInit {
       this.service.getReadFindingPendingoci2().subscribe(data => {
         this.findingpending = data;
         Object.values(this.findingpending).forEach(data => {
-          //////////////console.log(data);
+          ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // //////////////console.log(array);
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (array[i].status != "CLOSED" && array[i].status != "TECO") {
               this.findingpending2.splice(this.findingpending2.lenght, 0, array[i]);
             }
           }
-          // //////////////console.log(this.findingpending2);
+          // ////////////////console.log(this.findingpending2);
 
           for (var i = 0; i < this.findingpending2.length; i++) {
             if (this.findingpending2[i].area == "OCI-2") {
@@ -2572,7 +2670,7 @@ export class AmMOci2Component implements OnInit {
             }
           }
 
-          //  //////////////console.log(this.findingpending2);
+          //  ////////////////console.log(this.findingpending2);
         })
 
         new Chart('donutfp', {
@@ -2610,12 +2708,12 @@ export class AmMOci2Component implements OnInit {
       );
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        //////console.log(data);
+        ////////console.log(data);
 
-        // //////////////console.log(this.totalfm);
+        // ////////////////console.log(this.totalfm);
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          //////////////console.log(data);
+          ////////////////console.log(data);
 
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -2623,14 +2721,14 @@ export class AmMOci2Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // ////////////console.log(this.totalfm2);
+          // //////////////console.log(this.totalfm2);
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 2 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
-            ////////console.log(elem.tanggal_temuan);
+            //////////console.log(elem.tanggal_temuan);
 
             if (elem.id_area == 2) {
 
@@ -2663,14 +2761,14 @@ export class AmMOci2Component implements OnInit {
                 this.listoftotalfinding.push(element)
               }
             });
-            ////console.log(this.listoftotalfinding);
+            //////console.log(this.listoftotalfinding);
 
 
           })
 
 
           this.temuanperday_data_temp.forEach((element: any) => {
-            ////////console.log(this.screenWidth);
+            //////////console.log(this.screenWidth);
 
             if (element.tahun == this.autodate) {
               if (element.bulan == 1) {
@@ -2755,6 +2853,7 @@ export class AmMOci2Component implements OnInit {
             },
           });
 
+          this.dum.destroy();
 
           this.dum = new Chart('dum', {
             type: 'bar',
@@ -2809,28 +2908,28 @@ export class AmMOci2Component implements OnInit {
             },
           });
 
-          new Chart('donut', {
-            type: 'doughnut',
-            data: {
-              labels: ['On Progress WO', 'Ready execute', 'Finish execute'],
-              datasets: [{
-                label: '# of Votes',
-                data: [this.pendingexecute, this.readyexecute, this.finishexecute],
-                backgroundColor: [
-                  '#ffc13b',
-                  '#ff6e40',
-                  '#316879',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
+          // new Chart('donut', {
+          //   type: 'doughnut',
+          //   data: {
+          //     labels: ['On Progress WO', 'Ready execute', 'Finish execute'],
+          //     datasets: [{
+          //       label: '# of Votes',
+          //       data: [this.pendingexecute, this.readyexecute, this.finishexecute],
+          //       backgroundColor: [
+          //         '#ffc13b',
+          //         '#ff6e40',
+          //         '#316879',
+          //       ],
+          //       borderColor: [
+          //         'white',
+          //         'white',
+          //         'white',
+          //         'white',
+          //       ],
+          //       borderWidth: 1
+          //     }]
+          //   },
+          // });
 
           // new Chart('totalfindingbulan', {
           //   type: 'bar',
@@ -2850,11 +2949,11 @@ export class AmMOci2Component implements OnInit {
           //   },
           // });
 
-          //////console.log(this.temuanperday_data);
+          ////////console.log(this.temuanperday_data);
 
           // this.spinner.hide();
           // this.resolved = true;
-          //////console.log(this.pendingexecute);
+          ////////console.log(this.pendingexecute);
         })
         
       }, (error: any) => { }, () => {
