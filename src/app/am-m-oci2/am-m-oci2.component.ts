@@ -9,6 +9,8 @@ import { CountService } from '../service/master/count.service';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr'
 import { ChartOptions } from './chart';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-am-m-oci2',
@@ -80,6 +82,7 @@ export class AmMOci2Component implements OnInit {
     })
   }
 
+  error: string | null = null;
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
@@ -323,8 +326,6 @@ export class AmMOci2Component implements OnInit {
   }
   detailpart(no_wo: any) {
     this.currentPage4 = 1;
-    this.spinner.show();
-    this.resolved = false;
     this.detailpartarr.splice(0);
     this.service.getTotalPartReporting(no_wo).subscribe(data => {
       this.target2.nativeElement.scrollIntoView({
@@ -332,7 +333,6 @@ export class AmMOci2Component implements OnInit {
         block: 'center',
         inline: 'center',
       });
-      this.spinner.show();
       this.resolved = true;
       this.detailpartarr.push(data);
 
@@ -391,8 +391,6 @@ export class AmMOci2Component implements OnInit {
     this.novemberclose = 0;
     this.desember = 0;
     this.desemberclose = 0;
-    this.spinner.show();
-    this.resolved = false;
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
       this.totaldata1year.push(data);
@@ -548,45 +546,11 @@ export class AmMOci2Component implements OnInit {
         
         
         this.chartFunction();
-
-      //   this.chartdestroy?.destroy();
-      //   this.chartdestroy = new Chart("valuepermonthchart", {
-      //     type: "bar",
-      //     data: {
-      //       labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      //       datasets: [
-      //         {
-      //           "label": "Total",
-      //           "data": [Math.round(this.januari), Math.round(this.febuari), Math.round(this.maret), Math.round(this.april), Math.round(this.mei), Math.round(this.juni), Math.round(this.juli), Math.round(this.agustus), Math.round(this.september), Math.round(this.oktober), Math.round(this.november), Math.round(this.desember)],
-      //           "backgroundColor": "#777f83",
-      //         },
-      //         {
-      //           "label": "Close",
-      //           "data": [Math.round(this.januariclose), Math.round(this.febuariclose), Math.round(this.maretclose), Math.round(this.aprilclose), Math.round(this.meiclose), Math.round(this.juniclose), Math.round(this.juliclose), Math.round(this.agustusclose), Math.round(this.septemberclose), Math.round(this.oktoberclose), Math.round(this.novemberclose), Math.round(this.desemberclose)],
-      //           "backgroundColor": "#007bff",
-      //         },
-
-      //       ],
-
-
-      //     },
-      //     options: {
-      //       scales: {
-      //         yAxes:
-      //         {
-      //           ticks: {
-      //             // beginAtZero: true
-      //           }
-      //         }
-
-      //       }
-      //     }
-      //   });
       }
-      this.spinner.hide();
-      this.resolved = true;
     
       
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
     });
     
   }
@@ -1423,12 +1387,13 @@ export class AmMOci2Component implements OnInit {
 
   finddatachange() {
     this.reportharian.splice(0);
-    this.spinner.show();
+    // this.spinner.show();
     this.resolved = false;
     this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
       this.resolved = true;
-      this.spinner.hide();
       this.reportharian.push(data);
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
     })
 
 
@@ -1443,7 +1408,13 @@ export class AmMOci2Component implements OnInit {
     this.totalkategori = [];
     this.totalkategoriarr = [];
 
-    this.service.getCountTotalFinding().subscribe(data => {
+    this.service.getCountTotalFinding().pipe(
+      catchError((error) => {
+        // Handle the error here
+        this.error = 'An error occurred while fetching data.';
+        return throwError(error);
+      })
+    ).subscribe(data => {
       this.totalkategori = data;
       
       
@@ -1510,7 +1481,13 @@ export class AmMOci2Component implements OnInit {
     // this.resolved = false;
     //////console.log(this.month);
 
-    this.service.getTotalFeeding().subscribe(data => {
+    this.service.getTotalFeeding().pipe(
+      catchError((error) => {
+        // Handle the error here
+        this.error = 'An error occurred while fetching data.';
+        return throwError(error);
+      })
+    ).subscribe(data => {
       this.totallevel = data;
 
       Object.values(this.totallevel).forEach(data => {
@@ -1572,7 +1549,13 @@ export class AmMOci2Component implements OnInit {
     }
     );
     
-    this.service.getTotalFeeding().subscribe(data => {
+    this.service.getTotalFeeding().pipe(
+      catchError((error) => {
+        // Handle the error here
+        this.error = 'An error occurred while fetching data.';
+        return throwError(error);
+      })
+    ).subscribe(data => {
       this.totalfm = data;
       //////console.log(data);
 
@@ -1685,7 +1668,9 @@ export class AmMOci2Component implements OnInit {
         this.resolved = true;
         //////console.log(this.pendingexecute);
       })
-      this.spinner.hide();}, (err)=>{this.spinner.hide();})
+      }, (error: any) => { }, () => {
+        this.spinner.hide();
+      })
   }
   finddata() {
     this.spinner.show();
@@ -1710,7 +1695,13 @@ export class AmMOci2Component implements OnInit {
     this.wo03donereport = 0;
     this.wo06donereport = 0;
     this.wo07donereport = 0;
-    this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
+    this.service.getTotalDataPost(this.tgl1, this.tgl2).pipe(
+      catchError((error) => {
+        // Handle the error here
+        this.error = 'An error occurred while fetching data.';
+        return throwError(error);
+      })
+    ).subscribe(data => {
       this.datarange.push(data);
       for (let elem of this.datarange[0]) {
         if (elem.plant_section == "Prod OCI 2") {
@@ -1853,9 +1844,10 @@ export class AmMOci2Component implements OnInit {
               ]
             },
           });
+      
+    }, (error: any) => { }, () => {
       this.spinner.hide();
-      this.resolved = true;
-    });
+    } );
 
   }
 
@@ -1972,11 +1964,23 @@ export class AmMOci2Component implements OnInit {
       this.wo03donereport = 0;
       this.wo06donereport = 0;
       this.wo07donereport = 0;
-      this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
+      this.service.getReportingHarianam(this.tglsearch, '1').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.reportharian.push(data);
       })
 
-      this.service.getCountTotalFinding().subscribe(data => {
+      this.service.getCountTotalFinding().pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.totalkategori = data;
         
         
@@ -2035,7 +2039,13 @@ export class AmMOci2Component implements OnInit {
       }
       );
 
-      this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
+      this.service.getTotalDataPost(this.tgl1, this.tgl2).pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.datarange.push(data);
         for (let elem of this.datarange[0]) {
           if (elem.plant_section == "Prod OCI 2") {
@@ -2163,41 +2173,77 @@ export class AmMOci2Component implements OnInit {
         //   }
         // }
       });
-      this.service.getTotalApprovalOrderFinish('2').subscribe(data => {
+      this.service.getTotalApprovalOrderFinish('2').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.orderfinish = elem.total;
         }
       });
-      this.service.getTotalApprovalCreateOrder('2').subscribe(data => {
+      this.service.getTotalApprovalCreateOrder('2').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.arrorderfinish = []
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.createorderfinding = elem.total;
         }
       });
-      this.service.getTotalApprovalSpv('2').subscribe(data => {
+      this.service.getTotalApprovalSpv('2').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.arrorderfinish = []
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.approvalfinding = elem.total;
         }
       });
-      this.service.getTotalApprovalReadyExecution('2').subscribe(data => {
+      this.service.getTotalApprovalReadyExecution('2').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.arrorderfinish = []
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.readyexecutetop = elem.total;
         }
       });
-      this.service.getTotalApprovalShcedule('2').subscribe(data => {
+      this.service.getTotalApprovalShcedule('2').pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.arrshecdule.push(data);
         // ////////////console.log('hoi', data);
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
         }
       });
-      this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
+      this.service.getTotalDataPost(this.tgl3, this.tgl4).pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.totaldata1year.push(data);
         // ////////////console.log(this.totaldata1year);
         // ////////////console.log(this.tgl3);
@@ -2369,7 +2415,13 @@ export class AmMOci2Component implements OnInit {
       //   }
 
       // });
-      this.service.getOrder().subscribe(data => {
+      this.service.getOrder().pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
           //////////////console.log(data);
@@ -2385,7 +2437,13 @@ export class AmMOci2Component implements OnInit {
           // // //////////////console.log(this.findingpending2);
         })
       });
-      this.service.getReadfpSectionOci2().subscribe(data => {
+      this.service.getReadfpSectionOci2().pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
           // // //////////////console.log(data);
@@ -2401,7 +2459,13 @@ export class AmMOci2Component implements OnInit {
           // // //////////////console.log(this.findingpending2);
         })
       });
-      this.service.getTotalFeeding().subscribe(data => {
+      this.service.getTotalFeeding().pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.totallevel = data;
         //////console.log(this.totallevel);
 
@@ -2465,7 +2529,13 @@ export class AmMOci2Component implements OnInit {
 
       }
       );
-      this.service.getFuncLocOci2().subscribe(data => {
+      this.service.getFuncLocOci2().pipe(
+        catchError((error) => {
+          // Handle the error here
+          this.error = 'An error occurred while fetching data.';
+          return throwError(error);
+        })
+      ).subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
           // //////////////console.log(data);
@@ -2481,6 +2551,8 @@ export class AmMOci2Component implements OnInit {
 
           // // //////////////console.log(this.findingpending2);
         })
+       
+      }, (error: any) => { }, () => {
         this.spinner.hide();
       });
       this.service.getReadFindingPendingoci2().subscribe(data => {
@@ -2553,6 +2625,8 @@ export class AmMOci2Component implements OnInit {
           },
         });
 
+      
+      }, (error: any) => { }, () => {
         this.spinner.hide();
       }
       );
@@ -2804,12 +2878,11 @@ export class AmMOci2Component implements OnInit {
           // this.resolved = true;
           //////console.log(this.pendingexecute);
         })
+        
+      }, (error: any) => { }, () => {
         this.spinner.hide();
       })
-
-
-    }
-    );
+    });
   }
 };
 

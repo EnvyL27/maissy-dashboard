@@ -9,7 +9,8 @@ import { CountService } from '../service/master/count.service';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr'
 import { ChartOptions } from './chart';
-
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-am-m-oci1',
@@ -83,6 +84,7 @@ export class AmMOci1Component implements OnInit {
     })
   }
 
+  error: string | null = null;
   fileName = 'FindingPendingOCI1.xlsx';
   typefinding: any;
   public resolved: boolean = false;
