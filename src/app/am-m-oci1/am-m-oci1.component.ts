@@ -604,11 +604,9 @@ export class AmMOci1Component implements OnInit {
       //       }
       //     }
       //   });
-      }
+      }      
+    }, (error: any) => { }, () => {
       this.spinner.hide();
-      this.resolved = true;
-    
-      
     });
     
   }
@@ -1448,8 +1446,9 @@ export class AmMOci1Component implements OnInit {
     // this.resolved = false;
     this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
       this.resolved = true;
-      this.spinner.hide();
       this.reportharian.push(data);
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
     })
   }
   totaldataChange() {
@@ -1699,7 +1698,9 @@ export class AmMOci1Component implements OnInit {
         this.resolved = true;
         //////console.log(this.pendingexecute);
       })
-      this.spinner.hide();}, (err)=>{this.spinner.hide();})
+      }, (error: any) => { }, () => {
+        this.spinner.hide();
+      })
   }
   finddata() {
     // this.spinner.show();
@@ -1870,8 +1871,8 @@ export class AmMOci1Component implements OnInit {
             ]
           },
         });
+    }, (error: any) => { }, () => {
       this.spinner.hide();
-      this.resolved = true;
     });
 
   }
@@ -2495,12 +2496,9 @@ export class AmMOci1Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
-
-          // //////////////console.log(this.funlockarr);
-
-          // // //////////////console.log(this.findingpending2);
-          this.spinner.hide();
         })
+      }, (error: any) => { }, () => {
+        this.spinner.hide();
       });
       this.service.getReadFindingPending().subscribe(data => {
         this.findingpending = data;
@@ -2571,7 +2569,7 @@ export class AmMOci1Component implements OnInit {
             }]
           },
         });
-
+      }, (error: any) => { }, () => {
         this.spinner.hide();
       }
       );
@@ -2842,9 +2840,10 @@ export class AmMOci1Component implements OnInit {
 
           
           this.resolved = true;
-          //////console.log(this.pendingexecute);
         })
-        this.spinner.hide();}, (err)=>{this.spinner.hide();})
+       }, (error: any) => { }, () => {
+        this.spinner.hide();
+      })
 
 
     }
