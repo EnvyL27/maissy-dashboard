@@ -534,7 +534,9 @@ export class AmMFsbComponent implements OnInit {
         
         this.chartFunction();
       }
-    });
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
+    })
   }
 
   exportwo(): void {
