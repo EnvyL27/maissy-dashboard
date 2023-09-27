@@ -120,14 +120,14 @@
       <div [ngClass]="!listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
-            <p class="text-center py-4 text-gray-800 font-semibold">Total Satisfactory</p>
+            <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Satisfactory</p>
             <button
             class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
             (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
             Export Excel</button>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left " id="excel-table">
-                <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
                   <tr>
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       No
@@ -138,9 +138,7 @@
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       Status
                     </th>
-                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                      Get Date
-                    </th>
+                    
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       Do Date
                     </th>
@@ -151,7 +149,7 @@
                 </thead>
                 <tbody
                   *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                       {{(currentPage-1) * 5 + i + 1}}
                     </th>
@@ -165,9 +163,7 @@
                     <td class="py-4 px-6 text-gray-800">
                       {{findingpending.Stat}}
                     </td>
-                    <td class="py-4 px-6 text-gray-800">
-                      {{findingpending.getdate}}
-                    </td>
+                    
                     <td class="py-4 px-6 text-gray-800">
                       {{findingpending.dodate}}
                     </td>
@@ -187,14 +183,14 @@
       <div [ngClass]="listoftotalgood ? '': 'hidden'" class="my-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
-            <p class="text-center py-4 text-gray-800 font-semibold">Total Good</p>
+            <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Good</p>
             <button
             class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
             (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
             Export Excel</button>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left " id="excel-table">
-                <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
                   <tr>
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       No
@@ -205,9 +201,7 @@
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       Status
                     </th>
-                    <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                      Get Date
-                    </th>
+                    
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       Do Date
                     </th>
@@ -218,7 +212,7 @@
                 </thead>
                 <tbody
                   *ngFor="let findingpending of listofgood | filter:searchText | paginate: { id: 'paginationgood', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                       {{(currentPage-1) * 5 + i + 1}}
                     </th>
@@ -232,9 +226,7 @@
                     <td class="py-4 px-6 text-gray-800">
                       {{findingpending.Stat}}
                     </td>
-                    <td class="py-4 px-6 text-gray-800">
-                      {{findingpending.getdate}}
-                    </td>
+                    
                     <td class="py-4 px-6 text-gray-800">
                       {{findingpending.dodate}}
                     </td>
@@ -261,7 +253,7 @@
             Export Excel</button>
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left" id="excel-table">
-                <thead class="text-xs text-gray-100 uppercase bg-gray-500">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
                   <tr>
                     <th scope="col" class="py-3 px-6" bgcolor="#878790">
                       No
@@ -285,7 +277,7 @@
                 </thead>
                 <tbody
                   *ngFor="let findingpending of pdmassetlist | filter:searchText | paginate: { id: 'paginationasset', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                       {{(currentPage-1) * 5 + i + 1}}
                     </th>
