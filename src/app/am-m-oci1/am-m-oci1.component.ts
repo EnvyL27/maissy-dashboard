@@ -1714,7 +1714,7 @@ export class AmMOci1Component implements OnInit {
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.januariclose += 1
                 this.januaricloseelem.push(elem)
                 this.januari += 1;
@@ -1726,7 +1726,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'February') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.febuariclose += 1
                 this.febuaricloseelem.push(elem)
                 this.febuari += 1;
@@ -1738,7 +1738,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'March') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.maretclose += 1;
                 this.maretcloseelem.push(elem)
                 this.maret += 1;
@@ -1750,7 +1750,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'April') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.aprilclose += 1;
                 this.aprilcloseelem.push(elem)
                 this.april += 1;
@@ -1763,7 +1763,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'May') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.meiclose += 1;
                 this.meicloseelem.push(elem)
                 this.mei += 1;
@@ -1775,7 +1775,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'June') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juniclose += 1;
                 this.junicloseelem.push(elem)
                 this.juni += 1;
@@ -1787,7 +1787,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'July') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juliclose += 1;
                 this.julicloseelem.push(elem)
                 this.juli += 1;
@@ -1799,7 +1799,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.agustusclose += 1;
                 this.agustuscloseelem.push(elem)
                 this.agustus += 1;
@@ -1811,7 +1811,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.septemberclose += 1;
                 this.septembercloseelem.push(elem)
                 this.september += 1;
@@ -1823,7 +1823,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.oktoberclose += 1;
                 this.oktobercloseelem.push(elem)
                 this.oktober += 1;
@@ -1835,7 +1835,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'November') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.novemberclose += 1;
                 this.novembercloseelem.push(elem)
                 this.november += 1;
@@ -1847,7 +1847,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'December') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.desemberclose += 1;
                 this.desembercloseelem.push(elem)
                 this.desember += 1;
@@ -2064,7 +2064,7 @@ export class AmMOci1Component implements OnInit {
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.januariclose += 1
               } else {
                 this.januari += 1;
@@ -2072,7 +2072,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'February') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.febuariclose += 1
               } else {
                 this.febuari += 1;
@@ -2080,7 +2080,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'March') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.maretclose += 1;
               } else {
                 this.maret += 1;
@@ -2088,7 +2088,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'April') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.aprilclose += 1;
               }
               else {
@@ -2097,7 +2097,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'May') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.meiclose += 1;
               } else {
                 this.mei += 1;
@@ -2105,7 +2105,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'June') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juniclose += 1;
               } else {
                 this.juni += 1;
@@ -2113,7 +2113,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'July') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juliclose += 1;
               } else {
                 this.juli += 1;
@@ -2121,7 +2121,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.agustusclose += 1;
               } else {
                 this.agustus += 1;
@@ -2129,7 +2129,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.septemberclose += 1;
               } else {
                 this.september += 1;
@@ -2137,7 +2137,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.oktoberclose += 1;
               } else {
                 this.oktober += 1;
@@ -2145,7 +2145,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'November') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.novemberclose += 1;
               } else {
                 this.november += 1;
@@ -2153,7 +2153,7 @@ export class AmMOci1Component implements OnInit {
             }
           } else if (elem.bulan == 'December') {
             if (elem.plant_section == "Prod OCI 1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.desemberclose += 1;
               } else {
                 this.desember += 1;

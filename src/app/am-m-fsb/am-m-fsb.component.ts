@@ -22,7 +22,9 @@ export class AmMFsbComponent implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    //////////////console.log(this.findingpending2);
+    ////////////////console.log(this.findingpending2);
+    ////console.log(this.findingpending2);
+
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
     ws["!cols"] = [{ wch: 10 },
@@ -81,7 +83,9 @@ export class AmMFsbComponent implements OnInit {
     })
   }
 
-  fileName = 'FindingPendingOCI1.xlsx';
+  error: string | null = null;
+  fileName = 'FindingPendingFSB.xlsx';
+  typefinding: any;
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
   totalfm: object = {};
@@ -153,8 +157,6 @@ export class AmMFsbComponent implements OnInit {
   totalffm2: any = [];
   coba: any = [];
   donut: any = [];
-  dum: any;
-  typefinding: any;
   temuanperday: any = [];
   temuanperday_label: any = [];
   temuanperday_data: any = [];
@@ -187,18 +189,18 @@ export class AmMFsbComponent implements OnInit {
   detailpartarr: any = [];
   desember: number = 0;
   januarielem: any = [];
-  febuarielem:  any = [];
-  maretelem:  any = [];
-  aprilelem:  any = [];
-  meielem:  any = [];
-  junielem:  any = [];
-  julielem:  any = [];
-  agustuselem:  any = [];
-  septemberelem:  any = [];
-  oktoberelem:  any = [];
-  novemberelem:  any = [];
+  febuarielem: any = [];
+  maretelem: any = [];
+  aprilelem: any = [];
+  meielem: any = [];
+  junielem: any = [];
+  julielem: any = [];
+  agustuselem: any = [];
+  septemberelem: any = [];
+  oktoberelem: any = [];
+  novemberelem: any = [];
   detailpartarrelem: any = [];
-  desemberelem:  any = [];
+  desemberelem: any = [];
   januariclose: number = 0;
   febuariclose: number = 0;
   maretclose: number = 0;
@@ -211,18 +213,18 @@ export class AmMFsbComponent implements OnInit {
   oktoberclose: number = 0;
   novemberclose: number = 0;
   desemberclose: number = 0;
-  januaricloseelem:  any = [];
-  febuaricloseelem:  any = [];
-  maretcloseelem:  any = [];
-  aprilcloseelem:  any = [];
-  meicloseelem:  any = [];
-  junicloseelem:  any = [];
-  julicloseelem:  any = [];
-  agustuscloseelem:  any = [];
-  septembercloseelem:  any = [];
-  oktobercloseelem:  any = [];
-  novembercloseelem:  any = [];
-  desembercloseelem:  any = [];
+  januaricloseelem: any = [];
+  febuaricloseelem: any = [];
+  maretcloseelem: any = [];
+  aprilcloseelem: any = [];
+  meicloseelem: any = [];
+  junicloseelem: any = [];
+  julicloseelem: any = [];
+  agustuscloseelem: any = [];
+  septembercloseelem: any = [];
+  oktobercloseelem: any = [];
+  novembercloseelem: any = [];
+  desembercloseelem: any = [];
   total_cost: number = 0;
   totalfinding2: any;
   totalfinding3: any;
@@ -230,6 +232,11 @@ export class AmMFsbComponent implements OnInit {
   totalfinding4: any;
   bar1report: any;
   bar2report: any;
+  dum: any;
+  donut2: any;
+  findingbulan: any;
+  findingbulan2: any;
+  findingbulan3: any;
   funlock: object = {};
   funlockarr: any = [];
   funloclist: any = [];
@@ -242,6 +249,9 @@ export class AmMFsbComponent implements OnInit {
   @ViewChild("ss3")
   taptap3!: ElementRef;
   datarange: any = [];
+  @ViewChild("ssTotal")
+  taptapTotal!: ElementRef;
+  totaldata: any = [];
   pendingexecute: number = 0;
   pendingexecutetop: number = 0;
   chartdestroy: any;
@@ -255,11 +265,10 @@ export class AmMFsbComponent implements OnInit {
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
   month: any = moment().format("M");
-  bulan: any = moment().format("M");
+  bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
-  listoftotalfinding : any = [];
-  donut2: any;
+  listoftotalfinding: any = [];
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild("target2")
@@ -269,13 +278,24 @@ export class AmMFsbComponent implements OnInit {
   Improvement: number = 0;
   totalkategori: object = {};
   totalkategoriarr: any = [];
-  
+
   data($event: any) {
+    // //////////console.log(this.scree);
+
     this.target.nativeElement.scrollIntoView();
+    //   behavior: 'smooth',
+    //   block: 'center',
+    //   inline: 'center',
+    // });
+    //// ////////////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
+    //////////console.log(this.funloc);
+
+    // ////////////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
+        ////////////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -286,7 +306,16 @@ export class AmMFsbComponent implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
+    //////////console.log(this.funloclist);
   }
+  // totalCapture(){
+  //   this.captureService
+  //   .getImage(this.taptapTotal.nativeElement, true)
+  //   .subscribe((img: any) => {
+  //     this.imgBase64 = img;
+  //     this.downloadJson();
+  //   });
+  // }
   totalCapture() {
     const element = document.getElementById('ssTotal')!;
     html2canvas(element).then(canvas => {
@@ -300,7 +329,7 @@ export class AmMFsbComponent implements OnInit {
   }
   capture() {
     this.captureService
-      .getImage(this.taptap.nativeElement, true)
+      .getImage(this.taptapTotal.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
@@ -312,6 +341,7 @@ export class AmMFsbComponent implements OnInit {
   }
   detailpart(no_wo: any) {
     this.currentPage4 = 1;
+    // this.spinner.show();
     this.resolved = false;
     this.detailpartarr.splice(0);
     this.service.getTotalPartReporting(no_wo).subscribe(data => {
@@ -320,10 +350,10 @@ export class AmMFsbComponent implements OnInit {
         block: 'center',
         inline: 'center',
       });
-      this.resolved = true;
-      this.detailpartarr.push(data); 
-    }, (error: any) => { }, () => {
-      this.spinner.hide();
+      // this.spinner.show();
+      // this.resolved = true;
+      this.detailpartarr.push(data);
+
     });
   }
   capture2() {
@@ -379,652 +409,524 @@ export class AmMFsbComponent implements OnInit {
     this.novemberclose = 0;
     this.desember = 0;
     this.desemberclose = 0;
+    // this.spinner.show();
     this.resolved = false;
-
-    this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
-      this.totaldata1year.push(data);
-      for (let elem of this.totaldata1year[0]) {
-        if (elem.bulan == 'January') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.januariclose += 1
-              this.januaricloseelem.push(elem)
-              this.januari += 1;
-              this.januarielem.push(elem)
-            } else {
-              this.januari += 1;
-              this.januarielem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'February') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.febuariclose += 1
-              this.febuaricloseelem.push(elem)
-              this.febuari += 1;
-              this.febuarielem.push(elem)
-            } else {
-              this.febuari += 1;
-              this.febuarielem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'March') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.maretclose += 1;
-              this.maretcloseelem.push(elem)
-              this.maret += 1;
-              this.maretelem.push(elem)
-            } else {
-              this.maret += 1;
-              this.maretelem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'April') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.aprilclose += 1;
-              this.aprilcloseelem.push(elem)
-              this.april += 1;
-              this.aprilelem.push(elem)
-            }
-            else {
-              this.april += 1;
-              this.aprilelem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'May') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.meiclose += 1;
-              this.meicloseelem.push(elem)
-              this.mei += 1;
-              this.meielem.push(elem)
-            } else {
-              this.mei += 1;
-              this.meielem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'June') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.juniclose += 1;
-              this.junicloseelem.push(elem)
-              this.juni += 1;
-              this.junielem.push(elem)
-            } else {
-              this.juni += 1;
-              this.junielem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'July') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.juliclose += 1;
-              this.julicloseelem.push(elem)
-              this.juli += 1;
-              this.julielem.push(elem)
-            } else {
-              this.juli += 1;
-              this.julielem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'August') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.agustusclose += 1;
-              this.agustuscloseelem.push(elem)
-              this.agustus += 1;
-              this.agustuselem.push(elem)
-            } else {
-              this.agustus += 1;
-              this.agustuselem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'September') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.septemberclose += 1;
-              this.septembercloseelem.push(elem)
-              this.september += 1;
-              this.septemberelem.push(elem)
-            } else {
-              this.september += 1;
-              this.septemberelem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'October') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.oktoberclose += 1;
-              this.oktobercloseelem.push(elem)
-              this.oktober += 1;
-              this.oktoberelem.push(elem)
-            } else {
-              this.oktober += 1;
-              this.oktoberelem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'November') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.novemberclose += 1;
-              this.novembercloseelem.push(elem)
-              this.november += 1;
-              this.novemberelem.push(elem)
-            } else {
-              this.november += 1;
-              this.novemberelem.push(elem)
-            }
-          }
-        } else if (elem.bulan == 'December') {
-          if (elem.plant_section == "Prod SnackBar1") {
-            if (elem.teco_date != null) {
-              this.desemberclose += 1;
-              this.desembercloseelem.push(elem)
-              this.desember += 1;
-              this.desemberelem.push(elem)
-            } else {
-              this.desember += 1;
-              this.desemberelem.push(elem)
-            }
-          }
-        }
-        
-        
-        this.chartFunction();
-      }
-    }, (error: any) => { }, () => {
-      this.spinner.hide();
-    })
   }
 
   exportwo(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    if(this.booljan == true){
-      const janexport : any = []
+    // ////console.log(this.januarielem);
+
+    ////////////////console.log(this.findingpending2);
+    if (this.booljan == true) {
+      const janexport: any = []
       janexport.push(this.januarielem)
+      ////console.log(janexport);
+
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJanuari.xlsx');
-    }else if(this.booljannull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJanuari.xlsx');
+    } else if (this.booljannull == true) {
+      const janexport: any = []
       janexport.push(this.januaricloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJanuariClose.xlsx');
-    }else if(this.boolFeb == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJanuariClose.xlsx');
+    } else if (this.boolFeb == true) {
+      const janexport: any = []
       janexport.push(this.febuarielem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOFebruari.xlsx');
-    }else if(this.boolFebnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOFebruari.xlsx');
+    } else if (this.boolFebnull == true) {
+      const janexport: any = []
       janexport.push(this.febuaricloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOFebruariClose.xlsx');
-    }else if(this.boolMar == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOFebruariClose.xlsx');
+    } else if (this.boolMar == true) {
+      const janexport: any = []
       janexport.push(this.maretelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOMaret.xlsx');
-    }else if(this.boolMarnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOMaret.xlsx');
+    } else if (this.boolMarnull == true) {
+      const janexport: any = []
       janexport.push(this.maretcloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOMaretClose.xlsx');
-    }else if(this.boolApr == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOMaretClose.xlsx');
+    } else if (this.boolApr == true) {
+      const janexport: any = []
       janexport.push(this.aprilelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOApril.xlsx');
-    }else if(this.boolAprnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOApril.xlsx');
+    } else if (this.boolAprnull == true) {
+      const janexport: any = []
       janexport.push(this.aprilcloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOAprilClose.xlsx');
-    }else if(this.boolMay == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOAprilClose.xlsx');
+    } else if (this.boolMay == true) {
+      const janexport: any = []
       janexport.push(this.meielem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOMei.xlsx');
-    }else if(this.boolMaynull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOMei.xlsx');
+    } else if (this.boolMaynull == true) {
+      const janexport: any = []
       janexport.push(this.meicloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOMeiClose.xlsx');
-    }else if(this.boolJun == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOMeiClose.xlsx');
+    } else if (this.boolJun == true) {
+      const janexport: any = []
       janexport.push(this.junielem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJuni.xlsx');
-    }else if(this.boolJunnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJuni.xlsx');
+    } else if (this.boolJunnull == true) {
+      const janexport: any = []
       janexport.push(this.junicloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJuniClose.xlsx');
-    }else if(this.boolJul == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJuniClose.xlsx');
+    } else if (this.boolJul == true) {
+      const janexport: any = []
       janexport.push(this.julielem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJuli.xlsx');
-    }else if(this.boolJulnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJuli.xlsx');
+    } else if (this.boolJulnull == true) {
+      const janexport: any = []
       janexport.push(this.julicloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOJuliClose.xlsx');
-    }else if(this.boolAgu == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOJuliClose.xlsx');
+    } else if (this.boolAgu == true) {
+      const janexport: any = []
       janexport.push(this.agustuselem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOAgustus.xlsx');
-    }else if(this.boolAgunull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOAgustus.xlsx');
+    } else if (this.boolAgunull == true) {
+      const janexport: any = []
       janexport.push(this.agustuscloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOAgustusClose.xlsx');
-    }else if(this.boolSep == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOAgustusClose.xlsx');
+    } else if (this.boolSep == true) {
+      const janexport: any = []
       janexport.push(this.septemberelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOSeptember.xlsx');
-    }else if(this.boolSepnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOSeptember.xlsx');
+    } else if (this.boolSepnull == true) {
+      const janexport: any = []
       janexport.push(this.septembercloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOSeptemberClose.xlsx');
-    }else if(this.boolOkt == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOSeptemberClose.xlsx');
+    } else if (this.boolOkt == true) {
+      const janexport: any = []
       janexport.push(this.oktoberelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOOktober.xlsx');
-    }else if(this.boolOktnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOOktober.xlsx');
+    } else if (this.boolOktnull == true) {
+      const janexport: any = []
       janexport.push(this.oktobercloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WOOktoberClose.xlsx');
-    }else if(this.boolNov == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WOOktoberClose.xlsx');
+    } else if (this.boolNov == true) {
+      const janexport: any = []
       janexport.push(this.novemberelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WONovember.xlsx');
-    }else if(this.boolNovnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WONovember.xlsx');
+    } else if (this.boolNovnull == true) {
+      const janexport: any = []
       janexport.push(this.novembercloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WONovemberClose.xlsx');
-    }else if(this.boolDes == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WONovemberClose.xlsx');
+    } else if (this.boolDes == true) {
+      const janexport: any = []
       janexport.push(this.desemberelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WODesember.xlsx');
-    }else if(this.boolDesnull == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WODesember.xlsx');
+    } else if (this.boolDesnull == true) {
+      const janexport: any = []
       janexport.push(this.desembercloseelem)
+      ////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'WODesemberClose.xlsx');
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'WODesemberClose.xlsx');
     }
-    
-    
+
+
 
   }
 
@@ -1055,77 +957,80 @@ export class AmMFsbComponent implements OnInit {
 
 
   changeJan() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull =  false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.booljan = !this.booljan;
     this.cdr.detectChanges();
   }
   changeFeb() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolFeb = !this.boolFeb;
     this.cdr.detectChanges();
   }
   changeMar() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolMar = !this.boolMar;
     this.cdr.detectChanges();
   }
   changeApr() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolApr = !this.boolApr;
     this.cdr.detectChanges();
   }
   changeMay() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolMay = !this.boolMay;
     this.cdr.detectChanges();
   }
   changeJun() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolJun = !this.boolJun;
     this.cdr.detectChanges();
   }
   changeJul() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolJul = !this.boolJul;
     this.cdr.detectChanges();
   }
   changeAgu() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolAgu = !this.boolAgu;
     this.cdr.detectChanges();
+    //////console.log(this.boolAgu);
+
   }
   changeSep() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolAgu = this.boolJul = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolSep = !this.boolSep;
     this.cdr.detectChanges();
   }
   changeOkt() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolAgu = this.boolSep = this.boolJul = this.boolNov = this.boolDes = false;
     this.boolOkt = !this.boolOkt;
     this.cdr.detectChanges();
   }
   changeNov() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolAgu = this.boolSep = this.boolOkt = this.boolJul = this.boolDes = false;
     this.boolNov = !this.boolNov;
     this.cdr.detectChanges();
   }
   changeDes() {
-    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull  = false;
+    this.booljannull = this.boolFebnull = this.boolMarnull = this.boolAprnull = this.boolMaynull = this.boolJunnull = this.boolJulnull = this.boolAgunull = this.boolSepnull = this.boolOktnull = this.boolNovnull = this.boolDesnull = false;
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolJul = false;
     this.boolDes = !this.boolDes;
     this.cdr.detectChanges();
   }
+
 
   changeJannull() {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
@@ -1201,7 +1106,7 @@ export class AmMFsbComponent implements OnInit {
   }
 
 
-  chartFunction(){
+  chartFunction() {
     this.chartOptions = {
       series: [
         {
@@ -1218,6 +1123,8 @@ export class AmMFsbComponent implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
+            // //////////////console.log(config);
+            // //////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -1290,7 +1197,7 @@ export class AmMFsbComponent implements OnInit {
             if (config.dataPointIndex == '11' && config.seriesIndex == '1') {
               this.changeDesnull();
             }
-             if (config.dataPointIndex == '-1') {
+            if (config.dataPointIndex == '-1') {
               this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolAgu = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
             }
           },
@@ -1329,25 +1236,25 @@ export class AmMFsbComponent implements OnInit {
       },
       fill: {
         opacity: 1,
-        colors: ['#007bff','#777f83']
-      },legend: {
-      },colors: ['#007bff','#777f83']
+        colors: ['#007bff', '#777f83']
+      }, legend: {
+      }, colors: ['#007bff', '#777f83']
     };
   }
 
   finddatachange() {
     this.reportharian.splice(0);
-    this.resolved = false;
+    // this.spinner.show();
+    // this.resolved = false;
     this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
-      this.resolved = true; 
+      this.resolved = true;
       this.reportharian.push(data);
     }, (error: any) => { }, () => {
       this.spinner.hide();
     })
   }
-  
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0;
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];
@@ -1357,19 +1264,18 @@ export class AmMFsbComponent implements OnInit {
 
     this.service.getCountTotalFinding().subscribe(data => {
       this.totalkategori = data;
-      
-      
       Object.values(this.totalkategori).forEach(data => {
+
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
         for (let i = 0; i < array.length; i++) {
           this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
         }
-        
+
         for (var i = 0; i < this.totalkategoriarr.length; i++) {
-          if(this.totalkategoriarr[i].bulanTahun == this.month){
-            if(this.totalkategoriarr[i].id_area == 3){
+          if (this.totalkategoriarr[i].bulanTahun == this.month) {
+            if (this.totalkategoriarr[i].id_area == 3) {
               if (this.totalkategoriarr[i].kategori === 'Preventive') {
                 this.Setting += 1;
               }
@@ -1407,61 +1313,9 @@ export class AmMFsbComponent implements OnInit {
           },
         });
       })
-    });
+    }
+    );
 
-    this.service.getTotalFeeding().subscribe(data => {
-      this.totallevel = data;
-
-      Object.values(this.totallevel).forEach(data => {
-        var array = Object.keys(data).map(function (key) {
-          return data[key];
-        });
-        for (let i = 0; i < array.length; i++) {
-          if (data[i].id_area == 1)
-            this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
-        }
-        for (var i = 0; i < this.totallevel2.length; i++) {
-          if(this.totallevel2[i].bulanTahun == this.month){
-          if (this.totallevel2[i].id_area = 1) {
-            if (this.totallevel2[i].level === 'Low') {
-              this.low += 1;
-            }
-            if (this.totallevel2[i].level === 'Medium') {
-              this.medium += 1;
-            }
-            if (this.totallevel2[i].level === 'High') {
-              this.high += 1;
-            }
-          }
-        }
-
-        this.donut2.destroy();
-
-        }
-        this.donut2 = new Chart('donut2', {
-          type: 'doughnut',
-          data: {
-            labels: ['Low', 'Medium', 'High'],
-            datasets: [{
-              label: '# of Votes',
-              data: [this.low, this.medium, this.high],
-              backgroundColor: [
-                '#626d71',
-                '#ffc13b',
-                '#ff6e40',
-              ],
-              borderColor: [
-                'white',
-                'white',
-                'white',
-              ],
-              borderWidth: 1
-            }]
-          },
-        });
-      })
-    });
-    
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
       var date: any = [];
@@ -1472,12 +1326,11 @@ export class AmMFsbComponent implements OnInit {
         for (let i = 0; i < array.length; i++) {
           this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
         }
-
         this.totalfm2.forEach((elem: any, i: number) => {
-          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+          if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
             date.push(elem.tanggal_temuan)
           }
-          if (elem.id_area == 1) {
+          if (elem.id_area == 3) {
 
 
             if (elem.status_pengerjaan == 'Done') {
@@ -1505,7 +1358,7 @@ export class AmMFsbComponent implements OnInit {
 
 
         })
-        
+
         this.dum.destroy();
 
         this.dum = new Chart('dum', {
@@ -1560,15 +1413,16 @@ export class AmMFsbComponent implements OnInit {
             ]
           },
         });
-        
+
         this.resolved = true;
-      }) 
+      })
+
     }, (error: any) => { }, () => {
       this.spinner.hide();
     })
   }
   finddata() {
-    this.spinner.show();
+    // this.spinner.show();
     this.resolved = false;
     if (this.bar1report != null && this.bar2report != null) {
       this.bar1report.destroy();
@@ -1636,104 +1490,106 @@ export class AmMFsbComponent implements OnInit {
         }
       }
 
+      ////////console.log(this.wo02donereport);
+
       this.bar1report.destroy();
 
       this.bar1report = new Chart('barreport', {
-          type: 'bar',
-          data: {
-            labels: [""],
-            datasets: [
-              {
-                label: 'Total WO',
-                data: [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
-                backgroundColor: [
-                  '#7fe7dc'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'Done WO',
-                data: [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
-                backgroundColor: [
-                  '#316879'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'Pending WO',
-                data: [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
-                backgroundColor: [
-                  '#ff6e40'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-            ]
-          },
-        });  
-        
+        type: 'bar',
+        data: {
+          labels: [""],
+          datasets: [
+            {
+              label: 'Total WO',
+              data: [this.totalwo02report + this.totalwo03report + this.totalwo06report + this.totalwo07report],
+              backgroundColor: [
+                '#7fe7dc'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'Done WO',
+              data: [this.wo02donereport + this.wo03donereport + this.wo06donereport + this.wo07donereport],
+              backgroundColor: [
+                '#316879'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'Pending WO',
+              data: [this.wo02report + this.wo03report + this.wo06report + this.wo07report],
+              backgroundColor: [
+                '#ff6e40'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+          ]
+        },
+      });
+
       this.bar2report.destroy();
 
       this.bar2report = new Chart('barreport2', {
-          type: 'bar',
-          data: {
-            labels: [""],
-            datasets: [
-              {
-                label: 'WO02 Corrective',
-                data: [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
-                backgroundColor: [
-                  '#ffc13b'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'WO03 Improvement',
-                data : [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
-                backgroundColor: [
-                  '#7fe7dc'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'WO06 Preventive',
-                data:[Math.round((this.wo06donereport / this.totalwo06report) * 100)],
-                backgroundColor: [
-                  '#ff6e40'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'WO07 Over Haul',
-                data:[Math.round((this.wo07donereport / this.totalwo07report) * 100)],
-                backgroundColor: [
-                  '#1e3d59'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-            ]
-          },
-        }); 
+        type: 'bar',
+        data: {
+          labels: [""],
+          datasets: [
+            {
+              label: 'WO02 Corrective',
+              data: [Math.round((this.wo02donereport / this.totalwo02report) * 100)],
+              backgroundColor: [
+                '#ffc13b'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'WO03 Improvement',
+              data: [Math.round((this.wo03donereport / this.totalwo03report) * 100)],
+              backgroundColor: [
+                '#7fe7dc'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'WO06 Preventive',
+              data: [Math.round((this.wo06donereport / this.totalwo06report) * 100)],
+              backgroundColor: [
+                '#ff6e40'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'WO07 Over Haul',
+              data: [Math.round((this.wo07donereport / this.totalwo07report) * 100)],
+              backgroundColor: [
+                '#1e3d59'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+          ]
+        },
+      });
     }, (error: any) => { }, () => {
       this.spinner.hide();
     });
@@ -1822,8 +1678,8 @@ export class AmMFsbComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.chartFunction();
     this.spinner.show();
-    this.chartFunction()
     this.showFinding();
     this.showFindingHistory();
     this.showFindingPending();
@@ -1849,17 +1705,175 @@ export class AmMFsbComponent implements OnInit {
       this.wo03donereport = 0;
       this.wo06donereport = 0;
       this.wo07donereport = 0;
-      this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
-        this.reportharian.push(data);
-        
+
+      this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
+        this.totaldata1year.push(data);
+        console.log(data);
+
+        for (let elem of this.totaldata1year[0]) {
+          if (elem.bulan == 'January') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.januariclose += 1
+                this.januaricloseelem.push(elem)
+                this.januari += 1;
+                this.januarielem.push(elem)
+              } else {
+                this.januari += 1;
+                this.januarielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'February') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.febuariclose += 1
+                this.febuaricloseelem.push(elem)
+                this.febuari += 1;
+                this.febuarielem.push(elem)
+              } else {
+                this.febuari += 1;
+                this.febuarielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'March') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.maretclose += 1;
+                this.maretcloseelem.push(elem)
+                this.maret += 1;
+                this.maretelem.push(elem)
+              } else {
+                this.maret += 1;
+                this.maretelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'April') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.aprilclose += 1;
+                this.aprilcloseelem.push(elem)
+                this.april += 1;
+                this.aprilelem.push(elem)
+              }
+              else {
+                this.april += 1;
+                this.aprilelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'May') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.meiclose += 1;
+                this.meicloseelem.push(elem)
+                this.mei += 1;
+                this.meielem.push(elem)
+              } else {
+                this.mei += 1;
+                this.meielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'June') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.juniclose += 1;
+                this.junicloseelem.push(elem)
+                this.juni += 1;
+                this.junielem.push(elem)
+              } else {
+                this.juni += 1;
+                this.junielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'July') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.juliclose += 1;
+                this.julicloseelem.push(elem)
+                this.juli += 1;
+                this.julielem.push(elem)
+              } else {
+                this.juli += 1;
+                this.julielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'August') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.agustusclose += 1;
+                this.agustuscloseelem.push(elem)
+                this.agustus += 1;
+                this.agustuselem.push(elem)
+              } else {
+                this.agustus += 1;
+                this.agustuselem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'September') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.septemberclose += 1;
+                this.septembercloseelem.push(elem)
+                this.september += 1;
+                this.septemberelem.push(elem)
+              } else {
+                this.september += 1;
+                this.septemberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'October') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.oktoberclose += 1;
+                this.oktobercloseelem.push(elem)
+                this.oktober += 1;
+                this.oktoberelem.push(elem)
+              } else {
+                this.oktober += 1;
+                this.oktoberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'November') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.novemberclose += 1;
+                this.novembercloseelem.push(elem)
+                this.november += 1;
+                this.novemberelem.push(elem)
+              } else {
+                this.november += 1;
+                this.novemberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'December') {
+            if (elem.plant_section == "Prod SnackBar1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                this.desemberclose += 1;
+                this.desembercloseelem.push(elem)
+                this.desember += 1;
+                this.desemberelem.push(elem)
+              } else {
+                this.desember += 1;
+                this.desemberelem.push(elem)
+              }
+            }
+          }
+
+
+          this.chartFunction();
+
+        }
       }, (error: any) => { }, () => {
         this.spinner.hide();
+      });
+
+      this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
+        this.reportharian.push(data);
       })
 
       this.service.getCountTotalFinding().subscribe(data => {
         this.totalkategori = data;
-        
-        
+
+
         Object.values(this.totalkategori).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1868,8 +1882,8 @@ export class AmMFsbComponent implements OnInit {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
-            if(this.totalkategoriarr[i].bulan == this.month){
-              if(this.totalkategoriarr[i].id_area == 3){
+            if (this.totalkategoriarr[i].bulan == this.month) {
+              if (this.totalkategoriarr[i].id_area == 3) {
                 if (this.totalkategoriarr[i].kategori === 'Preventive') {
                   this.Setting += 1;
                 }
@@ -1907,6 +1921,8 @@ export class AmMFsbComponent implements OnInit {
         })
       }
       );
+
+
 
       this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
         this.datarange.push(data);
@@ -1953,10 +1969,7 @@ export class AmMFsbComponent implements OnInit {
             }
           }
         }
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
       });
-
       this.bar1report = new Chart("barreport", {
         type: "bar",
         data: {
@@ -2012,12 +2025,11 @@ export class AmMFsbComponent implements OnInit {
         },
       });
       this.service.getTotalApprovalOrderFinish('3').subscribe(data => {
+        this.arrorderfinish = []
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.orderfinish = elem.total;
-        } 
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
+        }
       });
       this.service.getTotalApprovalCreateOrder('3').subscribe(data => {
         this.arrorderfinish = []
@@ -2025,8 +2037,6 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.arrorderfinish[0]) {
           this.createorderfinding = elem.total;
         }
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
       });
       this.service.getTotalApprovalSpv('3').subscribe(data => {
         this.arrorderfinish = []
@@ -2034,32 +2044,26 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.arrorderfinish[0]) {
           this.approvalfinding = elem.total;
         }
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
       });
-      this.service.getTotalApprovalReadyExecution('1').subscribe(data => {
+      this.service.getTotalApprovalReadyExecution('3').subscribe(data => {
         this.arrorderfinish = []
         this.arrorderfinish.push(data);
         for (let elem of this.arrorderfinish[0]) {
           this.readyexecutetop = elem.total;
         }
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
       });
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
         this.arrshecdule.push(data);
         for (let elem of this.arrshecdule[0]) {
           this.ordershecdule = elem.total;
-        } 
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
+        }
       });
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.januariclose += 1
               } else {
                 this.januari += 1;
@@ -2067,7 +2071,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'February') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.febuariclose += 1
               } else {
                 this.febuari += 1;
@@ -2075,7 +2079,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'March') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.maretclose += 1;
               } else {
                 this.maret += 1;
@@ -2083,7 +2087,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'April') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.aprilclose += 1;
               }
               else {
@@ -2092,7 +2096,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'May') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.meiclose += 1;
               } else {
                 this.mei += 1;
@@ -2100,7 +2104,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'June') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juniclose += 1;
               } else {
                 this.juni += 1;
@@ -2108,7 +2112,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'July') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.juliclose += 1;
               } else {
                 this.juli += 1;
@@ -2116,7 +2120,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.agustusclose += 1;
               } else {
                 this.agustus += 1;
@@ -2124,7 +2128,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.septemberclose += 1;
               } else {
                 this.september += 1;
@@ -2132,7 +2136,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.oktoberclose += 1;
               } else {
                 this.oktober += 1;
@@ -2140,7 +2144,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'November') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.novemberclose += 1;
               } else {
                 this.november += 1;
@@ -2148,7 +2152,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'December') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date != null) {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
                 this.desemberclose += 1;
               } else {
                 this.desember += 1;
@@ -2168,7 +2172,8 @@ export class AmMFsbComponent implements OnInit {
         this.oktober = this.oktober + this.oktoberclose;
         this.november = this.november + this.novemberclose;
         this.desember = this.desember + this.desemberclose;
-        new Chart("valuepermonthchart", {
+        this.chartdestroy?.destroy();
+        this.chartdestroy = new Chart("valuepermonthchart", {
           type: "bar",
           data: {
             labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -2188,114 +2193,136 @@ export class AmMFsbComponent implements OnInit {
 
 
           },
-        }); 
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
+        });
       });
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
+          ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
+          // // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-        }) 
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
+          ////////////////console.log(this.orderarr);
+
+          // // ////////////////console.log(this.findingpending2);
+        });
+
       });
-      this.service.getReadfpSectionFSB().subscribe(data => {
+      this.service.getReadfpSection().subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
+          // // ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-        }) 
-      }), (error: any) => { }, () => {
-        this.spinner.hide();
-      };
+          // ////////////////console.log(this.fpsectarr);
+
+          // // ////////////////console.log(this.findingpending2);
+        })
+        //console.log('getReadfpSection');
+
+      });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
+        ////////console.log(this.totallevel);
+
         Object.values(this.totallevel).forEach(data => {
+          // // ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
+          // ////////////////console.log(array);
+
+          // // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (data[i].id_area == 3)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totallevel2.length; i++) {
-            if(this.totallevel2[i].bulan == this.month){
-            if (this.totallevel2[i].id_area = 3) {
-              if (this.totallevel2[i].level === 'Low') {
-                this.low += 1;
-              }
-              if (this.totallevel2[i].level === 'Medium') {
-                this.medium += 1;
-              }
-              if (this.totallevel2[i].level === 'High') {
-                this.high += 1;
+            if (this.totallevel2[i].bulan == this.month) {
+              if (this.totallevel2[i].id_area = 3) {
+                if (this.totallevel2[i].level === 'Low') {
+                  this.low += 1;
+                }
+                if (this.totallevel2[i].level === 'Medium') {
+                  this.medium += 1;
+                }
+                if (this.totallevel2[i].level === 'High') {
+                  this.high += 1;
+                }
               }
             }
-          }
 
           }
-          this.donut2 = new Chart('donut2', {
-            type: 'doughnut',
-            data: {
-              labels: ['Low', 'Medium', 'High'],
-              datasets: [{
-                label: '# of Votes',
-                data: [this.low, this.medium, this.high],
-                backgroundColor: [
-                  '#626d71',
-                  '#ffc13b',
-                  '#ff6e40',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
+          // this.donut2 = new Chart('donut2', {
+          //   type: 'doughnut',
+          //   data: {
+          //     labels: ['Low', 'Medium', 'High'],
+          //     datasets: [{
+          //       label: '# of Votes',
+          //       data: [this.low, this.medium, this.high],
+          //       backgroundColor: [
+          //         '#626d71',
+          //         '#ffc13b',
+          //         '#ff6e40',
+          //       ],
+          //       borderColor: [
+          //         'white',
+          //         'white',
+          //         'white',
+          //       ],
+          //       borderWidth: 1
+          //     }]
+          //   },
+          // });
+          // // ////////////////console.log(this.medium);m
+          // // ////////////////console.log(this.totallevel2);
         })
 
+        //console.log('getTotalFeeding');
 
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
       }
       );
-      this.service.getFuncLocFsb().subscribe(data => {
+      this.service.getFuncLoc().subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
+          // ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
-        }) 
+        })
+        //console.log('getFuncLoc');
+
       }, (error: any) => { }, () => {
         this.spinner.hide();
       });
-      this.service.getReadFindingPendingfsb().subscribe(data => {
+      this.service.getReadFindingPending().subscribe(data => {
         this.findingpending = data;
         Object.values(this.findingpending).forEach(data => {
+          ////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
+          // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (array[i].status != "CLOSED" && array[i].status != "TECO") {
               this.findingpending2.splice(this.findingpending2.lenght, 0, array[i]);
             }
           }
+          // ////////////////console.log(this.findingpending2);
+
           for (var i = 0; i < this.findingpending2.length; i++) {
             if (this.findingpending2[i].area == "FSB") {
               if (this.findingpending2[i].section === 'Preparation') {
@@ -2319,6 +2346,8 @@ export class AmMFsbComponent implements OnInit {
 
             }
           }
+
+          //  ////////////////console.log(this.findingpending2);
         })
 
         new Chart('donutfp', {
@@ -2347,15 +2376,19 @@ export class AmMFsbComponent implements OnInit {
               borderWidth: 1
             }]
           },
-        }); 
+        });
+        //console.log('getReadFindingPending');
+
       }, (error: any) => { }, () => {
         this.spinner.hide();
       }
       );
+
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
+          ////////console.log(data);
 
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -2363,11 +2396,15 @@ export class AmMFsbComponent implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
+          // //////////////console.log(this.totalfm2);
+
 
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
+            //////////console.log(elem.tanggal_temuan);
+
             if (elem.id_area == 3) {
 
 
@@ -2377,7 +2414,7 @@ export class AmMFsbComponent implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1;  }
+                if (elem.bulan == this.month) { this.readyexecute += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
@@ -2394,17 +2431,22 @@ export class AmMFsbComponent implements OnInit {
               }
             }
 
-            this.temuanperday_data_temp.forEach((element: any) => {
-              if(element.bulan == this.bulan){
-                this.listoftotalfinding.push(element)
-              }
-            });
+            // //////console.log(this.temuanperday_data_temp);
+
 
 
           })
 
+          this.temuanperday_data_temp.forEach((element: any) => {
+            if (element.bulan == this.bulan) {
+              this.listoftotalfinding.push(element)
+            }
+          });
+          //////console.log(this.listoftotalfinding);
+
 
           this.temuanperday_data_temp.forEach((element: any) => {
+            //////////console.log(this.screenWidth);
 
             if (element.tahun == this.autodate) {
               if (element.bulan == 1) {
@@ -2434,7 +2476,7 @@ export class AmMFsbComponent implements OnInit {
               }
             }
           });
-          
+
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
@@ -2471,6 +2513,8 @@ export class AmMFsbComponent implements OnInit {
             },
           });
 
+          // this.findingbulan3?.destroy();
+
           new Chart('totalfindingbulan', {
             type: 'bar',
             data: {
@@ -2486,8 +2530,17 @@ export class AmMFsbComponent implements OnInit {
                   borderWidth: 1
                 },
               ]
-            },
+            }, options: {
+              scales: {
+                yAxes: {
+                  ticks: {
+                    // beginAtZero: true
+                  }
+                }
+              }
+            }
           });
+
 
 
           this.dum = new Chart('dum', {
@@ -2543,34 +2596,72 @@ export class AmMFsbComponent implements OnInit {
             },
           });
 
-          new Chart('donut', {
-            type: 'doughnut',
-            data: {
-              labels: ['On Progress WO', 'Ready execute', 'Finish execute'],
-              datasets: [{
-                label: '# of Votes',
-                data: [this.pendingexecute, this.readyexecute, this.finishexecute],
-                backgroundColor: [
-                  '#ffc13b',
-                  '#ff6e40',
-                  '#316879',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-        }) 
+          // new Chart('donut', {
+          //   type: 'doughnut',
+          //   data: {
+          //     labels: ['On Progress WO', 'Ready execute', 'Finish execute'],
+          //     datasets: [{
+          //       label: '# of Votes',
+          //       data: [this.pendingexecute, this.readyexecute, this.finishexecute],
+          //       backgroundColor: [
+          //         '#ffc13b',
+          //         '#ff6e40',
+          //         '#316879',
+          //       ],
+          //       borderColor: [
+          //         'white',
+          //         'white',
+          //         'white',
+          //         'white',
+          //       ],
+          //       borderWidth: 1
+          //     }]
+          //   },
+          // });
+
+          ////console.log(this.temuanperday_data);
+
+
+          // this.findingbulan?.destroy();
+
+          // this.findingbulan = new Chart('totalfindingbulan', {
+          //   type: 'bar',
+          //   data: {
+          //     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+          //     datasets: [
+          //       {
+          //         label: 'Total Finding Bulan',
+          //         data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+          //         backgroundColor: '#FFD6A5',
+          //         borderColor: [
+          //           'white',
+          //         ],
+          //         borderWidth: 1
+          //       },
+          //     ]
+          //   }, 
+          // });
+
+          // this.findingbulan2?.destroy();
+
+
+
+
+
+
+          this.resolved = true;
+        })
+        //console.log('getTotalFeeding');
+
       }, (error: any) => { }, () => {
         this.spinner.hide();
-      }) 
+
+      })
+
+
     }
     );
+
   }
 };
 
