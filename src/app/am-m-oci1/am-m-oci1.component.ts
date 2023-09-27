@@ -1800,11 +1800,15 @@ export class AmMOci1Component implements OnInit {
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod OCI 1") {
               if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+                console.log('sini');
+                
                 this.agustusclose += 1;
                 this.agustuscloseelem.push(elem)
                 this.agustus += 1;
                 this.agustuselem.push(elem)
               } else {
+                console.log('sana');
+                
                 this.agustus += 1;
                 this.agustuselem.push(elem)
               }

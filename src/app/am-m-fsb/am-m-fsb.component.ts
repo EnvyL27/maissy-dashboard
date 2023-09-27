@@ -1709,7 +1709,7 @@ export class AmMFsbComponent implements OnInit {
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
         console.log(data);
-
+        
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod SnackBar1") {
@@ -1810,7 +1810,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.teco_date == 'RELEASED' || elem.status == 'CLOSED') {
                 this.septemberclose += 1;
                 this.septembercloseelem.push(elem)
                 this.september += 1;
