@@ -22,8 +22,8 @@ export class AmMFsbComponent implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    ////////////////console.log(this.findingpending2);
-    ////console.log(this.findingpending2);
+    //////////////////console.log(this.findingpending2);
+    //////console.log(this.findingpending2);
 
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
@@ -280,22 +280,22 @@ export class AmMFsbComponent implements OnInit {
   totalkategoriarr: any = [];
 
   data($event: any) {
-    // //////////console.log(this.scree);
+    // ////////////console.log(this.scree);
 
     this.target.nativeElement.scrollIntoView();
     //   behavior: 'smooth',
     //   block: 'center',
     //   inline: 'center',
     // });
-    //// ////////////////console.log($event);
+    //// //////////////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
-    //////////console.log(this.funloc);
+    ////////////console.log(this.funloc);
 
-    // ////////////////console.log(this.funloc);
+    // //////////////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
-        ////////////////console.log(this.orderarr);
+        //////////////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -306,7 +306,7 @@ export class AmMFsbComponent implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
-    //////////console.log(this.funloclist);
+    ////////////console.log(this.funloclist);
   }
   // totalCapture(){
   //   this.captureService
@@ -416,13 +416,13 @@ export class AmMFsbComponent implements OnInit {
   exportwo(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    // ////console.log(this.januarielem);
+    // //////console.log(this.januarielem);
 
-    ////////////////console.log(this.findingpending2);
+    //////////////////console.log(this.findingpending2);
     if (this.booljan == true) {
       const janexport: any = []
       janexport.push(this.januarielem)
-      ////console.log(janexport);
+      //////console.log(janexport);
 
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
@@ -444,7 +444,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.booljannull == true) {
       const janexport: any = []
       janexport.push(this.januaricloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -465,7 +465,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolFeb == true) {
       const janexport: any = []
       janexport.push(this.febuarielem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -486,7 +486,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolFebnull == true) {
       const janexport: any = []
       janexport.push(this.febuaricloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -507,7 +507,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolMar == true) {
       const janexport: any = []
       janexport.push(this.maretelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -528,7 +528,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolMarnull == true) {
       const janexport: any = []
       janexport.push(this.maretcloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -549,7 +549,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolApr == true) {
       const janexport: any = []
       janexport.push(this.aprilelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -570,7 +570,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolAprnull == true) {
       const janexport: any = []
       janexport.push(this.aprilcloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -591,7 +591,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolMay == true) {
       const janexport: any = []
       janexport.push(this.meielem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -612,7 +612,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolMaynull == true) {
       const janexport: any = []
       janexport.push(this.meicloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -633,7 +633,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolJun == true) {
       const janexport: any = []
       janexport.push(this.junielem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -654,7 +654,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolJunnull == true) {
       const janexport: any = []
       janexport.push(this.junicloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -675,7 +675,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolJul == true) {
       const janexport: any = []
       janexport.push(this.julielem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -696,7 +696,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolJulnull == true) {
       const janexport: any = []
       janexport.push(this.julicloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -717,7 +717,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolAgu == true) {
       const janexport: any = []
       janexport.push(this.agustuselem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -738,7 +738,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolAgunull == true) {
       const janexport: any = []
       janexport.push(this.agustuscloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -759,7 +759,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolSep == true) {
       const janexport: any = []
       janexport.push(this.septemberelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -780,7 +780,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolSepnull == true) {
       const janexport: any = []
       janexport.push(this.septembercloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -801,7 +801,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolOkt == true) {
       const janexport: any = []
       janexport.push(this.oktoberelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -822,7 +822,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolOktnull == true) {
       const janexport: any = []
       janexport.push(this.oktobercloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -843,7 +843,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolNov == true) {
       const janexport: any = []
       janexport.push(this.novemberelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -864,7 +864,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolNovnull == true) {
       const janexport: any = []
       janexport.push(this.novembercloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -885,7 +885,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolDes == true) {
       const janexport: any = []
       janexport.push(this.desemberelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -906,7 +906,7 @@ export class AmMFsbComponent implements OnInit {
     } else if (this.boolDesnull == true) {
       const janexport: any = []
       janexport.push(this.desembercloseelem)
-      ////console.log(janexport);
+      //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
       { wch: 60 },
@@ -1003,7 +1003,7 @@ export class AmMFsbComponent implements OnInit {
     this.booljan = this.boolFeb = this.boolMar = this.boolApr = this.boolMay = this.boolJun = this.boolJul = this.boolSep = this.boolOkt = this.boolNov = this.boolDes = false;
     this.boolAgu = !this.boolAgu;
     this.cdr.detectChanges();
-    //////console.log(this.boolAgu);
+    ////////console.log(this.boolAgu);
 
   }
   changeSep() {
@@ -1123,8 +1123,8 @@ export class AmMFsbComponent implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // //////////////console.log(config);
-            // //////console.log(this.maretcloseelem);
+            // ////////////////console.log(config);
+            // ////////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJan();
             }
@@ -1490,7 +1490,7 @@ export class AmMFsbComponent implements OnInit {
         }
       }
 
-      ////////console.log(this.wo02donereport);
+      //////////console.log(this.wo02donereport);
 
       this.bar1report.destroy();
 
@@ -1708,7 +1708,7 @@ export class AmMFsbComponent implements OnInit {
 
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-        console.log(data);
+        //console.log(data);
         
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
@@ -2198,50 +2198,50 @@ export class AmMFsbComponent implements OnInit {
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
-          ////////////////console.log(data);
+          //////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////////////console.log(array);
+          // // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-          ////////////////console.log(this.orderarr);
+          //////////////////console.log(this.orderarr);
 
-          // // ////////////////console.log(this.findingpending2);
+          // // //////////////////console.log(this.findingpending2);
         });
 
       });
       this.service.getReadfpSection().subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
-          // // ////////////////console.log(data);
+          // // //////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////console.log(array);
+          // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-          // ////////////////console.log(this.fpsectarr);
+          // //////////////////console.log(this.fpsectarr);
 
-          // // ////////////////console.log(this.findingpending2);
+          // // //////////////////console.log(this.findingpending2);
         })
-        //console.log('getReadfpSection');
+        ////console.log('getReadfpSection');
 
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        ////////console.log(this.totallevel);
+        //////////console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
-          // // ////////////////console.log(data);
+          // // //////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////console.log(array);
+          // //////////////////console.log(array);
 
-          // // ////////////////console.log(array);
+          // // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (data[i].id_area == 3)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -2283,27 +2283,27 @@ export class AmMFsbComponent implements OnInit {
           //     }]
           //   },
           // });
-          // // ////////////////console.log(this.medium);m
-          // // ////////////////console.log(this.totallevel2);
+          // // //////////////////console.log(this.medium);m
+          // // //////////////////console.log(this.totallevel2);
         })
 
-        //console.log('getTotalFeeding');
+        ////console.log('getTotalFeeding');
 
       }
       );
       this.service.getFuncLoc().subscribe(data => {
         this.funlock = data;
         Object.values(this.funlock).forEach(data => {
-          // ////////////////console.log(data);
+          // //////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////console.log(array);
+          // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.funlockarr.splice(this.funlockarr.lenght, 0, array[i]);
           }
         })
-        //console.log('getFuncLoc');
+        ////console.log('getFuncLoc');
 
       }, (error: any) => { }, () => {
         this.spinner.hide();
@@ -2311,17 +2311,17 @@ export class AmMFsbComponent implements OnInit {
       this.service.getReadFindingPending().subscribe(data => {
         this.findingpending = data;
         Object.values(this.findingpending).forEach(data => {
-          ////////////////console.log(data);
+          //////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////console.log(array);
+          // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (array[i].status != "CLOSED" && array[i].status != "TECO") {
               this.findingpending2.splice(this.findingpending2.lenght, 0, array[i]);
             }
           }
-          // ////////////////console.log(this.findingpending2);
+          // //////////////////console.log(this.findingpending2);
 
           for (var i = 0; i < this.findingpending2.length; i++) {
             if (this.findingpending2[i].area == "FSB") {
@@ -2347,7 +2347,7 @@ export class AmMFsbComponent implements OnInit {
             }
           }
 
-          //  ////////////////console.log(this.findingpending2);
+          //  //////////////////console.log(this.findingpending2);
         })
 
         new Chart('donutfp', {
@@ -2377,7 +2377,7 @@ export class AmMFsbComponent implements OnInit {
             }]
           },
         });
-        //console.log('getReadFindingPending');
+        ////console.log('getReadFindingPending');
 
       }, (error: any) => { }, () => {
         this.spinner.hide();
@@ -2388,7 +2388,7 @@ export class AmMFsbComponent implements OnInit {
         this.totalfm = data;
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          ////////console.log(data);
+          //////////console.log(data);
 
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -2396,14 +2396,14 @@ export class AmMFsbComponent implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // //////////////console.log(this.totalfm2);
+          // ////////////////console.log(this.totalfm2);
 
 
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
-            //////////console.log(elem.tanggal_temuan);
+            ////////////console.log(elem.tanggal_temuan);
 
             if (elem.id_area == 3) {
 
@@ -2431,7 +2431,7 @@ export class AmMFsbComponent implements OnInit {
               }
             }
 
-            // //////console.log(this.temuanperday_data_temp);
+            // ////////console.log(this.temuanperday_data_temp);
 
 
 
@@ -2442,11 +2442,11 @@ export class AmMFsbComponent implements OnInit {
               this.listoftotalfinding.push(element)
             }
           });
-          //////console.log(this.listoftotalfinding);
+          ////////console.log(this.listoftotalfinding);
 
 
           this.temuanperday_data_temp.forEach((element: any) => {
-            //////////console.log(this.screenWidth);
+            ////////////console.log(this.screenWidth);
 
             if (element.tahun == this.autodate) {
               if (element.bulan == 1) {
@@ -2619,7 +2619,7 @@ export class AmMFsbComponent implements OnInit {
           //   },
           // });
 
-          ////console.log(this.temuanperday_data);
+          //////console.log(this.temuanperday_data);
 
 
           // this.findingbulan?.destroy();
@@ -2651,7 +2651,7 @@ export class AmMFsbComponent implements OnInit {
 
           this.resolved = true;
         })
-        //console.log('getTotalFeeding');
+        ////console.log('getTotalFeeding');
 
       }, (error: any) => { }, () => {
         this.spinner.hide();

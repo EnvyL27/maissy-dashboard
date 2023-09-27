@@ -85,7 +85,7 @@ export class CiltMOci1Component implements OnInit {
 
     this.service.getCurrentCycle().subscribe(data => {
       this.dataMaxCycle = data
-      ////////console.log(this.dataMaxCycle);
+      //////////console.log(this.dataMaxCycle);
       Object.values(this.dataMaxCycle).forEach(data => {
         var array = Object.keys(data).map(function (key) {
           return data[key];
@@ -122,7 +122,7 @@ export class CiltMOci1Component implements OnInit {
     this.service.getCiltOci1().subscribe(data => {
       
       this.dataPengecekan.push(data);
-      // ////////console.log(this.dataPengecekan);
+      // //////////console.log(this.dataPengecekan);
 
       this.arrayPengecekan.push(...this.dataPengecekan[0]);
       this.totalPengecekan = this.arrayPengecekan.length
@@ -140,12 +140,12 @@ export class CiltMOci1Component implements OnInit {
 
 
         for(let elem of this.arrayPengecekan){
-        ////////console.log(this.month);
+        //////////console.log(this.month);
         
         
           
           if(elem.section == 'Injection' || elem.section == 'Preform Transfer'){
-            ////////console.log('masuk if');
+            //////////console.log('masuk if');
             if(elem.id_cycle == this.dataCycle[0]){
               this.resInj1++
             }else if(elem.id_cycle == this.dataCycle[1]){
@@ -219,10 +219,10 @@ export class CiltMOci1Component implements OnInit {
           
           
         }
-        ////////console.log(this.resInj1);
-        ////////console.log(this.resInj2);
-        ////////console.log(this.resInj3);
-        ////////console.log(this.resInj4);
+        //////////console.log(this.resInj1);
+        //////////console.log(this.resInj2);
+        //////////console.log(this.resInj3);
+        //////////console.log(this.resInj4);
         
       }
       
@@ -259,7 +259,7 @@ export class CiltMOci1Component implements OnInit {
       }else if(this.caser != 0 || this.caserFinish != 0){
         this.caserFinish = (this.caserFinish / this.caser * 100)
       }
-      // ////////console.log(this.ibfFinish);
+      // //////////console.log(this.ibfFinish);
       
       // for(let i = 0; this.arrayPengecekan.length; i++){
       //   this.totalPengecekan++
@@ -276,7 +276,7 @@ export class CiltMOci1Component implements OnInit {
   }
 
   chartRes(){
-    ////////console.log();
+    //////////console.log();
     
     this.chartResume = {
       series: [

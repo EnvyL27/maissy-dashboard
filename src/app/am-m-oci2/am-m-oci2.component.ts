@@ -2309,7 +2309,7 @@ export class AmMOci2Component implements OnInit {
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////////////console.log(array);
+          // // //////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
