@@ -250,7 +250,7 @@ export class AmMOci1Component implements OnInit {
   @ViewChild("ss3")
   taptap3!: ElementRef;
   datarange: any = [];
-  @ViewChild("ssTotal")
+  @ViewChild("ss4")
   taptapTotal!: ElementRef;
   totaldata: any = [];
   pendingexecute: number = 0;
@@ -317,18 +317,26 @@ export class AmMOci1Component implements OnInit {
   //     this.downloadJson();
   //   });
   // }
-  totalCapture() {
-    const element = document.getElementById('ssTotal')!;
-    html2canvas(element).then(canvas => {
-      // `canvas` contains the captured content as an image.
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'totalreport.png';
-      this.showInfo();
-      link.click();
-    });
-  }
+  // totalCapture() {
+  //   const element = document.getElementById('ssTotal')!;
+  //   html2canvas(element).then(canvas => {
+  //     // `canvas` contains the captured content as an image.
+  //     const link = document.createElement('a');
+  //     link.href = canvas.toDataURL('image/png');
+  //     link.download = 'totalreport.png';
+  //     this.showInfo();
+  //     link.click();
+  //   });
+  // }
   capture() {
+    this.captureService
+      .getImage(this.taptap.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadJson();
+      });
+  }
+  captureTotal() {
     this.captureService
       .getImage(this.taptapTotal.nativeElement, true)
       .subscribe((img: any) => {
@@ -377,6 +385,22 @@ export class AmMOci1Component implements OnInit {
     var element = document.createElement('a');
     element.setAttribute('href', this.imgBase64);
     element.setAttribute('download', 'reportingdaily.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadHarianJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'reportingjumlahtemuan.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadTotalJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'reportingtotaldata.png');
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -2414,23 +2438,32 @@ export class AmMOci1Component implements OnInit {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulan == this.month) { this.finishexecute += 1; this.finishexecutetop += 1; }
+                if (elem.bulan == this.month) { 
+                  this.finishexecute += 1; this.finishexecutetop += 1; 
+                }
 
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1; }
+                if (elem.bulan == this.month) { 
+                  this.readyexecute += 1; 
+                  this.readyexecutetop += 1;
+                }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
+                  if (elem.bulan == this.month) { 
+                    this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                  }
 
                   this.temuanperday_data_temp.push(elem)
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
+                if (elem.bulan == this.month) { 
+                  this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                }
 
                 this.temuanperday_data_temp.push(elem)
               }

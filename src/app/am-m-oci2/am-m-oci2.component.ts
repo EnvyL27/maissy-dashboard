@@ -2445,7 +2445,7 @@ export class AmMOci2Component implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1; }
+                if (elem.bulan == this.month) { this.readyexecute += 1; this.readyexecutetop += 1; }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {

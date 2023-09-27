@@ -234,6 +234,7 @@ export class PdmMOci1Component implements OnInit {
   totalfinishtoday2down: any = [];
   abnormal: object = {};
   listofsatisfactory: any = [];
+  listofsatisfactorydown: any = [];
   listofgood: any = [];
   totalabnormal: any = [];
   totalabnormallist: any = [];
@@ -363,6 +364,11 @@ export class PdmMOci1Component implements OnInit {
     this.currentPage3 = 1;
     this.paginatereset = !this.paginatereset;
     this.showPaginate3 = this.totalfinishtoday2down.length;
+  }
+  showallPaginateSatisfactory() {
+    this.currentPage3 = 1;
+    this.paginatereset = !this.paginatereset;
+    this.showPaginate3 = this.listofsatisfactorydown.length;
   }
   done() {
     this.exportdata = !this.exportdata;
@@ -1277,16 +1283,13 @@ export class PdmMOci1Component implements OnInit {
       }
       );
       this.service.getReadFinishTodayoci1().subscribe(data => {
-        ////////////console.log(data);
 
         this.totalfinishtoday = data;
 
         Object.values(this.totalfinishtoday).forEach(data => {
-          // // //////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
             // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
