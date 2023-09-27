@@ -1344,10 +1344,8 @@ export class AmMFsbComponent implements OnInit {
     }, (error: any) => { }, () => {
       this.spinner.hide();
     })
-
-
-
   }
+  
   totaldataChange() {
     this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
     this.totalfm = [];

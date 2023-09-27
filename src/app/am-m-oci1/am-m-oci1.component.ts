@@ -1709,7 +1709,8 @@ export class AmMOci1Component implements OnInit {
 
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-  
+        console.log(data);
+        
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod OCI 1") {
