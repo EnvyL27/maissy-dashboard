@@ -252,6 +252,8 @@ export class AmMOci1Component implements OnInit {
   datarange: any = [];
   @ViewChild("ss4")
   taptapTotal!: ElementRef;
+  @ViewChild("ss5")
+  taptapTemuan!: ElementRef;
   totaldata: any = [];
   pendingexecute: number = 0;
   pendingexecutetop: number = 0;
@@ -342,6 +344,14 @@ export class AmMOci1Component implements OnInit {
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
+      });
+  }
+  captureTemuan() {
+    this.captureService
+      .getImage(this.taptapTemuan.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadHarianJson();
       });
   }
   getphoto(dataget: any) {
