@@ -303,7 +303,7 @@ export class AmMOci2Component implements OnInit {
       .getImage(this.taptapTotal.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
-        this.downloadJson();
+        this.downloadTotalJson();
       });
   }
   captureTemuan() {
@@ -351,7 +351,7 @@ export class AmMOci2Component implements OnInit {
   downloadJson() {
     var element = document.createElement('a');
     element.setAttribute('href', this.imgBase64);
-    element.setAttribute('download', 'reportingdaily.png');
+    element.setAttribute('download', 'reportingdaily-oci2.png');
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -359,7 +359,15 @@ export class AmMOci2Component implements OnInit {
   downloadHarianJson() {
     var element = document.createElement('a');
     element.setAttribute('href', this.imgBase64);
-    element.setAttribute('download', 'reportingjumlahtemuan.png');
+    element.setAttribute('download', 'reportingjumlahtemuan-oci2.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadTotalJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'totalreporting-oci2.png');
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);

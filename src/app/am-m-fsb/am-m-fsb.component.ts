@@ -249,8 +249,10 @@ export class AmMFsbComponent implements OnInit {
   @ViewChild("ss3")
   taptap3!: ElementRef;
   datarange: any = [];
-  @ViewChild("ssTotal")
+  @ViewChild("ss4")
   taptapTotal!: ElementRef;
+  @ViewChild("ss4")
+  taptapTemuan!: ElementRef;
   totaldata: any = [];
   pendingexecute: number = 0;
   pendingexecutetop: number = 0;
@@ -308,31 +310,28 @@ export class AmMFsbComponent implements OnInit {
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
     ////////////console.log(this.funloclist);
   }
-  // totalCapture(){
-  //   this.captureService
-  //   .getImage(this.taptapTotal.nativeElement, true)
-  //   .subscribe((img: any) => {
-  //     this.imgBase64 = img;
-  //     this.downloadJson();
-  //   });
-  // }
-  totalCapture() {
-    const element = document.getElementById('ssTotal')!;
-    html2canvas(element).then(canvas => {
-      // `canvas` contains the captured content as an image.
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'totalreport.png';
-      this.showInfo();
-      link.click();
-    });
-  }
   capture() {
     this.captureService
       .getImage(this.taptapTotal.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
+      });
+  }
+  captureTotal() {
+    this.captureService
+      .getImage(this.taptapTotal.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadTotalJson();
+      });
+  }
+  captureTemuan() {
+    this.captureService
+      .getImage(this.taptapTemuan.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadHarianJson();
       });
   }
   getphoto(dataget: any) {
@@ -375,7 +374,23 @@ export class AmMFsbComponent implements OnInit {
   downloadJson() {
     var element = document.createElement('a');
     element.setAttribute('href', this.imgBase64);
-    element.setAttribute('download', 'reportingdaily.png');
+    element.setAttribute('download', 'reportingdaily-fsb.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadHarianJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'reportingjumlahtemuan-fsb.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadTotalJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'totalreporting-fsb.png');
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -1254,7 +1269,7 @@ export class AmMFsbComponent implements OnInit {
     })
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0;
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0;
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];

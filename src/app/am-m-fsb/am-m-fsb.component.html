@@ -229,7 +229,7 @@
         <div class="w-1/5 lg:flex-none  px-3">
           <div
             class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
-            style="background-color: #86b0de;">
+            style="background-color: #f4b8a5;">
             <div class="flex-auto p-1 pt-0 text-center">
               <h6 class="mt-1 text-center font-bold">Scheduling : {{ordershecdule}}</h6>
             </div>
@@ -256,75 +256,81 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap mx-3 w-full"  id="ssTotal" #ssTotal>
-        <div class="w-full px-1 py-1 mx-auto">
-          <div class="flex flex-wrap lg:-mx-4">
-            <div class="px-1 w-full max-w-full md:w-8/12 " >
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
-                <div class="flex-auto p-4 ">
+      <div class="my-1 px-1 w-full max-w-full md:w-full">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="mx-4">
+            <div class="w-full max-w-full md:w-full">
+              <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
+                <div class="w-full max-w-full md:w-8/12 xl:w-8/12 xs:w-1/2">
                   <h5 class="text-center font-semibold text-2xl">Total Data</h5>
                 </div>
-              </div>
-              <div
-                class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-                <div class="flex-auto p-6">
-                  <div class="grid grid-cols-2 items-start text-start mb-4">
-                    <div class="items-start text-start">
-                      <button
-                      class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-                      (click)="totalCapture()"><i class="fa fa-camera fa-1"></i>
-                      Capture</button>
-                    </div>
-                    <div class="items-end text-end">
-                      <label for="month" class="mr-1 text-gray-600 font-semibold">Month : </label>
-                      <input type="month" style=" border: 1px solid #c4c4c4;
-                            border-radius: 5px;
-                            background-color: #fff;
-                            padding: 3px 5px;
-                            box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                          " width="48" [(ngModel)]="month" (ngModelChange)="totaldataChange()">
-                    </div>
-                </div>
-                  <div style="height: 500px;">
-                      <canvas id="dum" class="py-4"></canvas>
-                  </div>
-                  <div class="px-6 pt-4 pb-2 text-center">
-                    <span style="background-color: #7fe7dc;"
-                      class="text-white inline-block bg-red rounded-full text-md px-3 py-1 font-semibold mr-2 mb-2">Total:
-                      {{pendingexecute + finishexecute + readyexecute}}</span>
-                    <span style="background-color:#ffc13b"
-                      class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">On
-                      Progres:
-                      {{pendingexecute}}</span>
-                    <span style="background-color: #ff6e40;"
-                      class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Ready:
-                      {{readyexecute}}</span>
-                    <span style="background-color: #316879;"
-                      class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Finish:
-                      {{finishexecute}}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="px-1 w-full md:w-4/12">
-              <div
-                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
-                <div class="flex-auto p-4">
+                <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-1/2">
                   <h5 class="text-center font-semibold text-2xl">Type of Finding</h5>
                 </div>
               </div>
-              <div
-                class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-                <div class="flex-auto p-6">
-                  <div class="flex justify-center" style="height: 520px;">
-                    <canvas id="typefinding"></canvas>
-                  </div>
-                  <div class="px-6 pt-4 pb-2 text-center">
-                    <span style="background-color: #316879;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Preventive: {{this.Setting}}</span>
-                    <span style="background-color: #f47a60" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Replacement: {{this.Replacement}}</span>
-                    <span style="background-color: #7fe7dc;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Improvement: {{this.Improvement}}</span>
-                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-1 px-1 w-full max-w-full md:w-full">
+        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="grid grid-cols-2 items-start text-start mb-4">
+            <div class="items-start text-start px-4 py-4">
+              <button
+                class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                (click)="captureTotal()"><i class="fa fa-camera fa-1"></i>
+                Capture</button>
+              <label for="month"
+                class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Month
+                : </label>
+              <input type="month" style=" border: 1px solid #c4c4c4;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="month" (ngModelChange)="totaldataChange()">
+            </div>
+          </div>
+          <div class="mx-4" id="ss4" #ss4>
+            <div class="w-full max-w-full md:w-full">
+              <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
+                <div class="w-full max-w-full md:w-8/12 xl:w-8/12 xs:w-1/2">
+                  <canvas id="dum" class="py-4"></canvas>
+                </div>
+                <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-1/2">
+                  <canvas id="typefinding"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center text-center py-4 flex-wrap">
+              <div class=" md:w-8/12 xl:w-8/12 xs:w-1/2">
+                <div class="px-6 pt-4 pb-2 text-center">
+                  <span style="background-color: #7fe7dc;"
+                    class="text-white inline-block bg-red rounded-full text-md px-3 py-1 font-semibold mr-2 mb-2">Total:
+                    {{pendingexecute + finishexecute + readyexecute}}</span>
+                  <span style="background-color:#ffc13b"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">On
+                    Progres:
+                    {{pendingexecute}}</span>
+                  <span style="background-color: #ff6e40;"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Ready:
+                    {{readyexecute}}</span>
+                  <span style="background-color: #316879;"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Finish:
+                    {{finishexecute}}</span>
+                </div>
+              </div>
+              <div class=" md:w-4/12 xl:w-4/12 xs:w-1/2 pl-2">
+                <div class="px-6 py-2 text-center">
+                  <span style="background-color: #316879;"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Preventive:
+                    {{this.Setting}}</span>
+                  <span style="background-color: #f47a60"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Replacement:
+                    {{this.Replacement}}</span>
+                  <span style="background-color: #7fe7dc;"
+                    class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Improvement:
+                    {{this.Improvement}}</span>
                 </div>
               </div>
             </div>
