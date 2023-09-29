@@ -134,6 +134,7 @@ export class PdmMOci2Component implements OnInit {
   public resolved: boolean = false;
   public exportdata: boolean = false;
   public paginatereset: boolean = false;
+  public paginateresetSatis: boolean = false;
   // @ViewChild('screen', { static: true }) screen: any;
   good: number = 0;
   satis: number = 0;
@@ -150,6 +151,7 @@ export class PdmMOci2Component implements OnInit {
   searchText2: any;
   searchText3: any;
   currentPage: number = 1;
+  currentPageSatis: number = 0;
   public img = "";
   imgBase64 = '';
   @ViewChild("ss")
@@ -204,6 +206,16 @@ export class PdmMOci2Component implements OnInit {
   itemsPerPage3: number = 0;
   currentPage3: number = 1;
   absoluteIndex3(indexOnPage: number): number {
+    return this.itemsPerPage3 * (this.currentPage3 - 1) + indexOnPage;
+  }
+  itemsPerPageSatis2: number = 0;
+  currentPageSatis2: number = 1;
+  absoluteIndexSatis2(indexOnPage: number): number {
+    return this.itemsPerPage3 * (this.currentPage3 - 1) + indexOnPage;
+  }
+  itemsPerPageSatis3: number = 0;
+  currentPageSatis3: number = 1;
+  absoluteIndexSatis3(indexOnPage: number): number {
     return this.itemsPerPage3 * (this.currentPage3 - 1) + indexOnPage;
   }
 
@@ -265,6 +277,9 @@ export class PdmMOci2Component implements OnInit {
   amperedate: any = [];
   showPaginate: number = 5;
   showPaginate2: number = 5;
+  showPaginateSatis: number = 5;
+  showPaginateSatis2: number = 5;
+  showPaginateSatis3: number = 5;
   showPaginate3: number = 5;
   abnormalasset: object = {};
   abnormalassetlist: any = [];
@@ -354,11 +369,23 @@ export class PdmMOci2Component implements OnInit {
     this.exportdata = !this.exportdata;
     this.forcapture = !this.forcapture;
   }
+
   resetPaginate() {
     this.currentPage3 = 1;
     this.showPaginate3 = 5;
     this.paginatereset = !this.paginatereset;
+  }  
+  
+  generateSatisfactory() {
+    this.showPaginateSatis = this.listofsatisfactory.length;
+    this.currentPageSatis = 1;
   }
+
+  resetPaginateSatis() {
+    this.currentPageSatis = 0;
+    this.showPaginateSatis = 5;
+  }
+
   showallPaginate() {
     this.currentPage3 = 1;
     this.paginatereset = !this.paginatereset;

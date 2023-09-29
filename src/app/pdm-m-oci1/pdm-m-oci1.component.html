@@ -121,6 +121,14 @@
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Satisfactory</p>
+          <button *ngIf="currentPageSatis != 1"
+            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="generateSatisfactory()"><i class="fa fa-file-excel-o fa-1"></i>
+            Show all</button>
+            <button *ngIf="currentPageSatis != 0"
+            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="resetPaginateSatis()"><i class="fa fa-file-excel-o fa-1"></i>
+            Reset</button>
           <button
           class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
           (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
@@ -148,7 +156,7 @@
                 </tr>
               </thead>
               <tbody
-                *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: showPaginateSatis }; let i = index">
                 <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                   <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                     {{(currentPage-1) * 5 + i + 1}}

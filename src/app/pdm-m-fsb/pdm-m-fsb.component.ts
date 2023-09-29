@@ -150,6 +150,7 @@ export class PdmMFsbComponent implements OnInit {
   searchText2: any;
   searchText3: any;
   currentPage: number = 1;
+  currentPageSatis: number = 0;
   public img = "";
   imgBase64 = '';
   @ViewChild("ss")
@@ -266,6 +267,7 @@ export class PdmMFsbComponent implements OnInit {
   showPaginate: number = 5;
   showPaginate2: number = 5;
   showPaginate3: number = 5;
+  showPaginateSatis: number = 5;
   abnormalasset: object = {};
   abnormalassetlist: any = [];
   ampereR: any = [];
@@ -359,6 +361,18 @@ export class PdmMFsbComponent implements OnInit {
     this.showPaginate3 = 5;
     this.paginatereset = !this.paginatereset;
   }
+
+  generateSatisfactory() {
+    this.showPaginateSatis = this.listofsatisfactory.length;
+    this.currentPageSatis = 1;
+  }
+
+  resetPaginateSatis() {
+    this.currentPageSatis = 0;
+    this.showPaginateSatis = 5;
+  }
+
+
   showallPaginate() {
     this.currentPage3 = 1;
     this.paginatereset = !this.paginatereset;
