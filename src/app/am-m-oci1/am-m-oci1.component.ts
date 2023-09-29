@@ -1289,7 +1289,7 @@ export class AmMOci1Component implements OnInit {
     })
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0; 
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];

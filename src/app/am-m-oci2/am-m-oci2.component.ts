@@ -242,6 +242,10 @@ export class AmMOci2Component implements OnInit {
   reportharian: any = [];
   @ViewChild("ss3")
   taptap3!: ElementRef;
+  @ViewChild("ss4")
+  taptapTotal!: ElementRef;
+  @ViewChild("ss5")
+  taptapTemuan!: ElementRef;
   datarange: any = [];
   pendingexecute: number = 0;
   pendingexecutetop: number = 0;
@@ -286,22 +290,28 @@ export class AmMOci2Component implements OnInit {
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; }); 
   }
-  totalCapture() {
-    const element = document.getElementById('ssTotal')!;
-    html2canvas(element).then(canvas => { 
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'totalreport.png';
-      this.showInfo();
-      link.click();
-    });
-  }
   capture() {
     this.captureService
       .getImage(this.taptap.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
+      });
+  }
+  captureTotal() {
+    this.captureService
+      .getImage(this.taptapTotal.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadJson();
+      });
+  }
+  captureTemuan() {
+    this.captureService
+      .getImage(this.taptapTemuan.nativeElement, true)
+      .subscribe((img: any) => {
+        this.imgBase64 = img;
+        this.downloadHarianJson();
       });
   }
   getphoto(dataget: any) {
@@ -342,6 +352,14 @@ export class AmMOci2Component implements OnInit {
     var element = document.createElement('a');
     element.setAttribute('href', this.imgBase64);
     element.setAttribute('download', 'reportingdaily.png');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  }
+  downloadHarianJson() {
+    var element = document.createElement('a');
+    element.setAttribute('href', this.imgBase64);
+    element.setAttribute('download', 'reportingjumlahtemuan.png');
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -1207,7 +1225,7 @@ export class AmMOci2Component implements OnInit {
 
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.low = this.medium = this.high = 0; 
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0; 
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];
