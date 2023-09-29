@@ -251,7 +251,7 @@ export class AmMFsbComponent implements OnInit {
   datarange: any = [];
   @ViewChild("ss4")
   taptapTotal!: ElementRef;
-  @ViewChild("ss4")
+  @ViewChild("ss5")
   taptapTemuan!: ElementRef;
   totaldata: any = [];
   pendingexecute: number = 0;
@@ -312,7 +312,7 @@ export class AmMFsbComponent implements OnInit {
   }
   capture() {
     this.captureService
-      .getImage(this.taptapTotal.nativeElement, true)
+      .getImage(this.taptap.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
         this.downloadJson();
