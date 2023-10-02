@@ -281,6 +281,8 @@ export class AmMOci1Component implements OnInit {
   Improvement: number = 0;
   totalkategori: object = {};
   totalkategoriarr: any = [];
+  showPaginate: number = 5;
+  currentPage6 = 0
 
   data($event: any) {
     // ////////////console.log(this.scree);
@@ -330,6 +332,19 @@ export class AmMOci1Component implements OnInit {
   //     link.click();
   //   });
   // }
+
+  
+  generatePaginate() {
+    this.showPaginate = this.listoftotalfinding.length
+    this.currentPage6 = 1;
+  }
+
+  resetPaginateSatis() {
+    this.currentPage6 = 0;
+    this.showPaginate = 5;
+  }
+
+
   capture() {
     this.captureService
       .getImage(this.taptap.nativeElement, true)
