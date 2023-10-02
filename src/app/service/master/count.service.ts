@@ -439,8 +439,8 @@ export class CountService {
     return this.httpClient.get(api + "levelamutileng");
   }
 
-  getReadFinishTodayoci1() {
-    return this.httpClient.get(api + "finishtodaylistoci1");
+  getReadFinishTodayoci1(tgl1: any) {
+    return this.httpClient.post(api + "finishtodaylistoci1", {tgl1 :tgl1});
   }
 
   getReadFinishTodayoci1TestName() {
