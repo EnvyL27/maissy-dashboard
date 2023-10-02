@@ -132,7 +132,7 @@ export class PdmMOci1Component implements OnInit {
 
   changeDate(){
     this.totalfinishtoday2 = [];
-    console.log(this.tgl1);
+    // console.log(this.tgl1); 
     
 
     this.service.getReadFinishTodayoci1(this.tgl1).subscribe(data => {
@@ -151,7 +151,7 @@ export class PdmMOci1Component implements OnInit {
         // this.spinner.hide();
         this.resolved = true;
       })
-      console.log(this.totalfinishtoday2);
+      // console.log(this.totalfinishtoday2);
       
       // Object.values(this.totalfinishtdy).forEach(data => {
       //   // // //////////////console.log(data);

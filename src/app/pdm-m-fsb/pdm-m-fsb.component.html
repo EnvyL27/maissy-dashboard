@@ -360,7 +360,7 @@
                       <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                         <!-- <label for="date" class="mr-1">Date : </label> -->
                         <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48"
-                          [(ngModel)]="searchDate" (change)="date(masukandate)">
+                        [(ngModel)]="tgl1" (change)="changeDate()">
                       </div>
                     </div>
                     <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal
@@ -442,7 +442,7 @@
                         </thead>
                         <tbody>
                           <tr class=""
-                            *ngFor="let header of totalfinishtoday2| filter:searchText  | filter:searchDate | paginate: { currentPage: currentPage, itemsPerPage: showPaginate }| filterList:filtre:filterMetadata; let i = index; let first = first; let last = last;trackBy: trackElement"
+                            *ngFor="let header of totalfinishtoday2| filter:searchText | paginate: { currentPage: currentPage, itemsPerPage: showPaginate }| filterList:filtre:filterMetadata; let i = index; let first = first; let last = last;trackBy: trackElement"
                             [ngClass]="{ 'first': first, 'last': last}">
                             <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white"
                               bgcolor="#878790">

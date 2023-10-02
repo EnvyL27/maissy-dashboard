@@ -449,8 +449,8 @@ export class CountService {
   getReadFinishTodayoci2(tgl1: any) {
     return this.httpClient.post(api + "finishtodaylistoci2", {tgl1 :tgl1});
   }
-  getReadFinishTodayfsb() {
-    return this.httpClient.get(api + "finishtodaylistfsb");
+  getReadFinishTodayfsb(tgl1: any) {
+    return this.httpClient.post(api + "finishtodaylistfsb", {tgl1 :tgl1});
   }
   getReadFinishTodayoci1abnormal() {
     return this.httpClient.get(api + "finishtodaylistoci1abnormal");
