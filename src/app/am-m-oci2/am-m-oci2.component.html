@@ -20,7 +20,7 @@
                       Total Finding
                     </p>
                     <h5 class="mb-0 font-bold">
-                      {{pendingexecutetop + finishexecutetop + readyexecutetop}}
+                      {{pendingexecute + finishexecute + readyexecute}}
                       <span> / Month</span>
                     </h5>
                   </div>
@@ -49,9 +49,9 @@
                     On Progres WO
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{pendingexecutetop}}
-                    <span class="text-lime-500 ml-1">({{(pendingexecutetop * 100 / (pendingexecutetop + finishexecutetop +
-                      readyexecutetop)).toFixed(1)}}
+                    {{pendingexecute}}
+                    <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / (pendingexecute + finishexecute +
+                      readyexecute)).toFixed(1)}}
                       %)</span>
                   </h5>
                 </div>
@@ -78,9 +78,9 @@
                     Ready Execute
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{readyexecutetop}}
-                    <span class="text-lime-500 ml-1">({{(readyexecutetop * 100 / (pendingexecutetop + finishexecutetop +
-                      readyexecutetop)).toFixed(1)}} %)</span>
+                    {{readyexecute}}
+                    <span class="text-lime-500 ml-1">({{(readyexecute * 100 / (pendingexecute + finishexecute +
+                      readyexecute)).toFixed(1)}} %)</span>
                   </h5>
                 </div>
               </div>
@@ -106,9 +106,9 @@
                     Finish Execute
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{finishexecutetop}}
-                    <span class="text-lime-500 ml-1">({{(finishexecutetop * 100 / (pendingexecutetop + finishexecutetop +
-                      readyexecutetop)).toFixed(1)}}
+                    {{finishexecute}}
+                    <span class="text-lime-500 ml-1">({{(finishexecute * 100 / (pendingexecute + finishexecute +
+                      readyexecute)).toFixed(1)}}
                       %)</span>
                   </h5>
                 </div>
@@ -129,19 +129,20 @@
       <div [ngClass]="!totalfindinglist ? '': 'hidden'" class="my-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
-            <button *ngIf="currentPage6 != 1"
-            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-            (click)="generatePaginate()"><i class="fa fa-file-excel-o fa-1"></i>
+        
+            <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Finding</p>
+            <button *ngIf="showPaginate == 5"
+            class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="generatePaginate()">
             Show all</button>
-            <button *ngIf="currentPage6 != 0"
-            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-            (click)="resetPaginateSatis()"><i class="fa fa-file-excel-o fa-1"></i>
+            <button *ngIf="showPaginate != 5"
+            class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="resetPaginateSatis()">
             Reset</button>
-            <p class="text-center py-4 text-gray-800 font-semibold text-2xl">Total Finding</p>
     
             <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
               <table class="w-full text-sm text-left " id="excel-table">
-                <thead class="text-xs text-gray-100 uppercase bg-gray-500 ">
+                <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
                   <tr>
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       No
@@ -164,21 +165,16 @@
                     <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                       Level
                     </th>
-                    <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                        Do Date
-                      </th> -->
-                    <!-- <th scope="col" class="py-3 px-6 " bgcolor="#878790">
-                        PIC
-                      </th> -->
                   </tr>
                 </thead>
                 <tbody
-                  *ngFor="let findingpending of listoftotalfinding | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage6, itemsPerPage: showPaginate }; let i = index">
-                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700">
+                  *ngFor="let findingpending of listoftotalfinding | paginate: { id: 'paginationSatisfactory', currentPage: currentPage6, itemsPerPage: showPaginate }; let i = index"
+                  id="total-finding">
+                  <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
-                      {{(currentPage-1) * 5 + i + 1}}
+                      {{(currentPage6-1) * 5 + i + 1}}
                     </th>
-                    <td class="py-4 px-6 font-medium text-center font-semibold text-gray-800">
+                    <td class="py-4 px-6 font-medium font-semibold text-gray-800">
                       {{findingpending.finding}}
                     </td>
                     <td class="py-4 px-6 text-gray-800">
@@ -196,24 +192,16 @@
                     <td class="py-4 px-6 text-gray-800">
                       {{findingpending.level}}
                     </td>
-                    <!-- <td class="py-4 px-6 text-gray-800">
-                        {{findingpending.dodate}}
-                      </td> -->
-                    <!-- <td class="py-4 px-6 text-gray-800">
-                        {{findingpending.PIC}}
-                      </td> -->
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <pagination-controls class="text-center" id="paginationSatisfactory" (pageChange)="currentPage = $event">
+          <pagination-controls class="text-center" id="paginationSatisfactory" (pageChange)="currentPage6 = $event">
           </pagination-controls>
         </div>
       </div>
     
-  
-  
       <div class="flex flex-wrap w-full py-4">
         <div class="w-1/5 lg:flex-none px-3">
           <div
@@ -221,7 +209,7 @@
             style="background-color: #f4b8a5;">
             <div class="flex-auto p-1 pt-0 text-center">
               <h6 class="mt-1 text-center font-bold">Approval Finding :<strong class="text-lg">
-                  {{approvalfinding}}</strong>
+                  {{apvfinding}}</strong>
               </h6>
             </div>
           </div>
@@ -232,7 +220,7 @@
             style="background-color: #86b0de;">
             <div class="flex-auto p-1 pt-0 text-center">
               <h6 class="mt-1 text-center font-bold">Create Order :<strong class="text-lg">
-                  {{createorderfinding}}</strong>
+                  {{crorder}}</strong>
               </h6>
             </div>
           </div>
@@ -242,7 +230,7 @@
             class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
             style="background-color: #f4b8a5;">
             <div class="flex-auto p-1 pt-0 text-center">
-              <h6 class="mt-1 text-center font-bold">Scheduling :<strong class="text-lg"> {{ordershecdule}}</strong></h6>
+              <h6 class="mt-1 text-center font-bold">Scheduling :<strong class="text-lg"> {{sched}}</strong></h6>
             </div>
           </div>
         </div>
@@ -251,7 +239,8 @@
             class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
             style="background-color: #86b0de;">
             <div class="flex-auto p-1 pt-0 text-center">
-              <h6 class="mt-1 text-center font-bold">Ready Execution :<strong class="text-lg"> {{readyexecutetop}}</strong>
+              <h6 class="mt-1 text-center font-bold">Ready Execution :<strong class="text-lg">
+                  {{redexec}}</strong>
               </h6>
             </div>
           </div>
@@ -261,7 +250,7 @@
             class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
             style="background-color: #f4b8a5;">
             <div class="flex-auto p-1 pt-0 text-center">
-              <h6 class="mt-1 text-center font-bold">Check Execution :<strong class="text-lg"> {{orderfinish}}</strong>
+              <h6 class="mt-1 text-center font-bold">Check Execution :<strong class="text-lg"> {{checkex}}</strong>
               </h6>
             </div>
           </div>

@@ -84,23 +84,28 @@ export class AmMOci2Component implements OnInit {
   fileName = 'FindingPendingOCI1.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
+  apvfinding : number = 0
+  crorder : number = 0
+  sched : number = 0
+  redexec : number = 0
+  checkex : number = 0
   totalfm: object = {};
   screenWidth: number = window.innerWidth;
-  approvalfinding: number = 0;
+  approvalfinding: any = [];
   totalfindinglist: boolean = false;
   listoffindingpending: boolean = false;
   listofhistorypending: boolean = false;
   listofMonthlyReport: boolean = false;
   listjobfinish: boolean = false;
   listtemuanperhari: boolean = false;
-  createorderfinding: number = 0;
+  createorderfinding: any = [];
   scheduling: number = 0;
   checkexecution: number = 0;
   arrapproval: any = [];
   arrorderfinish: any = [];
-  orderfinish: number = 0;
+  orderfinish: any = [];
   arrshecdule: any = [];
-  ordershecdule: number = 0;
+  ordershecdule: any = [];
   totalreport: number = 0;
   donereport: number = 0;
   pendingreport: number = 0;
@@ -263,6 +268,7 @@ export class AmMOci2Component implements OnInit {
   bulan: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  totalready: any = []
   listoftotalfinding : any = [];
   @ViewChild("target")
   target!: ElementRef;
@@ -274,7 +280,7 @@ export class AmMOci2Component implements OnInit {
   totalkategori: object = {};
   totalkategoriarr: any = [];
   showPaginate: number = 5;
-  currentPage6 = 0
+  currentPage6 = 1
   
   data($event: any) { 
     this.target.nativeElement.scrollIntoView(); 
@@ -295,11 +301,11 @@ export class AmMOci2Component implements OnInit {
 
   generatePaginate() {
     this.showPaginate = this.listoftotalfinding.length
-    this.currentPage6 = 1;
+    // this.currentPage6 = 1;
   }
 
   resetPaginateSatis() {
-    this.currentPage6 = 0;
+    // this.currentPage6 = 0;
     this.showPaginate = 5;
   }
 
@@ -1246,29 +1252,30 @@ export class AmMOci2Component implements OnInit {
 
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0; 
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0;
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];
     this.totallevel2 = [];
     this.totalkategori = [];
     this.totalkategoriarr = [];
+    this.temuanperday_data_temp = []
+    this.listoftotalfinding = [];
 
     this.service.getCountTotalFinding().subscribe(data => {
       this.totalkategori = data;
-      
-      
-      Object.values(this.totalkategori).forEach(data => { 
+      Object.values(this.totalkategori).forEach(data => {
+
         var array = Object.keys(data).map(function (key) {
           return data[key];
-        }); 
+        });
         for (let i = 0; i < array.length; i++) {
           this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
         }
-        
+
         for (var i = 0; i < this.totalkategoriarr.length; i++) {
-          if(this.totalkategoriarr[i].bulanTahun == this.month){
-            if(this.totalkategoriarr[i].id_area == 2){ 
+          if (this.totalkategoriarr[i].bulanTahun == this.month) {
+            if (this.totalkategoriarr[i].id_area == 2) {
               if (this.totalkategoriarr[i].kategori === 'Preventive') {
                 this.Setting += 1;
               }
@@ -1308,7 +1315,7 @@ export class AmMOci2Component implements OnInit {
       })
     }
     );
- 
+
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
       var date: any = [];
@@ -1348,9 +1355,13 @@ export class AmMOci2Component implements OnInit {
               this.temuanperday_data_temp.push(elem)
             }
           }
-
-
         })
+
+        this.temuanperday_data_temp.forEach((element: any) => {
+          if (element.bulanTahun == this.month) {
+            this.listoftotalfinding.push(element)
+          }
+        });
         
         this.dum.destroy();
 
@@ -1406,14 +1417,13 @@ export class AmMOci2Component implements OnInit {
             ]
           },
         });
-        
+
         this.resolved = true;
       })
-      
-      }, (error: any) => { }, () => {
-        this.spinner.hide();
-      })
- 
+
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
+    })
   }
   
   finddata() {
@@ -2131,68 +2141,35 @@ export class AmMOci2Component implements OnInit {
 
         },
       });
-      this.service.getTotalApprovalOrderFinish('2').pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.orderfinish = elem.total;
-        }
-      });
-      this.service.getTotalApprovalCreateOrder('2').pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
+      this.service.getTotalApprovalOrderFinish('2').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.createorderfinding = elem.total;
-        }
+        this.orderfinish.push(data);
+        this.checkex = this.orderfinish[0].length
       });
-      this.service.getTotalApprovalSpv('2').pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
+
+      this.service.getTotalApprovalCreateOrder('2').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.approvalfinding = elem.total;
-        }
+        this.createorderfinding.push(data);
+        this.crorder = this.createorderfinding[0].length
+        
       });
-      this.service.getTotalApprovalReadyExecution('2').pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
+
+      this.service.getTotalApprovalSpv('2').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.readyexecutetop = elem.total;
-        }
+        this.approvalfinding.push(data);
+        this.apvfinding = this.approvalfinding[0].length
       });
-      this.service.getTotalApprovalShcedule('2').pipe(
-        catchError((error) => {
-          // Handle the error here
-          this.error = 'An error occurred while fetching data.';
-          return throwError(error);
-        })
-      ).subscribe(data => {
-        this.arrshecdule.push(data);
-        for (let elem of this.arrshecdule[0]) {
-          this.ordershecdule = elem.total;
-        }
+
+      this.service.getTotalApprovalReadyExecution('2').subscribe(data => {
+        this.arrorderfinish = []
+        this.totalready.push(data);
+        this.redexec = this.totalready[0].length
+      });
+      
+      this.service.getTotalApprovalShcedule('2').subscribe(data => {
+        this.arrorderfinish = []
+        this.ordershecdule.push(data);
+        this.sched = this.ordershecdule[0].length
       });
       this.service.getTotalDataPost(this.tgl3, this.tgl4).pipe(
         catchError((error) => {
