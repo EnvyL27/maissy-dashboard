@@ -88,23 +88,28 @@ export class AmMFsbComponent implements OnInit {
   typefinding: any;
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
+  apvfinding : number = 0
+  crorder : number = 0
+  sched : number = 0
+  redexec : number = 0
+  checkex : number = 0
   totalfm: object = {};
   screenWidth: number = window.innerWidth;
-  approvalfinding: number = 0;
+  approvalfinding: any = [];
   totalfindinglist: boolean = false;
   listoffindingpending: boolean = false;
   listofhistorypending: boolean = false;
   listofMonthlyReport: boolean = false;
   listjobfinish: boolean = false;
   listtemuanperhari: boolean = false;
-  createorderfinding: number = 0;
+  createorderfinding: any = [];
   scheduling: number = 0;
   checkexecution: number = 0;
   arrapproval: any = [];
   arrorderfinish: any = [];
-  orderfinish: number = 0;
+  orderfinish: any = [];
   arrshecdule: any = [];
-  ordershecdule: number = 0;
+  ordershecdule: any = [];
   totalreport: number = 0;
   donereport: number = 0;
   pendingreport: number = 0;
@@ -270,6 +275,7 @@ export class AmMFsbComponent implements OnInit {
   bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
+  totalready : any = []
   listoftotalfinding: any = [];
   @ViewChild("target")
   target!: ElementRef;
@@ -281,7 +287,7 @@ export class AmMFsbComponent implements OnInit {
   totalkategori: object = {};
   totalkategoriarr: any = [];
   showPaginate: number = 5;
-  currentPage6 = 0
+  currentPage6 = 1
 
   data($event: any) {
     // ////////////console.log(this.scree);
@@ -315,11 +321,11 @@ export class AmMFsbComponent implements OnInit {
 
   generatePaginate() {
     this.showPaginate = this.listoftotalfinding.length
-    this.currentPage6 = 1;
+    // this.currentPage6 = 1;
   }
 
   resetPaginateSatis() {
-    this.currentPage6 = 0;
+    // this.currentPage6 = 0;
     this.showPaginate = 5;
   }
   
@@ -1289,6 +1295,8 @@ export class AmMFsbComponent implements OnInit {
     this.totallevel2 = [];
     this.totalkategori = [];
     this.totalkategoriarr = [];
+    this.temuanperday_data_temp = []
+    this.listoftotalfinding = [];
 
     this.service.getCountTotalFinding().subscribe(data => {
       this.totalkategori = data;
@@ -1383,10 +1391,14 @@ export class AmMFsbComponent implements OnInit {
               this.temuanperday_data_temp.push(elem)
             }
           }
-
-
         })
 
+        this.temuanperday_data_temp.forEach((element: any) => {
+          if (element.bulanTahun == this.month) {
+            this.listoftotalfinding.push(element)
+          }
+        });
+        
         this.dum.destroy();
 
         this.dum = new Chart('dum', {
@@ -2052,40 +2064,39 @@ export class AmMFsbComponent implements OnInit {
 
         },
       });
+  
       this.service.getTotalApprovalOrderFinish('3').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.orderfinish = elem.total;
-        }
+        this.orderfinish.push(data);
+        this.checkex = this.orderfinish[0].length
       });
+
       this.service.getTotalApprovalCreateOrder('3').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.createorderfinding = elem.total;
-        }
+        this.createorderfinding.push(data);
+        this.crorder = this.createorderfinding[0].length
+        
       });
+
       this.service.getTotalApprovalSpv('3').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.approvalfinding = elem.total;
-        }
+        this.approvalfinding.push(data);
+        this.apvfinding = this.approvalfinding[0].length
       });
+
       this.service.getTotalApprovalReadyExecution('3').subscribe(data => {
         this.arrorderfinish = []
-        this.arrorderfinish.push(data);
-        for (let elem of this.arrorderfinish[0]) {
-          this.readyexecutetop = elem.total;
-        }
+        this.totalready.push(data);
+        this.redexec = this.totalready[0].length
       });
+      
       this.service.getTotalApprovalShcedule('3').subscribe(data => {
-        this.arrshecdule.push(data);
-        for (let elem of this.arrshecdule[0]) {
-          this.ordershecdule = elem.total;
-        }
+        this.arrorderfinish = []
+        this.ordershecdule.push(data);
+        this.sched = this.ordershecdule[0].length
       });
+
+
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
         for (let elem of this.totaldata1year[0]) {
