@@ -614,6 +614,9 @@ export class CountService {
   getTotalFeeding(){
     return this.httpClient.get(api + "totalfeeding");
   }
+  getTemuanHarian(){
+    return this.httpClient.get(api + "temuanharian");
+  }
   getTotalDataPost(tgl1: any,tgl2: any){
     return this.httpClient.post(api + "totaldatapost", {tgl1 :tgl1,tgl2: tgl2});
   }
