@@ -1867,108 +1867,6 @@ export class AmMOci2Component implements OnInit {
       }, (error: any) => { }, () => {
         this.spinner.hide();
       });
-      
-      this.service.getTotalFeeding().subscribe(data => {
-        this.totalfm = data;
-        var date: any = [];
-        Object.values(this.totalfm).forEach(data => {
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          for (let i = 0; i < array.length; i++) {
-            this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
-          }
-          this.totalfm2.forEach((elem: any, i: number) => {
-            if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
-              date.push(elem.tanggal_temuan)
-            }
-            if (elem.id_area == 1) {
-  
-  
-              if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulanTahun == this.month) { this.finishexecute += 1; }
-  
-                this.temuanperday_data_temp.push(elem)
-              }
-              else if (elem.status2 == 'READY') {
-                if (elem.bulanTahun == this.month) { this.readyexecute += 1; }
-  
-                this.temuanperday_data_temp.push(elem)
-              } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
-                if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
-  
-                  this.temuanperday_data_temp.push(elem)
-                }
-              }
-              else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
-  
-                this.temuanperday_data_temp.push(elem)
-              }
-            }
-  
-  
-          })
-  
-          this.dum = new Chart('dum', {
-            type: 'bar',
-            data: {
-              labels: [""],
-              datasets: [
-                {
-                  label: 'Total Finding',
-                  data: [this.pendingexecute + this.readyexecute + this.finishexecute],
-                  backgroundColor: [
-                    '#7fe7dc'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'On Progress WO',
-                  data: [this.pendingexecute],
-                  backgroundColor: [
-                    '#ffc13b'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'Ready Execute',
-                  data: [this.readyexecute],
-                  backgroundColor: [
-                    '#ff6e40'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'Finish Execute',
-                  data: [this.finishexecute],
-                  backgroundColor: [
-                    '#316879'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
-          
-          this.resolved = true;
-        })
-        }, (error: any) => { }, () => {
-          this.spinner.hide();
-        })
 
       this.service.getReportingHarianam(this.tglsearch, '1').pipe(
         catchError((error) => {
@@ -2437,8 +2335,10 @@ export class AmMOci2Component implements OnInit {
         this.spinner.hide();
       }
       );
+
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
+
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
           var array = Object.keys(data).map(function (key) {
@@ -2448,72 +2348,80 @@ export class AmMOci2Component implements OnInit {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
 
+
           this.totalfm2.forEach((elem: any, i: number) => {
-            if (elem.id_area == 2 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
-              date.push(elem.tanggal_temuan)
-            }
+
+
             if (elem.id_area == 2) {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulan == this.month) { this.finishexecute += 1; this.finishexecutetop += 1; }
+                if (elem.bulan == this.month) {
+                  this.finishexecute += 1; this.finishexecutetop += 1;
+                }
 
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) { this.readyexecute += 1; this.readyexecutetop += 1; }
+                if (elem.bulan == this.month) {
+                  this.readyexecute += 1;
+                  
+                }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
+                  if (elem.bulan == this.month) {
+                    this.pendingexecute += 1; 
+                  }
 
                   this.temuanperday_data_temp.push(elem)
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulan == this.month) { this.pendingexecute += 1; this.pendingexecutetop += 1; }
-
+                if (elem.bulan == this.month) {
+                  this.pendingexecute += 1; 
+                }
                 this.temuanperday_data_temp.push(elem)
               }
             }
-
-            this.temuanperday_data_temp.forEach((element: any) => {
-              if(element.bulan == this.bulan){
-                this.listoftotalfinding.push(element)
-              }
-            });
-
           })
 
-
           this.temuanperday_data_temp.forEach((element: any) => {
+            if (element.bulan == this.bulan) {
+              this.listoftotalfinding.push(element)
+            }
+          });
+
+           this.temuanperday_data_temp.forEach((element: any) => {
 
             if (element.tahun == this.autodate) {
-              if (element.bulan == 1) {
-                this.termuanperday_jan++
-              } else if (element.bulan == 2) {
-                this.termuanperday_feb++
-              } else if (element.bulan == 3) {
-                this.termuanperday_mar++
-              } else if (element.bulan == 4) {
-                this.termuanperday_apr++
-              } else if (element.bulan == 5) {
-                this.termuanperday_mei++
-              } else if (element.bulan == 6) {
-                this.termuanperday_jun++
-              } else if (element.bulan == 7) {
-                this.termuanperday_jul++
-              } else if (element.bulan == 8) {
-                this.termuanperday_ags++
-              } else if (element.bulan == 9) {
-                this.termuanperday_sep++
-              } else if (element.bulan == 10) {
-                this.termuanperday_nov++
-              } else if (element.bulan == 11) {
-                this.termuanperday_okt++
-              } else if (element.bulan == 12) {
-                this.termuanperday_des++
+              if(element.id_area == 2){
+                if (element.bulan == 1) {
+                  this.termuanperday_jan++
+                } else if (element.bulan == 2) {
+                  this.termuanperday_feb++
+                } else if (element.bulan == 3) {
+                  this.termuanperday_mar++
+                } else if (element.bulan == 4) {
+                  this.termuanperday_apr++
+                } else if (element.bulan == 5) {
+                  this.termuanperday_mei++
+                } else if (element.bulan == 6) {
+                  this.termuanperday_jun++
+                } else if (element.bulan == 7) {
+                  this.termuanperday_jul++
+                } else if (element.bulan == 8) {
+                  this.termuanperday_ags++
+                } else if (element.bulan == 9) {
+                  this.termuanperday_sep++
+                } else if (element.bulan == 10) {
+                  this.termuanperday_okt++
+                } else if (element.bulan == 11) {
+                  this.termuanperday_nov++
+                } else if (element.bulan == 12) {
+                  this.termuanperday_des++
+                }   
               }
             }
           });
@@ -2572,8 +2480,6 @@ export class AmMOci2Component implements OnInit {
             },
           });
 
-          this.dum.destroy();
-
           this.dum = new Chart('dum', {
             type: 'bar',
             data: {
@@ -2626,10 +2532,11 @@ export class AmMOci2Component implements OnInit {
               ]
             },
           });
+          this.resolved = true;
         })
-        
       }, (error: any) => { }, () => {
         this.spinner.hide();
+
       })
     });
   }

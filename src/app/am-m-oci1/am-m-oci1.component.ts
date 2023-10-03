@@ -2328,32 +2328,8 @@ export class AmMOci1Component implements OnInit {
             }
 
           }
-          // this.donut2 = new Chart('donut2', {
-          //   type: 'doughnut',
-          //   data: {
-          //     labels: ['Low', 'Medium', 'High'],
-          //     datasets: [{
-          //       label: '# of Votes',
-          //       data: [this.low, this.medium, this.high],
-          //       backgroundColor: [
-          //         '#626d71',
-          //         '#ffc13b',
-          //         '#ff6e40',
-          //       ],
-          //       borderColor: [
-          //         'white',
-          //         'white',
-          //         'white',
-          //       ],
-          //       borderWidth: 1
-          //     }]
-          //   },
-          // });
-          // // //////////////////console.log(this.medium);m
-          // // //////////////////console.log(this.totallevel2);
         })
 
-        ////console.log('getTotalFeeding');
 
       }
       );
@@ -2443,116 +2419,32 @@ export class AmMOci1Component implements OnInit {
             }]
           },
         });
-        ////console.log('getReadFindingPending');
-
       }, (error: any) => { }, () => {
         this.spinner.hide();
       }
       );
-
-      this.service.getTemuanHarian().subscribe(data => {
-        // console.log(data);
-        this.temuanharian = data;
-
-        var date: any = [];
-        Object.values(this.temuanharian).forEach(data => {
-          //////////console.log(data);
-
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          for (let i = 0; i < array.length; i++) {
-            this.temuanharianArray.splice(this.temuanharianArray.lenght, 0, array[i]);
-          }
-
-          // console.log(this.temuanharianArray);
-
-          
-
-          this.temuanharianArray.forEach((element: any) => {
-            // console.log(this.temuanperday_data_temp);
-
-            if (element.tahun == this.autodate) {
-              if (element.bulan == 1) {
-                this.termuanperday_jan++
-              } else if (element.bulan == 2) {
-                this.termuanperday_feb++
-              } else if (element.bulan == 3) {
-                this.termuanperday_mar++
-              } else if (element.bulan == 4) {
-                this.termuanperday_apr++
-              } else if (element.bulan == 5) {
-                this.termuanperday_mei++
-              } else if (element.bulan == 6) {
-                this.termuanperday_jun++
-              } else if (element.bulan == 7) {
-                this.termuanperday_jul++
-              } else if (element.bulan == 8) {
-                this.termuanperday_ags++
-              } else if (element.bulan == 9) {
-                this.termuanperday_sep++
-              } else if (element.bulan == 10) {
-                this.termuanperday_nov++
-              } else if (element.bulan == 11) {
-                this.termuanperday_okt++
-              } else if (element.bulan == 12) {
-                this.termuanperday_des++
-              }
-            }
-
-            
-          new Chart('totalfindingbulan', {
-            type: 'bar',
-            data: {
-              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-              datasets: [
-                {
-                  label: 'Total Finding Per Bulan',
-                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-                  backgroundColor: '#7fe7dc',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            }
-          });
-          
-          });
-
-
-        })
-      })
 
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
 
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
-          //////////console.log(data);
-
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          // ////////////////console.log(this.totalfm2);
-
-
           this.totalfm2.forEach((elem: any, i: number) => {
-            // if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
-            //   date.push(elem.tanggal_temuan)
-            // }
-
+            if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+              date.push(elem.tanggal_temuan)
+            }
 
             if (elem.id_area == 1) {
 
 
               if (elem.status_pengerjaan == 'Done') {
                 if (elem.bulan == this.month) {
-                  console.log(elem.bulan);
                   this.finishexecute += 1; this.finishexecutetop += 1;
                 }
 
@@ -2562,14 +2454,14 @@ export class AmMOci1Component implements OnInit {
                 if (elem.bulan == this.month) {
                   this.readyexecute += 1;
                   this.readyexecutetop += 1;
-                  console.log(elem.bulan);
+                  
                 }
 
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
                   if (elem.bulan == this.month) {
-                    this.pendingexecute += 1; this.pendingexecutetop += 1; console.log(elem.bulan);
+                    this.pendingexecute += 1; this.pendingexecutetop += 1; 
                   }
 
                   this.temuanperday_data_temp.push(elem)
@@ -2577,17 +2469,12 @@ export class AmMOci1Component implements OnInit {
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
                 if (elem.bulan == this.month) {
-                  this.pendingexecute += 1; this.pendingexecutetop += 1; console.log(elem.bulan);
+                  this.pendingexecute += 1; this.pendingexecutetop += 1; 
                 }
 
                 this.temuanperday_data_temp.push(elem)
               }
             }
-
-            // ////////console.log(this.temuanperday_data_temp);
-
-
-
           })
 
           this.temuanperday_data_temp.forEach((element: any) => {
@@ -2595,11 +2482,45 @@ export class AmMOci1Component implements OnInit {
               this.listoftotalfinding.push(element)
             }
           });
-          ////////console.log(this.listoftotalfinding);
+
+           this.temuanperday_data_temp.forEach((element: any) => {
+
+            if (element.tahun == this.autodate) {
+              if(element.id_area == 1){
+                if (element.bulan == 1) {
+                  this.termuanperday_jan++
+                } else if (element.bulan == 2) {
+                  this.termuanperday_feb++
+                } else if (element.bulan == 3) {
+                  this.termuanperday_mar++
+                } else if (element.bulan == 4) {
+                  this.termuanperday_apr++
+                } else if (element.bulan == 5) {
+                  this.termuanperday_mei++
+                } else if (element.bulan == 6) {
+                  this.termuanperday_jun++
+                } else if (element.bulan == 7) {
+                  this.termuanperday_jul++
+                } else if (element.bulan == 8) {
+                  this.termuanperday_ags++
+                } else if (element.bulan == 9) {
+                  this.termuanperday_sep++
+                } else if (element.bulan == 10) {
+                  this.termuanperday_okt++
+                } else if (element.bulan == 11) {
+                  this.termuanperday_nov++
+                } else if (element.bulan == 12) {
+                  this.termuanperday_des++
+                }   
+              }
+            }
+          });
 
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
+              console.log(elem);
+              
               if (elem.bulan == this.month) {
                 if (elem.tanggal_temuan == element) {
                   this.temuanperday_dum++
@@ -2633,7 +2554,23 @@ export class AmMOci1Component implements OnInit {
             },
           });
 
-          // this.findingbulan3?.destroy();
+          new Chart('totalfindingbulan', {
+            type: 'bar',
+            data: {
+              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+              datasets: [
+                {
+                  label: 'Total Finding Per Bulan',
+                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+                  backgroundColor: '#7fe7dc',
+                  borderColor: [
+                    'white',
+                  ],
+                  borderWidth: 1
+                },
+              ]
+            },
+          });
 
           this.dum = new Chart('dum', {
             type: 'bar',
@@ -2687,64 +2624,8 @@ export class AmMOci1Component implements OnInit {
               ]
             },
           });
-
-          // new Chart('donut', {
-          //   type: 'doughnut',
-          //   data: {
-          //     labels: ['On Progress WO', 'Ready execute', 'Finish execute'],
-          //     datasets: [{
-          //       label: '# of Votes',
-          //       data: [this.pendingexecute, this.readyexecute, this.finishexecute],
-          //       backgroundColor: [
-          //         '#ffc13b',
-          //         '#ff6e40',
-          //         '#316879',
-          //       ],
-          //       borderColor: [
-          //         'white',
-          //         'white',
-          //         'white',
-          //         'white',
-          //       ],
-          //       borderWidth: 1
-          //     }]
-          //   },
-          // });
-
-          //////console.log(this.temuanperday_data);
-
-
-          // this.findingbulan?.destroy();
-
-          // this.findingbulan = new Chart('totalfindingbulan', {
-          //   type: 'bar',
-          //   data: {
-          //     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-          //     datasets: [
-          //       {
-          //         label: 'Total Finding Bulan',
-          //         data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-          //         backgroundColor: '#FFD6A5',
-          //         borderColor: [
-          //           'white',
-          //         ],
-          //         borderWidth: 1
-          //       },
-          //     ]
-          //   }, 
-          // });
-
-          // this.findingbulan2?.destroy();
-
-
-
-
-
-
           this.resolved = true;
         })
-        ////console.log('getTotalFeeding');
-
       }, (error: any) => { }, () => {
         this.spinner.hide();
 
