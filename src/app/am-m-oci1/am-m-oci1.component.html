@@ -133,16 +133,16 @@
   <div [ngClass]="!totalfindinglist ? '': 'hidden'" class="my-1 w-full md:w-full">
     <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
       <div class="flex-auto p-6">
-    
+
         <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Finding</p>
         <button *ngIf="showPaginate == 5"
-        class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-        (click)="generatePaginate()">
-        Show all</button>
+          class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+          (click)="generatePaginate()">
+          Show all</button>
         <button *ngIf="showPaginate != 5"
-        class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-        (click)="resetPaginateSatis()">
-        Reset</button>
+          class="inline-block px-0 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+          (click)="resetPaginateSatis()">
+          Reset</button>
 
         <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
           <table class="w-full text-sm text-left " id="excel-table">
@@ -358,7 +358,7 @@
               <h5 (click)="showTemuanPerDay()" class="text-center font-semibold text-2xl">Grafik Jumlah Temuan</h5>
             </div>
           </div>
-          <div [ngClass]="!listtemuanperhari ? '': 'hidden'" class="flex flex-wrap py-4">
+          <div *ngIf="listtemuanperhari ? '': 'hidden'" class="flex flex-wrap py-4">
             <div class="w-full px-1 mx-auto">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
@@ -380,10 +380,22 @@
                     <div class="w-full max-w-full md:w-full" id="ss5" #ss5>
                       <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
                         <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2">
-                          <canvas id="totalfindingbulan" width="310" height="250"></canvas>
+                          <!-- <div class="hidden">
+                            <canvas id="totalfindingbulan" width="310" height="250"></canvas>
+                          </div> -->
+                          <apx-chart [series]="bulanan.series" [chart]="bulanan.chart" [dataLabels]="bulanan.dataLabels"
+                            [plotOptions]="bulanan.plotOptions" [yaxis]="bulanan.yaxis" [legend]="bulanan.legend"
+                            [fill]="bulanan.fill" [stroke]="bulanan.stroke" [tooltip]="bulanan.tooltip"
+                            [xaxis]="bulanan.xaxis" [colors]="bulanan.colors"></apx-chart>
                         </div>
                         <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2">
-                          <canvas id="totalfinding" width="310" height="250"></canvas>
+                          <!-- <div class="hidden">
+                            <canvas id="totalfinding" width="310" height="250"></canvas>
+                          </div> -->
+                          <apx-chart [series]="harian.series" [chart]="harian.chart" [dataLabels]="harian.dataLabels"
+                            [plotOptions]="harian.plotOptions" [yaxis]="harian.yaxis" [legend]="harian.legend"
+                            [fill]="harian.fill" [stroke]="harian.stroke" [tooltip]="harian.tooltip"
+                            [xaxis]="harian.xaxis" [colors]="harian.colors"></apx-chart>
                         </div>
                       </div>
                     </div>
@@ -391,32 +403,851 @@
 
                 </div>
               </div>
-              <!-- <div class="flex flex-wrap">
-                <div class=" w-full max-w-full md:w-6/12 py-4 pr-2">
-                  <div
-                    class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-                    <button
-                      class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-                      (click)="capture()"><i class="fa fa-camera fa-1"></i>
-                      Capture</button>
+              <!--card dropdown from section monitoring list finding-->
+              <div class="w-full">
+
+                <div [ngClass]="boolJanBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-                      <canvas id="totalfindingbulan" width="310" height="250"></canvas>
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding January</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of januarielembulan | filter:searchText | paginate: { id: 'januaripaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                    <pagination-controls class="text-center" id="januaripaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
                   </div>
                 </div>
-                <div class="w-full max-w-full max-h-full md:w-6/12 py-4 pl-2">
-                  <div
-                    class="relative flex flex-col mb-2 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-                    <button
-                      class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-                      (click)="capture()"><i class="fa fa-camera fa-1"></i>
-                      Capture</button>
+
+                <div [ngClass]="boolFebBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-                       <canvas id="totalfinding" width="310" height="250"></canvas> 
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Februari</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of febuarielembulan | filter:searchText | paginate: { id: 'februaripaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                    <pagination-controls class="text-center" id="februaripaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
                   </div>
                 </div>
-              </div>-->
+
+                <div [ngClass]="boolMarBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Maret</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of maretelembulan | filter:searchText | paginate: { id: 'maretpaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="maretpaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolAprBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding April</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of aprilelembulan | filter:searchText | paginate: { id: 'aprpaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="aprpaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolMayBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Mei</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of meielembulan | filter:searchText | paginate: { id: 'meipaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="meipaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolJunBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Juni</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of junielembulan | filter:searchText | paginate: { id: 'juniipaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="juniipaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolJulBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Juli</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of julielembulan | filter:searchText | paginate: { id: 'julipaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="julipaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolAguBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Agustus</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of agustuselembulan | filter:searchText | paginate: { id: 'aguspaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="aguspaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolSepBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding September</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of septemberelembulan | filter:searchText | paginate: { id: 'seppaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="seppaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolOktBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Oktober</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of oktoberelembulan | filter:searchText | paginate: { id: 'oktpaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="oktpaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolNovBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding November</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of novemberelembulan | filter:searchText | paginate: { id: 'novpaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="novpaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+                <div [ngClass]="boolDesBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
+                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                    <div class="flex-auto p-6">
+      
+                      <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Desember</p>
+                      <!-- <button
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+                        (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+                        Export Excel</button> -->
+                      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left " id="excel-table">
+                          <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
+                            <tr>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                No
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Finding
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 1
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status 2
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Status Pengerjaan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Tanggal temuan
+                              </th>
+                              <th scope="col" class="py-3 px-6 " bgcolor="#878790">
+                                Level
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            *ngFor="let findingpending of desemberelembulan | filter:searchText | paginate: { id: 'despaginatebulan', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                            <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
+                              <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                {{(currentPage6-1) * 5 + i + 1}}
+                              </th>
+                              <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                                {{findingpending.finding}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status1}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status2}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.status_pengerjaan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.tanggal_temuan}}
+                              </td>
+                              <td class="py-4 px-6 text-gray-800">
+                                {{findingpending.level}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <pagination-controls class="text-center" id="despaginatebulan" (pageChange)="currentPage = $event">
+                    </pagination-controls>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
           </div>
         </div>
