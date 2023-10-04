@@ -494,8 +494,8 @@ export class CountService {
   getFsbfNotFinish(){
     return this.httpClient.get(api + "fsbfnotfinish");
   }
-  getOci1Valuemonth(){
-    return this.httpClient.get(api + "oci1valuepermonth");
+  getOci1Valuemonth(tgl : any){
+    return this.httpClient.post(api + "oci1valuepermonth", {tgl :tgl});
   }
   getOci2Valuemonth(){
     return this.httpClient.get(api + "oci2valuepermonth");

@@ -1417,6 +1417,15 @@
               <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'"
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
+                  <label for="month"
+              class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Date
+              : </label>
+            <input type="date" style=" border: 1px solid #c4c4c4;
+                        border-radius: 5px;
+                        background-color: #fff;
+                        padding: 3px 5px;
+                        box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                      " width="48" [(ngModel)]="currentChange" (ngModelChange)="totaldataChange()">
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
                   <div class="flex flex-wrap -mx-1 lg:-mx-3">
                     <canvas id="valuepermonthchart"></canvas>
