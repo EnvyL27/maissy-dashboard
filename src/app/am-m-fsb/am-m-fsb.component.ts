@@ -8,7 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
 import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr'
-import { ChartOptions } from './chart';
+import { ChartOptions, bulanan, harian } from './chart';
 
 
 @Component({
@@ -18,6 +18,8 @@ import { ChartOptions } from './chart';
 })
 export class AmMFsbComponent implements OnInit {
   public chartOptions!: Partial<ChartOptions> | any;
+  public bulanan!: Partial<bulanan> | any;
+  public harian!: Partial<harian> | any;
 
   exportexcel(): void {
     /* pass here the table id */
@@ -206,6 +208,18 @@ export class AmMFsbComponent implements OnInit {
   novemberelem: any = [];
   detailpartarrelem: any = [];
   desemberelem: any = [];
+  januarielembulan: any = [];
+  febuarielembulan: any = [];
+  maretelembulan: any = [];
+  aprilelembulan: any = [];
+  meielembulan: any = [];
+  junielembulan: any = [];
+  julielembulan: any = [];
+  agustuselembulan: any = [];
+  septemberelembulan: any = [];
+  oktoberelembulan: any = [];
+  novemberelembulan: any = [];
+  desemberelembulan: any = [];
   januariclose: number = 0;
   febuariclose: number = 0;
   maretclose: number = 0;
@@ -1139,6 +1153,362 @@ export class AmMFsbComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  boolJanBulan: Boolean = false;
+  boolFebBulan: Boolean = false;
+  boolMarBulan: Boolean = false;
+  boolAprBulan: Boolean = false;
+  boolMayBulan: Boolean = false;
+  boolJunBulan: Boolean = false;
+  boolJulBulan: Boolean = false;
+  boolAguBulan: Boolean = false;
+  boolSepBulan: Boolean = false;
+  boolOktBulan: Boolean = false;
+  boolNovBulan: Boolean = false;
+  boolDesBulan: Boolean = false;
+  boolJanBulannull: Boolean = false;
+  boolFebBulannull: Boolean = false;
+  boolMarBulannull: Boolean = false;
+  boolAprBulannull: Boolean = false;
+  boolMayBulannull: Boolean = false;
+  boolJunBulannull: Boolean = false;
+  boolJulBulannull: Boolean = false;
+  boolAguBulannull: Boolean = false;
+  boolSepBulannull: Boolean = false;
+  boolOktBulannull: Boolean = false;
+  boolNovBulannull: Boolean = false;
+  boolDesBulannull: Boolean = false;
+
+
+  changeJanBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulan = !this.boolJanBulan;
+    this.cdr.detectChanges();
+  }
+  changeFebBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolFebBulan = !this.boolFebBulan;
+    this.cdr.detectChanges();
+  }
+  changeMarBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolMarBulan = !this.boolMarBulan;
+    this.cdr.detectChanges();
+  }
+  changeAprBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolAprBulan = !this.boolAprBulan;
+    this.cdr.detectChanges();
+  }
+  changeMayBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolMayBulan = !this.boolMayBulan;
+    this.cdr.detectChanges();
+  }
+  changeJunBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJunBulan = !this.boolJunBulan;
+    this.cdr.detectChanges();
+  }
+  changeJulBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJulBulan = !this.boolJulBulan;
+    this.cdr.detectChanges();
+  }
+  changeAguBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolAguBulan = !this.boolAguBulan;
+    this.cdr.detectChanges();
+    ////////console.log(this.boolAguBulan);
+
+  }
+  changeSepBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolAguBulan = this.boolJulBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolSepBulan = !this.boolSepBulan;
+    this.cdr.detectChanges();
+  }
+  changeOktBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolAguBulan = this.boolSepBulan = this.boolJulBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolOktBulan = !this.boolOktBulan;
+    this.cdr.detectChanges();
+  }
+  changeNovBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolJulBulan = this.boolDesBulan = false;
+    this.boolNovBulan = !this.boolNovBulan;
+    this.cdr.detectChanges();
+  }
+  changeDesBulan() {
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolJulBulan = false;
+    this.boolDesBulan = !this.boolDesBulan;
+    this.cdr.detectChanges();
+  }
+
+
+  changeJannullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJanBulannull = !this.boolJanBulannull;
+    this.cdr.detectChanges();
+  }
+  changeFebnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolFebBulannull = !this.boolFebBulannull;
+    this.cdr.detectChanges();
+  }
+  changeMarnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolMarBulannull = !this.boolMarBulannull;
+    this.cdr.detectChanges();
+  }
+  changeAprnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolAprBulannull = !this.boolAprBulannull;
+    this.cdr.detectChanges();
+  }
+  changeMaynullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolMayBulannull = !this.boolMayBulannull;
+    this.cdr.detectChanges();
+  }
+  changeJunnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJulBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJunBulannull = !this.boolJunBulannull;
+    this.cdr.detectChanges();
+  }
+  changeJulnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolJulBulannull = !this.boolJulBulannull;
+    this.cdr.detectChanges();
+  }
+  changeAgunullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolJulBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolAguBulannull = !this.boolAguBulannull;
+    this.cdr.detectChanges();
+  }
+  changeSepnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolAguBulannull = this.boolJulBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolSepBulannull = !this.boolSepBulannull;
+    this.cdr.detectChanges();
+  }
+  changeOktnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolJulBulannull = this.boolNovBulannull = this.boolDesBulannull = false;
+    this.boolOktBulannull = !this.boolOktBulannull;
+    this.cdr.detectChanges();
+  }
+  changeNovnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolJulBulannull = this.boolDesBulannull = false;
+    this.boolNovBulannull = !this.boolNovBulannull;
+    this.cdr.detectChanges();
+  }
+  changeDesnullBulan() {
+    this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+    this.boolJanBulannull = this.boolFebBulannull = this.boolMarBulannull = this.boolAprBulannull = this.boolMayBulannull = this.boolJunBulannull = this.boolAguBulannull = this.boolSepBulannull = this.boolOktBulannull = this.boolNovBulannull = this.boolJulBulannull = false;
+    this.boolDesBulannull = !this.boolDesBulannull;
+    this.cdr.detectChanges();
+  }
+
+  bulananChart() {
+    this.bulanan = {
+      series: [
+        {
+          name: "Total Finding Per Bulan",
+          data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des]
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 500,
+        events: {
+          click: (event: any, chartContext: any, config: any) => {
+            // ////////////////console.log(config);
+            // ////////console.log(this.maretcloseelem);
+            if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
+              this.changeJanBulan();
+            }
+            if (config.dataPointIndex == '0' && config.seriesIndex == '1') {
+              this.changeJannullBulan();
+            }
+            if (config.dataPointIndex == '1' && config.seriesIndex == '0') {
+              this.changeFebBulan();
+            }
+            if (config.dataPointIndex == '1' && config.seriesIndex == '1') {
+              this.changeFebnullBulan();
+            }
+            if (config.dataPointIndex == '2' && config.seriesIndex == '0') {
+              this.changeMarBulan();
+            }
+            if (config.dataPointIndex == '2' && config.seriesIndex == '1') {
+              this.changeMarnull();
+            }
+            if (config.dataPointIndex == '3' && config.seriesIndex == '0') {
+              this.changeAprBulan();
+            }
+            if (config.dataPointIndex == '3' && config.seriesIndex == '1') {
+              this.changeAprnullBulan();
+            }
+            if (config.dataPointIndex == '4' && config.seriesIndex == '0') {
+              this.changeMayBulan();
+            }
+            if (config.dataPointIndex == '4' && config.seriesIndex == '1') {
+              this.changeMaynullBulan();
+            }
+            if (config.dataPointIndex == '5' && config.seriesIndex == '0') {
+              this.changeJunBulan();
+            }
+            if (config.dataPointIndex == '5' && config.seriesIndex == '1') {
+              this.changeJunnullBulan();
+            }
+            if (config.dataPointIndex == '6' && config.seriesIndex == '0') {
+              this.changeJulBulan();
+            }
+            if (config.dataPointIndex == '6' && config.seriesIndex == '1') {
+              this.changeJulnullBulan();
+            }
+            if (config.dataPointIndex == '7' && config.seriesIndex == '0') {
+              this.changeAguBulan();
+            }
+            if (config.dataPointIndex == '7' && config.seriesIndex == '1') {
+              this.changeAgunullBulan();
+            }
+            if (config.dataPointIndex == '8' && config.seriesIndex == '0') {
+              this.changeSepBulan();
+            }
+            if (config.dataPointIndex == '8' && config.seriesIndex == '1') {
+              this.changeSepnullBulan();
+            }
+            if (config.dataPointIndex == '9' && config.seriesIndex == '0') {
+              this.changeOktBulan();
+            }
+            if (config.dataPointIndex == '9' && config.seriesIndex == '1') {
+              this.changeOktnullBulan();
+            }
+            if (config.dataPointIndex == '10' && config.seriesIndex == '0') {
+              this.changeNovBulan();
+            }
+            if (config.dataPointIndex == '10' && config.seriesIndex == '1') {
+              this.changeNovnullBulan();
+            }
+            if (config.dataPointIndex == '11' && config.seriesIndex == '0') {
+              this.changeDesBulan();
+            }
+            if (config.dataPointIndex == '11' && config.seriesIndex == '1') {
+              this.changeDesnullBulan();
+            }
+            if (config.dataPointIndex == '-1') {
+              this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolAguBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
+            }
+          },
+        },
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "60%",
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        categories: [
+          "January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December",
+        ]
+      },
+      yaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        title: {
+          text: ""
+        }
+      },
+      fill: {
+        opacity: 1,
+        colors: ['#007bff']
+      }, legend: {
+      }, colors: ['#007bff']
+    };
+  }
+
+  hariChart() {
+    this.harian = {
+      series: [
+        {
+          name: "Total Finding Per Hari",
+          data: this.temuanperday_data
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 500,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "60%",
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        categories: this.temuanperday_label
+      },
+      yaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        title: {
+          text: ""
+        }
+      },
+      fill: {
+        opacity: 1,
+        colors: ['#CBFFA9']
+      }, legend: {
+      }, colors: ['#CBFFA9']
+    };
+  }
+
 
   chartFunction() {
     this.chartOptions = {
@@ -1718,6 +2088,8 @@ export class AmMFsbComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    this.bulananChart();
+    this.hariChart();
     this.chartFunction();
     this.spinner.show();
     this.showFinding();
@@ -2490,30 +2862,42 @@ export class AmMFsbComponent implements OnInit {
             if (element.tahun == this.autodate) {
               if(element.id_area == 3){
                 if (element.bulan == 1) {
+                  this.januarielembulan.push(element)
                   this.termuanperday_jan++
                 } else if (element.bulan == 2) {
+                  this.febuarielembulan.push(element)
                   this.termuanperday_feb++
                 } else if (element.bulan == 3) {
+                  this.maretelembulan.push(element)
                   this.termuanperday_mar++
                 } else if (element.bulan == 4) {
+                  this.aprilelembulan.push(element)
                   this.termuanperday_apr++
                 } else if (element.bulan == 5) {
+                  this.meielembulan.push(element)
                   this.termuanperday_mei++
                 } else if (element.bulan == 6) {
+                  this.junielembulan.push(element)
                   this.termuanperday_jun++
                 } else if (element.bulan == 7) {
+                  this.julielembulan.push(element)
                   this.termuanperday_jul++
                 } else if (element.bulan == 8) {
+                  this.agustuselembulan.push(element)
                   this.termuanperday_ags++
                 } else if (element.bulan == 9) {
+                  this.septemberelembulan.push(element)
                   this.termuanperday_sep++
                 } else if (element.bulan == 10) {
-                  this.termuanperday_nov++
-                } else if (element.bulan == 11) {
+                  this.oktoberelembulan.push(element)
                   this.termuanperday_okt++
+                } else if (element.bulan == 11) {
+                  this.novemberelembulan.push(element)
+                  this.termuanperday_nov++
                 } else if (element.bulan == 12) {
+                  this.desemberelembulan.push(element)
                   this.termuanperday_des++
-                }
+                }   
               }
             }
           });
@@ -2536,43 +2920,46 @@ export class AmMFsbComponent implements OnInit {
 
           });
 
-          new Chart('totalfinding', {
-            type: 'bar',
-            data: {
-              labels: this.temuanperday_label,
-              datasets: [
-                {
-                  label: 'Total Finding Per Hari',
-                  data: this.temuanperday_data,
-                  backgroundColor: '#CBFFA9',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
+          this.bulananChart();
+          this.hariChart();
 
-          // this.findingbulan3?.destroy();
+          // new Chart('totalfinding', {
+          //   type: 'bar',
+          //   data: {
+          //     labels: this.temuanperday_label,
+          //     datasets: [
+          //       {
+          //         label: 'Total Finding Per Hari',
+          //         data: this.temuanperday_data,
+          //         backgroundColor: '#CBFFA9',
+          //         borderColor: [
+          //           'white',
+          //         ],
+          //         borderWidth: 1
+          //       },
+          //     ]
+          //   },
+          // });
 
-          new Chart('totalfindingbulan', {
-            type: 'bar',
-            data: {
-              labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-              datasets: [
-                {
-                  label: 'Total Finding Per Bulan',
-                  data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-                  backgroundColor: '#7fe7dc',
-                  borderColor: [
-                    'white',
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            }, 
-          });
+          // // this.findingbulan3?.destroy();
+
+          // new Chart('totalfindingbulan', {
+          //   type: 'bar',
+          //   data: {
+          //     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
+          //     datasets: [
+          //       {
+          //         label: 'Total Finding Per Bulan',
+          //         data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
+          //         backgroundColor: '#7fe7dc',
+          //         borderColor: [
+          //           'white',
+          //         ],
+          //         borderWidth: 1
+          //       },
+          //     ]
+          //   }, 
+          // });
 
 
 
