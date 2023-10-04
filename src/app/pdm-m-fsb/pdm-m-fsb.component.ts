@@ -19,12 +19,15 @@ import * as XLSX from 'xlsx'
   ]
 })
 export class PdmMFsbComponent implements OnInit {
+  current: any = moment().format("YYYY-MM-30");
+  currentChange: any = moment().format("YYYY-MM-30");
   public chartOptions!: Partial<ChartOptions> | any;
   currentDate = new Date();
   newTanggal: any = new Date();
   bulan: any;
   tahun: any;
   finishmonth: any;
+  totaldatayear: any;
   monthArray: any = [];
   yearArray: any = [];
   constructor(private service: CountService, private spinner: NgxSpinnerService, private captureService: NgxCaptureService, private cdr: ChangeDetectorRef, private datePipe: DatePipe) { this.newTanggal = this.datePipe.transform(this.newTanggal, 'yyyy-MM-dd'); }
@@ -128,6 +131,92 @@ export class PdmMFsbComponent implements OnInit {
     this.boolprepnull = this.boolinjnull = this.boolblownull = this.boolfillnull = this.boolpacknull = this.boolkaneshonull = false;
     this.boolstu1null = !this.boolstu1null;
     this.cdr.detectChanges();
+  }
+
+  totaldataChange(){
+    this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
+    this.valuemonthlist = []
+    
+    this.service.getOci1Valuemonth(this.currentChange).subscribe(data => {
+      console.log(this.currentChange);
+      
+      console.log(data);
+      
+      this.valuemonth = data;
+      Object.values(this.valuemonth).forEach(data => {
+        // // //////////////console.log(data);
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+
+        // // //////////////console.log(array);
+        for (let i = 0; i < array.length; i++) {
+          this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
+        }
+        for (let elem of this.valuemonthlist) {
+          if (elem.bulan == 'January') {
+            this.januari += 1;
+          } else if (elem.bulan == 'February') {
+            this.febuari += 1;
+          } else if (elem.bulan == 'March') {
+            this.maret += 1;
+          } else if (elem.bulan == 'April') {
+            this.april += 1;
+          } else if (elem.bulan == 'May') {
+            this.mei += 1;
+          } else if (elem.bulan == 'June') {
+            this.juni += 1;
+          } else if (elem.bulan == 'July') {
+            this.juli += 1;
+          } else if (elem.bulan == 'August') {
+            this.agustus += 1;
+          } else if (elem.bulan == 'September') {
+            this.september += 1;
+          } else if (elem.bulan == 'October') {
+            this.oktober += 1;
+          } else if (elem.bulan == 'November') {
+            this.november += 1;
+          } else if (elem.bulan == 'December') {
+            this.desember += 1;
+          }
+        }
+
+        this.totaldatayear.destroy();
+
+        this.totaldatayear = new Chart("valuepermonthchart", {
+          type: "bar",
+          data: {
+            labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+              {
+                "label": "Total Data OCI1 Data %",
+                "data": [Math.round(this.januari * 100 / (this.totalasset/2)), Math.round(this.febuari * 100 / (this.totalasset/2)), Math.round(this.maret * 100 / (this.totalasset/2)), Math.round(this.april * 100 / (this.totalasset/2)), Math.round(this.mei * 100 / (this.totalasset/2)), Math.round(this.juni * 100 / (this.totalasset/2)), Math.round(this.juli * 100 / (this.totalasset/2)), Math.round(this.agustus * 100 / (this.totalasset/2)), Math.round(this.september * 100 / (this.totalasset/2)), Math.round(this.oktober * 100 / (this.totalasset/2)), Math.round(this.november * 100 / (this.totalasset/2)), Math.round(this.desember * 100 / (this.totalasset/2))],
+                "backgroundColor": "#34568B"
+              },
+            ]
+
+          },
+          options: {
+            // scales: {
+            //   yAxes: {
+            //     min: 0,
+            //     ticks: {
+                  
+            //       callback: function (value) { return value + "%" },
+            //       //beginAtZero: true
+            //     },
+            //     // scaleLabel: {
+            //     //   display: true,
+            //     //   labelString: "Percentage"
+            //     // }
+            //   }
+            // }
+          }
+        });
+      })
+
+    }
+    );
   }
 
   changeDate(){
@@ -1041,7 +1130,7 @@ export class PdmMFsbComponent implements OnInit {
                   this.desember += 1;
                 }
               }
-              new Chart("valuepermonthchart", {
+              this.totaldatayear = new Chart("valuepermonthchart", {
                 type: "bar",
                 data: {
                   labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],

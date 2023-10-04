@@ -125,14 +125,14 @@
             class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
             (click)="generateSatisfactory()">
             Show all</button>
-            <button *ngIf="currentPageSatis != 0"
+          <button *ngIf="currentPageSatis != 0"
             class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
             (click)="resetPaginateSatis()">
             Reset</button>
           <button
-          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
-          Export Excel</button>
+            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+            Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left " id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
@@ -146,7 +146,7 @@
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Status
                   </th>
-                  
+
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Do Date
                   </th>
@@ -171,7 +171,7 @@
                   <td class="py-4 px-6 text-gray-800">
                     {{findingpending.Stat}}
                   </td>
-                  
+
                   <td class="py-4 px-6 text-gray-800">
                     {{findingpending.dodate}}
                   </td>
@@ -193,9 +193,9 @@
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Good</p>
           <button
-          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
-          Export Excel</button>
+            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+            Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left " id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
@@ -209,7 +209,7 @@
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Status
                   </th>
-                  
+
                   <th scope="col" class="py-3 px-6 " bgcolor="#878790">
                     Do Date
                   </th>
@@ -234,7 +234,7 @@
                   <td class="py-4 px-6 text-gray-800">
                     {{findingpending.Stat}}
                   </td>
-                  
+
                   <td class="py-4 px-6 text-gray-800">
                     {{findingpending.dodate}}
                   </td>
@@ -256,9 +256,9 @@
         <div class="flex-auto p-6">
           <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Asset</p>
           <button
-          class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
-          (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
-          Export Excel</button>
+            class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
+            (click)="exportwo()"><i class="fa fa-file-excel-o fa-1"></i>
+            Export Excel</button>
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-sm text-left" id="excel-table">
               <thead class="text-xs text-gray-100 uppercase bg-gray-500 text-center">
@@ -359,8 +359,8 @@
                     </div>
                     <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                       <!-- <label for="date" class="mr-1">Date : </label> -->
-                      <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48"
-                        [(ngModel)]="tgl1" (change)="changeDate()">
+                      <input type="date" class="rounded-lg py-1 px-1 border" #masukandate width="48" [(ngModel)]="tgl1"
+                        (change)="changeDate()">
                     </div>
                   </div>
                   <p class="text-center pb-4" style="color: red;">Click Device Name For Show Note And Chart Abnormal
@@ -795,7 +795,7 @@
                   <p class="text-center" style="color: red;">Device Name : {{funloc}}</p>
                 </div>
               </div>
-              <div 
+              <div
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
@@ -869,7 +869,7 @@
                       <div class="px-2">
                         <canvas id="dum" width="290" height="280"></canvas>
                       </div>
-                    
+
                     </div>
                     <div class="my-1 px-2 w-full md:w-4/12 ">
                       <div
@@ -881,7 +881,7 @@
                       <div class="px-2">
                         <canvas id="dumdum" width="290" height="280"></canvas>
                       </div>
-                    
+
                     </div>
                     <div class="my-1 px-2 w-full md:w-4/12 ">
                       <div
@@ -893,7 +893,7 @@
                       <div class="px-2">
                         <canvas id="dumdumdum" width="290" height="280"></canvas>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -1027,8 +1027,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist ">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PREPARATION'"
-                        class="bg-white " >
+                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'PREPARATION'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1036,7 +1035,7 @@
                     </tbody>
                   </table>
                 </div>
-                
+
               </div>
             </div>
 
@@ -1055,13 +1054,14 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfci', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                      <tr
+                        *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfci', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
                         <div *ngIf="this.finish.value != null && this.finish.name_area == 'INJECTION'"
                           class="bg-white ">
                           <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                           <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                           <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
-                      </div>
+                        </div>
                       </tr>
                     </tbody>
                   </table>
@@ -1086,8 +1086,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'BLOW'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'BLOW'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1113,8 +1112,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'FILL'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'FILL'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1140,13 +1138,13 @@
                       </tr>
                     </thead>
                     <tbody class="text-center">
-                      <tr *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfcpack', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
-                        <div *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'"
-                          class="bg-white ">
+                      <tr
+                        *ngFor="let finish of finishnotlist | paginate: { id: 'paginationfcpack', currentPage: currentPage, itemsPerPage: 5 }; let i = index">
+                        <div *ngIf="this.finish.value != null && this.finish.name_area == 'PACK'" class="bg-white ">
                           <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                           <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                           <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
-                      </div>
+                        </div>
                       </tr>
                     </tbody>
                   </table>
@@ -1198,8 +1196,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'STU1'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value != null && this.finish.name_area == 'STU1'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1225,8 +1222,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1252,8 +1248,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'INJECTION'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'INJECTION'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1279,8 +1274,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'BLOW'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'BLOW'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1306,8 +1300,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'FILL'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'FILL'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1333,8 +1326,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PACK'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'PACK'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1387,8 +1379,7 @@
                       </tr>
                     </thead>
                     <tbody *ngFor="let finish of finishnotlist">
-                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'STU1'"
-                        class="bg-white ">
+                      <tr *ngIf="this.finish.value == null && this.finish.name_area == 'STU1'" class="bg-white ">
                         <!-- <td  *ngIf="this.finish.value == null && this.finish.name_area == 'PREPARATION'" class="px-3 py-2 text-center">PREPARATION</td> -->
                         <!-- <td class="px-3 py-2 text-center">{{ this.blow }}</td> -->
                         <td class="px-3 py-2 text-center">{{ this.finish.device_name }}</td>
@@ -1418,9 +1409,9 @@
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
                   <label for="month"
-              class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Date
-              : </label>
-            <input type="date" style=" border: 1px solid #c4c4c4;
+                    class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Date
+                    : </label>
+                  <input type="date" style=" border: 1px solid #c4c4c4;
                         border-radius: 5px;
                         background-color: #fff;
                         padding: 3px 5px;
