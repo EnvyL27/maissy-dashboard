@@ -10,7 +10,7 @@ import { forkJoin } from 'rxjs';
   templateUrl: './cost-m-oci2.component.html',
   styleUrls: ['./cost-m-oci2.component.css']
 })
-export class CostMOci2Component implements OnInit{
+export class CostMOci2Component implements OnInit {
   public chartOptions!: Partial<ChartOptions> | any;
   public resolved: boolean = false;
 
@@ -180,92 +180,92 @@ export class CostMOci2Component implements OnInit{
   deskripsi: any = 'Loading..';
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
 
-  showListOfCorrective(){
+  showListOfCorrective() {
     this.listofcorrective = !this.listofcorrective
-    if(this.listofpreventive == true){
+    if (this.listofpreventive == true) {
       this.listofpreventive = !this.listofpreventive
-    }else if(this.listofoverhaul == true){
+    } else if (this.listofoverhaul == true) {
       this.listofoverhaul = !this.listofoverhaul
-    }else if(this.listofindex == true){
+    } else if (this.listofindex == true) {
       this.listofindex = !this.listofindex
-    }else if(this.listcompare == true){
+    } else if (this.listcompare == true) {
       this.listcompare = !this.listcompare
-    }else if(this.listtotalcompare == true){
+    } else if (this.listtotalcompare == true) {
       this.listtotalcompare = !this.listtotalcompare
     }
   }
 
-  showListOfPreventive(){
+  showListOfPreventive() {
     this.listofpreventive = !this.listofpreventive
-    if(this.listofcorrective == true){
+    if (this.listofcorrective == true) {
       this.listofcorrective = !this.listofcorrective
-    }else if(this.listofoverhaul == true){
+    } else if (this.listofoverhaul == true) {
       this.listofoverhaul = !this.listofoverhaul
-    }else if(this.listofindex == true){
+    } else if (this.listofindex == true) {
       this.listofindex = !this.listofindex
-    }else if(this.listcompare == true){
+    } else if (this.listcompare == true) {
       this.listcompare = !this.listcompare
-    }else if(this.listtotalcompare == true){
+    } else if (this.listtotalcompare == true) {
       this.listtotalcompare = !this.listtotalcompare
     }
   }
 
-  showListOfOverhaul(){
+  showListOfOverhaul() {
     this.listofoverhaul = !this.listofoverhaul
-    if(this.listofcorrective == true){
+    if (this.listofcorrective == true) {
       this.listofcorrective = !this.listofcorrective
-    }else if(this.listofpreventive == true){
+    } else if (this.listofpreventive == true) {
       this.listofpreventive = !this.listofpreventive
-    }else if(this.listofindex == true){
+    } else if (this.listofindex == true) {
       this.listofindex = !this.listofindex
-    }else if(this.listcompare == true){
+    } else if (this.listcompare == true) {
       this.listcompare = !this.listcompare
-    }else if(this.listtotalcompare == true){
+    } else if (this.listtotalcompare == true) {
       this.listtotalcompare = !this.listtotalcompare
     }
   }
 
-  showListOfIndex(){
+  showListOfIndex() {
     this.listofindex = !this.listofindex
-    if(this.listofcorrective == true){
+    if (this.listofcorrective == true) {
       this.listofcorrective = !this.listofcorrective
-    }else if(this.listofpreventive == true){
+    } else if (this.listofpreventive == true) {
       this.listofpreventive = !this.listofpreventive
-    }else if(this.listofoverhaul == true){
+    } else if (this.listofoverhaul == true) {
       this.listofoverhaul = !this.listofoverhaul
-    }else if(this.listcompare == true){
+    } else if (this.listcompare == true) {
       this.listcompare = !this.listcompare
-    }else if(this.listtotalcompare == true){
+    } else if (this.listtotalcompare == true) {
       this.listtotalcompare = !this.listtotalcompare
     }
   }
 
-  showListOfCompare(){
+  showListOfCompare() {
     this.listcompare = !this.listcompare
-    if(this.listofcorrective == true){
+    if (this.listofcorrective == true) {
       this.listofcorrective = !this.listofcorrective
-    }else if(this.listofpreventive == true){
+    } else if (this.listofpreventive == true) {
       this.listofpreventive = !this.listofpreventive
-    }else if(this.listofoverhaul == true){
+    } else if (this.listofoverhaul == true) {
       this.listofoverhaul = !this.listofoverhaul
-    }else if(this.listofindex == true){
+    } else if (this.listofindex == true) {
       this.listofindex = !this.listofindex
-    }else if(this.listtotalcompare == true){
+    } else if (this.listtotalcompare == true) {
       this.listtotalcompare = !this.listtotalcompare
     }
   }
 
-  showListOfTotalCompare(){
+  showListOfTotalCompare() {
     this.listtotalcompare = !this.listtotalcompare
-    if(this.listofcorrective == true){
+    if (this.listofcorrective == true) {
       this.listofcorrective = !this.listofcorrective
-    }else if(this.listofpreventive == true){
+    } else if (this.listofpreventive == true) {
       this.listofpreventive = !this.listofpreventive
-    }else if(this.listofoverhaul == true){
+    } else if (this.listofoverhaul == true) {
       this.listofoverhaul = !this.listofoverhaul
-    }else if(this.listofindex == true){
+    } else if (this.listofindex == true) {
       this.listofindex = !this.listofindex
-    }else if(this.listcompare == true){
+    } else if (this.listcompare == true) {
       this.listcompare = !this.listcompare
     }
   }
@@ -302,7 +302,7 @@ export class CostMOci2Component implements OnInit{
 
       this.service.getCountTotalFinding().subscribe(data => {
         //////////console.log(data);
-        
+
         this.const = data;
         Object.values(this.const).forEach(data => {
           var array = Object.keys(data).map(function (key) {
@@ -341,11 +341,16 @@ export class CostMOci2Component implements OnInit{
           // //////////////console.log(data2);
           this.cost = data;
           this.cost2 = data2;
+          console.log(this.cost);
+          console.log(this.cost2);
+          
 
           this.cost.forEach((element: any, index: number) => {
             // //////////////console.log(element.budget);
 
             element.budget = parseInt(element.budget);
+            // console.log(element);
+
             if (element.year == '2023') {
               if (element.category == "Corrective Maintenance") {
                 if (element.actual == "Plan") {
@@ -513,79 +518,221 @@ export class CostMOci2Component implements OnInit{
               } else if (element.category == "Overhaul") {
                 if (element.actual == "Plan") {
                   if (element.month == "01") {
-                    this.ovhplanjan = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanjan = element.budget;
+                    } else {
+                      this.ovhplanjan = 0;
+                    }
+                   
                   } else if (element.month == "02") {
-                    this.ovhplanfeb = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanfeb = element.budget;
+                    } else {
+                      this.ovhplanfeb = 0;
+                    }
+                    
                   } else if (element.month == "03") {
-                    this.ovhplanmar = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanmar = element.budget;
+                    } else {
+                      this.ovhplanmar = 0
+                    }
+                    
                   } else if (element.month == "04") {
-                    this.ovhplanapr = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanapr = element.budget;
+                    } else {
+                      this.ovhplanapr = 0;
+                    }
+                    
                   } else if (element.month == "05") {
-                    this.ovhplanmei = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanmei = element.budget;
+                    } else {
+                      this.ovhplanmei = 0;
+                    }
+                    
                   } else if (element.month == "06") {
-                    this.ovhplanjun = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanjun = element.budget;
+                    } else {
+                      this.ovhplanjun = 0;
+                    }
+                    
                   } else if (element.month == "07") {
-                    this.ovhplanjul = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanjul = element.budget;
+                    } else {
+                      this.ovhplanjul = 0;
+                    }
+                    
                   } else if (element.month == "08") {
-                    this.ovhplanaug = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanaug = element.budget;
+                    } else {
+                      this.ovhplanaug = 0;
+                    }
+                    
                   } else if (element.month == "09") {
-                    this.ovhplansep = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplansep = element.budget;
+                    } else {
+                      this.ovhplansep = 0
+                    }
                   } else if (element.month == "10") {
-                    this.ovhplanokt = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplanokt = element.budget;
+                    } else {
+                      this.ovhplanokt = 0
+                    }
                   } else if (element.month == "11") {
-                    this.ovhplannov = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplannov = element.budget;
+                    } else {
+                      this.ovhplannov = 0
+                    }
                   } else if (element.month == "12") {
-                    this.ovhplandes = element.budget;
+                    if (element.budget != null) {
+                      this.ovhplandes = element.budget;
+                    } else {
+                      this.ovhplandes = 0
+                    }
                   }
                 } else if (element.actual == "Actual") {
                   if (element.month == "01") {
-                    this.totalindexjan += element.budget;
-                    this.ovhactjan = element.budget;
-                    this.totalcmcurjan += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexjan += element.budget;
+                      this.ovhactjan = element.budget;
+                      this.totalcmcurjan += element.budget;
+                    } else {
+                      this.totalindexjan += 0;
+                      this.ovhactjan = 0;
+                      this.totalcmcurjan += 0;
+                    }
+
                   } else if (element.month == "02") {
-                    this.totalindexfeb += element.budget;
-                    this.ovhactfeb = element.budget;
-                    this.totalcmcurfeb += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexfeb += element.budget;
+                      this.ovhactfeb = element.budget;
+                      this.totalcmcurfeb += element.budget;
+                    } else {
+                      this.totalindexfeb += 0;
+                      this.ovhactfeb = 0;
+                      this.totalcmcurfeb += 0;
+                    }
+
                   } else if (element.month == "03") {
-                    this.totalindexmar += element.budget;
-                    this.ovhactmar = element.budget;
-                    this.totalcmcurmar += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexmar += element.budget;
+                      this.ovhactmar = element.budget;
+                      this.totalcmcurmar += element.budget;
+                    } else {
+                      this.totalindexmar += 0;
+                      this.ovhactmar = 0;
+                      this.totalcmcurmar += 0;
+                    }
+
                   } else if (element.month == "04") {
-                    this.totalindexapr += element.budget;
-                    this.ovhactapr = element.budget;
-                    this.totalcmcurapr += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexapr += element.budget;
+                      this.ovhactapr = element.budget;
+                      this.totalcmcurapr += element.budget;
+                    } else {
+                      this.totalindexapr += 0;
+                      this.ovhactapr = 0;
+                      this.totalcmcurapr += 0;
+                    }
+
                   } else if (element.month == "05") {
-                    this.totalindexmei += element.budget;
-                    this.ovhactmei = element.budget;
-                    this.totalcmcurmei += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexmei += element.budget;
+                      this.ovhactmei = element.budget;
+                      this.totalcmcurmei += element.budget;
+                    } else {
+                      this.totalindexmei += 0;
+                      this.ovhactmei = 0;
+                      this.totalcmcurmei += 0;
+                    }
+
                   } else if (element.month == "06") {
-                    this.totalindexjun += element.budget;
-                    this.ovhactjun = element.budget;
-                    this.totalcmcurjun += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexjun += element.budget;
+                      this.ovhactjun = element.budget;
+                      this.totalcmcurjun += element.budget;
+                    } else {
+                      this.totalindexjun += 0;
+                      this.ovhactjun = 0;
+                      this.totalcmcurjun += 0;
+                    }
+
                   } else if (element.month == "07") {
-                    this.totalindexjul += element.budget;
-                    this.ovhactjul = element.budget;
-                    this.totalcmcurjul += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexjul += element.budget;
+                      this.ovhactjul = element.budget;
+                      this.totalcmcurjul += element.budget;
+                    } else {
+                      this.totalindexjul += 0;
+                      this.ovhactjul = 0;
+                      this.totalcmcurjul += 0;
+                    }
+
                   } else if (element.month == "08") {
+                    if (element.budget != null) {
+                      this.totalindexsep += element.budget;
+                      this.ovhactsep = element.budget;
+                      this.totalcmcursep += element.budget;
+                    } else {
+                      this.totalindexsep += 0;
+                      this.ovhactsep = 0;
+                      this.totalcmcursep += 0;
+                    }
                     this.totalindexagu += element.budget;
                     this.ovhactaug = element.budget;
                     this.totalcmcuragu += element.budget;
                   } else if (element.month == "09") {
-                    this.totalindexsep += element.budget;
-                    this.ovhactsep = element.budget;
-                    this.totalcmcursep += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexsep += element.budget;
+                      this.ovhactsep = element.budget;
+                      this.totalcmcursep += element.budget;
+                    } else {
+                      this.totalindexsep += 0;
+                      this.ovhactsep = 0;
+                      this.totalcmcursep += 0;
+                    }
+
                   } else if (element.month == "10") {
-                    this.totalindexsep += element.budget;
-                    this.ovhactokt = element.budget;
-                    this.totalcmcurokt += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexsep += element.budget;
+                      this.ovhactokt = element.budget;
+                      this.totalcmcurokt += element.budget;
+                    } else {
+                      this.totalindexsep += 0;
+                      this.ovhactokt = 0;
+                      this.totalcmcurokt += 0;
+                    }
+
                   } else if (element.month == "11") {
-                    this.totalindexokt += element.budget;
-                    this.ovhactnov = element.budget;
-                    this.totalcmcurnov += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexokt += element.budget;
+                      this.ovhactnov = element.budget;
+                      this.totalcmcurnov += element.budget;
+                    } else {
+                      this.totalindexokt += 0;
+                      this.ovhactnov = 0;
+                      this.totalcmcurnov += 0;
+                    }
+
                   } else if (element.month == "12") {
-                    this.totalindexdes += element.budget;
-                    this.ovhactdes = element.budget;
-                    this.totalcmcurdes += element.budget;
+                    if (element.budget != null) {
+                      this.totalindexdes += element.budget;
+                      this.ovhactdes = element.budget;
+                      this.totalcmcurdes += element.budget;
+                    } else {
+                      this.totalindexdes += 0;
+                      this.ovhactdes = 0;
+                      this.totalcmcurdes += 0;
+                    }
+
                   }
                 }
               } else if (element.category == "Preventive Maintenance") {
@@ -667,14 +814,12 @@ export class CostMOci2Component implements OnInit{
                   }
                 }
               }
-            }
-            //////////////console.log(this.totalindexjan);
+              console.log(this.totalindexokt);
 
+            }
           });
 
           this.cost2.forEach((element: any, index: any) => {
-            //////////////console.log(this.index);
-
             element.budget = parseInt(element.budget);
             element.month = parseInt(element.month);
             if (element.month == "01") {
@@ -733,8 +878,6 @@ export class CostMOci2Component implements OnInit{
               } else if (element.month <= this.index) {
                 this.totalcurrentyear += element.budget;
               }
-              //////////////console.log(this.totalcurrentyear);
-
             }
           });
 
@@ -775,98 +918,82 @@ export class CostMOci2Component implements OnInit{
         });
 
       forkJoin(this.service.getCostOci2(),
-              this.service.getFgOci2()).subscribe(([datacost, datafg]) => {
-                // //////////////console.log(datacost);
-                // //////////////console.log(datafg);
-                this.datafg = datafg;
-                this.dataindex = datacost;
-                // this.indexcostjan =
-                // //////////////console.log(this.totalfgjan);
+        this.service.getFgOci2()).subscribe(([datacost, datafg]) => {
+          this.datafg = datafg;
+          this.dataindex = datacost;
+          this.datafg.forEach((element: any, index: any) => {
+            element.month = parseInt(element.month);
+            element.fg_eq = parseInt(element.fg_eq);
+            if (Number.isNaN(element.fg_eq)) {
+              element.fg_eq = 0;
+            }
+            if (element.month == 1) {
+              this.indexcostjan = this.totalindexjan / element.fg_eq;
+              const firstthreedigit = String(this.indexcostjan).slice(0, 3);
+              this.indexcostjan = parseInt(firstthreedigit);
+            }
+            else if (element.month == 2) {
+              this.indexcostfeb = this.totalindexfeb / element.fg_eq;
+              const firstthreedigit = String(this.indexcostfeb).slice(0, 3);
+              this.indexcostfeb = parseInt(firstthreedigit);
+            }
+            else if (element.month == 3) {
+              this.indexcostmar = this.totalindexmar / element.fg_eq
+              const firstthreedigit = String(this.indexcostmar).slice(0, 3);
+              this.indexcostmar = parseInt(firstthreedigit);
+            }
+            else if (element.month == 4) {
+              this.indexcostapr = this.totalindexapr / element.fg_eq
+              const firstthreedigit = String(this.indexcostapr).slice(0, 3);
+              this.indexcostapr = parseInt(firstthreedigit);
+            }
+            else if (element.month == 5) {
+              this.indexcostmei = this.totalindexmei / element.fg_eq
+              const firstthreedigit = String(this.indexcostmei).slice(0, 3);
+              this.indexcostmei = parseInt(firstthreedigit);
+            }
+            else if (element.month == 6) {
+              this.indexcostjun = this.totalindexjun / element.fg_eq
+              const firstthreedigit = String(this.indexcostjun).slice(0, 3);
+              this.indexcostjun = parseInt(firstthreedigit);
+            }
+            else if (element.month == 7) {
+              this.indexcostjul = this.totalindexjul / element.fg_eq
+              const firstthreedigit = String(this.indexcostjul).slice(0, 3);
+              this.indexcostjul = parseInt(firstthreedigit);
+            }
+            else if (element.month == 8) {
+              this.indexcostagu = this.totalindexagu / element.fg_eq
+              const firstthreedigit = String(this.indexcostagu).slice(0, 3);
+              this.indexcostagu = parseInt(firstthreedigit);
+            }
+            else if (element.month == 9) {
+              this.indexcostsep = this.totalindexsep / element.fg_eq
+              const firstthreedigit = String(this.indexcostsep).slice(0, 3);
+              this.indexcostsep = parseInt(firstthreedigit);
+            }
+            else if (element.month == 10) {
+              this.indexcostokt = this.totalindexokt / element.fg_eq
+              const firstthreedigit = String(this.indexcostokt).slice(0, 3);
+              this.indexcostokt = parseInt(firstthreedigit);
+            }
+            else if (element.month == 11) {
+              this.indexcostnov = this.totalindexnov / element.fg_eq
+              const firstthreedigit = String(this.indexcostnov).slice(0, 3);
+              this.indexcostnov = parseInt(firstthreedigit);
+            }
+            else if (element.month == 12) {
+              this.indexcostdes = this.totalindexdes / element.fg_eq
+              const firstthreedigit = String(this.indexcostdes).slice(0, 3);
+              this.indexcostdes = parseInt(firstthreedigit);
+            }
 
 
-                this.datafg.forEach((element:any, index: any) => {
-                  ////////////console.log(element);
+          });
 
-                  element.month = parseInt(element.month);
-                  element.fg_eq = parseInt(element.fg_eq);
-                  ////////////console.log(element.month);
-                  if(Number.isNaN(element.fg_eq)){
-                    element.fg_eq = 0;
-                  }
-                  // //////////////console.log(index)
-                  //////////////console.log(element);
-                  // //////////////console.log(this.totalindexjan);
-                  // this.indexcostjan =
-                  if(element.month == 1){
-                    ////////////console.log(this.indexcostjan);
-                    ////////////console.log(element.fg_eq);
+          this.costChart();
 
-                    this.indexcostjan = this.totalindexjan / element.fg_eq;
-                    const firstthreedigit = String(this.indexcostjan).slice(0, 3);
-                    this.indexcostjan = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 2){
-                    this.indexcostfeb = this.totalindexfeb / element.fg_eq;
-                    const firstthreedigit = String(this.indexcostfeb).slice(0, 3);
-                    this.indexcostfeb = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 3){
-                    this.indexcostmar = this.totalindexmar / element.fg_eq
-                    const firstthreedigit = String(this.indexcostmar).slice(0, 3);
-                    this.indexcostmar = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 4){
-                    this.indexcostapr = this.totalindexapr / element.fg_eq
-                    const firstthreedigit = String(this.indexcostapr).slice(0, 3);
-                    this.indexcostapr = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 5){
-                    this.indexcostmei = this.totalindexmei / element.fg_eq
-                    const firstthreedigit = String(this.indexcostmei).slice(0, 3);
-                    this.indexcostmei = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 6){
-                    this.indexcostjun = this.totalindexjun / element.fg_eq
-                    const firstthreedigit = String(this.indexcostjun).slice(0, 3);
-                    this.indexcostjun = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 7){
-                    this.indexcostjul = this.totalindexjul / element.fg_eq
-                    const firstthreedigit = String(this.indexcostjul).slice(0, 3);
-                    this.indexcostjul = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 8){
-                    this.indexcostagu = this.totalindexagu / element.fg_eq
-                    const firstthreedigit = String(this.indexcostagu).slice(0, 3);
-                    this.indexcostagu = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 9){
-                    this.indexcostsep = this.totalindexsep / element.fg_eq
-                    const firstthreedigit = String(this.indexcostsep).slice(0, 3);
-                    this.indexcostsep = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 10){
-                    this.indexcostokt = this.totalindexokt / element.fg_eq
-                    const firstthreedigit = String(this.indexcostokt).slice(0, 3);
-                    this.indexcostokt = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 11){
-                    this.indexcostnov = this.totalindexnov / element.fg_eq
-                    const firstthreedigit = String(this.indexcostnov).slice(0, 3);
-                    this.indexcostnov = parseInt(firstthreedigit);
-                  }
-                  else if(element.month == 12){
-                    this.indexcostdes = this.totalindexdes / element.fg_eq
-                    const firstthreedigit = String(this.indexcostdes).slice(0, 3);
-                    this.indexcostdes = parseInt(firstthreedigit);
-                  }
-
-
-                });
-
-                this.costChart();
-
-              })
+        })
     });
 
 
@@ -952,7 +1079,7 @@ export class CostMOci2Component implements OnInit{
         {
           name: 'Maintenance Cost',
           type: 'bar',
-          data: [this.totalindexjan, this.totalindexfeb, this.totalindexmar, this.totalindexapr, this.totalindexmei, this.totalindexjun, this.totalindexjul, this.totalindexagu, this.totalindexsep, this.totalindexokt,this.totalindexnov, this.totalindexdes],
+          data: [this.totalindexjan, this.totalindexfeb, this.totalindexmar, this.totalindexapr, this.totalindexmei, this.totalindexjun, this.totalindexjul, this.totalindexagu, this.totalindexsep, this.totalindexokt, this.totalindexnov, this.totalindexdes],
 
         },
 
@@ -1099,7 +1226,7 @@ export class CostMOci2Component implements OnInit{
               fontSize: '12px',
 
               fontWeight: 700,
-                color: "#3ac7e0",
+              color: "#3ac7e0",
               cssClass: 'apexcharts-yaxis-title',
             },
           },

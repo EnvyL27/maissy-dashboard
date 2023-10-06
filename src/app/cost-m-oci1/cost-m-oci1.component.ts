@@ -349,6 +349,8 @@ export class CostMOci1Component implements OnInit{
             if (element.year == '2023') {
               if (element.category == "Corrective Maintenance") {
                 if (element.actual == "Plan") {
+                  // console.log(element);
+                  
                   if (element.month == "01") {
 
                     this.cmplanjan = element.budget;
