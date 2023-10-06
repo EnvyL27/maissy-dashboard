@@ -70,6 +70,7 @@ import { SnkComponent } from './snk/snk.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EnergyIndexComponent } from './energy-index/energy-index.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -141,6 +142,8 @@ const routes: Routes = [
   {path: 'suit', component: SuitComponent, canActivate: [AuthGuard]},
   {path: 'tictactoe', component: TicTacToeComponent, canActivate: [AuthGuard]},
   {path: 'snakeladder', component: SnkComponent, canActivate: [AuthGuard]},
+  {path: 'energy', component: EnergyIndexComponent, canActivate: [AuthGuard]},
+
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]},
 
 ];

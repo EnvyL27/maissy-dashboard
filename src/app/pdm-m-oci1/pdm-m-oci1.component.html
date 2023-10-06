@@ -804,20 +804,34 @@
                       <tbody style="height: 444px;">
                         <tr class="border-b border-gray-200 ">
                           <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
+                            <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
                             <label for="modal-btn">
-                              <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg" style=" width: 100%;
-                              height: auto;" class="center"></div>
+                            </label>
+                            <div class="modal">
+                              <div class="modal-wrap xl:ml-68.5">
+                                <img src="{{picture}}" class="center">
+                              </div>
+                            </div>
+                            <label for="modal-btn">
+                              <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style="
+                                width: 100%;
+                                height: auto;" class="center">
+                              </div>
                               <div *ngIf="note != null">
-                                <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" style=" width: 100%;
-                            max-width: 100px;
-                            height: auto;" class="center">
+                                <label for="modal-btn">
+                                  <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" style=" 
+                                  width: 300%;
+                                  max-width: 300px;
+                                  height: auto;" class="center">
+                                </label>
                               </div>
                             </label>
                             <div class="modal">
                               <div class="modal-wrap xl:ml-68.5">
-                                <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg" class="center"></div>
+                                <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg"
+                                    class="center"></div>
                                 <div *ngIf="note != null">
-                                  <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" class="center">
+                                  <img src="{{picture}}" class="center">
                                 </div>
                               </div>
                             </div>

@@ -87,6 +87,7 @@ import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SnkComponent } from './snk/snk.component';
+import { EnergyIndexComponent } from './energy-index/energy-index.component';
 
 
 
@@ -168,6 +169,7 @@ import { SnkComponent } from './snk/snk.component';
     TicTacToeComponent,
     NotFoundComponent,
     SnkComponent,
+    EnergyIndexComponent,
 
   ],
   imports: [
