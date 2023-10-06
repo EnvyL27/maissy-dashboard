@@ -1189,7 +1189,7 @@ export class AmMOci2Component implements OnInit {
     this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
     this.boolAguBulan = !this.boolAguBulan;
     this.cdr.detectChanges();
-    ////////console.log(this.boolAguBulan);
+    //////////console.log(this.boolAguBulan);
 
   }
   changeSepBulan() {
@@ -1304,8 +1304,8 @@ export class AmMOci2Component implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // ////////////////console.log(config);
-            // ////////console.log(this.maretcloseelem);
+            // //////////////////console.log(config);
+            // //////////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJanBulan();
             }
@@ -2594,7 +2594,7 @@ export class AmMOci2Component implements OnInit {
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
@@ -2709,7 +2709,7 @@ export class AmMOci2Component implements OnInit {
 
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        console.log(data);
+        //console.log(data);
         
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {

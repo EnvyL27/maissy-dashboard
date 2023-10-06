@@ -805,19 +805,19 @@
                         <tr class="border-b border-gray-200 ">
                           <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
                             <label for="modal-btn">
-                              <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style=" width: 100%;
+                              <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg" style=" width: 100%;
                               height: auto;" class="center"></div>
                               <div *ngIf="note != null">
-                                <img src="{{picture}}" style=" width: 100%;
+                                <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" style=" width: 100%;
                             max-width: 100px;
                             height: auto;" class="center">
                               </div>
                             </label>
                             <div class="modal">
                               <div class="modal-wrap xl:ml-68.5">
-                                <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" class="center"></div>
+                                <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg" class="center"></div>
                                 <div *ngIf="note != null">
-                                  <img src="{{picture}}" class="center">
+                                  <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" class="center">
                                 </div>
                               </div>
                             </div>

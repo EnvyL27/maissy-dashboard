@@ -1607,7 +1607,7 @@
                 </div>
                 <div class="overflow-x-auto relative shadow-lg sm:rounded-lg ">
                   <table border="1" class="w-full text-lg text-gray-500 dark:text-gray-400 text-center mb-6 ">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-400 text-center">
                       <tr>
                         <th scope="col" class="py-3 px-6 text-white" bgcolor="#878790">
                           Section
@@ -1631,7 +1631,7 @@
                           Total
                         </th>
                       </tr>
-                      <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700"
+                      <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center"
                         *ngFor="let item of reportharian[0]| filter:searchText3| paginate: { id:'pagination3', currentPage: currentPage3, itemsPerPage: 5 }; let i = index ">
                         <td>
                           {{item.section}}
@@ -1648,17 +1648,17 @@
                           <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
                           <label for="modal-btn">
                           </label>
-                          <!-- <div class="modal">
+                          <div class="modal">
                               <div class="modal-wrap xl:ml-68.5">
                                 <img src="http://192.168.9.47/plan_am/files/{{picture}}" class="center">
                               </div>
-                            </div> -->
+                            </div>
                           <div class="row">
                             <div class="column text-center center" *ngFor="let item2 of item.foto;">
                               <label for="modal-btn">
                                 <img class="animasihf" (click)="getphoto(item2)"
-                                  src="http://192.168.9.47/plan_am/files/{{item2}}" style="width: 100%;
-                                  max-width: 150px;
+                                  src="http://192.168.9.47/plan_am/files/{{item2}}" style="width: 300%;
+                                  max-width: 300px;
                                   height: auto;">
                               </label>
                             </div>
