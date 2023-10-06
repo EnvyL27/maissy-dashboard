@@ -83,7 +83,7 @@ export class AmMOci2Component implements OnInit {
   }
 
   error: string | null = null;
-  fileName = 'FindingPendingOCI1.xlsx';
+  fileName = 'FindingPendingOCI2.xlsx';
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
   apvfinding : number = 0
