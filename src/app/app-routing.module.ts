@@ -77,6 +77,7 @@ const routes: Routes = [
 
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'pdm_dashboard', component: PdmDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'energy_dashboard', component: EnergyIndexComponent, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},
