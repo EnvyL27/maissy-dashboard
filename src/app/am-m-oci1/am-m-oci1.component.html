@@ -375,23 +375,26 @@
                       class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
                       (click)="captureTemuan()"><i class="fa fa-camera fa-1"></i>
                       Capture</button>
+                    <label for="month"
+                      class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Month
+                      : </label>
+                    <input type="month" style=" border: 1px solid #c4c4c4;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    padding: 3px 5px;
+                    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+                  " width="48" [(ngModel)]="month" (ngModelChange)="jumlahTemuanChange()">
                   </div>
                   <div class="mx-4">
                     <div class="w-full max-w-full md:w-full" id="ss5" #ss5>
                       <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
-                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2">
-                          <!-- <div class="hidden">
-                            <canvas id="totalfindingbulan" width="310" height="250"></canvas>
-                          </div> -->
+                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2" height="250">
                           <apx-chart [series]="bulanan.series" [chart]="bulanan.chart" [dataLabels]="bulanan.dataLabels"
                             [plotOptions]="bulanan.plotOptions" [yaxis]="bulanan.yaxis" [legend]="bulanan.legend"
                             [fill]="bulanan.fill" [stroke]="bulanan.stroke" [tooltip]="bulanan.tooltip"
                             [xaxis]="bulanan.xaxis" [colors]="bulanan.colors"></apx-chart>
                         </div>
-                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2">
-                          <!-- <div class="hidden">
-                            <canvas id="totalfinding" width="310" height="250"></canvas>
-                          </div> -->
+                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2" height="250">
                           <apx-chart [series]="harian.series" [chart]="harian.chart" [dataLabels]="harian.dataLabels"
                             [plotOptions]="harian.plotOptions" [yaxis]="harian.yaxis" [legend]="harian.legend"
                             [fill]="harian.fill" [stroke]="harian.stroke" [tooltip]="harian.tooltip"
@@ -407,9 +410,10 @@
               <div class="w-full">
 
                 <div [ngClass]="boolJanBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding January</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -471,15 +475,17 @@
                         </table>
                       </div>
                     </div>
-                    <pagination-controls class="text-center" id="januaripaginatebulan" (pageChange)="currentPage = $event">
+                    <pagination-controls class="text-center" id="januaripaginatebulan"
+                      (pageChange)="currentPage = $event">
                     </pagination-controls>
                   </div>
                 </div>
 
                 <div [ngClass]="boolFebBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Februari</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -541,15 +547,17 @@
                         </table>
                       </div>
                     </div>
-                    <pagination-controls class="text-center" id="februaripaginatebulan" (pageChange)="currentPage = $event">
+                    <pagination-controls class="text-center" id="februaripaginatebulan"
+                      (pageChange)="currentPage = $event">
                     </pagination-controls>
                   </div>
                 </div>
 
                 <div [ngClass]="boolMarBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Maret</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -611,15 +619,17 @@
                         </table>
                       </div>
                     </div>
-                    <pagination-controls class="text-center" id="maretpaginatebulan" (pageChange)="currentPage = $event">
+                    <pagination-controls class="text-center" id="maretpaginatebulan"
+                      (pageChange)="currentPage = $event">
                     </pagination-controls>
                   </div>
                 </div>
 
                 <div [ngClass]="boolAprBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding April</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -687,9 +697,10 @@
                 </div>
 
                 <div [ngClass]="boolMayBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Mei</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -757,9 +768,10 @@
                 </div>
 
                 <div [ngClass]="boolJunBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Juni</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -821,15 +833,17 @@
                         </table>
                       </div>
                     </div>
-                    <pagination-controls class="text-center" id="juniipaginatebulan" (pageChange)="currentPage = $event">
+                    <pagination-controls class="text-center" id="juniipaginatebulan"
+                      (pageChange)="currentPage = $event">
                     </pagination-controls>
                   </div>
                 </div>
 
                 <div [ngClass]="boolJulBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Juli</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -897,9 +911,10 @@
                 </div>
 
                 <div [ngClass]="boolAguBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Agustus</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -967,9 +982,10 @@
                 </div>
 
                 <div [ngClass]="boolSepBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding September</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -1037,9 +1053,10 @@
                 </div>
 
                 <div [ngClass]="boolOktBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Oktober</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -1107,9 +1124,10 @@
                 </div>
 
                 <div [ngClass]="boolNovBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding November</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -1177,9 +1195,10 @@
                 </div>
 
                 <div [ngClass]="boolDesBulan ? '': 'hidden'" class="my-1 w-full md:w-full">
-                  <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div
+                    class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                     <div class="flex-auto p-6">
-      
+
                       <p class="text-center py-4 text-gray-800 font-semibold">Total Finding Desember</p>
                       <!-- <button
                         class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 text-slate-700"
@@ -1660,10 +1679,10 @@
                         <label for="modal-btn">
                         </label>
                         <div class="modal">
-                            <div class="modal-wrap xl:ml-68.5">
-                              <img src="http://192.168.9.47/plan_am/files/{{picture}}" class="center">
-                            </div>
+                          <div class="modal-wrap xl:ml-68.5">
+                            <img src="http://192.168.9.47/plan_am/files/{{picture}}" class="center">
                           </div>
+                        </div>
                         <div class="row">
                           <div class="column text-center center" *ngFor="let item2 of item.foto;">
                             <label for="modal-btn">

@@ -453,10 +453,12 @@ export class AmMOci1Component implements OnInit {
     document.body.removeChild(element);
   }
   finddata2() {
-    if (this.chartdestroy != null) {
-      this.chartdestroy.destroy();
-    }
-    this.totaldata1year.splice(0);
+    console.log('log masuk ' + this.tgl4 + ' hah ' + this.tgl3);
+    
+    // if (this.chartdestroy != null) {
+    //   this.chartdestroy.destroy();
+    // }
+    this.totaldata1year = [];
     this.januari = 0;
     this.januariclose = 0;
     this.febuari = 0;
@@ -483,6 +485,123 @@ export class AmMOci1Component implements OnInit {
     this.desemberclose = 0;
     // this.spinner.show();
     this.resolved = false;
+
+    this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
+      this.totaldata1year.push(data);
+      for (let elem of this.totaldata1year[0]) {
+        if (elem.bulan == 'January') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.januariclose += 1
+            } else {
+              this.januari += 1;
+            }
+          }
+        } else if (elem.bulan == 'February') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.febuariclose += 1
+            } else {
+              this.febuari += 1;
+            }
+          }
+        } else if (elem.bulan == 'March') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.maretclose += 1;
+            } else {
+              this.maret += 1;
+            }
+          }
+        } else if (elem.bulan == 'April') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.aprilclose += 1;
+            }
+            else {
+              this.april += 1;
+            }
+          }
+        } else if (elem.bulan == 'May') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.meiclose += 1;
+            } else {
+              this.mei += 1;
+            }
+          }
+        } else if (elem.bulan == 'June') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.juniclose += 1;
+            } else {
+              this.juni += 1;
+            }
+          }
+        } else if (elem.bulan == 'July') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.juliclose += 1;
+            } else {
+              this.juli += 1;
+            }
+          }
+        } else if (elem.bulan == 'August') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.agustusclose += 1;
+            } else {
+              this.agustus += 1;
+            }
+          }
+        } else if (elem.bulan == 'September') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.septemberclose += 1;
+            } else {
+              this.september += 1;
+            }
+          }
+        } else if (elem.bulan == 'October') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.oktoberclose += 1;
+            } else {
+              this.oktober += 1;
+            }
+          }
+        } else if (elem.bulan == 'November') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.novemberclose += 1;
+            } else {
+              this.november += 1;
+            }
+          }
+        } else if (elem.bulan == 'December') {
+          if (elem.plant_section == "Prod OCI 1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              this.desemberclose += 1;
+            } else {
+              this.desember += 1;
+            }
+          }
+        }
+      }
+      this.januari = this.januari + this.januariclose;
+      this.febuari = this.febuari + this.febuariclose;
+      this.maret = this.maret + this.maretclose;
+      this.april = this.april + this.aprilclose;
+      this.mei = this.mei + this.meiclose;
+      this.juni = this.juni + this.juniclose;
+      this.juli = this.juli + this.juliclose;
+      this.agustus = this.agustus + this.agustusclose;
+      this.september = this.september + this.septemberclose;
+      this.oktober = this.oktober + this.oktoberclose;
+      this.november = this.november + this.novemberclose;
+      this.desember = this.desember + this.desemberclose;
+      this.chartFunction();
+    });
   }
 
   exportwo(): void {
@@ -1352,6 +1471,181 @@ export class AmMOci1Component implements OnInit {
     this.cdr.detectChanges();
   }
 
+  jumlahTemuanChange(){
+    console.log(this.month);
+    var bulanPilihan = 0;
+    this.termuanperday_jan = 0;
+    this.termuanperday_feb = 0;
+    this.termuanperday_mar = 0;
+    this.termuanperday_apr = 0;
+    this.termuanperday_mei = 0;
+    this.termuanperday_jun = 0;
+    this.termuanperday_jul = 0;
+    this.termuanperday_ags = 0;
+    this.termuanperday_sep = 0;
+    this.termuanperday_okt = 0;
+    this.termuanperday_nov = 0;
+    this.termuanperday_des = 0;
+    if(this.month == '2023-01'){
+      bulanPilihan = 1;
+    }else if(this.month == '2023-02'){
+      bulanPilihan = 2;
+    }else if(this.month == '2023-03'){
+      bulanPilihan = 3;
+    }else if(this.month == '2023-04'){
+      bulanPilihan = 4;
+    }else if(this.month == '2023-05'){
+      bulanPilihan = 5;
+    }else if(this.month == '2023-06'){
+      bulanPilihan = 6;
+    }else if(this.month == '2023-07'){
+      bulanPilihan = 7;
+    }else if(this.month == '2023-08'){
+      bulanPilihan = 8;
+    }else if(this.month == '2023-09'){
+      bulanPilihan = 9;
+    }else if(this.month == '2023-10'){
+      bulanPilihan = 10;
+    }else if(this.month == '2023-11'){
+      bulanPilihan = 11;
+    }else if(this.month == '2023-12'){
+      bulanPilihan = 12;
+    }
+    console.log(bulanPilihan);
+    this.totalfm = []
+    this.totalfm2 = []
+    this.temuanperday_data_temp = []
+
+    this.service.getTotalFeeding().subscribe(data => {
+      this.totalfm = data;
+
+      var date: any = [];
+      Object.values(this.totalfm).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
+        }
+        this.totalfm2.forEach((elem: any, i: number) => {
+          if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            date.push(elem.tanggal_temuan)
+          }
+
+          if (elem.id_area == 1) {
+
+
+            if (elem.status_pengerjaan == 'Done') {
+              if (elem.bulan == this.month) {
+                this.finishexecute += 1; this.finishexecutetop += 1;
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+            else if (elem.status2 == 'READY') {
+              if (elem.bulan == this.month) {
+                this.readyexecute += 1;
+                this.readyexecutetop += 1;
+                
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
+              if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
+                if (elem.bulan == this.month) {
+                  this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                }
+
+                this.temuanperday_data_temp.push(elem)
+              }
+            }
+            else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
+              if (elem.bulan == this.month) {
+                this.pendingexecute += 1; this.pendingexecutetop += 1; 
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+          }
+        })
+
+        this.temuanperday_data_temp.forEach((element: any) => {
+          if (element.bulan == this.bulan) {
+            this.listoftotalfinding.push(element)
+          }
+        });
+
+        console.log(this.temuanperday_data_temp);
+        
+
+         this.temuanperday_data_temp.forEach((element: any) => {
+          
+          if (element.tahun == this.autodate) {
+            if(element.id_area == 1){
+              if (element.bulan <= bulanPilihan && element.bulan == 1) {
+                this.januarielembulan.push(element)
+                this.termuanperday_jan++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 2) {
+                this.febuarielembulan.push(element)
+                this.termuanperday_feb++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 3) {
+                this.maretelembulan.push(element)
+                this.termuanperday_mar++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 4) {
+                this.aprilelembulan.push(element)
+                this.termuanperday_apr++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 5) {
+                this.meielembulan.push(element)
+                this.termuanperday_mei++
+                console.log(this.termuanperday_mei);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 6) {
+                this.junielembulan.push(element)
+                this.termuanperday_jun++
+                console.log(this.termuanperday_jun);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 7) {
+                this.julielembulan.push(element)
+                this.termuanperday_jul++
+                console.log(this.termuanperday_jul);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 8) {
+                this.agustuselembulan.push(element)
+                this.termuanperday_ags++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 9) {
+                this.septemberelembulan.push(element)
+                this.termuanperday_sep++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 10) {
+                this.oktoberelembulan.push(element)
+                this.termuanperday_okt++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 11) {
+                this.novemberelembulan.push(element)
+                this.termuanperday_nov++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 12) {
+                this.desemberelembulan.push(element)
+                this.termuanperday_des++
+              }   
+            }
+          }
+        }
+        
+        );
+        console.log(this.termuanperday_mei);
+        console.log(this.termuanperday_jun);
+        console.log(this.termuanperday_jul);
+        
+        this.bulananChart();
+
+        this.resolved = true;
+      })
+
+  
+
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
+
+    })
+    
+    
+  }
+
   bulananChart() {
     this.bulanan = {
       series: [
@@ -1494,7 +1788,7 @@ export class AmMOci1Component implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 500,
+        height: 400,
       },
       plotOptions: {
         bar: {
@@ -2610,7 +2904,7 @@ export class AmMOci1Component implements OnInit {
         this.oktober = this.oktober + this.oktoberclose;
         this.november = this.november + this.novemberclose;
         this.desember = this.desember + this.desemberclose;
-        this.chartdestroy?.destroy();
+        this.chartdestroy.destroy();
         this.chartdestroy = new Chart("valuepermonthchart", {
           type: "bar",
           data: {
@@ -2856,7 +3150,8 @@ export class AmMOci1Component implements OnInit {
           });
 
            this.temuanperday_data_temp.forEach((element: any) => {
-
+            console.log(element);
+            
             if (element.tahun == this.autodate) {
               if(element.id_area == 1){
                 if (element.bulan == 1) {
@@ -2919,47 +3214,10 @@ export class AmMOci1Component implements OnInit {
             this.temuanperday_dum = 0
 
           });
-          //console.log(this.temuanperday_label);
           
 
           this.bulananChart();
           this.hariChart();
-
-          // new Chart('totalfinding', {
-          //   type: 'bar',
-          //   data: {
-          //     labels: this.temuanperday_label,
-          //     datasets: [
-          //       {
-          //         label: 'Total Finding Per Hari',
-          //         data: this.temuanperday_data,
-          //         backgroundColor: '#CBFFA9',
-          //         borderColor: [
-          //           'white',
-          //         ],
-          //         borderWidth: 1
-          //       },
-          //     ]
-          //   },
-          // });
-
-          // new Chart('totalfindingbulan', {
-          //   type: 'bar',
-          //   data: {
-          //     labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
-          //     datasets: [
-          //       {
-          //         label: 'Total Finding Per Bulan',
-          //         data: [this.termuanperday_jan, this.termuanperday_feb, this.termuanperday_mar, this.termuanperday_apr, this.termuanperday_mei, this.termuanperday_jun, this.termuanperday_jul, this.termuanperday_ags, this.termuanperday_sep, this.termuanperday_okt, this.termuanperday_nov, this.termuanperday_des],
-          //         backgroundColor: '#7fe7dc',
-          //         borderColor: [
-          //           'white',
-          //         ],
-          //         borderWidth: 1
-          //       },
-          //     ]
-          //   },
-          // });
 
           this.dum = new Chart('dum', {
             type: 'bar',
