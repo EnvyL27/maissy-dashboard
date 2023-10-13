@@ -134,11 +134,39 @@ export class PdmMOci1Component implements OnInit {
   }
 
   totaldataChange(){
+    var bulanPilih: any;
+    if(this.currentChange == '2023-01'){
+      bulanPilih = 1;
+    }else if(this.currentChange == '2023-02'){
+      bulanPilih = 2;
+    }else if(this.currentChange == '2023-03'){
+      bulanPilih = 3;
+    }else if(this.currentChange == '2023-04'){
+      bulanPilih = 4;
+    }else if(this.currentChange == '2023-05'){
+      bulanPilih = 5;
+    }else if(this.currentChange == '2023-06'){
+      bulanPilih = 6;
+    }else if(this.currentChange == '2023-07'){
+      bulanPilih = 7;
+    }else if(this.currentChange == '2023-08'){
+      bulanPilih = 8;
+    }else if(this.currentChange == '2023-09'){
+      bulanPilih = 9;
+    }else if(this.currentChange == '2023-10'){
+      bulanPilih = 10;
+    }else if(this.currentChange == '2023-11'){
+      bulanPilih = 11;
+    }else if(this.currentChange == '2023-12'){
+      bulanPilih = 12;
+    }
+    // console.log(bulanPilih);
+    
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
-    
-    this.service.getOci1Valuemonth(this.currentChange).subscribe(data => {
-      //console.log(this.currentChange);
+    this.valuemonth = []
+    this.service.getOci1Valuemonth(this.current).subscribe(data => {
+      // console.log(this.currentChange);
       
       //console.log(data);
       
@@ -153,34 +181,41 @@ export class PdmMOci1Component implements OnInit {
         for (let i = 0; i < array.length; i++) {
           this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
         }
+        console.log(this.valuemonthlist);
+        
         for (let elem of this.valuemonthlist) {
-          if (elem.bulan == 'January') {
+          console.log('ha');
+          
+          console.log(elem);
+          
+          if (elem.month == 1 && elem.month <= bulanPilih) {
             this.januari += 1;
-          } else if (elem.bulan == 'February') {
+          } else if (elem.month == 2 && elem.month <= bulanPilih) {
             this.febuari += 1;
-          } else if (elem.bulan == 'March') {
+          } else if (elem.month == 3 && elem.month <= bulanPilih) {
             this.maret += 1;
-          } else if (elem.bulan == 'April') {
+          } else if (elem.month == 4 && elem.month <= bulanPilih) {
             this.april += 1;
-          } else if (elem.bulan == 'May') {
+          } else if (elem.month == 5 && elem.month <= bulanPilih) {
             this.mei += 1;
-          } else if (elem.bulan == 'June') {
+          } else if (elem.month == 6 && elem.month <= bulanPilih) {
             this.juni += 1;
-          } else if (elem.bulan == 'July') {
+          } else if (elem.month == 7 && elem.month <= bulanPilih) {
             this.juli += 1;
-          } else if (elem.bulan == 'August') {
+          } else if (elem.month == 8 && elem.month <= bulanPilih) {
             this.agustus += 1;
-          } else if (elem.bulan == 'September') {
+          } else if (elem.month == 9 && elem.month <= bulanPilih) {
             this.september += 1;
-          } else if (elem.bulan == 'October') {
+          } else if (elem.month == 10 && elem.month <= bulanPilih) {
             this.oktober += 1;
-          } else if (elem.bulan == 'November') {
+          } else if (elem.month == 11 && elem.month <= bulanPilih) {
             this.november += 1;
-          } else if (elem.bulan == 'December') {
+          } else if (elem.month == 12 && elem.month <= bulanPilih) {
             this.desember += 1;
           }
         }
-
+        console.log(this.juni);
+        
         this.totaldatayear.destroy();
 
         this.totaldatayear = new Chart("valuepermonthchart", {
@@ -1119,7 +1154,7 @@ export class PdmMOci1Component implements OnInit {
             this.totalasset = elem.total;
           }
           this.service.getOci1Valuemonth(this.current).subscribe(data => {
-            //console.log(this.current);
+            console.log(this.current);
             
             //console.log(data);
             
@@ -1134,30 +1169,32 @@ export class PdmMOci1Component implements OnInit {
               for (let i = 0; i < array.length; i++) {
                 this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
               }
+              console.log(this.valuemonthlist);
+              
               for (let elem of this.valuemonthlist) {
-                if (elem.bulan == 'January') {
+                if (elem.month == 1) {
                   this.januari += 1;
-                } else if (elem.bulan == 'February') {
+                } else if (elem.month == 2) {
                   this.febuari += 1;
-                } else if (elem.bulan == 'March') {
+                } else if (elem.month == 3) {
                   this.maret += 1;
-                } else if (elem.bulan == 'April') {
+                } else if (elem.month == 4) {
                   this.april += 1;
-                } else if (elem.bulan == 'May') {
+                } else if (elem.month == 5) {
                   this.mei += 1;
-                } else if (elem.bulan == 'June') {
+                } else if (elem.month == 6) {
                   this.juni += 1;
-                } else if (elem.bulan == 'July') {
+                } else if (elem.month == 7) {
                   this.juli += 1;
-                } else if (elem.bulan == 'August') {
+                } else if (elem.month == 8) {
                   this.agustus += 1;
-                } else if (elem.bulan == 'September') {
+                } else if (elem.month == 9) {
                   this.september += 1;
-                } else if (elem.bulan == 'October') {
+                } else if (elem.month == 10) {
                   this.oktober += 1;
-                } else if (elem.bulan == 'November') {
+                } else if (elem.month == 11) {
                   this.november += 1;
-                } else if (elem.bulan == 'December') {
+                } else if (elem.month == 12) {
                   this.desember += 1;
                 }
               }

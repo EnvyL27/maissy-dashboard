@@ -1474,17 +1474,17 @@ export class AmMOci1Component implements OnInit {
   jumlahTemuanChange(){
     console.log(this.month);
     var bulanPilihan = 0;
-    this.termuanperday_jan = 0;
-    this.termuanperday_feb = 0;
-    this.termuanperday_mar = 0;
-    this.termuanperday_apr = 0;
-    this.termuanperday_mei = 0;
-    this.termuanperday_jun = 0;
-    this.termuanperday_jul = 0;
-    this.termuanperday_ags = 0;
-    this.termuanperday_sep = 0;
-    this.termuanperday_okt = 0;
-    this.termuanperday_nov = 0;
+    this.termuanperday_jan =
+    this.termuanperday_feb =
+    this.termuanperday_mar =
+    this.termuanperday_apr =
+    this.termuanperday_mei =
+    this.termuanperday_jun =
+    this.termuanperday_jul =
+    this.termuanperday_ags =
+    this.termuanperday_sep =
+    this.termuanperday_okt =
+    this.termuanperday_nov =
     this.termuanperday_des = 0;
     if(this.month == '2023-01'){
       bulanPilihan = 1;
@@ -1518,7 +1518,8 @@ export class AmMOci1Component implements OnInit {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-
+      console.log(data);
+      
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
         var array = Object.keys(data).map(function (key) {
@@ -3113,7 +3114,8 @@ export class AmMOci1Component implements OnInit {
                 if (elem.bulan == this.month) {
                   this.finishexecute += 1; this.finishexecutetop += 1;
                 }
-
+                console.log(elem);
+                
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
@@ -3151,6 +3153,7 @@ export class AmMOci1Component implements OnInit {
 
            this.temuanperday_data_temp.forEach((element: any) => {
             console.log(element);
+            
             
             if (element.tahun == this.autodate) {
               if(element.id_area == 1){
@@ -3198,7 +3201,7 @@ export class AmMOci1Component implements OnInit {
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
-              // //console.log(elem);
+              console.log(elem);
               
               if (elem.bulan == this.month) {
                 if (elem.tanggal_temuan == element) {
