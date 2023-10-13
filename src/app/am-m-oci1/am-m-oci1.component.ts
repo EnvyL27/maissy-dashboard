@@ -1472,7 +1472,6 @@ export class AmMOci1Component implements OnInit {
   }
 
   jumlahTemuanChange(){
-    console.log(this.month);
     var bulanPilihan = 0;
     this.termuanperday_jan =
     this.termuanperday_feb =
