@@ -1515,6 +1515,8 @@ export class AmMOci1Component implements OnInit {
     this.totalfm = []
     this.totalfm2 = []
     this.temuanperday_data_temp = []
+    this.temuanperday_data = []
+    this.temuanperday_label = []
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
@@ -1576,7 +1578,28 @@ export class AmMOci1Component implements OnInit {
           }
         });
 
-        console.log(this.temuanperday_data_temp);
+        date.forEach((element: any) => {
+
+          this.temuanperday_data_temp.forEach((elem: any) => {
+            
+            if (elem.bulan == bulanPilihan) {
+              console.log(elem);
+              
+              if (elem.tanggal_temuan == element) {
+                this.temuanperday_dum++
+              }
+            }
+          });
+          if (this.temuanperday_dum != 0) {
+            this.temuanperday_label.push(element)
+            this.temuanperday_data.push(this.temuanperday_dum)
+          }
+
+          this.temuanperday_dum = 0
+
+        });
+
+        // console.log(this.temuanperday_data_temp);
         
 
          this.temuanperday_data_temp.forEach((element: any) => {
@@ -1628,11 +1651,9 @@ export class AmMOci1Component implements OnInit {
         }
         
         );
-        console.log(this.termuanperday_mei);
-        console.log(this.termuanperday_jun);
-        console.log(this.termuanperday_jul);
         
         this.bulananChart();
+        this.hariChart();
 
         this.resolved = true;
       })
@@ -3114,7 +3135,7 @@ export class AmMOci1Component implements OnInit {
                 if (elem.bulan == this.month) {
                   this.finishexecute += 1; this.finishexecutetop += 1;
                 }
-                console.log(elem);
+                // console.log(elem);
                 
                 this.temuanperday_data_temp.push(elem)
               }
@@ -3152,7 +3173,7 @@ export class AmMOci1Component implements OnInit {
           });
 
            this.temuanperday_data_temp.forEach((element: any) => {
-            console.log(element);
+            // console.log(element);
             
             
             if (element.tahun == this.autodate) {
@@ -3201,7 +3222,7 @@ export class AmMOci1Component implements OnInit {
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
-              console.log(elem);
+              // console.log(elem);
               
               if (elem.bulan == this.month) {
                 if (elem.tanggal_temuan == element) {
