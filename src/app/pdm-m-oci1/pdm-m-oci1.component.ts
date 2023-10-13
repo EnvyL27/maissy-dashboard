@@ -275,33 +275,6 @@ export class PdmMOci1Component implements OnInit {
         // this.spinner.hide();
         this.resolved = true;
       })
-      // //console.log(this.totalfinishtoday2);
-      
-      // Object.values(this.totalfinishtdy).forEach(data => {
-      //   // // ////////////////console.log(data);
-      //   var array = Object.keys(data).map(function (key) {
-      //     return data[key];
-      //   });
-      //   // // ////////////////console.log(array);
-      //   for (let i = 0; i < array.length; i++) {
-      //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
-      //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
-      //   }
-      // })
-
-      // // //////////////console.log(this.totalfinishtoday2);
-      // //////////////console.log(this.totalfinishtdy2);
-      // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
-      // }
-
-      // for (let i = 0; i < this.totalfinishtdy2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
-      // }
-
-      //////////////console.log(this.totalfinishresult);
-
-
 
     }
     );

@@ -445,6 +445,12 @@ export class CountService {
   getReadHistoryCheckoci1(tgl1: any, tgl2: any) {
     return this.httpClient.post(api + "historycheckoci1", {tgl1 :tgl1, tgl2 : tgl2});
   }
+  getReadHistoryCheckoci2(tgl1: any, tgl2: any) {
+    return this.httpClient.post(api + "historycheckoci2", {tgl1 :tgl1, tgl2 : tgl2});
+  }
+  getReadHistoryCheckfsb(tgl1: any, tgl2: any) {
+    return this.httpClient.post(api + "historycheckfsb", {tgl1 :tgl1, tgl2 : tgl2});
+  }
 
   getReadFinishTodayoci1TestName() {
     return this.httpClient.get(api + "finishtodaylistoci1testname");

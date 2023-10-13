@@ -223,6 +223,24 @@ export class PdmMOci2Component implements OnInit {
     this.totalfinishtoday2 = [];
     // //console.log(this.tgl1);
     
+    this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
+      console.log(this.tgl2 + '  ' + this.tgl3);
+      
+      console.log(data);
+      this.totalfinishtoday = data;
+
+      Object.values(this.totalfinishtoday).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          // this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+          this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+        }
+        // this.spinner.hide();
+        this.resolved = true;
+      })
+    })
 
     this.service.getReadFinishTodayoci2(this.tgl1).subscribe(data => {
 
@@ -289,6 +307,8 @@ export class PdmMOci2Component implements OnInit {
   searchText: any;
   searchDate: any = moment().format("YYYY-MM-DD");
   tgl1: any = moment().format("YYYY-MM-DD");
+  tgl2: any = moment().format("YYYY-MM-01");
+  tgl3: any = moment().format("YYYY-MM-DD");
   searchDate1: any;
   searchDate2: any;
   searchText2: any;
@@ -662,13 +682,26 @@ export class PdmMOci2Component implements OnInit {
   }
   daterange() {
     this.totalfinishtoday2down = [];
-    for (let i = 0; i < this.totalfinishtoday2.length; i++) {
-      this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, this.totalfinishtoday2[i]);
-    }
-    this.totalfinishtoday2down = this.totalfinishtoday2down.filter((e: any) => {
-      return e.getdate >= this.searchDate1 &&
-        e.getdate <= this.searchDate2;
-    });
+    console.log(this.totalfinishtoday2);
+
+    this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
+      console.log(this.tgl2 + '  ' + this.tgl3);
+      
+      console.log(data);
+      this.totalfinishtoday = data;
+
+      Object.values(this.totalfinishtoday).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          // this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+          this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+        }
+        // this.spinner.hide();
+        this.resolved = true;
+      })
+    })
 
   }
   data($event: any, $event2: any) {
@@ -1444,6 +1477,25 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
+      this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
+        console.log(this.tgl2 + '  ' + this.tgl3);
+        
+        console.log(data);
+        this.totalfinishtoday = data;
+  
+        Object.values(this.totalfinishtoday).forEach(data => {
+          var array = Object.keys(data).map(function (key) {
+            return data[key];
+          });
+          for (let i = 0; i < array.length; i++) {
+            // this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+            this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+          }
+          // this.spinner.hide();
+          this.resolved = true;
+        })
+      })
+  
       this.service.getReadFinishTodayoci2(this.tgl1).subscribe(data => {
         //////////////console.log(data);
 
@@ -1457,37 +1509,11 @@ export class PdmMOci2Component implements OnInit {
           // // ////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
-            // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+            this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
           }
           this.spinner.hide();
           this.resolved = true;
         })
-
-        // Object.values(this.totalfinishtdy).forEach(data => {
-        //   // // ////////////////console.log(data);
-        //   var array = Object.keys(data).map(function (key) {
-        //     return data[key];
-        //   });
-        //   // // ////////////////console.log(array);
-        //   for (let i = 0; i < array.length; i++) {
-        //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
-        //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
-        //   }
-        // })
-
-        // // //////////////console.log(this.totalfinishtoday2);
-        // //////////////console.log(this.totalfinishtdy2);
-        // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
-        //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
-        // }
-
-        // for (let i = 0; i < this.totalfinishtdy2.length; i++) {
-        //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
-        // }
-
-        //////////////console.log(this.totalfinishresult);
-
-
 
       }
       );
