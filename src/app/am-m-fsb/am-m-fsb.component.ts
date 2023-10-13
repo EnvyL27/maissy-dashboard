@@ -1328,6 +1328,202 @@ export class AmMFsbComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  jumlahTemuanChange(){
+    var bulanPilihan = 0;
+    this.termuanperday_jan =
+    this.termuanperday_feb =
+    this.termuanperday_mar =
+    this.termuanperday_apr =
+    this.termuanperday_mei =
+    this.termuanperday_jun =
+    this.termuanperday_jul =
+    this.termuanperday_ags =
+    this.termuanperday_sep =
+    this.termuanperday_okt =
+    this.termuanperday_nov =
+    this.termuanperday_des = 0;
+    if(this.month == '2023-01'){
+      bulanPilihan = 1;
+    }else if(this.month == '2023-02'){
+      bulanPilihan = 2;
+    }else if(this.month == '2023-03'){
+      bulanPilihan = 3;
+    }else if(this.month == '2023-04'){
+      bulanPilihan = 4;
+    }else if(this.month == '2023-05'){
+      bulanPilihan = 5;
+    }else if(this.month == '2023-06'){
+      bulanPilihan = 6;
+    }else if(this.month == '2023-07'){
+      bulanPilihan = 7;
+    }else if(this.month == '2023-08'){
+      bulanPilihan = 8;
+    }else if(this.month == '2023-09'){
+      bulanPilihan = 9;
+    }else if(this.month == '2023-10'){
+      bulanPilihan = 10;
+    }else if(this.month == '2023-11'){
+      bulanPilihan = 11;
+    }else if(this.month == '2023-12'){
+      bulanPilihan = 12;
+    }
+    console.log(bulanPilihan);
+    this.totalfm = []
+    this.totalfm2 = []
+    this.temuanperday_data_temp = []
+    this.temuanperday_data = []
+    this.temuanperday_label = []
+
+    this.service.getTotalFeeding().subscribe(data => {
+      this.totalfm = data;
+      console.log(data);
+      
+      var date: any = [];
+      Object.values(this.totalfm).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
+        }
+        this.totalfm2.forEach((elem: any, i: number) => {
+          if (elem.id_area == 3 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
+            date.push(elem.tanggal_temuan)
+          }
+
+          if (elem.id_area == 3) {
+
+
+            if (elem.status_pengerjaan == 'Done') {
+              if (elem.bulan == this.month) {
+                this.finishexecute += 1; this.finishexecutetop += 1;
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+            else if (elem.status2 == 'READY') {
+              if (elem.bulan == this.month) {
+                this.readyexecute += 1;
+                this.readyexecutetop += 1;
+                
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
+              if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
+                if (elem.bulan == this.month) {
+                  this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                }
+
+                this.temuanperday_data_temp.push(elem)
+              }
+            }
+            else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
+              if (elem.bulan == this.month) {
+                this.pendingexecute += 1; this.pendingexecutetop += 1; 
+              }
+
+              this.temuanperday_data_temp.push(elem)
+            }
+          }
+        })
+
+        this.temuanperday_data_temp.forEach((element: any) => {
+          if (element.bulan == this.bulan) {
+            this.listoftotalfinding.push(element)
+          }
+        });
+
+        date.forEach((element: any) => {
+
+          this.temuanperday_data_temp.forEach((elem: any) => {
+            
+            if (elem.bulan == bulanPilihan) {
+              console.log(elem);
+              
+              if (elem.tanggal_temuan == element) {
+                this.temuanperday_dum++
+              }
+            }
+          });
+          if (this.temuanperday_dum != 0) {
+            this.temuanperday_label.push(element)
+            this.temuanperday_data.push(this.temuanperday_dum)
+          }
+
+          this.temuanperday_dum = 0
+
+        });
+
+        // console.log(this.temuanperday_data_temp);
+        
+
+         this.temuanperday_data_temp.forEach((element: any) => {
+          
+          if (element.tahun == this.autodate) {
+            if(element.id_area == 3){
+              if (element.bulan <= bulanPilihan && element.bulan == 1) {
+                this.januarielembulan.push(element)
+                this.termuanperday_jan++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 2) {
+                this.febuarielembulan.push(element)
+                this.termuanperday_feb++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 3) {
+                this.maretelembulan.push(element)
+                this.termuanperday_mar++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 4) {
+                this.aprilelembulan.push(element)
+                this.termuanperday_apr++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 5) {
+                this.meielembulan.push(element)
+                this.termuanperday_mei++
+                console.log(this.termuanperday_mei);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 6) {
+                this.junielembulan.push(element)
+                this.termuanperday_jun++
+                console.log(this.termuanperday_jun);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 7) {
+                this.julielembulan.push(element)
+                this.termuanperday_jul++
+                console.log(this.termuanperday_jul);
+              } else if (element.bulan <= bulanPilihan && element.bulan == 8) {
+                this.agustuselembulan.push(element)
+                this.termuanperday_ags++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 9) {
+                this.septemberelembulan.push(element)
+                this.termuanperday_sep++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 10) {
+                this.oktoberelembulan.push(element)
+                this.termuanperday_okt++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 11) {
+                this.novemberelembulan.push(element)
+                this.termuanperday_nov++
+              } else if (element.bulan <= bulanPilihan && element.bulan == 12) {
+                this.desemberelembulan.push(element)
+                this.termuanperday_des++
+              }   
+            }
+          }
+        }
+        
+        );
+        
+        this.bulananChart();
+        this.hariChart();
+
+        this.resolved = true;
+      })
+
+  
+
+    }, (error: any) => { }, () => {
+      this.spinner.hide();
+
+    })
+    
+    
+  }
+
   bulananChart() {
     this.bulanan = {
       series: [
@@ -1470,7 +1666,7 @@ export class AmMFsbComponent implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 500,
+        height: 400,
       },
       plotOptions: {
         bar: {

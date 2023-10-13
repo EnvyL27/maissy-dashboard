@@ -1631,7 +1631,7 @@ export class AmMOci2Component implements OnInit {
       ],
       chart: {
         type: "bar",
-        height: 500,
+        height: 400,
       },
       plotOptions: {
         bar: {
