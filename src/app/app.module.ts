@@ -88,6 +88,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SnkComponent } from './snk/snk.component';
 import { EnergyIndexComponent } from './energy-index/energy-index.component';
+import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
+import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
 
 
 
@@ -170,6 +172,8 @@ import { EnergyIndexComponent } from './energy-index/energy-index.component';
     NotFoundComponent,
     SnkComponent,
     EnergyIndexComponent,
+    EnergyUsageComponent,
+    EnergyUsageYearlyComponent,
 
   ],
   imports: [

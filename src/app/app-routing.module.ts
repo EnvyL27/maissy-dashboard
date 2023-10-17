@@ -71,13 +71,17 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './service/guard/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EnergyIndexComponent } from './energy-index/energy-index.component';
+import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
+import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
 
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'pdm_dashboard', component: PdmDashboardComponent, canActivate: [AuthGuard]},
-  {path: 'energy_dashboard', component: EnergyIndexComponent, canActivate: [AuthGuard]},
+  {path: 'energy_review', component: EnergyIndexComponent, canActivate: [AuthGuard]},
+  {path: 'energy_usage_monthly', component: EnergyUsageComponent, canActivate: [AuthGuard]},
+  {path: 'energy_usage_yearly', component: EnergyUsageYearlyComponent, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},
