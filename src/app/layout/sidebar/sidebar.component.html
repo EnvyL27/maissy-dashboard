@@ -1938,7 +1938,7 @@ else lain6
                       class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy Usage</a>
                   </li>
               </div>
-              <div *ngIf="energyUsgSub" class="ml-6">
+              <div *ngIf="energyUsgSub && energySrcSub" class="ml-6">
                 <div *ngIf="router.url === '/energy_usage_monthly'; else kategori2">
                   <li class="ml-6">
                     <a routerLink="energy_usage_monthly"
@@ -2057,7 +2057,7 @@ else lain6
                     <a (click)="enusmonitoringsub()"
                       class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy Usage</a>
                   </li>
-                  <li *ngIf="energyUsgSub" class="ml-6">
+                  <li *ngIf="energyUsgSub && energySrcSub" class="ml-6">
                     <ul>
                       <li>
                         <a  routerLink="energy_usage_monthly"
