@@ -317,7 +317,7 @@
             <li class="ml-6">
               <a routerLink="am_m_oci2"
                 class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Energy
-                Usage</a>
+                Source</a>
             </li>
             <li class="ml-6">
               <a routerLink="am_m_fsb"
@@ -1863,7 +1863,7 @@ else lain6
       router.url === '/energy_review' ||
         router.url === '/energy_usage_monthly' ||
         router.url === '/energy_usage_yearly' ||
-        router.url === '/am_m_utileng';
+        router.url === '/energy_overview';
       else lainEnergy
     ">
           <li
@@ -1896,11 +1896,11 @@ else lain6
             <br />
           </li>
           <li *ngIf="energySub" class="ml-6">
-            <ul class="">
+            <ul>
               <div *ngIf="router.url === '/energy_review'; else kategori1">
                 <li class="ml-6">
                   <a routerLink="energy_review"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Energy
+                    class="flex  shadow-soft-md bg-white items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  px-8">Energy
                     Review</a>
                 </li>
               </div>
@@ -1942,7 +1942,7 @@ else lain6
                 <div *ngIf="router.url === '/energy_usage_monthly'; else kategori2">
                   <li class="ml-6">
                     <a routerLink="energy_usage_monthly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
                   </li>
                 </div>
                 <ng-template #kategori2>
@@ -1954,7 +1954,7 @@ else lain6
                 <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriyear">
                   <li class="ml-6">
                     <a routerLink="energy_usage_yearly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
                   </li>
                 </div>
                 <ng-template #kategoriyear>
@@ -1965,10 +1965,18 @@ else lain6
                 </ng-template>
               </div>
               <div *ngIf="energySrcSub" class="ml-6">
-                <li class="ml-6">
-                  <a 
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Overview</a>
-                </li>
+                <div *ngIf="router.url === '/energy_overview'; else kategoriovr">
+                  <li class="ml-6">
+                    <a routerLink="energy_overview"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
+                  </li>
+                </div>
+                <ng-template #kategoriovr>
+                  <li class="ml-6">
+                    <a routerLink="energy_overview"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
+                  </li>
+                </ng-template>
               </div>
               <div *ngIf="router.url === '/energy_usage_yearly'; else kategori3">
                 <li class="ml-6">
@@ -2037,24 +2045,36 @@ else lain6
                   Review</a>
               </li>
               <li class="ml-6">
-                <button type="button" (click)="enusmonitoringsub()">
+                <button type="button" (click)="ensrcmonitoringsub()">
                   <span
                     class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy
-                    Usage</span>
+                    Source</span>
                 </button>
               </li>
-              <li *ngIf="energyUsgSub" class="ml-6">
+              <div *ngIf="energySrcSub" class="ml-6">
                 <ul>
                   <li>
-                    <a routerLink="energy_usage_monthly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-16">Monthly</a>
+                    <a (click)="enusmonitoringsub()"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy Usage</a>
+                  </li>
+                  <li *ngIf="energyUsgSub" class="ml-6">
+                    <ul>
+                      <li>
+                        <a  routerLink="energy_usage_monthly"
+                          class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Monthly</a>
+                      </li>
+                      <li>
+                        <a routerLink="energy_usage_yearly"
+                          class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Yearly</a>
+                      </li>
+                    </ul>
                   </li>
                   <li>
                     <a routerLink="energy_usage_yearly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-16">Yearly</a>
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Overview</a>
                   </li>
                 </ul>
-              </li>
+              </div>
               <li class="ml-6">
                 <a routerLink="am_m_fsb"
                   class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg pl-8">FSB</a>

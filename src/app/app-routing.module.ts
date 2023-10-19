@@ -73,6 +73,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EnergyIndexComponent } from './energy-index/energy-index.component';
 import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
 import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
+import { EnergyOverviewComponent } from './energy-overview/energy-overview.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -82,6 +83,7 @@ const routes: Routes = [
   {path: 'energy_review', component: EnergyIndexComponent, canActivate: [AuthGuard]},
   {path: 'energy_usage_monthly', component: EnergyUsageComponent, canActivate: [AuthGuard]},
   {path: 'energy_usage_yearly', component: EnergyUsageYearlyComponent, canActivate: [AuthGuard]},
+  {path: 'energy_overview', component: EnergyOverviewComponent, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},

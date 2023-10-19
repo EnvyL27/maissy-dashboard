@@ -90,6 +90,7 @@ import { SnkComponent } from './snk/snk.component';
 import { EnergyIndexComponent } from './energy-index/energy-index.component';
 import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
 import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
+import { EnergyOverviewComponent } from './energy-overview/energy-overview.component';
 
 
 
@@ -174,6 +175,7 @@ import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-y
     EnergyIndexComponent,
     EnergyUsageComponent,
     EnergyUsageYearlyComponent,
+    EnergyOverviewComponent,
 
   ],
   imports: [
