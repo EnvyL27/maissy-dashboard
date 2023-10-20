@@ -94,6 +94,9 @@ import { EnergyOverviewComponent } from './energy-overview/energy-overview.compo
 import { EnergyDailyReportComponent } from './energy-daily-report/energy-daily-report.component';
 import { EnergyMonthlyReportComponent } from './energy-monthly-report/energy-monthly-report.component';
 import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekly-report.component';
+import { SeuDailyComponent } from './seu-daily/seu-daily.component';
+import { SeuYearComponent } from './seu-year/seu-year.component';
+import { SeuYear2Component } from './seu-year2/seu-year2.component';
 
 
 
@@ -182,6 +185,9 @@ import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekl
     EnergyDailyReportComponent,
     EnergyMonthlyReportComponent,
     EnergyWeeklyReportComponent,
+    SeuDailyComponent,
+    SeuYearComponent,
+    SeuYear2Component,
 
   ],
   imports: [

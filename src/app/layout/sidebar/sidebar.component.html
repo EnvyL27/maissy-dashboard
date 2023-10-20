@@ -1866,7 +1866,11 @@ else lain6
         router.url === '/energy_overview' ||
         router.url === '/energy_report/daily' ||
         router.url === '/energy_report/weekly' ||
-        router.url === '/energy_report/monthly';
+        router.url === '/energy_report/monthly' ||
+        router.url === '/seu/daily'||
+        router.url === '/seu/yearly_2022'||
+        router.url === '/seu/yearly_2023'
+        ;
       else lainEnergy
     ">
           <li
@@ -1919,20 +1923,20 @@ else lain6
               else lainEnus
               ">
                 <li class="ml-6">
-                  <button type="button" (click)="ensrcmonitoringsub()">
+                  <a (click)="ensrcmonitoringsub()">
                     <span
                       class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
                       Source</span>
-                  </button>
+                  </a>
                 </li>
               </div>
               <ng-template #lainEnus>
                 <li class="ml-6">
-                  <button type="button" (click)="ensrcmonitoringsub()">
+                  <a (click)="ensrcmonitoringsub()">
                     <span
                       class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
                       Source</span>
-                  </button>
+                  </a>
                 </li>
               </ng-template>
               <div *ngIf="energySrcSub" class="ml-6">
@@ -2028,6 +2032,56 @@ else lain6
                   <li class="ml-6">
                     <a routerLink="/energy_report/monthly"
                       class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
+                  </li>
+                </ng-template>
+              </div>
+              <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriSeu">
+                <li class="ml-6">
+                  <a (click)="seu()"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Machine SEU</a>
+                </li>
+              </div>
+              <ng-template #kategoriSeu>
+                <li class="ml-6">
+                  <a (click)="seu()"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Machine SEU</a>
+                </li>
+              </ng-template>
+              <div *ngIf="seuSub" class="ml-6">
+                <div *ngIf="router.url === '/seu/daily'; else seuDaily">
+                  <li class="ml-6">
+                    <a routerLink="/seu/daily"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
+                  </li>
+                </div>
+                <ng-template #seuDaily>
+                  <li class="ml-6">
+                    <a routerLink="/seu/daily"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/seu/yearly_2022'; else seuYear">
+                  <li class="ml-6">
+                    <a routerLink="/seu/yearly_2022"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly 2022</a>
+                  </li>
+                </div>
+                <ng-template #seuYear>
+                  <li class="ml-6">
+                    <a routerLink="/seu/yearly_2022"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly 2022</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/seu/yearly_2023'; else seuYear2">
+                  <li class="ml-6">
+                    <a routerLink="/seu/yearly_2023"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly 2023</a>
+                  </li>
+                </div>
+                <ng-template #seuYear2>
+                  <li class="ml-6">
+                    <a routerLink="/seu/yearly_2023"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly 2023</a>
                   </li>
                 </ng-template>
               </div>

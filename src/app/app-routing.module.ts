@@ -77,6 +77,9 @@ import { EnergyOverviewComponent } from './energy-overview/energy-overview.compo
 import { EnergyDailyReportComponent } from './energy-daily-report/energy-daily-report.component';
 import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekly-report.component';
 import { EnergyMonthlyReportComponent } from './energy-monthly-report/energy-monthly-report.component';
+import { SeuDailyComponent } from './seu-daily/seu-daily.component';
+import { SeuYearComponent } from './seu-year/seu-year.component';
+import { SeuYear2Component } from './seu-year2/seu-year2.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -90,6 +93,9 @@ const routes: Routes = [
   {path: 'energy_report/daily', component: EnergyDailyReportComponent, canActivate: [AuthGuard]},
   {path: 'energy_report/weekly', component: EnergyWeeklyReportComponent, canActivate: [AuthGuard]},
   {path: 'energy_report/monthly', component: EnergyMonthlyReportComponent, canActivate: [AuthGuard]},
+  {path: 'seu/daily', component: SeuDailyComponent, canActivate: [AuthGuard]},
+  {path: 'seu/yearly_2022', component: SeuYearComponent, canActivate: [AuthGuard]},
+  {path: 'seu/yearly_2023', component: SeuYear2Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},
