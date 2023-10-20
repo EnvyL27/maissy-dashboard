@@ -80,6 +80,10 @@ import { EnergyMonthlyReportComponent } from './energy-monthly-report/energy-mon
 import { SeuDailyComponent } from './seu-daily/seu-daily.component';
 import { SeuYearComponent } from './seu-year/seu-year.component';
 import { SeuYear2Component } from './seu-year2/seu-year2.component';
+import { RecComponent } from './rec/rec.component';
+import { SolarComponent } from './solar/solar.component';
+import { EmissionComponent } from './emission/emission.component';
+import { ToeComponent } from './toe/toe.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -96,6 +100,10 @@ const routes: Routes = [
   {path: 'seu/daily', component: SeuDailyComponent, canActivate: [AuthGuard]},
   {path: 'seu/yearly_2022', component: SeuYearComponent, canActivate: [AuthGuard]},
   {path: 'seu/yearly_2023', component: SeuYear2Component, canActivate: [AuthGuard]},
+  {path: 'renew/rec', component: RecComponent, canActivate: [AuthGuard]},
+  {path: 'renew/solar_pv', component: SolarComponent, canActivate: [AuthGuard]},
+  {path: 'emission', component: EmissionComponent, canActivate: [AuthGuard]},
+  {path: 'energy/ton-oil-eqv', component: ToeComponent, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},

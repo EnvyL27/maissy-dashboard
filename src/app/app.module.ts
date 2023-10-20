@@ -97,6 +97,10 @@ import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekl
 import { SeuDailyComponent } from './seu-daily/seu-daily.component';
 import { SeuYearComponent } from './seu-year/seu-year.component';
 import { SeuYear2Component } from './seu-year2/seu-year2.component';
+import { RecComponent } from './rec/rec.component';
+import { SolarComponent } from './solar/solar.component';
+import { EmissionComponent } from './emission/emission.component';
+import { ToeComponent } from './toe/toe.component';
 
 
 
@@ -188,6 +192,10 @@ import { SeuYear2Component } from './seu-year2/seu-year2.component';
     SeuDailyComponent,
     SeuYearComponent,
     SeuYear2Component,
+    RecComponent,
+    SolarComponent,
+    EmissionComponent,
+    ToeComponent,
 
   ],
   imports: [
