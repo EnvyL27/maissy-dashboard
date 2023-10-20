@@ -1,0 +1,32 @@
+<div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6">
+    <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' ">
+        <!-- <div class="relative flex flex-col min-w-0 break-words shadow-soft-2xl bg-white rounded-2xl mb-1 bg-clip-border">
+        <div class="flex-auto p-6">-->
+        <div style="position:-webkit-sticky; position:sticky; top:0;z-index:100;"
+         class="relative flex flex-col mt-2 mb-4 min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-1">
+            <div class="wrapper">
+              <h5 class="typing-demo font-bold py-4">Weekly Report Energy</h5>
+            </div>
+          </div>
+        </div>
+        <div class="relative flex flex-col mt-2 mb-4 min-w-0 break-words overflow-hidden bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+          <div class="flex-auto p-4">
+            <div 
+                  class="flex justify-end relative flex-col mb-2 min-w-0 break-words  bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                  <div class="flex-auto p-6 w-screen ">
+                    <embed src="http://192.168.9.47/eranger/energy/report-energy/energy-report-weekly" class="w-full h-screen lg:-ml-72 lg:-mt-24">
+                  </div>
+                </div>
+          </div>
+        </div>
+        <!-- </div>
+      </div> -->
+      </div>
+      <div  [style.visibility]="(resolved === true) ? 'hidden' : 'visible' ">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="fire">
+          <p style="font-size: 20px; color: white">{{deskripsi}}</p>
+        </ngx-spinner>
+      </div>
+      
+</div>

@@ -91,6 +91,9 @@ import { EnergyIndexComponent } from './energy-index/energy-index.component';
 import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
 import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
 import { EnergyOverviewComponent } from './energy-overview/energy-overview.component';
+import { EnergyDailyReportComponent } from './energy-daily-report/energy-daily-report.component';
+import { EnergyMonthlyReportComponent } from './energy-monthly-report/energy-monthly-report.component';
+import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekly-report.component';
 
 
 
@@ -176,6 +179,9 @@ import { EnergyOverviewComponent } from './energy-overview/energy-overview.compo
     EnergyUsageComponent,
     EnergyUsageYearlyComponent,
     EnergyOverviewComponent,
+    EnergyDailyReportComponent,
+    EnergyMonthlyReportComponent,
+    EnergyWeeklyReportComponent,
 
   ],
   imports: [

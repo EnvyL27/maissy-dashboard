@@ -1863,7 +1863,10 @@ else lain6
       router.url === '/energy_review' ||
         router.url === '/energy_usage_monthly' ||
         router.url === '/energy_usage_yearly' ||
-        router.url === '/energy_overview';
+        router.url === '/energy_overview' ||
+        router.url === '/energy_report/daily' ||
+        router.url === '/energy_report/weekly' ||
+        router.url === '/energy_report/monthly';
       else lainEnergy
     ">
           <li
@@ -1980,16 +1983,54 @@ else lain6
               </div>
               <div *ngIf="router.url === '/energy_usage_yearly'; else kategori3">
                 <li class="ml-6">
-                  <a routerLink="energy_usage_yearly"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">FSB</a>
+                  <a (click)="dailyreport()"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy Report</a>
                 </li>
               </div>
               <ng-template #kategori3>
                 <li class="ml-6">
-                  <a routerLink="energy_usage_yearly"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">FSB</a>
+                  <a (click)="dailyreport()"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy Report</a>
                 </li>
               </ng-template>
+              <div *ngIf="energyDaily" class="ml-6">
+                <div *ngIf="router.url === '/energy_report/daily'; else kategoriDaily">
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/daily"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
+                  </li>
+                </div>
+                <ng-template #kategoriDaily>
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/daily"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/energy_report/weekly'; else kategoriMonthly">
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/weekly"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
+                  </li>
+                </div>
+                <ng-template #kategoriMonthly>
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/weekly"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/energy_report/monthly'; else kategorimonthly">
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/monthly"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
+                  </li>
+                </div>
+                <ng-template #kategorimonthly>
+                  <li class="ml-6">
+                    <a routerLink="/energy_report/monthly"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
+                  </li>
+                </ng-template>
+              </div>
               <!-- <div *ngIf="router.url === '/am_m_utileng'; else kategori4">
                 <li class="ml-6">
                   <a routerLink="am_m_utileng"

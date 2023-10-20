@@ -27,6 +27,7 @@ export class SidebarComponent implements OnInit {
   public energySub : boolean = false;
   public energyUsgSub : boolean = false;
   public energySrcSub : boolean = false;
+  public energyDaily : boolean = false;
   currentDate = new Date();
   constructor(
     public toastr: ToastrService,
@@ -73,6 +74,9 @@ export class SidebarComponent implements OnInit {
   }
   ensrcmonitoringsub(){
     this.energySrcSub = !this.energySrcSub;
+  }
+  dailyreport(){
+    this.energyDaily = !this.energyDaily;
   }
   pdmmonitoringsub(){
     this.sub2 = !this.sub2;

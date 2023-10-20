@@ -74,6 +74,9 @@ import { EnergyIndexComponent } from './energy-index/energy-index.component';
 import { EnergyUsageComponent } from './energy-usage/energy-usage.component';
 import { EnergyUsageYearlyComponent } from './energy-usage-yearly/energy-usage-yearly.component';
 import { EnergyOverviewComponent } from './energy-overview/energy-overview.component';
+import { EnergyDailyReportComponent } from './energy-daily-report/energy-daily-report.component';
+import { EnergyWeeklyReportComponent } from './energy-weekly-report/energy-weekly-report.component';
+import { EnergyMonthlyReportComponent } from './energy-monthly-report/energy-monthly-report.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -84,6 +87,9 @@ const routes: Routes = [
   {path: 'energy_usage_monthly', component: EnergyUsageComponent, canActivate: [AuthGuard]},
   {path: 'energy_usage_yearly', component: EnergyUsageYearlyComponent, canActivate: [AuthGuard]},
   {path: 'energy_overview', component: EnergyOverviewComponent, canActivate: [AuthGuard]},
+  {path: 'energy_report/daily', component: EnergyDailyReportComponent, canActivate: [AuthGuard]},
+  {path: 'energy_report/weekly', component: EnergyWeeklyReportComponent, canActivate: [AuthGuard]},
+  {path: 'energy_report/monthly', component: EnergyMonthlyReportComponent, canActivate: [AuthGuard]},
   {path: 'am_m_oci1',component: AmMOci1Component, canActivate: [AuthGuard]},
   {path: 'am_m_oci2',component: AmMOci2Component, canActivate: [AuthGuard]},
   {path: 'am_m_fsb', component: AmMFsbComponent, canActivate: [AuthGuard]},
