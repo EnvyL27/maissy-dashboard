@@ -649,6 +649,12 @@ export class PdmMOci2Component implements OnInit {
     }
 
   }
+
+  getphoto(dataget: any) {
+    this.picture = dataget;
+
+  }
+  
   print(): void {
     let printContents, popupWin: any;
     printContents = this.myNameElem.nativeElement.innerHTML;

@@ -322,6 +322,10 @@ export class PdmMFsbComponent implements OnInit {
   @ViewChild("target")
   target!: ElementRef;
   @ViewChild('screen', { static: true }) screen: any;
+  getphoto(dataget: any) {
+    this.picture = dataget;
+
+  }
   capture() {
     this.captureService
       .getImage(this.taptap.nativeElement, true)

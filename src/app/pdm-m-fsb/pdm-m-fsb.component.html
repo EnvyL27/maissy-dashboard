@@ -792,48 +792,61 @@
                   </div>
                 </div>
                 <div
-                  class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-                  <div class="flex-auto p-6">
-                    <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
-                    <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
-                      <table border="1" class="w-full text-lg text-left text-gray-500 dark:text-gray-400 text-center">
-                        <tbody style="height: 444px;">
-                          <tr class="border-b border-gray-200 ">
-                            <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
-                              
-                              <label for="modal-btn">
-                                <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style=" width: 100%;
-                                height: auto;" class="center"></div>
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+                <div class="flex-auto p-6">
+                  <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
+                  <div class="overflow-x-auto relative shadow-lg sm:rounded-lg">
+                    <table border="1" class="w-full text-lg text-left text-gray-500 dark:text-gray-400 text-center">
+                      <tbody style="height: 444px;">
+                        <tr class="border-b border-gray-200 ">
+                          <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
+                            <input class="modal-btn" type="checkbox" id="modal-btn" name="modal-btn" />
+                            <label for="modal-btn">
+                            </label>
+                            <div class="modal">
+                              <div class="modal-wrap xl:ml-68.5">
+                                <img src="{{picture}}" class="center">
+                              </div>
+                            </div>
+                            <label for="modal-btn">
+                              <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" style="
+                                width: 100%;
+                                height: auto;" class="center">
+                              </div>
+                              <div *ngIf="note != null">
+                                <label for="modal-btn">
+                                  <img class="animasihf" (click)="getphoto(picture)" src="{{picture}}" style=" 
+                                  width: 300%;
+                                  max-width: 300px;
+                                  height: auto;" class="center">
+                                </label>
+                              </div>
+                            </label>
+                            <div class="modal">
+                              <div class="modal-wrap xl:ml-68.5">
+                                <div *ngIf="note == null"><img class="animasihf" src="assets/img/nodata.jpeg"
+                                    class="center"></div>
                                 <div *ngIf="note != null">
-                                  <img src="{{picture}}" style=" width: 100%;
-                              max-width: 100px;
-                              height: auto;" class="center">
-                                </div>
-                              </label>
-                              <div class="modal">
-                                <div class="modal-wrap xl:ml-68.5">
-                                  <div *ngIf="note == null"><img src="assets/img/nodata.jpeg" class="center"></div>
-                                  <div *ngIf="note != null">
-                                    <img src="{{picture}}" class="center">
-                                  </div>
+                                  <img src="{{picture}}" class="center">
                                 </div>
                               </div>
-                            </td>
-                          </tr>
-                          <tr class="border-b border-gray-200 ">
-                            <td width="100" class="font-medium p-6 mt-2 bg-gray-50" style="color: black;">
-                              <div *ngIf="note != null" [innerHTML]='note'></div>
-                              <div *ngIf="note == null">
-                                <p>Tidak Ada Data</p>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <h5 class="text-right">Date Note : {{funlocabnormaldate}}</h5>
-                    </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="border-b border-gray-100 ">
+                          <td width="100" class="font-medium p-6 mt-2 bg-gray-50" style="color: black;">
+                            <div *ngIf="note != null" [innerHTML]='note'></div>
+                            <div *ngIf="note == null">
+                              <p>Tidak Ada Data</p>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h5 class="text-right">Date Note : {{funlocabnormaldate}}</h5>
                   </div>
                 </div>
+              </div>
               </div>
               <!--Card of chart abnormal asset start-->
               <div class="w-full px-1 py-1 mx-auto">
