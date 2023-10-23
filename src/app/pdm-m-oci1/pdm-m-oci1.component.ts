@@ -779,35 +779,53 @@ export class PdmMOci1Component implements OnInit {
 
     this.vibrationlist = this.vibrationlist.filter(function (e: any) { return e != null; });
     console.log(this.vibrationlist);
-    var twotwo = 0;
-    for (let i = 0; i < this.vibrationlist.length; i++) {
-      if (this.vibrationlist[i].year === 2022) {
-        twotwo++;
+
+    var length2h = 0;
+    var lengthcf2h = 0;
+    var length3h = 0;
+    var lengthcf3h = 0;
+    var lengthBetween = 0;
+    var vibrationYear: any = [];
+
+     for (let i = 0; i < this.vibrationlist.length; i++) {
+      if (i == 0) {
+        vibrationYear.splice(vibrationYear.lenght, 0, this.vibrationlist[i].do_date);
+      }
+      else if (i > 0) {
+        if (this.vibrationlist[i - 1].do_date != this.vibrationlist[i].do_date) {
+          vibrationYear.splice(vibrationYear.lenght, 0, this.vibrationlist[i].do_date);
+        }
       }
     }
-    console.log(twotwo);
 
     for (let i = 0; i < this.vibrationlist.length; i++) {
 
       if (this.vibrationlist[i].test_name === '2H') {
         this.vibration2H.splice(this.vibration2H.lenght, 0, this.vibrationlist[i].value);
-        this.vibrationDate.splice(this.vibrationDate.lenght, 0, this.vibrationlist[i].do_date);
-      } else if (this.vibrationlist[i].test_name === 'CF+ (2H)') {
-        this.vibrationCF.splice(this.vibrationCF.lenght, 0, this.vibrationlist[i].value);
-      } else if (this.vibrationlist[i].test_name === '3H') {
-        this.vibration3H.splice(this.vibration3H.lenght, 0, this.vibrationlist[i].value);
-      } else if (this.vibrationlist[i].test_name === 'CF+ (3H)') {
-        this.vibration3CF.splice(this.vibration3CF.lenght, 0, this.vibrationlist[i].value);
+        length2h++
       }
+      if (this.vibrationlist[i].test_name === 'CF+ (2H)') {
+        this.vibrationCF.splice(this.vibrationCF.lenght, 0, this.vibrationlist[i].value);
+        lengthcf2h++
+      }
+      if (this.vibrationlist[i].test_name === '3H') {
+        this.vibration3H.splice(this.vibration3H.lenght, 0, this.vibrationlist[i].value);
+        length3h++
+      }
+      if (this.vibrationlist[i].test_name === 'CF+ (3H)') {
+        this.vibration3CF.splice(this.vibration3CF.lenght, 0, this.vibrationlist[i].value);
+        lengthcf3h++
+      }
+      if(length2h != length3h){
+        lengthBetween = length2h - length3h + 1
+      }
+      console.log(lengthBetween);
       if (this.vibrationlist[i].year === 2022) {
-        if (this.vibration3H.length < twotwo - 1) {
-          // Insert a placeholder value for 2022
-          // console.log('cok');
-
+        if (this.vibration3H.length < lengthBetween) {
           this.vibration3H.push(null); // You can use null or another placeholder value
         }
 
-        if (this.vibration3CF.length < twotwo - 1) {
+        if (this.vibration3CF.length < lengthBetween) {
           // Insert a placeholder value for 2022
           this.vibration3CF.push(null); // You can use null or another placeholder value
         }
@@ -819,7 +837,7 @@ export class PdmMOci1Component implements OnInit {
     console.log(this.vibrationdate);
 
     var dataVibration = {
-      labels: this.vibrationDate.reverse(),
+      labels: vibrationYear,
       datasets: [
         {
           label: '2H',

@@ -156,7 +156,7 @@
                   </tr>
                 </thead>
                 <tbody
-                  *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPage, itemsPerPage: showPaginateSatis }; let i = index">
+                  *ngFor="let findingpending of listofsatisfactory | filter:searchText | paginate: { id: 'paginationSatisfactory', currentPage: currentPageSatis, itemsPerPage: showPaginateSatis }; let i = index">
                   <tr class="bg-white border-b Success:bg-gray-900 Success:border-gray-700 text-center">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                       {{(currentPage-1) * 5 + i + 1}}
@@ -183,7 +183,7 @@
               </table>
             </div>
           </div>
-          <pagination-controls class="text-center" id="paginationSatisfactory" (pageChange)="currentPage = $event">
+          <pagination-controls class="text-center" id="paginationSatisfactory" (pageChange)="currentPageSatis = $event">
           </pagination-controls>
         </div>
       </div>

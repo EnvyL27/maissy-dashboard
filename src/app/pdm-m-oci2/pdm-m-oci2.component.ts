@@ -133,15 +133,15 @@ export class PdmMOci2Component implements OnInit {
     this.cdr.detectChanges();
   }
 
-  totaldataChange(){
+  totaldataChange() {
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
-    
+
     this.service.getOci2Valuemonth(this.currentChange).subscribe(data => {
       //console.log(this.currentChange);
-      
+
       //console.log(data);
-      
+
       this.valuemonth = data;
       Object.values(this.valuemonth).forEach(data => {
         // // ////////////////console.log(data);
@@ -190,7 +190,7 @@ export class PdmMOci2Component implements OnInit {
             datasets: [
               {
                 "label": "Total Data OCI2 Data %",
-                "data": [Math.round(this.januari * 100 / (this.totalasset/2)), Math.round(this.febuari * 100 / (this.totalasset/2)), Math.round(this.maret * 100 / (this.totalasset/2)), Math.round(this.april * 100 / (this.totalasset/2)), Math.round(this.mei * 100 / (this.totalasset/2)), Math.round(this.juni * 100 / (this.totalasset/2)), Math.round(this.juli * 100 / (this.totalasset/2)), Math.round(this.agustus * 100 / (this.totalasset/2)), Math.round(this.september * 100 / (this.totalasset/2)), Math.round(this.oktober * 100 / (this.totalasset/2)), Math.round(this.november * 100 / (this.totalasset/2)), Math.round(this.desember * 100 / (this.totalasset/2))],
+                "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
                 "backgroundColor": "#34568B"
               },
             ]
@@ -201,7 +201,7 @@ export class PdmMOci2Component implements OnInit {
             //   yAxes: {
             //     min: 0,
             //     ticks: {
-                  
+
             //       callback: function (value) { return value + "%" },
             //       //beginAtZero: true
             //     },
@@ -219,13 +219,13 @@ export class PdmMOci2Component implements OnInit {
     );
   }
 
-  changeDate(){
+  changeDate() {
     this.totalfinishtoday2 = [];
     // //console.log(this.tgl1);
-    
+
     this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
       console.log(this.tgl2 + '  ' + this.tgl3);
-      
+
       console.log(data);
       this.totalfinishtoday = data;
 
@@ -246,7 +246,7 @@ export class PdmMOci2Component implements OnInit {
 
       this.totalfinishtoday = data;
       // //console.log(data);
-      
+
       Object.values(this.totalfinishtoday).forEach(data => {
         var array = Object.keys(data).map(function (key) {
           return data[key];
@@ -259,7 +259,7 @@ export class PdmMOci2Component implements OnInit {
         this.resolved = true;
       })
       // //console.log(this.totalfinishtoday2);
-      
+
       // Object.values(this.totalfinishtdy).forEach(data => {
       //   // // ////////////////console.log(data);
       //   var array = Object.keys(data).map(function (key) {
@@ -537,8 +537,8 @@ export class PdmMOci2Component implements OnInit {
     this.currentPage3 = 1;
     this.showPaginate3 = 5;
     this.paginatereset = !this.paginatereset;
-  }  
-  
+  }
+
   generateSatisfactory() {
     this.showPaginateSatis = this.listofsatisfactory.length;
     this.currentPageSatis = 1;
@@ -580,72 +580,72 @@ export class PdmMOci2Component implements OnInit {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
     // //////console.log(this.januarielem);
-    
+
     //////////////////console.log(this.findingpending2);
-    if(this.listoftotalasset == true){
-      const janexport : any = []
+    if (this.listoftotalasset == true) {
+      const janexport: any = []
       janexport.push(this.pdmassetlist)
       //////console.log(janexport);
-      
+
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'PDM_Asset.xlsx');
-    }else if(this.listoftotalgood == true){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'PDM_Asset.xlsx');
+    } else if (this.listoftotalgood == true) {
+      const janexport: any = []
       janexport.push(this.listofgood)
       //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'PDM_List_Good.xlsx');
-    }else if(this.listoftotalsatisfactory == false){
-      const janexport : any = []
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'PDM_List_Good.xlsx');
+    } else if (this.listoftotalsatisfactory == false) {
+      const janexport: any = []
       janexport.push(this.listofsatisfactory)
       //////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
-        { wch: 60 },
-        { wch: 10 },
-        { wch: 40 },
-        { wch: 30 },
-        { wch: 15 },
-        { wch: 15 },
-        { wch: 10 },
-        { wch: 15 }];
-    
-        /* generate workbook and add the worksheet */
-        const wb: XLSX.WorkBook = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    
-        /* save to file */
-        XLSX.writeFile(wb, 'PDM_List_Satisfactory.xlsx');
+      { wch: 60 },
+      { wch: 10 },
+      { wch: 40 },
+      { wch: 30 },
+      { wch: 15 },
+      { wch: 15 },
+      { wch: 10 },
+      { wch: 15 }];
+
+      /* generate workbook and add the worksheet */
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+      /* save to file */
+      XLSX.writeFile(wb, 'PDM_List_Satisfactory.xlsx');
     }
 
   }
@@ -686,7 +686,7 @@ export class PdmMOci2Component implements OnInit {
 
     this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
       console.log(this.tgl2 + '  ' + this.tgl3);
-      
+
       console.log(data);
       this.totalfinishtoday = data;
 
@@ -790,24 +790,107 @@ export class PdmMOci2Component implements OnInit {
         this.vibrationlist.splice(this.vibrationlist.lenght, 0, this.totalvibrationlist[i]);
       }
     }
-    
+
     this.vibrationlist = this.vibrationlist.filter(function (e: any) { return e != null; });
-
+    console.log(this.vibrationlist);
+    var length2h = 0;
+    var lengthcf2h = 0;
+    var length3h = 0;
+    var lengthcf3h = 0;
+    var lengthBetween = 0;
+    var vibrationYear: any = [];
+    // for (let i = 0; i < this.vibrationlist.length; i++) {
+    //   if (this.vibrationlist[i].year === 2022) {
+    //     twotwo++;
+    //   }
+    // }
+    // console.log(twotwo);
     for (let i = 0; i < this.vibrationlist.length; i++) {
-
-      if (this.vibrationlist[i].test_name === '2H') {
-        this.vibration2H.splice(this.vibration2H.lenght, 0, this.vibrationlist[i].value);
-        this.vibrationDate.splice(this.vibrationDate.lenght, 0, this.vibrationlist[i].do_date);
-      } else if (this.vibrationlist[i].test_name === 'CF+ (2H)') {
-        this.vibrationCF.splice(this.vibrationCF.lenght, 0, this.vibrationlist[i].value);
-      } else if (this.vibrationlist[i].test_name === '3H') {
-        this.vibration3H.splice(this.vibration3H.lenght, 0, this.vibrationlist[i].value);
-      } else if (this.vibrationlist[i].test_name === 'CF+ (3H)') {
-        this.vibration3CF.splice(this.vibration3CF.lenght, 0, this.vibrationlist[i].value);
+      if (i == 0) {
+        vibrationYear.splice(vibrationYear.lenght, 0, this.vibrationlist[i].do_date);
+      }
+      else if (i > 0) {
+        if (this.vibrationlist[i - 1].do_date != this.vibrationlist[i].do_date) {
+          vibrationYear.splice(vibrationYear.lenght, 0, this.vibrationlist[i].do_date);
+        }
       }
     }
+    console.log(vibrationYear);
+
+    for (let i = 0; i < this.vibrationlist.length; i++) {
+        if (this.vibrationlist[i].test_name === '2H') {
+          this.vibration2H.splice(this.vibration2H.lenght, 0, this.vibrationlist[i].value);
+          length2h++
+        }
+        if (this.vibrationlist[i].test_name === 'CF+ (2H)') {
+          this.vibrationCF.splice(this.vibrationCF.lenght, 0, this.vibrationlist[i].value);
+          lengthcf2h++
+        }
+        if (this.vibrationlist[i].test_name === '3H') {
+          this.vibration3H.splice(this.vibration3H.lenght, 0, this.vibrationlist[i].value);
+          length3h++
+        }
+        if (this.vibrationlist[i].test_name === 'CF+ (3H)') {
+          this.vibration3CF.splice(this.vibration3CF.lenght, 0, this.vibrationlist[i].value);
+          lengthcf3h++
+        }
+        if(length2h != length3h){
+          lengthBetween = length2h - length3h + 1
+        }
+        console.log(lengthBetween);
+        if (this.vibrationlist[i].year === 2022) {
+          if (this.vibration3H.length < lengthBetween) {
+            this.vibration3H.push(null); // You can use null or another placeholder value
+          }
+  
+          if (this.vibration3CF.length < lengthBetween) {
+            // Insert a placeholder value for 2022
+            this.vibration3CF.push(null); // You can use null or another placeholder value
+          }
+        }
+  
+    }
+
+    // console.log(length2h);
+    // console.log(length3h);
+    
+    // if(length2h != length3h){
+    //   lengthBetween = length2h - length3h
+    // }
+    // console.log(lengthBetween);
+    
+    // if(this.vibration2H.length)
+    // console.log(this.vibration2H[0].lenght);
+    // console.log(this.vibration3H);
+    
+
+    // for (let i = 0; i < this.vibrationlist.length; i++) {
+    //   if (this.vibrationlist[i].test_name === '2H') {
+    //     this.vibration2H.splice(this.vibration2H.lenght, 0, this.vibrationlist[i].value);
+    //     this.vibrationDate.splice(this.vibrationDate.lenght, 0, this.vibrationlist[i].do_date);
+    //   } else if (this.vibrationlist[i].test_name === 'CF+ (2H)') {
+    //     this.vibrationCF.splice(this.vibrationCF.lenght, 0, this.vibrationlist[i].value); 
+    //   } else if (this.vibrationlist[i].test_name === '3H') {
+    //     this.vibration3H.splice(this.vibration3H.lenght, 0, this.vibrationlist[i].value); 
+    //   } else if (this.vibrationlist[i].test_name === 'CF+ (3H)') {
+    //     this.vibration3CF.splice(this.vibration3CF.lenght, 0, this.vibrationlist[i].value);
+    //   }
+    // }
+    // for (let i = 0; i < this.vibrationlist.length; i++) {
+    //   if (this.vibrationlist[i].year === 2022) {
+    //     if (this.vibration3H.length < twotwo - 1) {
+    //       this.vibration3H.push(null); // You can use null or another placeholder value
+    //     }
+
+    //     if (this.vibration3CF.length < twotwo - 1) {
+    //       // Insert a placeholder value for 2022
+    //       this.vibration3CF.push(null); // You can use null or another placeholder value
+    //     }
+    //   }
+    // }
+
     var dataVibration = {
-      labels: this.vibrationDate.reverse(),
+      labels: vibrationYear.reverse(),
       datasets: [
         {
           label: '2H',
@@ -847,10 +930,10 @@ export class PdmMOci2Component implements OnInit {
         },
       ],
     };
-      // ////////////////console.log(this.ampereR);
-      // ////////////////console.log(this.ampereS);
-      // ////////////////console.log(this.ampereT);
-      // ////////////////console.log(this.ampereFreq);
+    // ////////////////console.log(this.ampereR);
+    // ////////////////console.log(this.ampereS);
+    // ////////////////console.log(this.ampereT);
+    // ////////////////console.log(this.ampereFreq);
     var dataAmpere = {
       labels: this.ampereDate.reverse(),
       datasets: [
@@ -948,7 +1031,7 @@ export class PdmMOci2Component implements OnInit {
     });
   }
 
-  chartFunction(){
+  chartFunction() {
     this.chartOptions = {
       series: [
         {
@@ -1009,7 +1092,7 @@ export class PdmMOci2Component implements OnInit {
             if (config.dataPointIndex == '6' && config.seriesIndex == '1') {
               this.changestunull();
             }
-             if (config.dataPointIndex == '-1') {
+            if (config.dataPointIndex == '-1') {
               this.boolprep = this.boolinj = this.boolblow = this.boolfill = this.boolpack = this.boolkanesho = this.boolstu1 = false;
             }
           },
@@ -1048,70 +1131,70 @@ export class PdmMOci2Component implements OnInit {
       },
       fill: {
         opacity: 1,
-        colors: ['#34568B','#FF6F61']
-      },legend: {
-      },colors: ['#34568B','#FF6F61']
+        colors: ['#34568B', '#FF6F61']
+      }, legend: {
+      }, colors: ['#34568B', '#FF6F61']
     };
   }
 
-  totalAsset(){
+  totalAsset() {
     this.listoftotalsatisfactory = true
     this.listoftotalgood = false
-    this.listoftotalasset =  !this.listoftotalasset
+    this.listoftotalasset = !this.listoftotalasset
     // //////console.log(this.listoftotalasset);
-    
+
   }
 
-  totalgood(){
+  totalgood() {
     this.listoftotalasset = false
     this.listoftotalsatisfactory = true
     this.listoftotalgood = !this.listoftotalgood
   }
 
-  totalSatisfactory(){
+  totalSatisfactory() {
     this.listoftotalasset = false
     this.listoftotalgood = false
     this.listoftotalsatisfactory = !this.listoftotalsatisfactory
     // //////console.log(this.listoftotalsatisfactory);
-    
+
   }
 
-  abnormalAssetTable(){
-    if(this.chartofabnormatasset == false){
+  abnormalAssetTable() {
+    if (this.chartofabnormatasset == false) {
       this.chartofabnormatasset = true;
     }
   }
 
-  abnormalAsset(){
-    if(this.chartofabnormatasset == false){
+  abnormalAsset() {
+    if (this.chartofabnormatasset == false) {
       this.chartofabnormatasset = true;
-    }else if(this.chartofabnormatasset == true){
+    } else if (this.chartofabnormatasset == true) {
       this.chartofabnormatasset = false;
 
     }
   }
 
-  listAbnormalAsset(){
-    if(this.listofabnormatasset == false){
+  listAbnormalAsset() {
+    if (this.listofabnormatasset == false) {
       this.listofabnormatasset = true;
-    }else if(this.listofabnormatasset == true){
+    } else if (this.listofabnormatasset == true) {
       this.listofabnormatasset = false;
     }
   }
 
-  finishNotYet(){
-    if(this.finishnotyet == false){
+  finishNotYet() {
+    if (this.finishnotyet == false) {
       this.finishnotyet = true;
-    }else if(this.finishnotyet == true){
+    } else if (this.finishnotyet == true) {
       this.finishnotyet = false;
       this.totaldatacurrentyear = true;
     }
   }
 
-  dataCurrentYear(){
-    if(this.totaldatacurrentyear == false){
+  dataCurrentYear() {
+    if (this.totaldatacurrentyear == false) {
       this.totaldatacurrentyear = true;
-    }else if(this.totaldatacurrentyear == true){
+    } else if (this.totaldatacurrentyear == true) {
       this.totaldatacurrentyear = false;
     }
   }
@@ -1181,7 +1264,7 @@ export class PdmMOci2Component implements OnInit {
                   datasets: [
                     {
                       "label": "Total Data OCI2 Data %",
-                      "data": [Math.round(this.januari * 100 / (this.totalasset/2)), Math.round(this.febuari * 100 / (this.totalasset/2)), Math.round(this.maret * 100 / (this.totalasset/2)), Math.round(this.april * 100 / (this.totalasset/2)), Math.round(this.mei * 100 / (this.totalasset/2)), Math.round(this.juni * 100 / (this.totalasset/2)), Math.round(this.juli * 100 / (this.totalasset/2)), Math.round(this.agustus * 100 / (this.totalasset/2)), Math.round(this.september * 100 / (this.totalasset/2)), Math.round(this.oktober * 100 / (this.totalasset/2)), Math.round(this.november * 100 / (this.totalasset/2)), Math.round(this.desember * 100 / (this.totalasset/2))],
+                      "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
                       "backgroundColor": "#34568B"
                     },
                   ]
@@ -1192,7 +1275,7 @@ export class PdmMOci2Component implements OnInit {
                   //   yAxes: {
                   //     min: 0,
                   //     ticks: {
-                        
+
                   //       callback: function (value) { return value + "%" },
                   //       //beginAtZero: true
                   //     },
@@ -1211,14 +1294,14 @@ export class PdmMOci2Component implements OnInit {
         })
       }
       );
-      this.service.getReadPdmAssetoci2().subscribe(data=>{
+      this.service.getReadPdmAssetoci2().subscribe(data => {
         this.pdmasset = data;
         ////////////////console.log(this.pdmasset);
         Object.values(this.pdmasset).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          for(let i = 0; i < array.length; i++){
+          for (let i = 0; i < array.length; i++) {
             this.pdmassetlist.splice(this.pdmassetlist.get, 0, array[i])
           }
           // ////////////////console.log(this.pdmassetlist);
@@ -1272,51 +1355,51 @@ export class PdmMOci2Component implements OnInit {
           // ////////////////console.log(array);
 
           for (let i = 0; i < this.finishnotlist.length; i++) {
-            if(this.finishnotlist[i].month == m){
-              if(this.finishnotlist[i].year == y){
+            if (this.finishnotlist[i].month == m) {
+              if (this.finishnotlist[i].year == y) {
                 // ////////////////console.log(this.finishnotlist[i]);
 
                 if (this.finishnotlist[i].name_area == 'PREPARATION') {
                   if (this.finishnotlist[i].value == null) {
                     this.preparationnull += 1;
                   } else {
-                      this.preparation += 1;
+                    this.preparation += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'INJECTION') {
                   if (this.finishnotlist[i].value == null) {
                     this.injectionnnull += 1;
                   } else {
-                      this.injection += 1;
+                    this.injection += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'BLOW') {
                   if (this.finishnotlist[i].value == null) {
                     this.blownull += 1;
                   } else {
-                      this.blow += 1;
+                    this.blow += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'FILL') {
                   if (this.finishnotlist[i].value == null) {
                     this.fillnull += 1;
                   } else {
-                      this.fill += 1;
+                    this.fill += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'PACK') {
                   if (this.finishnotlist[i].value == null) {
                     this.packnull += 1;
                   } else {
-                      this.pack += 1;
+                    this.pack += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'PF Transfer/KANESHO') {
                   if (this.finishnotlist[i].value == null) {
                     this.pfnull += 1;
                   } else {
-                      this.pf += 1;
+                    this.pf += 1;
                   }
                 } else if (this.finishnotlist[i].name_area == 'STU1') {
                   if (this.finishnotlist[i].value == null) {
                     this.stunull += 1;
                   } else {
-                      this.stu += 1;
+                    this.stu += 1;
                   }
                 }
               }
@@ -1479,10 +1562,10 @@ export class PdmMOci2Component implements OnInit {
       );
       this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
         console.log(this.tgl2 + '  ' + this.tgl3);
-        
+
         console.log(data);
         this.totalfinishtoday = data;
-  
+
         Object.values(this.totalfinishtoday).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1495,7 +1578,7 @@ export class PdmMOci2Component implements OnInit {
           this.resolved = true;
         })
       })
-  
+
       this.service.getReadFinishTodayoci2(this.tgl1).subscribe(data => {
         //////////////console.log(data);
 
