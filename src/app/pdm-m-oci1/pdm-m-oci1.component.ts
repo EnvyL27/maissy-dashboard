@@ -819,9 +819,15 @@ export class PdmMOci1Component implements OnInit {
       if(length2h != length3h){
         lengthBetween = length2h - length3h + 1
       }
-      //console.log(lengthBetween);
+      // console.log(lengthBetween);
+      // console.log(this.vibrationlist);
+      
       if (this.vibrationlist[i].year === 2022) {
+        // console.log('sini');
+        
         if (this.vibration3H.length < lengthBetween) {
+          // console.log('masuk');
+          
           this.vibration3H.push(null); // You can use null or another placeholder value
         }
 

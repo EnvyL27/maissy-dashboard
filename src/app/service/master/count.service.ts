@@ -202,280 +202,347 @@ export class CountService {
       // ////////////console.log(data);
     });
   }
+  
+  
+  ////////////////////////////
+  // ROUTE FOR DASHBOARD AM //
+  ////////////////////////////
   getOrder() {
-    return this.httpClient.get(api + "getorder");
+    return this.httpClient.get(api + 'am/' + "getorder");
   }
+  getCountTotalFinding() {
+    return this.httpClient.get(api + 'am/' + "totalf");
+  }
+  getReadPendingExecute() {
+    return this.httpClient.get(api + 'am/' + "totalreadpendingexecute");
+  }
+  getReadReadyExecute() {
+    return this.httpClient.get(api + 'am/' + "totalreadreadyexecute");
+  }
+  getReadFinishExecute() {
+    return this.httpClient.get(api + 'am/' + "totalreadfinishexecute");
+  }
+  getTotalFindingM() {
+    return this.httpClient.get(api + 'am/' + "TotalFindingM");
+  }
+  getTotalPendingFindingM() {
+    return this.httpClient.get(api + 'am/' + "totalpendingexecutem");
+  }
+  getTotalReadyFindingM() {
+    return this.httpClient.get(api + 'am/' + "totalreadyexecutem");
+  }
+  getTotalFinsihFindingM() {
+    return this.httpClient.get(api + 'am/' + "totalfinishexecutem");
+  }
+  getReadFindingPending() {
+    return this.httpClient.get(api + 'am/' + "findingpending");
+  }
+  getFuncLoc(){
+    return this.httpClient.get(api + 'am/' + "funcloc");
+  }
+  getFuncLocOci2(){
+    return this.httpClient.get(api + 'am/' + "funclococi2");
+  }
+  getFuncLocFsb(){
+    return this.httpClient.get(api + 'am/' + "funclocfsb");
+  }
+  getReadfpSection() {
+    return this.httpClient.get(api + 'am/' + "findingpendingsection");
+  }
+  getReadfpSectionOci2() {
+    return this.httpClient.get(api + 'am/' + "findingpendingsectionoci2");
+  }
+  getReadfpSectionFSB() {
+    return this.httpClient.get(api + 'am/' + "findingpendingsectionfsb");
+  }
+  getReadLevelTotal() {
+    return this.httpClient.get(api + 'am/' + "levelam");
+  }
+  getTotalFindingMoci2() {
+    return this.httpClient.get(api + 'am/' + "TotalFindingMoci2");
+  }
+  getTotalPendingFindingMoci2() {
+    return this.httpClient.get(api + 'am/' + "totalpendingexecutemoci2");
+  }
+  getTotalReadyFindingMoci2() {
+    return this.httpClient.get(api + 'am/' + "totalreadyexecutemoci2");
+  }
+  getTotalFinsihFindingMoci2() {
+    return this.httpClient.get(api + 'am/' + "totalfinishexecutemoci2");
+  }
+  getReadFindingPendingoci2() {
+    return this.httpClient.get(api + 'am/' + "findingpendingoci2");
+  }
+  getReadLevelTotaloci2() {
+    return this.httpClient.get(api + 'am/' + "levelamoci2");
+  }
+  getTotalFindingMfsb() {
+    return this.httpClient.get(api + 'am/' + "TotalFindingMfsb");
+  }
+  getTotalPendingFindingMfsb() {
+    return this.httpClient.get(api + 'am/' + "totalpendingexecutemfsb");
+  }
+  getTotalReadyFindingMfsb() {
+    return this.httpClient.get(api + 'am/' + "totalreadyexecutemfsb");
+  }
+  getTotalFinsihFindingMfsb() {
+    return this.httpClient.get(api + 'am/' + "totalfinishexecutemfsb");
+  }
+  getReadFindingPendingfsb() {
+    return this.httpClient.get(api + 'am/' + "findingpendingfsb");
+  }
+  getReadLevelTotalfsb() {
+    return this.httpClient.get(api + 'am/' + "levelamfsb");
+  }
+  getTotalFindingMutileng() {
+    return this.httpClient.get(api + 'am/' + "TotalFindingMutileng");
+  }
+  getReadFindingPendingutileng() {
+    return this.httpClient.get(api + 'am/' + "findingpendingutileng");
+  }
+  getReadLevelTotalutileng() {
+    return this.httpClient.get(api + 'am/' + "levelamutileng");
+  }
+  getKategori() {
+    return this.httpClient.get(api + 'am/' + "kategori");
+  }
+  getAmTotalData1Year(){
+    return this.httpClient.get(api + 'am/' + "total1year");
+  }
+  getTotalFeeding(){
+    return this.httpClient.get(api + 'am/' + "totalfeeding");
+  }
+  getTemuanHarian(){
+    return this.httpClient.get(api + 'am/' + "temuanharian");
+  }
+  getTotalDataPost(tgl1: any,tgl2: any){
+    return this.httpClient.post(api + 'am/' + "totaldatapost", {tgl1 :tgl1,tgl2: tgl2});
+  }
+  getTotalApproval(){
+    return this.httpClient.get(api + 'am/' + "totalapproval");
+  }
+  getTotalApprovalOrderFinish(id_area: any){
+    return this.httpClient.post(api + 'am/' + "totalapprovalorderfinish", {id_area :id_area});
+  }
+  getTotalApprovalShcedule(id_area: any){
+    return this.httpClient.post(api + 'am/' + "totalapprovalshcedule", {id_area :id_area});
+  }
+  getTotalApprovalCreateOrder(id_area: any){
+    return this.httpClient.post(api + 'am/' + "totalapprovalcreateorder", {id_area :id_area});
+  }
+  getTotalApprovalSpv(id_area: any){
+    return this.httpClient.post(api + 'am/' + "totalapprovalspv", {id_area :id_area});
+  }
+  getTotalApprovalReadyExecution(id_area: any){
+    return this.httpClient.post(api + 'am/' + "totalapprovalreadyexecution", {id_area :id_area});
+  }
+  getReportingHarianam(tgl: any,id_area: any){
+    return this.httpClient.post(api + 'am/' + "reportingharianam", {tgl: tgl,id_area :id_area});
+  }
+  getTotalPartReporting(no_wo:any){
+    return this.httpClient.post(api + 'am/' + "totalpartreporting",{no_wo: no_wo});
+  }
+  ////////////////////////////
+
+  /////////////////////////////
+  // ROUTE FOR DASHBOARD PDM //
+  /////////////////////////////
   getTemperatureLineoci1() {
-    return this.httpClient.get(api + "temperaturelineoci1");
+    return this.httpClient.get(api + 'pdm/' + "temperaturelineoci1");
   }
 
   getTemperatureLineoci2() {
-    return this.httpClient.get(api + "temperaturelineoci2");
+    return this.httpClient.get(api + 'pdm/' + "temperaturelineoci2");
   }
   getTemperatureLinefsb() {
-    return this.httpClient.get(api + "temperaturelinefsb");
+    return this.httpClient.get(api + 'pdm/' + "temperaturelinefsb");
   }
   getAmpereLineoci1() {
-    return this.httpClient.get(api + "amperelineoci1");
+    return this.httpClient.get(api + 'pdm/' + "amperelineoci1");
   }
   getAmpereLineoci2() {
-    return this.httpClient.get(api + "amperelineoci2");
+    return this.httpClient.get(api + 'pdm/' + "amperelineoci2");
   }
   getAmpereLinefsb() {
-    return this.httpClient.get(api + "amperelinefsb");
+    return this.httpClient.get(api + 'pdm/' + "amperelinefsb");
   }
   getVibrationLinefsb() {
-    return this.httpClient.get(api + "vibrationlinefsb");
+    return this.httpClient.get(api + 'pdm/' + "vibrationlinefsb");
   }
   getVibrationLineoci2() {
-    return this.httpClient.get(api + "vibrationlineoci2");
+    return this.httpClient.get(api + 'pdm/' + "vibrationlineoci2");
   }
   getVibrationLineoci1() {
-    return this.httpClient.get(api + "vibrationlineoci1");
-  }
-  getCountTotalFinding() {
-    return this.httpClient.get(api + "totalf");
-  }
-  getReadPendingExecute() {
-    return this.httpClient.get(api + "totalreadpendingexecute");
-  }
-  getReadReadyExecute() {
-    return this.httpClient.get(api + "totalreadreadyexecute");
-  }
-  getReadFinishExecute() {
-    return this.httpClient.get(api + "totalreadfinishexecute");
+    return this.httpClient.get(api + 'pdm/' + "vibrationlineoci1");
   }
   getReadTotalPdmAsset() {
-    return this.httpClient.get(api + "totalpdmasset");
+    return this.httpClient.get(api + 'pdm/' + "totalpdmasset");
   }
   getReadTotalPdmAssetoci1() {
-    return this.httpClient.get(api + "totalpdmassetoci1");
+    return this.httpClient.get(api + 'pdm/' + "totalpdmassetoci1");
   }
   getReadPdmAssetoci1() {
-    return this.httpClient.get(api + "pdmassetoci1");
+    return this.httpClient.get(api + 'pdm/' + "pdmassetoci1");
   }
   getReadPdmAssetoci2() {
-    return this.httpClient.get(api + "pdmassetoci2");
+    return this.httpClient.get(api + 'pdm/' + "pdmassetoci2");
   }
   getReadPdmAssetFSB() {
-    return this.httpClient.get(api + "pdmassetfsb");
+    return this.httpClient.get(api + 'pdm/' + "pdmassetfsb");
   }
   getReadTotalPdmAssetoci2() {
-    return this.httpClient.get(api + "totalpdmassetoci2");
+    return this.httpClient.get(api + 'pdm/' + "totalpdmassetoci2");
   }
   getReadTotalPdmAssetfsb() {
-    return this.httpClient.get(api + "totalpdmassetfsb");
+    return this.httpClient.get(api + 'pdm/' + "totalpdmassetfsb");
   }
   getReadPdmFinish() {
-    return this.httpClient.get(api + "totalreadfinishpdm");
+    return this.httpClient.get(api + 'pdm/' + "totalreadfinishpdm");
   }
   getReadPdmFinishoci1() {
-    return this.httpClient.get(api + "totalreadfinishpdmoci1");
+    return this.httpClient.get(api + 'pdm/' + "totalreadfinishpdmoci1");
   }
   getReadPdmFinishoci2() {
-    return this.httpClient.get(api + "totalreadfinishpdmoci2");
+    return this.httpClient.get(api + 'pdm/' + "totalreadfinishpdmoci2");
   }
   getReadPdmFinishfsb() {
-    return this.httpClient.get(api + "totalreadfinishpdmfsb");
+    return this.httpClient.get(api + 'pdm/' + "totalreadfinishpdmfsb");
   }
   getReadGoodAndSatis() {
-    return this.httpClient.get(api + "totalgoodandsatis");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatis");
   }
   getReadGoodAndSatisoci1() {
-    return this.httpClient.get(api + "totalgoodandsatisoci1");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisoci1");
   }
   getReadGoodAndSatisoci2() {
-    return this.httpClient.get(api + "totalgoodandsatisoci2");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisoci2");
   }
   getReadGoodAndSatisfsb() {
-    return this.httpClient.get(api + "totalgoodandsatisfsb");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisfsb");
   }
   getReadGoodAndSatisoci1y() {
-    return this.httpClient.get(api + "totalgoodandsatisoci1y");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisoci1y");
   }
   getReadGoodAndSatisoci2y() {
-    return this.httpClient.get(api + "totalgoodandsatisoci2y");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisoci2y");
   }
   getReadGoodAndSatisfsby() {
-    return this.httpClient.get(api + "totalgoodandsatisfsby");
+    return this.httpClient.get(api + 'pdm/' + "totalgoodandsatisfsby");
   }
   getReadunsatissunac() {
-    return this.httpClient.get(api + "totalunsatisunac");
+    return this.httpClient.get(api + 'pdm/' + "totalunsatisunac");
   }
   getReadunsatissunacoci1() {
-    return this.httpClient.get(api + "totalunsatisunacoci1");
+    return this.httpClient.get(api + 'pdm/' + "totalunsatisunacoci1");
   }
   getReadunsatissunacoci2() {
-    return this.httpClient.get(api + "totalunsatisunacoci2");
+    return this.httpClient.get(api + 'pdm/' + "totalunsatisunacoci2");
   }
   getReadunsatissunacfsb() {
-    return this.httpClient.get(api + "totalunsatisunacfsb");
+    return this.httpClient.get(api + 'pdm/' + "totalunsatisunacfsb");
   }
   getTotalAssetOci1() {
-    return this.httpClient.get(api + "totalasetoci1");
+    return this.httpClient.get(api + 'pdm/' + "totalasetoci1");
   }
   getTotalAssetOci2() {
-    return this.httpClient.get(api + "totalasetoci2");
+    return this.httpClient.get(api + 'pdm/' + "totalasetoci2");
   }
   getTotalAssetFsb() {
-    return this.httpClient.get(api + "totalasetfsb");
+    return this.httpClient.get(api + 'pdm/' + "totalasetfsb");
   }
   getTotalOci1Good() {
-    return this.httpClient.get(api + "totaloci1good");
+    return this.httpClient.get(api + 'pdm/' + "totaloci1good");
   }
   getTotalOci1Satis() {
-    return this.httpClient.get(api + "totaloci1satis");
+    return this.httpClient.get(api + 'pdm/' + "totaloci1satis");
   }
   getTotalOci1UnSatis() {
-    return this.httpClient.get(api + "totaloci1unsatis");
+    return this.httpClient.get(api + 'pdm/' + "totaloci1unsatis");
   }
   getTotalOci1Unacc() {
-    return this.httpClient.get(api + "totaloci1unacc");
+    return this.httpClient.get(api + 'pdm/' + "totaloci1unacc");
   }
   getTotalOci2Good() {
-    return this.httpClient.get(api + "totaloci2good");
+    return this.httpClient.get(api + 'pdm/' + "totaloci2good");
   }
   getTotalOci2Satis() {
-    return this.httpClient.get(api + "totaloci2satis");
+    return this.httpClient.get(api + 'pdm/' + "totaloci2satis");
   }
   getTotalOci2UnSatis() {
-    return this.httpClient.get(api + "totaloci2unsatis");
+    return this.httpClient.get(api + 'pdm/' + "totaloci2unsatis");
   }
   getTotalOci2Unacc() {
-    return this.httpClient.get(api + "totaloci2unacc");
+    return this.httpClient.get(api + 'pdm/' + "totaloci2unacc");
   }
   getTotalFsbGood() {
-    return this.httpClient.get(api + "totalfsbgood");
+    return this.httpClient.get(api + 'pdm/' + "totalfsbgood");
   }
   getTotalFsbSatis() {
-    return this.httpClient.get(api + "totalfsbsatis");
+    return this.httpClient.get(api + 'pdm/' + "totalfsbsatis");
   }
   getTotalFsbUnSatis() {
-    return this.httpClient.get(api + "totalfsbunsatis");
+    return this.httpClient.get(api + 'pdm/' + "totalfsbunsatis");
   }
   getTotalFsbUnacc() {
-    return this.httpClient.get(api + "totalfsbunacc");
+    return this.httpClient.get(api + 'pdm/' + "totalfsbunacc");
   }
-  getTotalFindingM() {
-    return this.httpClient.get(api + "TotalFindingM");
-  }
-  getTotalPendingFindingM() {
-    return this.httpClient.get(api + "totalpendingexecutem");
-  }
-  getTotalReadyFindingM() {
-    return this.httpClient.get(api + "totalreadyexecutem");
-  }
-  getTotalFinsihFindingM() {
-    return this.httpClient.get(api + "totalfinishexecutem");
-  }
-  getReadFindingPending() {
-    return this.httpClient.get(api + "findingpending");
-  }
-  getFuncLoc(){
-    return this.httpClient.get(api + "funcloc");
-  }
-  getFuncLocOci2(){
-    return this.httpClient.get(api + "funclococi2");
-  }
-  getFuncLocFsb(){
-    return this.httpClient.get(api + "funclocfsb");
-  }
-  getReadfpSection() {
-    return this.httpClient.get(api + "findingpendingsection");
-  }
-  getReadfpSectionOci2() {
-    return this.httpClient.get(api + "findingpendingsectionoci2");
-  }
-  getReadfpSectionFSB() {
-    return this.httpClient.get(api + "findingpendingsectionfsb");
-  }
-  getReadLevelTotal() {
-    return this.httpClient.get(api + "levelam");
-  }
-  getTotalFindingMoci2() {
-    return this.httpClient.get(api + "TotalFindingMoci2");
-  }
-  getTotalPendingFindingMoci2() {
-    return this.httpClient.get(api + "totalpendingexecutemoci2");
-  }
-  getTotalReadyFindingMoci2() {
-    return this.httpClient.get(api + "totalreadyexecutemoci2");
-  }
-  getTotalFinsihFindingMoci2() {
-    return this.httpClient.get(api + "totalfinishexecutemoci2");
-  }
-  getReadFindingPendingoci2() {
-    return this.httpClient.get(api + "findingpendingoci2");
-  }
-  getReadLevelTotaloci2() {
-    return this.httpClient.get(api + "levelamoci2");
-  }
-  getTotalFindingMfsb() {
-    return this.httpClient.get(api + "TotalFindingMfsb");
-  }
-  getTotalPendingFindingMfsb() {
-    return this.httpClient.get(api + "totalpendingexecutemfsb");
-  }
-  getTotalReadyFindingMfsb() {
-    return this.httpClient.get(api + "totalreadyexecutemfsb");
-  }
-  getTotalFinsihFindingMfsb() {
-    return this.httpClient.get(api + "totalfinishexecutemfsb");
-  }
-  getReadFindingPendingfsb() {
-    return this.httpClient.get(api + "findingpendingfsb");
-  }
-  getReadLevelTotalfsb() {
-    return this.httpClient.get(api + "levelamfsb");
-  }
-
-  getTotalFindingMutileng() {
-    return this.httpClient.get(api + "TotalFindingMutileng");
-  }
-  getReadFindingPendingutileng() {
-    return this.httpClient.get(api + "findingpendingutileng");
-  }
-  getReadLevelTotalutileng() {
-    return this.httpClient.get(api + "levelamutileng");
-  }
-
   getReadFinishTodayoci1(tgl1: any) {
-    return this.httpClient.post(api + "finishtodaylistoci1", {tgl1 :tgl1});
+    return this.httpClient.post(api + 'pdm/' + "finishtodaylistoci1", {tgl1 :tgl1});
   }
   getReadHistoryCheckoci1(tgl1: any, tgl2: any) {
-    return this.httpClient.post(api + "historycheckoci1", {tgl1 :tgl1, tgl2 : tgl2});
+    return this.httpClient.post(api + 'pdm/' + "historycheckoci1", {tgl1 :tgl1, tgl2 : tgl2});
   }
   getReadHistoryCheckoci2(tgl1: any, tgl2: any) {
-    return this.httpClient.post(api + "historycheckoci2", {tgl1 :tgl1, tgl2 : tgl2});
+    return this.httpClient.post(api + 'pdm/' + "historycheckoci2", {tgl1 :tgl1, tgl2 : tgl2});
   }
   getReadHistoryCheckfsb(tgl1: any, tgl2: any) {
-    return this.httpClient.post(api + "historycheckfsb", {tgl1 :tgl1, tgl2 : tgl2});
+    return this.httpClient.post(api + 'pdm/' + "historycheckfsb", {tgl1 :tgl1, tgl2 : tgl2});
   }
-
   getReadFinishTodayoci1TestName() {
-    return this.httpClient.get(api + "finishtodaylistoci1testname");
+    return this.httpClient.get(api + 'pdm/' + "finishtodaylistoci1testname");
   }
   getReadFinishTodayoci2(tgl1: any) {
-    return this.httpClient.post(api + "finishtodaylistoci2", {tgl1 :tgl1});
+    return this.httpClient.post(api + 'pdm/' + "finishtodaylistoci2", {tgl1 :tgl1});
   }
   getReadFinishTodayfsb(tgl1: any) {
-    return this.httpClient.post(api + "finishtodaylistfsb", {tgl1 :tgl1});
+    return this.httpClient.post(api + 'pdm/' + "finishtodaylistfsb", {tgl1 :tgl1});
   }
   getReadFinishTodayoci1abnormal() {
-    return this.httpClient.get(api + "finishtodaylistoci1abnormal");
+    return this.httpClient.get(api + 'pdm/' + "finishtodaylistoci1abnormal");
   }
   getReadFinishTodayoci2abnormal() {
-    return this.httpClient.get(api + "finishtodaylistoci2abnormal");
+    return this.httpClient.get(api + 'pdm/' + "finishtodaylistoci2abnormal");
   }
   getReadFinishTodayfsbabnormal() {
-    return this.httpClient.get(api + "finishtodaylistfsbabnormal");
-  }
-  getKategori() {
-    return this.httpClient.get(api + "kategori");
+    return this.httpClient.get(api + 'pdm/' + "finishtodaylistfsbabnormal");
   }
   getNotePdm () {
-    return this.httpClient.get(api + "notepdm");
+    return this.httpClient.get(api + 'pdm/' + "notepdm");
   }
+  getOci1fNotFinish(){
+    return this.httpClient.get(api + 'pdm/' + "oci1fnotfinish");
+  }
+  getOci2fNotFinish(){
+    return this.httpClient.get(api + 'pdm/' + "oci2fnotfinish");
+  }
+  getFsbfFinish(){
+    return this.httpClient.get(api + 'pdm/' + "fsbfnotfinish");
+  }
+  getFsbfNotFinish(){
+    return this.httpClient.get(api + 'pdm/' + "fsbfnotfinish");
+  }
+  getOci1Valuemonth(tgl : any){
+    return this.httpClient.post(api + 'pdm/' + "oci1valuepermonth", {tgl :tgl});
+  }
+  getOci2Valuemonth(tgl : any){
+    return this.httpClient.post(api + 'pdm/' + "oci2valuepermonth", {tgl :tgl});
+  }
+  getFsbValuemonth(tgl : any){
+    return this.httpClient.post(api + 'pdm/' + "fsbvaluepermonth", {tgl :tgl});
+  }
+  ////////////////////////////
+
+  
   getOilProduct () {
     return this.httpClient.get(api + "oilproduct");
   }
@@ -490,27 +557,6 @@ export class CountService {
   }
   getPasteProduct () {
     return this.httpClient.get(api + "pasteproduct");
-  }
-  getOci1fNotFinish(){
-    return this.httpClient.get(api + "oci1fnotfinish");
-  }
-  getOci2fNotFinish(){
-    return this.httpClient.get(api + "oci2fnotfinish");
-  }
-  getFsbfFinish(){
-    return this.httpClient.get(api + "fsbfnotfinish");
-  }
-  getFsbfNotFinish(){
-    return this.httpClient.get(api + "fsbfnotfinish");
-  }
-  getOci1Valuemonth(tgl : any){
-    return this.httpClient.post(api + "oci1valuepermonth", {tgl :tgl});
-  }
-  getOci2Valuemonth(tgl : any){
-    return this.httpClient.post(api + "oci2valuepermonth", {tgl :tgl});
-  }
-  getFsbValuemonth(tgl : any){
-    return this.httpClient.post(api + "fsbvaluepermonth", {tgl :tgl});
   }
   getInject(){
     return this.httpClient.get(api + "injection");
@@ -616,42 +662,6 @@ export class CountService {
   }
   getPackConveyorOff(){
     return this.httpClient.get(api + "packconveyoroff");
-  }
-  getAmTotalData1Year(){
-    return this.httpClient.get(api + "total1year");
-  }
-  getTotalFeeding(){
-    return this.httpClient.get(api + "totalfeeding");
-  }
-  getTemuanHarian(){
-    return this.httpClient.get(api + "temuanharian");
-  }
-  getTotalDataPost(tgl1: any,tgl2: any){
-    return this.httpClient.post(api + "totaldatapost", {tgl1 :tgl1,tgl2: tgl2});
-  }
-  getTotalApproval(){
-    return this.httpClient.get(api + "totalapproval");
-  }
-  getTotalApprovalOrderFinish(id_area: any){
-    return this.httpClient.post(api + "totalapprovalorderfinish", {id_area :id_area});
-  }
-  getTotalApprovalShcedule(id_area: any){
-    return this.httpClient.post(api + "totalapprovalshcedule", {id_area :id_area});
-  }
-  getTotalApprovalCreateOrder(id_area: any){
-    return this.httpClient.post(api + "totalapprovalcreateorder", {id_area :id_area});
-  }
-  getTotalApprovalSpv(id_area: any){
-    return this.httpClient.post(api + "totalapprovalspv", {id_area :id_area});
-  }
-  getTotalApprovalReadyExecution(id_area: any){
-    return this.httpClient.post(api + "totalapprovalreadyexecution", {id_area :id_area});
-  }
-  getReportingHarianam(tgl: any,id_area: any){
-    return this.httpClient.post(api + "reportingharianam", {tgl: tgl,id_area :id_area});
-  }
-  getTotalPartReporting(no_wo:any){
-    return this.httpClient.post(api + "totalpartreporting",{no_wo: no_wo});
   }
   getSectionDoc(){
     return this.httpClient.get(api + "section");
