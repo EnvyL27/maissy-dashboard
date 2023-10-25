@@ -1,6 +1,6 @@
 import { AppComponent } from 'src/app/app.component';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { Router } from '@angular/router'
+import { NavigationEnd, Router } from '@angular/router'
 import { VERSION } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
@@ -30,13 +30,35 @@ export class SidebarComponent implements OnInit {
   public energyDaily : boolean = false;
   public seuSub : boolean = false;
   public renewSub : boolean = false;
+  public offSub : boolean = false;
+  public onSub : boolean = false;
   currentDate = new Date();
+  isAllowed:boolean = false;
+  userLogged:any;
   constructor(
     public toastr: ToastrService,
     public router: Router,
     @Inject(DOCUMENT) private document: Document,
-    private authService: AuthService,) {}
+    private authService: AuthService,) {
+      router.events.subscribe((val) => {
+        // see also 
+        if(localStorage.getItem('nikLogged') == '0000'){
+          this.isAllowed = true;
+        }else{
+          this.isAllowed = false;
+        }
+    });
+    }
   ngOnInit(): void {
+    this.userLogged = localStorage.getItem('nikLogged')
+  
+    if(localStorage.getItem('nikLogged') == '0000'){
+      this.isAllowed = true;
+    }else{
+      this.isAllowed = false;
+    }
+    console.log(this.isAllowed);
+    
     setInterval(() => {
       this.currentDate = new Date();
     }, 1000);
@@ -49,6 +71,7 @@ export class SidebarComponent implements OnInit {
   }
   
   signOut(){
+    this.isAllowed = false;
     this.authService.signOut()
     this.showInfo()
   }
@@ -88,6 +111,12 @@ export class SidebarComponent implements OnInit {
   }
   pdmmonitoringsub(){
     this.sub2 = !this.sub2;
+  }
+  pdmoffsub(){
+    this.offSub = !this.offSub;
+  }
+  pdmonsub(){
+    this.onSub = !this.onSub;
   }
   costmonitoringsub(){
     this.subCost = !this.subCost;

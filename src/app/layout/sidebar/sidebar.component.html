@@ -2625,7 +2625,9 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
         <div *ngIf="
       router.url === '/pdm_m_oci1' ||
         router.url === '/pdm_m_oci2' ||
-        router.url === '/pdm_m_fsb';
+        router.url === '/pdm_m_fsb' ||
+        router.url === '/pdm_m_oci1_online' ||
+        router.url === '/limit' ;
         else lain4
     ">
           <li
@@ -2657,50 +2659,111 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
             </button>
             <br />
           </li>
-          <li *ngIf="sub2" class="ml-6">
-            <ul class="">
-              <div *ngIf="router.url === '/pdm_m_oci1'; else kategori4">
-                <li class="ml-6">
-                  <a routerLink="pdm_m_oci1"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                    1</a>
-                </li>
-              </div>
-              <ng-template #kategori4>
-                <li class="ml-6">
-                  <a routerLink="pdm_m_oci1"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                    1</a>
-                </li>
-              </ng-template>
-              <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
-                <li class="ml-6">
-                  <a routerLink="pdm_m_oci2"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                    2</a>
-                </li>
-              </div>
-              <ng-template #kategori5>
-                <li class="ml-6">
-                  <a routerLink="pdm_m_oci2"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
-                    2</a>
-                </li>
-              </ng-template>
-              <div *ngIf="router.url === '/pdm_m_fsb'; else kategori6">
-                <li class="ml-6">
-                  <a routerLink="pdm_m_fsb"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
-                </li>
-              </div>
-              <ng-template #kategori6>
-                <li class="ml-6">
-                  <a routerLink="pdm_m_fsb"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
-                </li>
-              </ng-template>
-            </ul>
-          </li>
+          <div *ngIf="sub2">
+            <li class="ml-12">
+              <a (click)="pdmoffsub()"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Offline</a>
+            </li>
+            <li *ngIf="offSub" class="ml-12">
+              <ul class="">
+                <div *ngIf="router.url === '/pdm_m_oci1'; else kategori4">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </div>
+                <ng-template #kategori4>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </div>
+                <ng-template #kategori5>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_fsb'; else kategori6">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_fsb"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                  </li>
+                </div>
+                <ng-template #kategori6>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_fsb"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                  </li>
+                </ng-template>
+              </ul>
+            </li>
+            <li class="ml-12">
+              <a (click)="pdmonsub()"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Online</a>
+            </li>
+            <li *ngIf="onSub" class="ml-10">
+              <ul class="">
+                <div *ngIf="router.url === '/pdm_m_oci1_online'; else oc1online">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1_online"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </div>
+                <ng-template #oc1online>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1_online"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </div>
+                <ng-template #kategori5>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </ng-template>
+                <!-- <div *ngif="isAllowed == true">
+                    <li class="ml-6">
+                      <a routerLink="limit"
+                        class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
+                    </li>
+                </div> -->
+                <div *ngIf="isAllowed == true">
+                  <li class="ml-6" *ngIf="router.url === '/limit'; else limit">
+                    <a routerLink="limit"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Limit</a>
+                  </li>
+                  <ng-template #limit>
+                    <li class="ml-6">
+                      <a routerLink="limit"
+                        class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Limit</a>
+                    </li>
+                  </ng-template>
+                </div>
+              </ul>
+            </li>
+          </div>
+
         </div>
         <ng-template #lain4>
           <li
@@ -2732,24 +2795,104 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
             </button>
             <br />
           </li>
-          <li *ngIf="sub2" class="ml-6">
-            <ul class="">
-              <li class="ml-6">
-                <a routerLink="pdm_m_oci1"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
-                  1</a>
-              </li>
-              <li class="ml-6">
-                <a routerLink="pdm_m_oci2"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">OCI
-                  2</a>
-              </li>
-              <li class="ml-6">
-                <a routerLink="pdm_m_fsb"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-11">FSB</a>
-              </li>
-            </ul>
-          </li>
+          <div *ngIf="sub2">
+            <li class="ml-12">
+              <a (click)="pdmoffsub()"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Offline</a>
+            </li>
+            <li *ngIf="offSub" class="ml-12">
+              <ul class="">
+                <div *ngIf="router.url === '/pdm_m_oci1'; else kategori4">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </div>
+                <ng-template #kategori4>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </div>
+                <ng-template #kategori5>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_fsb'; else kategori6">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_fsb"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                  </li>
+                </div>
+                <ng-template #kategori6>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_fsb"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">FSB</a>
+                  </li>
+                </ng-template>
+              </ul>
+            </li>
+            <li class="ml-12">
+              <a (click)="pdmonsub()"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Online</a>
+            </li>
+            <li *ngIf="onSub" class="ml-10">
+              <ul class="">
+                <div *ngIf="router.url === '/pdm_m_oci1_online'; else oc1online">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1_online"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </div>
+                <ng-template #oc1online>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci1_online"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      1</a>
+                  </li>
+                </ng-template>
+                <div *ngIf="router.url === '/pdm_m_oci2'; else kategori5">
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </div>
+                <ng-template #kategori5>
+                  <li class="ml-6">
+                    <a routerLink="pdm_m_oci2"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">OCI
+                      2</a>
+                  </li>
+                </ng-template>
+                <div *ngif="isAllowed == true">
+                  <li class="ml-6">
+                    <a routerLink="limit"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
+                  </li>
+                  <!-- <ng-template #lainLimit>
+                  <li class="ml-6">
+                    <a routerLink="limit"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
+                  </li>
+                </ng-template> -->
+                </div>
+              </ul>
+            </li>
+          </div>
         </ng-template>
 
         <div *ngIf="

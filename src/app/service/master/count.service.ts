@@ -542,7 +542,67 @@ export class CountService {
   }
   ////////////////////////////
 
-  
+  ////////////////////////////////
+  // ROUTE FOR DASHBOARD PDM On //
+  ////////////////////////////////
+  getCvPack1(){
+    return this.httpClient.get(api + 'pdm-online/' + "cv_pack1");
+  }
+  getNodeRedTable(){
+    return this.httpClient.get(api + 'pdm-online/' + "tables");
+  }
+
+  ////////////////////////////
+
+  //////////////////////////////
+  // ROUTE FOR DASHBOARD COST //
+  //////////////////////////////
+  getCostOci1(){
+    return this.httpClient.get(api + 'cost/' + "costoci1");
+  }
+  getCostOci1Past(){
+    return this.httpClient.get(api + 'cost/' + "costoci1past");
+  }
+  getFgOci1(){
+    return this.httpClient.get(api + 'cost/' + "fgoci1");
+  }
+  getCostOci2(){
+    return this.httpClient.get(api + 'cost/' + "costoci2");
+  }
+  getCostOci2Past(){
+    return this.httpClient.get(api + 'cost/' + "costoci2past");
+  }
+  getFgOci2(){
+    return this.httpClient.get(api + 'cost/' + "fgoci2");
+  }
+  getCostFsb(){
+    return this.httpClient.get(api + 'cost/' + "costfsb");
+  }
+  getCostFsbPast(){
+    return this.httpClient.get(api + 'cost/' + "costfsbpast");
+  }
+  getFgFsb(){
+    return this.httpClient.get(api + 'cost/' + "fgfsb");
+  }
+  ////////////////////////////
+
+  //////////////////////////////
+  // ROUTE FOR DASHBOARD CILT //
+  //////////////////////////////
+  getCurrentCycle(){
+    return this.httpClient.get(api + 'cilt/' + "curcycle");
+  }
+  getCiltOci1(){
+    return this.httpClient.get(api + 'cilt/' + "ciltoci1");
+  }
+  getCiltOci2(){
+    return this.httpClient.get(api + 'cilt/' + "ciltoci2");
+  }
+  getCiltFsb(){
+    return this.httpClient.get(api + 'cilt/' + "ciltfsb");
+  }
+  ////////////////////////////
+
   getOilProduct () {
     return this.httpClient.get(api + "oilproduct");
   }
@@ -672,43 +732,5 @@ export class CountService {
   getTableDoc(id: any){
     return this.httpClient.get(api + "table/" + id);
   }
-  getCostOci1(){
-    return this.httpClient.get(api + "costoci1");
-  }
-  getCostOci1Past(){
-    return this.httpClient.get(api + "costoci1past");
-  }
-  getFgOci1(){
-    return this.httpClient.get(api + "fgoci1");
-  }
-  getCostOci2(){
-    return this.httpClient.get(api + "costoci2");
-  }
-  getCostOci2Past(){
-    return this.httpClient.get(api + "costoci2past");
-  }
-  getFgOci2(){
-    return this.httpClient.get(api + "fgoci2");
-  }
-  getCostFsb(){
-    return this.httpClient.get(api + "costfsb");
-  }
-  getCostFsbPast(){
-    return this.httpClient.get(api + "costfsbpast");
-  }
-  getFgFsb(){
-    return this.httpClient.get(api + "fgfsb");
-  }
-  getCurrentCycle(){
-    return this.httpClient.get(api + "curcycle");
-  }
-  getCiltOci1(){
-    return this.httpClient.get(api + "ciltoci1");
-  }
-  getCiltOci2(){
-    return this.httpClient.get(api + "ciltoci2");
-  }
-  getCiltFsb(){
-    return this.httpClient.get(api + "ciltfsb");
-  }
+
 };

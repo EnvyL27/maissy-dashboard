@@ -101,6 +101,8 @@ import { RecComponent } from './rec/rec.component';
 import { SolarComponent } from './solar/solar.component';
 import { EmissionComponent } from './emission/emission.component';
 import { ToeComponent } from './toe/toe.component';
+import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.component';
+import { LimitComponent } from './limit/limit.component';
 
 
 
@@ -196,6 +198,8 @@ import { ToeComponent } from './toe/toe.component';
     SolarComponent,
     EmissionComponent,
     ToeComponent,
+    PdmMOc1OnlineComponent,
+    LimitComponent,
 
   ],
   imports: [

@@ -84,6 +84,8 @@ import { RecComponent } from './rec/rec.component';
 import { SolarComponent } from './solar/solar.component';
 import { EmissionComponent } from './emission/emission.component';
 import { ToeComponent } from './toe/toe.component';
+import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.component';
+import { LimitComponent } from './limit/limit.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -110,6 +112,8 @@ const routes: Routes = [
   {path: 'pdm_m_oci1', component: PdmMOci1Component, canActivate: [AuthGuard]},
   {path: 'pdm_m_oci2', component: PdmMOci2Component, canActivate: [AuthGuard]},
   {path: 'pdm_m_fsb', component: PdmMFsbComponent, canActivate: [AuthGuard]},
+  {path: 'pdm_m_oci1_online', component: PdmMOc1OnlineComponent, canActivate: [AuthGuard]},
+  {path: 'limit', component: LimitComponent, canActivate: [AuthGuard]},
   {path: 'cilt_m_oci1', component: CiltMOci1Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_oci2', component: CiltMOci2Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_fsb', component: CiltMFsbComponent, canActivate: [AuthGuard]},
