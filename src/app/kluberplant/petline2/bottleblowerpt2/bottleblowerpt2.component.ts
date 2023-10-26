@@ -26,7 +26,7 @@ export class Bottleblowerpt2Component implements OnInit {
   @ViewChild("target")
   target!: ElementRef;
   deskripsi: any = 'Loading..';
-  nameMachine: any = 'Husky Hypet 500 bottleion Molder';
+  nameMachine: any = 'Sidel SBO 20 Bottle Blower';
   constructor(private spinner: NgxSpinnerService, private service: CountService) {
     window.scrollTo(0, 0);
   }

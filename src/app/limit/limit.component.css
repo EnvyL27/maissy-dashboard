@@ -25,3 +25,17 @@
       border-color: transparent
     }
   }
+
+  /* CSS for sliding animation */
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.transition-transform.hidden {
+  transform: translateY(-100%);
+}
+
+
+  
+  

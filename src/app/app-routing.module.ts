@@ -137,7 +137,7 @@ const routes: Routes = [
   {path: 'packconveyoroff', component: PackConveyorOffComponent, canActivate: [AuthGuard]},
   {path: 'petline1', component: Petline1Component, canActivate: [AuthGuard]},
   {path: 'injectionmolder', component: InjectionMolderComponent, canActivate: [AuthGuard]},
-  {path: 'bottleshower', component: BottleShowerComponent, canActivate: [AuthGuard]},
+  {path: 'bottleblower', component: BottleShowerComponent, canActivate: [AuthGuard]},
   {path: 'filler', component: FillerComponent, canActivate: [AuthGuard]},
   {path: 'containerconveyor', component: ContainerConveyorComponent, canActivate: [AuthGuard]},
   {path: 'labeller', component: LabellerComponent, canActivate: [AuthGuard]},

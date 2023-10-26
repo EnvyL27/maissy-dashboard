@@ -543,13 +543,16 @@ export class CountService {
   ////////////////////////////
 
   ////////////////////////////////
-  // ROUTE FOR DASHBOARD PDM On //
+  // ROUTE FOR DASHBOARD PDM ON //
   ////////////////////////////////
   getCvPack1(){
     return this.httpClient.get(api + 'pdm-online/' + "cv_pack1");
   }
   getNodeRedTable(){
     return this.httpClient.get(api + 'pdm-online/' + "tables");
+  }
+  postValueLimit(table_name : string,satis_limit : number, unsatis_limit : number, unaccept_limit : number){
+    return this.httpClient.post(api + 'pdm-online/' + "store", {table_name : table_name, satis_limit : satis_limit, unsatis_limit : unsatis_limit, unaccept_limit : unaccept_limit});
   }
 
   ////////////////////////////

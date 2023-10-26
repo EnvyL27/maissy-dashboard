@@ -2,15 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { CountService } from '../service/master/count.service';
 import { Chart } from 'chart.js/auto';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-limit',
   templateUrl: './limit.component.html',
-  styleUrls: ['./limit.component.css']
+  styleUrls: ['./limit.component.css'],
+  animations: [
+    trigger('contentAnimation', [
+      state('visible', style({ opacity: 1, transform: 'translateY(0)' })), // Slide from top to bottom
+      state('hidden', style({ opacity: 0, transform: 'translateY(-120%)' })), // Slide to the top
+      transition('hidden => visible', animate('300ms ease-in')),
+      transition('visible => hidden', animate('300ms ease-out')),
+    ]),
+    trigger('componentBeneathAnimation', [
+      state('visible', style({ opacity: 1, transform: 'translateY(0)' })),
+      state('hidden', style({ opacity: 1, transform: 'translateY(-220%)' })),
+      transition('hidden => visible', animate('300ms ease-in')),
+      transition('visible => hidden', animate('300ms ease-out')),
+    ]),
+  ],
 })
 export class LimitComponent implements OnInit {
   public resolved: boolean = false;
 
+  isContentVisible = false;
+  isComponentBeneathVisible = false;
+  tableName!: string;
+  satisLimit : number = 0;
+  unsatisLimit : number = 0;
+  unacceptLimit : number = 0;
   const: object = {};
   const2: any = [];
   currentDate = new Date();
@@ -31,6 +52,11 @@ export class LimitComponent implements OnInit {
 
   }
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
+
+  toggleContentVisibility() {
+    this.isContentVisible = !this.isContentVisible; this.isComponentBeneathVisible = !this.isComponentBeneathVisible;
+  }
+
 
   async ngOnInit(): Promise<void> {
     window.scrollTo(0, 0);
@@ -55,6 +81,10 @@ export class LimitComponent implements OnInit {
 
         this.spinner.hide()
       });
+    })
+
+    this.service.postValueLimit(this.tableName, this.satisLimit, this.unsatisLimit, this.unacceptLimit).subscribe(data => {
+
     })
     //// ////////////console.log("1");
     this.spinner.show();
