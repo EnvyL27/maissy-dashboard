@@ -551,7 +551,10 @@ export class CountService {
   getNodeRedTable(){
     return this.httpClient.get(api + 'pdm-online/' + "tables");
   }
-  postValueLimit(table_name : string,satis_limit : number, unsatis_limit : number, unaccept_limit : number){
+  getValueLimit(){
+    return this.httpClient.get(api + 'pdm-online/' + "limit");
+  }
+  postValueLimit(table_name : string,satis_limit : string, unsatis_limit : string, unaccept_limit : string){
     return this.httpClient.post(api + 'pdm-online/' + "store", {table_name : table_name, satis_limit : satis_limit, unsatis_limit : unsatis_limit, unaccept_limit : unaccept_limit});
   }
 

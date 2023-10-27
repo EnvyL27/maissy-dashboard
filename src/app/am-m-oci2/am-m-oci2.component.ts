@@ -2167,80 +2167,67 @@ export class AmMOci2Component implements OnInit {
   }
 
   showFinding() {
-    if (this.totalfindinglist == false) {
-      this.totalfindinglist = true;
-    } else if (this.totalfindinglist == true) {
-      this.totalfindinglist = false;
-    }
+    console.log(this.totalfindinglist);
+    
+      this.totalfindinglist = !this.totalfindinglist;
   }
 
   showFindingPending() {
-    if (this.listoffindingpending == false) {
-      this.listoffindingpending = true;
-    } else if (this.listoffindingpending == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = false;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listoffindingpending =  !this.listoffindingpending;
+      this.listtemuanperhari = false;
+      this.listjobfinish = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   showHistoryPending() {
-    if (this.listofhistorypending == false) {
-      this.listofhistorypending = true;
-    } else if (this.listofhistorypending == true) {
-      this.listtemuanperhari = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = false;
-    }
+      this.listofhistorypending = !this.listofhistorypending;
+      this.listtemuanperhari = false;
+      this.listjobfinish = false;
+      this.listoffindingpending = false;
+      this.listoftotaldata = false;
+      
   }
 
   showFindingHistory() {
-    if (this.listofhistorypending == false) {
-    } else if (this.listofhistorypending == true) {
-      this.listtemuanperhari = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = false;
-    }
+      this.listtemuanperhari = false;
+      this.listjobfinish = false;
+      this.listofhistorypending = !this.listofhistorypending;
+      this.listoftotaldata = false;
   }
 
   showMonthlyReport() {
-    if (this.listofMonthlyReport == false) {
-      this.listofMonthlyReport = true;
-    } else if (this.listofMonthlyReport == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = false;
-      this.listofhistorypending = true;
-    }
+      this.listtemuanperhari = false;
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listofMonthlyReport = !this.listofMonthlyReport;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
+  }
+
+  showTotalData() {
+      
+      this.listtemuanperhari = false;
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listoftotaldata = !this.listoftotaldata;
+      this.listofhistorypending = false;
   }
 
   showListJobFinish() {
-    if (this.listjobfinish == false) {
-      this.listjobfinish = true;
-    } else if (this.listjobfinish == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = true;
-      this.listjobfinish = false;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listjobfinish = !this.listjobfinish;
+      this.listtemuanperhari = false;
+      this.listoffindingpending = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   showTemuanPerDay() {
-    if (this.listtemuanperhari == false) {
-      this.listtemuanperhari = true;
-    } else if (this.listtemuanperhari == true) {
-      this.listtemuanperhari = false;
-      this.listoffindingpending = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listtemuanperhari = !this.listtemuanperhari;
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   scrollPoint1(el: HTMLElement) {
@@ -2251,14 +2238,7 @@ export class AmMOci2Component implements OnInit {
     this.bulananChart();
     this.hariChart();
     this.chartFunction()
-    this.showFinding();
     this.spinner.show();
-    this.showFindingHistory();
-    this.showFindingPending();
-    this.showHistoryPending();
-    this.showMonthlyReport();
-    this.showListJobFinish();
-    this.showTemuanPerDay();
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.datarange.splice(0);
