@@ -98,6 +98,7 @@ export class AmMOci2Component implements OnInit {
   listoffindingpending: boolean = false;
   listofhistorypending: boolean = false;
   listofMonthlyReport: boolean = false;
+  listoftotaldata: boolean = false;
   listjobfinish: boolean = false;
   listtemuanperhari: boolean = false;
   createorderfinding: any = [];
