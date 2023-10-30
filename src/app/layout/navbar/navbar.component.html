@@ -240,7 +240,7 @@
           <h6 class="mb-0 font-bold capitalize">Order Monitoring</h6>
         </nav>
       </div>
-      <div *ngIf="router.url === '/pdm_m_oci1' || router.url === '/pdm_m_oci2' || router.url === '/pdm_m_fsb'">
+      <div *ngIf="router.url === '/pdm_m_oci1' || router.url === '/pdm_m_oci2' || router.url === '/pdm_m_fsb' || router.url === '/pdm_m_oci1_online'">
         <nav>
           <!-- breadcrumb -->
           <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
@@ -252,6 +252,21 @@
               aria-current="page">PDM Monitoring</li>
           </ol>
           <h6 class="mb-0 font-bold capitalize">PDM Monitoring</h6>
+        </nav>
+      </div>
+
+      <div *ngIf="router.url === '/limit'">
+        <nav>
+          <!-- breadcrumb -->
+          <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+            <li class="leading-normal text-sm">
+              <a class="opacity-50 text-slate-700" routerLink="/">Pages</a>
+            </li>
+            <li
+              class="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              aria-current="page">PDM Limit Monitoring</li>
+          </ol>
+          <h6 class="mb-0 font-bold capitalize">PDM Limit Monitoring</h6>
         </nav>
       </div>
       <div *ngIf="router.url === '/cilt_m_oci1' || router.url === '/cilt_m_oci2' || router.url === '/cilt_m_fsb'">

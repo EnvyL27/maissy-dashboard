@@ -261,7 +261,7 @@
     </div>
   </div>
   <div class="w-full px-1 mx-auto">
-    <div (click)="showMonthlyReport()">
+    <div>
       <div class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <h5 class="text-center text-2xl font-semibold">
@@ -269,8 +269,7 @@
         </div>
       </div>
     </div>
-    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
-      *ngIf="listofMonthlyReport">
+    <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
       <div class="flex-auto p-6">
         <div class="w-full max-w-full md:w-full">
           <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
@@ -1752,7 +1751,7 @@
   </div>
   <!--end of apex dropdown-->
 
-  <div [ngClass]="listofMonthlyReport ? '': 'hidden'" class="my-1 px-1 w-full max-w-full md:w-full">
+  <div class="my-1 px-1 w-full max-w-full md:w-full">
     <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
       <div class="flex-auto p-6">
         <div class="w-full max-w-full md:w-full">
