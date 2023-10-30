@@ -15,52 +15,53 @@ export class PdmMOc1OnlineComponent implements OnInit {
   public resolved: boolean = false;
 
   cvpackobj: any;
-  Current_M01 : number = 0
-  Current_M01B : number = 0
-  Current_M02 : number = 0
-  Current_M03 : number = 0
-  Current_M16 : number = 0
-  Current_M17 : number = 0
-  Current_M18 : number = 0
-  Current_M19 : number = 0
-  Current_M21 : number = 0
-  Current_M22 : number = 0
-  Current_M41 : number = 0
-  Current_M104 : number = 0
-  Current_M105 : number = 0
-  Current_M106 : number = 0
-  Current_M107 : number = 0
-  Current_M108 : number = 0
-  Current_M109 : number = 0
-  Current_M110 : number = 0
-  Current_M111 : number = 0
-  Current_M112 : number = 0
-  Current_M113 : number = 0
-  Current_M114 : number = 0
-  Current_M115 : number = 0
-  Current_M116 : number = 0
-  Current_M117 : number = 0
-  Current_M118 : number = 0
-  Current_M119 : number = 0
-  Current_M119A : number = 0
-  Current_M119B : number = 0
-  Current_M120 : number = 0
-  Current_M120A : number = 0
-  Current_M120B : number = 0
-  Current_M121 : number = 0
-  Current_M122 : number = 0
-  Current_M123 : number = 0
-  Current_M124 : number = 0
-  Current_M124A : number = 0
-  Current_M124B : number = 0
-  Current_M124C : number = 0
-  Current_M124D : number = 0
-  Current_M124E : number = 0
-  Current_M124F : number = 0
-  Current_M124G : number = 0
-  Current_M125 : number = 0
-  Current_MG1 : number = 0
-  Current_MG2 : number = 0
+  packGood: any = []
+  Current_M01: any = []
+  Current_M01B: any = []
+  Current_M02: any = []
+  Current_M03: any = []
+  Current_M16: any = []
+  Current_M17: any = []
+  Current_M18: any = []
+  Current_M19: any = []
+  Current_M21: any = []
+  Current_M22: any = []
+  Current_M41: any = []
+  Current_M104: any = []
+  Current_M105: any = []
+  Current_M106: any = []
+  Current_M107: any = []
+  Current_M108: any = []
+  Current_M109: any = []
+  Current_M110: any = []
+  Current_M111: any = []
+  Current_M112: any = []
+  Current_M113: any = []
+  Current_M114: any = []
+  Current_M115: any = []
+  Current_M116: any = []
+  Current_M117: any = []
+  Current_M118: any = []
+  Current_M119: any = []
+  Current_M119A: any = []
+  Current_M119B: any = []
+  Current_M120: any = []
+  Current_M120A: any = []
+  Current_M120B: any = []
+  Current_M121: any = []
+  Current_M122: any = []
+  Current_M123: any = []
+  Current_M124: any = []
+  Current_M124A: any = []
+  Current_M124B: any = []
+  Current_M124C: any = []
+  Current_M124D: any = []
+  Current_M124E: any = []
+  Current_M124F: any = []
+  Current_M124G: any = []
+  Current_M125: any = []
+  Current_MG1: any = []
+  Current_MG2: any = []
 
   public loaddata: any;
   showSuccessAlert: boolean = true;
@@ -70,64 +71,87 @@ export class PdmMOc1OnlineComponent implements OnInit {
   }
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
 
-  packings() {
+  packingChart() {
     this.packing = {
-      series: [],
-      labels: [["Progress CILT", 'OCI 1']],
+      series: [this.packGood, 0, 0, 0],
       chart: {
-        height: 385,
-        type: "radialBar"
+        width: 380,
+        type: 'pie',
       },
-      colors: '#AEE2FF',
-      plotOptions: {
-        radialBar: {
-          hollow: {
-            margin: 0,
-            size: "60%",
-            background: "#fff",
-            image: undefined,
-            position: "front",
-            dropShadow: {
-              enabled: true,
-              top: 3,
-              left: 0,
-              blur: 4,
-              opacity: 0.24
-            }
+      labels: ['Good', 'Satisfactory', 'Unsatisfactory', 'Unacceptable'],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+            width: 200
           },
-          dataLabels: {
-            name: {
-              show: true,
-              fontSize: '16px',
-              fontFamily: undefined,
-              fontWeight: 600,
-              color: undefined,
-              offsetY: -10
-            },
-            value: {
-              show: true,
-              fontSize: '14px',
-              fontFamily: undefined,
-              fontWeight: 400,
-              color: undefined,
-              offsetY: 16,
-            },
-          },
-          borderRadius: 10,
+          legend: {
+            position: 'bottom'
+          }
         }
-      },
-
+      }]
     };
   }
 
   async ngOnInit(): Promise<void> {
-    this.packings();
+
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getCvPack1().subscribe(data => {
-        console.log(data);
-
         this.cvpackobj = data;
+        console.log(this.cvpackobj);
+        this.cvpackobj.forEach((mappedData: any) => {
+          this.Current_M01.push(mappedData.Current_M01);
+          this.Current_M01B.push(mappedData.Current_M01B);
+          this.Current_M02.push(mappedData.Current_M02);
+          this.Current_M03.push(mappedData.Current_M03);
+          this.Current_M16.push(mappedData.Current_M16);
+          this.Current_M17.push(mappedData.Current_M17);
+          this.Current_M18.push(mappedData.Current_M18);
+          this.Current_M19.push(mappedData.Current_M19);
+          this.Current_M21.push(mappedData.Current_M21);
+          this.Current_M22.push(mappedData.Current_M22);
+          this.Current_M41.push(mappedData.Current_M41);
+          this.Current_M104.push(mappedData.Current_M104);
+          this.Current_M105.push(mappedData.Current_M105);
+          this.Current_M106.push(mappedData.Current_M106);
+          this.Current_M107.push(mappedData.Current_M107);
+          this.Current_M108.push(mappedData.Current_M108);
+          this.Current_M109.push(mappedData.Current_M109);
+          this.Current_M110.push(mappedData.Current_M110);
+          this.Current_M111.push(mappedData.Current_M111);
+          this.Current_M112.push(mappedData.Current_M112);
+          this.Current_M113.push(mappedData.Current_M113);
+          this.Current_M114.push(mappedData.Current_M114);
+          this.Current_M115.push(mappedData.Current_M115);
+          this.Current_M116.push(mappedData.Current_M116);
+          this.Current_M117.push(mappedData.Current_M117);
+          this.Current_M118.push(mappedData.Current_M118);
+          this.Current_M119.push(mappedData.Current_M119);
+          this.Current_M119A.push(mappedData.Current_M119A);
+          this.Current_M119B.push(mappedData.Current_M119B);
+          this.Current_M120.push(mappedData.Current_M120);
+          this.Current_M120A.push(mappedData.Current_M120A);
+          this.Current_M120B.push(mappedData.Current_M120B);
+          this.Current_M121.push(mappedData.Current_M121);
+          this.Current_M122.push(mappedData.Current_M122);
+          this.Current_M123.push(mappedData.Current_M123);
+          this.Current_M124.push(mappedData.Current_M124);
+          this.Current_M124A.push(mappedData.Current_M124A);
+          this.Current_M124B.push(mappedData.Current_M124B);
+          this.Current_M124C.push(mappedData.Current_M124C);
+          this.Current_M124D.push(mappedData.Current_M124D);
+          this.Current_M124E.push(mappedData.Current_M124E);
+          this.Current_M124F.push(mappedData.Current_M124F);
+          this.Current_M124G.push(mappedData.Current_M124G);
+          this.Current_M125.push(mappedData.Current_M125);
+          this.Current_MG1.push(mappedData.Current_MG1);
+          this.Current_MG2.push(mappedData.Current_MG2);
+
+        });
+        console.log(this.Current_M01);
+
+        this.packingChart();
         this.spinner.hide();
 
       }
