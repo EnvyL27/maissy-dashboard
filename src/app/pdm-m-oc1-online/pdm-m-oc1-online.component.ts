@@ -3,6 +3,7 @@ import { CountService } from '../service/master/count.service';
 import { Chart } from 'chart.js/auto';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ChartOptions } from './chart';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-pdm-m-oc1-online',
@@ -93,6 +94,33 @@ export class PdmMOc1OnlineComponent implements OnInit {
     };
   }
 
+  exportexcel(): void {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    //////////////////////console.log(this.findingpending2);
+    //////////console.log(this.findingpending2);
+
+
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.cvpackobj);
+    ws["!cols"] = [{ wch: 10 },
+    { wch: 60 },
+    { wch: 10 },
+    { wch: 40 },
+    { wch: 30 },
+    { wch: 15 },
+    { wch: 15 },
+    { wch: 10 },
+    { wch: 15 }];
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, 'a.xlsx');
+
+  }
+
   async ngOnInit(): Promise<void> {
 
     window.scrollTo(0, 0);
@@ -151,7 +179,7 @@ export class PdmMOc1OnlineComponent implements OnInit {
         });
         console.log(this.Current_M01);
 
-        this.packingChart();
+        // this.packingChart();
         this.spinner.hide();
 
       }
