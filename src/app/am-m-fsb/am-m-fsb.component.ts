@@ -101,6 +101,7 @@ export class AmMFsbComponent implements OnInit {
   totalfindinglist: boolean = false;
   listoffindingpending: boolean = false;
   listofhistorypending: boolean = false;
+  listoftotaldata: boolean = false;
   listofMonthlyReport: boolean = false;
   listjobfinish: boolean = false;
   listtemuanperhari: boolean = false;
@@ -428,11 +429,16 @@ export class AmMFsbComponent implements OnInit {
     element.click();
     document.body.removeChild(element);
   }
+
+  
+
   finddata2() {
-    if (this.chartdestroy != null) {
-      this.chartdestroy.destroy();
-    }
-    this.totaldata1year.splice(0);
+    //console.log('log masuk ' + this.tgl4 + ' hah ' + this.tgl3);
+    
+    // if (this.chartdestroy != null) {
+    //   this.chartdestroy.destroy();
+    // }
+    this.totaldata1year = [];
     this.januari = 0;
     this.januariclose = 0;
     this.febuari = 0;
@@ -459,6 +465,123 @@ export class AmMFsbComponent implements OnInit {
     this.desemberclose = 0;
     // this.spinner.show();
     this.resolved = false;
+
+    this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
+      this.totaldata1year.push(data);
+      for (let elem of this.totaldata1year[0]) {
+        if (elem.bulan == 'January') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.januariclose += 1
+            } else {
+              this.januari += 1;
+            }
+          }
+        } else if (elem.bulan == 'February') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.febuariclose += 1
+            } else {
+              this.febuari += 1;
+            }
+          }
+        } else if (elem.bulan == 'March') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.maretclose += 1;
+            } else {
+              this.maret += 1;
+            }
+          }
+        } else if (elem.bulan == 'April') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.aprilclose += 1;
+            }
+            else {
+              this.april += 1;
+            }
+          }
+        } else if (elem.bulan == 'May') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.meiclose += 1;
+            } else {
+              this.mei += 1;
+            }
+          }
+        } else if (elem.bulan == 'June') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.juniclose += 1;
+            } else {
+              this.juni += 1;
+            }
+          }
+        } else if (elem.bulan == 'July') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.juliclose += 1;
+            } else {
+              this.juli += 1;
+            }
+          }
+        } else if (elem.bulan == 'August') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.agustusclose += 1;
+            } else {
+              this.agustus += 1;
+            }
+          }
+        } else if (elem.bulan == 'September') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.septemberclose += 1;
+            } else {
+              this.september += 1;
+            }
+          }
+        } else if (elem.bulan == 'October') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.oktoberclose += 1;
+            } else {
+              this.oktober += 1;
+            }
+          }
+        } else if (elem.bulan == 'November') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.novemberclose += 1;
+            } else {
+              this.november += 1;
+            }
+          }
+        } else if (elem.bulan == 'December') {
+          if (elem.plant_section == "Prod SnackBar1") {
+            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+              this.desemberclose += 1;
+            } else {
+              this.desember += 1;
+            }
+          }
+        }
+      }
+      this.januari = this.januari + this.januariclose;
+      this.febuari = this.febuari + this.febuariclose;
+      this.maret = this.maret + this.maretclose;
+      this.april = this.april + this.aprilclose;
+      this.mei = this.mei + this.meiclose;
+      this.juni = this.juni + this.juniclose;
+      this.juli = this.juli + this.juliclose;
+      this.agustus = this.agustus + this.agustusclose;
+      this.september = this.september + this.septemberclose;
+      this.oktober = this.oktober + this.oktoberclose;
+      this.november = this.november + this.novemberclose;
+      this.desember = this.desember + this.desemberclose;
+      this.chartFunction();
+    });
   }
 
   exportwo(): void {
@@ -2203,80 +2326,67 @@ export class AmMFsbComponent implements OnInit {
   }
 
   showFinding() {
-    if (this.totalfindinglist == false) {
-      this.totalfindinglist = true;
-    } else if (this.totalfindinglist == true) {
-      this.totalfindinglist = false;
-    }
+    // console.log(this.totalfindinglist);
+    
+      this.totalfindinglist = !this.totalfindinglist;
   }
 
   showFindingPending() {
-    if (this.listoffindingpending == false) {
-      this.listoffindingpending = true;
-    } else if (this.listoffindingpending == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = false;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listoffindingpending =  !this.listoffindingpending;
+      
+      this.listjobfinish = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   showHistoryPending() {
-    if (this.listofhistorypending == false) {
-      this.listofhistorypending = true;
-    } else if (this.listofhistorypending == true) {
-      this.listtemuanperhari = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = false;
-    }
+      this.listofhistorypending = !this.listofhistorypending;
+      
+      this.listjobfinish = false;
+      this.listoffindingpending = false;
+      this.listoftotaldata = false;
+      
   }
 
   showFindingHistory() {
-    if (this.listofhistorypending == false) {
-    } else if (this.listofhistorypending == true) {
-      this.listtemuanperhari = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = false;
-    }
+      
+      this.listjobfinish = false;
+      this.listofhistorypending = !this.listofhistorypending;
+      this.listoftotaldata = false;
   }
 
   showMonthlyReport() {
-    if (this.listofMonthlyReport == false) {
-      this.listofMonthlyReport = true;
-    } else if (this.listofMonthlyReport == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = false;
-      this.listofhistorypending = true;
-    }
+      
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listofMonthlyReport = !this.listofMonthlyReport;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
+  }
+
+  showTotalData() {
+      
+      
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listoftotaldata = !this.listoftotaldata;
+      this.listofhistorypending = false;
   }
 
   showListJobFinish() {
-    if (this.listjobfinish == false) {
-      this.listjobfinish = true;
-    } else if (this.listjobfinish == true) {
-      this.listtemuanperhari = true;
-      this.listoffindingpending = true;
-      this.listjobfinish = false;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listjobfinish = !this.listjobfinish;
+      
+      this.listoffindingpending = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   showTemuanPerDay() {
-    if (this.listtemuanperhari == false) {
-      this.listtemuanperhari = true;
-    } else if (this.listtemuanperhari == true) {
-      this.listtemuanperhari = false;
-      this.listoffindingpending = true;
-      this.listjobfinish = true;
-      this.listofMonthlyReport = true;
-      this.listofhistorypending = true;
-    }
+      this.listtemuanperhari = !this.listtemuanperhari;
+      this.listoffindingpending = false;
+      this.listjobfinish = false;
+      this.listofhistorypending = false;
+      this.listoftotaldata = false;
   }
 
   scrollPoint1(el: HTMLElement) {
@@ -2321,7 +2431,7 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION' ) {
                 this.januariclose += 1
                 this.januaricloseelem.push(elem)
                 this.januari += 1;
@@ -2333,7 +2443,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'February') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.febuariclose += 1
                 this.febuaricloseelem.push(elem)
                 this.febuari += 1;
@@ -2345,7 +2455,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'March') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.maretclose += 1;
                 this.maretcloseelem.push(elem)
                 this.maret += 1;
@@ -2357,7 +2467,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'April') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.aprilclose += 1;
                 this.aprilcloseelem.push(elem)
                 this.april += 1;
@@ -2370,7 +2480,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'May') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.meiclose += 1;
                 this.meicloseelem.push(elem)
                 this.mei += 1;
@@ -2382,7 +2492,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'June') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.juniclose += 1;
                 this.junicloseelem.push(elem)
                 this.juni += 1;
@@ -2394,7 +2504,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'July') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.juliclose += 1;
                 this.julicloseelem.push(elem)
                 this.juli += 1;
@@ -2406,7 +2516,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.agustusclose += 1;
                 this.agustuscloseelem.push(elem)
                 this.agustus += 1;
@@ -2430,7 +2540,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.oktoberclose += 1;
                 this.oktobercloseelem.push(elem)
                 this.oktober += 1;
@@ -2442,7 +2552,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'November') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.novemberclose += 1;
                 this.novembercloseelem.push(elem)
                 this.november += 1;
@@ -2454,7 +2564,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'December') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.desemberclose += 1;
                 this.desembercloseelem.push(elem)
                 this.desember += 1;
@@ -2670,7 +2780,7 @@ export class AmMFsbComponent implements OnInit {
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.januariclose += 1
               } else {
                 this.januari += 1;
@@ -2678,7 +2788,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'February') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.febuariclose += 1
               } else {
                 this.febuari += 1;
@@ -2686,7 +2796,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'March') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.maretclose += 1;
               } else {
                 this.maret += 1;
@@ -2694,7 +2804,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'April') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.aprilclose += 1;
               }
               else {
@@ -2703,7 +2813,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'May') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.meiclose += 1;
               } else {
                 this.mei += 1;
@@ -2711,7 +2821,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'June') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.juniclose += 1;
               } else {
                 this.juni += 1;
@@ -2719,7 +2829,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'July') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.juliclose += 1;
               } else {
                 this.juli += 1;
@@ -2727,7 +2837,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'August') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.agustusclose += 1;
               } else {
                 this.agustus += 1;
@@ -2735,7 +2845,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.septemberclose += 1;
               } else {
                 this.september += 1;
@@ -2743,7 +2853,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.oktoberclose += 1;
               } else {
                 this.oktober += 1;
@@ -2751,7 +2861,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'November') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.novemberclose += 1;
               } else {
                 this.november += 1;
@@ -2759,7 +2869,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'December') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.status == 'TECO' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.desemberclose += 1;
               } else {
                 this.desember += 1;
@@ -2767,6 +2877,7 @@ export class AmMFsbComponent implements OnInit {
             }
           }
         }
+
         this.januari = this.januari + this.januariclose;
         this.febuari = this.febuari + this.febuariclose;
         this.maret = this.maret + this.maretclose;
