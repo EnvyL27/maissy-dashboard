@@ -843,7 +843,7 @@ export class PdmMOci1Component implements OnInit {
     //console.log(this.vibrationdate);
 
     var dataVibration = {
-      labels: vibrationYear,
+      labels: vibrationYear.reverse(),
       datasets: [
         {
           label: '2H',

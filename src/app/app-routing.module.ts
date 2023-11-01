@@ -86,6 +86,7 @@ import { EmissionComponent } from './emission/emission.component';
 import { ToeComponent } from './toe/toe.component';
 import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.component';
 import { LimitComponent } from './limit/limit.component';
+import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
@@ -122,6 +123,7 @@ const routes: Routes = [
   {path: 'cost_m_fsb', component: CostMFsbComponent, canActivate: [AuthGuard]},
   {path: 'apps_link', component: AppsLinkComponent, canActivate: [AuthGuard]},
   {path: 'big5', component: Big5Component, canActivate: [AuthGuard]},
+  {path: 'live_alarm', component: LiveAlarmComponent, canActivate: [AuthGuard]},
   {path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard]},
   {path: 'grease', component: GreaseComponent, canActivate: [AuthGuard]},
   {path: 'oil', component: OilComponent, canActivate: [AuthGuard]},

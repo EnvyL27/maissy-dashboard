@@ -839,7 +839,7 @@ export class PdmMFsbComponent implements OnInit {
 
     }
     var dataVibration = {
-      labels: vibrationYear,
+      labels: vibrationYear.reverse(),
       datasets: [
         {
           label: '2H',

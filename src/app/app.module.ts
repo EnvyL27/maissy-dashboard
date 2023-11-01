@@ -103,6 +103,7 @@ import { EmissionComponent } from './emission/emission.component';
 import { ToeComponent } from './toe/toe.component';
 import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.component';
 import { LimitComponent } from './limit/limit.component';
+import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 
 
 
@@ -200,6 +201,7 @@ import { LimitComponent } from './limit/limit.component';
     ToeComponent,
     PdmMOc1OnlineComponent,
     LimitComponent,
+    LiveAlarmComponent,
 
   ],
   imports: [

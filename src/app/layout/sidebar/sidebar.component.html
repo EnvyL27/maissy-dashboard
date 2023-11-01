@@ -948,13 +948,8 @@
           </a>
         </li>
       </ng-template>
-      <!--
 
--->
-      <div *ngIf="
-router.url === '/big5';
-else lain6
-">
+      <div *ngIf="router.url === '/big5' || router.url === '/live_alarm';else lain6">
         <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
           <div
             class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
@@ -986,22 +981,20 @@ else lain6
         </li>
         <li *ngIf="sub4" class="ml-6">
           <ul class="">
-            <div *ngIf="router.url === '/big5'; else kategori11">
-              <li class="ml-6">
-                <a routerLink="big5"
-                  class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Big
-                  5</a>
-              </li>
-            </div>
-            <ng-template #kategori11>
-              <li class="ml-6">
-                <a routerLink="big5"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Big
-                  5</a>
-              </li>
-            </ng-template>
+            <li class="ml-6">
+              <a routerLink="big5"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Big
+                5
+              </a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="live_alarm"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Live Alarm
+              </a>
+            </li>
           </ul>
         </li>
+       
       </div>
       <ng-template #lain6>
         <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
@@ -1039,6 +1032,11 @@ else lain6
               <a routerLink="big5"
                 class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Big
                 5
+              </a>
+            </li>
+            <li class="ml-6">
+              <a routerLink="live_alarm"
+                class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Live Alarm
               </a>
             </li>
           </ul>
@@ -2742,12 +2740,12 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
                       2</a>
                   </li>
                 </ng-template>
-                <!-- <div *ngif="isAllowed == true">
-                    <li class="ml-6">
-                      <a routerLink="limit"
-                        class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
-                    </li>
-                </div> -->
+                <div *ngif="isAllowed == true">
+                  <li class="ml-6">
+                    <a routerLink="limit"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
+                  </li>
+                </div>
                 <div *ngIf="isAllowed == true">
                   <li class="ml-6" *ngIf="router.url === '/limit'; else limit">
                     <a routerLink="limit"
@@ -2883,12 +2881,12 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
                     <a routerLink="limit"
                       class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
                   </li>
-                  <!-- <ng-template #lainLimit>
-                  <li class="ml-6">
-                    <a routerLink="limit"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
-                  </li>
-                </ng-template> -->
+                  <ng-template #lainLimit>
+                    <li class="ml-6">
+                      <a routerLink="limit"
+                        class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">limit</a>
+                    </li>
+                  </ng-template>
                 </div>
               </ul>
             </li>
@@ -3271,7 +3269,8 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
     </li>
 -->
         <div *ngIf="
-router.url === '/big5';
+router.url === '/big5' ||
+router.url === '/live_alarm';
 else lain6
 ">
           <li
@@ -3322,6 +3321,20 @@ else lain6
                 </li>
               </ng-template>
             </ul>
+            <ul class="">
+              <div *ngIf="router.url === '/live_alarm'; else liveAlarm">
+                <li class="ml-6">
+                  <a routerLink="live_alarm"
+                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm</a>
+                </li>
+              </div>
+              <ng-template #liveAlarm>
+                <li class="ml-6">
+                  <a routerLink="live_alarm"
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm</a>
+                </li>
+              </ng-template>
+            </ul>
           </li>
         </div>
         <ng-template #lain6>
@@ -3362,6 +3375,13 @@ else lain6
                 <a routerLink="big5"
                   class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Big
                   5
+                </a>
+              </li>
+            </ul>
+            <ul class="">
+              <li class="ml-6">
+                <a routerLink="live_alarm"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm
                 </a>
               </li>
             </ul>
