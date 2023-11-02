@@ -289,7 +289,7 @@ export class AmMOci1Component implements OnInit {
   tgl3: any = moment().format("YYYY") + "-01-" + "01";
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
-  month: any = moment().format("M");
+  month: any = new Date().toISOString().slice(0,7);
   bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
@@ -3071,6 +3071,8 @@ export class AmMOci1Component implements OnInit {
       );
 
       this.service.getTotalFeeding().subscribe(data => {
+        console.log(this.month);
+        
         this.totalfm = data;
 
         var date: any = [];
@@ -3090,7 +3092,7 @@ export class AmMOci1Component implements OnInit {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun ==this.month) { 
                   this.finishexecute += 1;
                   if (elem.kategori === 'Preventive') {
                     this.Setting += 1;
@@ -3109,7 +3111,7 @@ export class AmMOci1Component implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun ==this.month) { 
                   this.readyexecute += 1;
                   if (elem.kategori === 'Preventive') {
                     this.Setting += 1;
@@ -3128,7 +3130,7 @@ export class AmMOci1Component implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulanTahun == this.month) { 
+                  if (elem.bulanTahun ==this.month) { 
                     this.pendingexecute += 1; 
                     if (elem.kategori === 'Preventive') {
                       this.Setting += 1;
@@ -3148,7 +3150,7 @@ export class AmMOci1Component implements OnInit {
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun ==this.month) { 
                   this.pendingexecute += 1; 
                   if (elem.kategori === 'Preventive') {
                     this.Setting += 1;
@@ -3169,8 +3171,11 @@ export class AmMOci1Component implements OnInit {
             }
           })
 
+          console.log(this.pendingexecute);
+          
+
           this.temuanperday_data_temp.forEach((element: any) => {
-            if (element.bulan == this.bulan) {
+            if (element.bulan ==this.month) {
               this.listoftotalfinding.push(element)
             }
           });

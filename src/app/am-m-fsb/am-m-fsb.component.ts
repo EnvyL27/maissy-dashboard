@@ -88,6 +88,7 @@ export class AmMFsbComponent implements OnInit {
   error: string | null = null;
   fileName = 'FindingPendingFSB.xlsx';
   typefinding: any;
+  typefindingmonth: any;
   public resolved: boolean = false;
   public resolvedchart: boolean = false;
   apvfinding : number = 0
@@ -286,7 +287,7 @@ export class AmMFsbComponent implements OnInit {
   tgl3: any = moment().format("YYYY") + "-01-" + "01";
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
-  month: any = moment().format("M");
+  month: any = new Date().toISOString().slice(0,7);
   bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
@@ -2618,59 +2619,6 @@ export class AmMFsbComponent implements OnInit {
         this.reportharian.push(data);
       })
 
-      this.service.getCountTotalFinding().subscribe(data => {
-        this.totalkategori = data;
-
-
-        Object.values(this.totalkategori).forEach(data => {
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          for (let i = 0; i < array.length; i++) {
-            this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
-          }
-          for (var i = 0; i < this.totalkategoriarr.length; i++) {
-            if (this.totalkategoriarr[i].bulan == this.month) {
-              if (this.totalkategoriarr[i].id_area == 3) {
-                if (this.totalkategoriarr[i].kategori === 'Preventive') {
-                  this.Setting += 1;
-                }
-                if (this.totalkategoriarr[i].kategori === 'Replacement') {
-                  this.Replacement += 1;
-                }
-                if (this.totalkategoriarr[i].kategori === 'Improvement') {
-                  this.Improvement += 1;
-                }
-              }
-            }
-          }
-
-          this.typefinding = new Chart('typefinding', {
-            type: 'doughnut',
-            data: {
-              labels: ["Setting", "Replacement", "Improvement"],
-              datasets: [{
-                label: 'Data',
-                data: [this.Setting, this.Replacement, this.Improvement],
-                backgroundColor: [
-                  '#316879',
-                  '#f47a60',
-                  '#7fe7dc',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-        })
-      }
-      );
-
-
 
       this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
         this.datarange.push(data);
@@ -3157,7 +3105,7 @@ export class AmMFsbComponent implements OnInit {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun == this.bulan) { 
                   this.finishexecute += 1;
                   if (elem.kategori === 'Setting') {
                     this.Setting += 1;
@@ -3176,7 +3124,7 @@ export class AmMFsbComponent implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun == this.bulan) { 
                   this.readyexecute += 1;
                   if (elem.kategori === 'Setting') {
                     this.Setting += 1;
@@ -3195,7 +3143,7 @@ export class AmMFsbComponent implements OnInit {
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulanTahun == this.month) { 
+                  if (elem.bulanTahun == this.bulan) { 
                     this.pendingexecute += 1; 
                     if (elem.kategori === 'Setting') {
                       this.Setting += 1;
@@ -3215,7 +3163,7 @@ export class AmMFsbComponent implements OnInit {
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulanTahun == this.month) { 
+                if (elem.bulanTahun == this.bulan) { 
                   this.pendingexecute += 1; 
                   if (elem.kategori === 'Setting') {
                     this.Setting += 1;
@@ -3298,7 +3246,7 @@ export class AmMFsbComponent implements OnInit {
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
-              if (elem.bulan == this.month) {
+              if (elem.bulan == this.bulan) {
                 if (elem.tanggal_temuan == element) {
                   this.temuanperday_dum++
                 }

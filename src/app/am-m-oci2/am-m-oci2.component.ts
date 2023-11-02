@@ -279,7 +279,7 @@ export class AmMOci2Component implements OnInit {
   tgl3: any = moment().format("YYYY") + "-01-" + "01";
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
-  month: any = moment().format("M");
+  month: any = new Date().toISOString().slice(0,7);
   bulan: any = moment().format("M");
   readyexecute: number = 0;
   readyexecutetop: number = 0;
