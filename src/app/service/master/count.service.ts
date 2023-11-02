@@ -49,7 +49,7 @@ export class CountService {
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
-        // ////////////console.log(array);
+        console.log(array);
         for (let i = 0; i < array.length; i++) {
           // ////////////console.log(i)
           var arrayy = Object.keys(array[i + 1]).map(function (key) {
@@ -61,7 +61,7 @@ export class CountService {
             var arrayyy = Object.keys(arrayy[j]).map(function (key) {
               return arrayy[j][key];
             });
-            // ////////////console.log(arrayyy);
+            // console.log(arrayyy);
             for (let k = 0; k < arrayyy.length; k++) {
               data = {
                 name: array[i],
@@ -203,6 +203,13 @@ export class CountService {
     });
   }
   
+  ////////////////////////////////////
+  // ROUTE FOR DASHBOARD LIVE ALARM //
+  ////////////////////////////////////
+  getLiveAlarm() {
+    return this.httpClient.get(api + 'alarm/' + "read");
+  }
+  ////////////////////////////
   
   ////////////////////////////
   // ROUTE FOR DASHBOARD AM //

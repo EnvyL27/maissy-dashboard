@@ -302,6 +302,7 @@ export class AmMOci1Component implements OnInit {
   Setting: number = 0;
   Replacement: number = 0;
   Improvement: number = 0;
+  Preventive: number = 0;
   totalkategori: object = {};
   totalkategoriarr: any = [];
   showPaginate: number = 5;
@@ -1998,7 +1999,7 @@ export class AmMOci1Component implements OnInit {
     })
   }
   totaldataChange() {
-    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = 0;
+    this.pendingexecute = this.readyexecute = this.finishexecute = this.Setting = this.Replacement = this.Improvement = this.Preventive = 0;
     this.totalfm = [];
     this.totalfm2 = [];
     this.totallevel = [];
@@ -2007,60 +2008,6 @@ export class AmMOci1Component implements OnInit {
     this.totalkategoriarr = [];
     this.temuanperday_data_temp = []
     this.listoftotalfinding = [];
-
-    this.service.getCountTotalFinding().subscribe(data => {
-      this.totalkategori = data;
-      Object.values(this.totalkategori).forEach(data => {
-
-        var array = Object.keys(data).map(function (key) {
-          return data[key];
-        });
-        for (let i = 0; i < array.length; i++) {
-          this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
-        }
-
-        for (var i = 0; i < this.totalkategoriarr.length; i++) {
-          if (this.totalkategoriarr[i].bulanTahun == this.month) {
-            if (this.totalkategoriarr[i].id_area == 1) {
-              if (this.totalkategoriarr[i].kategori === 'Preventive') {
-                this.Setting += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Replacement') {
-                this.Replacement += 1;
-              }
-              if (this.totalkategoriarr[i].kategori === 'Improvement') {
-                this.Improvement += 1;
-              }
-            }
-          }
-        }
-
-        this.typefinding.destroy()
-
-        this.typefinding = new Chart('typefinding', {
-          type: 'doughnut',
-          data: {
-            labels: ["Setting", "Replacement", "Improvement"],
-            datasets: [{
-              label: 'Data',
-              data: [this.Setting, this.Replacement, this.Improvement],
-              backgroundColor: [
-                '#316879',
-                '#f47a60',
-                '#7fe7dc',
-              ],
-              borderColor: [
-                'white',
-                'white',
-                'white',
-              ],
-              borderWidth: 1
-            }]
-          },
-        });
-      })
-    }
-    );
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
@@ -2080,23 +2027,79 @@ export class AmMOci1Component implements OnInit {
 
 
             if (elem.status_pengerjaan == 'Done') {
-              if (elem.bulanTahun == this.month) { this.finishexecute += 1; }
+              if (elem.bulanTahun == this.month) { 
+                this.finishexecute += 1;
+                if (elem.kategori === 'Setting') {
+                  this.Setting += 1;
+                }
+                if (elem.kategori === 'Replacement') {
+                  this.Replacement += 1;
+                }
+                if (elem.kategori === 'Improvement') {
+                  this.Improvement += 1;
+                }                
+                if (elem.kategori === 'Preventive') {
+                  this.Preventive += 1;
+                }                
+               }
 
               this.temuanperday_data_temp.push(elem)
             }
             else if (elem.status2 == 'READY') {
-              if (elem.bulanTahun == this.month) { this.readyexecute += 1; }
+              if (elem.bulanTahun == this.month) { 
+                this.readyexecute += 1;
+                if (elem.kategori === 'Setting') {
+                  this.Setting += 1;
+                }
+                if (elem.kategori === 'Replacement') {
+                  this.Replacement += 1;
+                }
+                if (elem.kategori === 'Improvement') {
+                  this.Improvement += 1;
+                }        
+                if (elem.kategori === 'Preventive') {
+                  this.Preventive += 1;
+                }        
+              }
 
               this.temuanperday_data_temp.push(elem)
             } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
               if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+                if (elem.bulanTahun == this.month) { 
+                  this.pendingexecute += 1; 
+                  if (elem.kategori === 'Setting') {
+                    this.Setting += 1;
+                  }
+                  if (elem.kategori === 'Replacement') {
+                    this.Replacement += 1;
+                  }
+                  if (elem.kategori === 'Improvement') {
+                    this.Improvement += 1;
+                  }        
+                  if (elem.kategori === 'Preventive') {
+                    this.Preventive += 1;
+                  }        
+                }
 
                 this.temuanperday_data_temp.push(elem)
               }
             }
             else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-              if (elem.bulanTahun == this.month) { this.pendingexecute += 1; }
+              if (elem.bulanTahun == this.month) { 
+                this.pendingexecute += 1; 
+                if (elem.kategori === 'Setting') {
+                  this.Setting += 1;
+                }
+                if (elem.kategori === 'Replacement') {
+                  this.Replacement += 1;
+                }
+                if (elem.kategori === 'Improvement') {
+                  this.Improvement += 1;
+                }        
+                if (elem.kategori === 'Preventive') {
+                  this.Preventive += 1;
+                }        
+              }
 
               this.temuanperday_data_temp.push(elem)
             }
@@ -2161,6 +2164,32 @@ export class AmMOci1Component implements OnInit {
                 borderWidth: 1
               },
             ]
+          },
+        });
+
+        this.typefinding.destroy();
+
+        this.typefinding = new Chart('typefinding', {
+          type: 'doughnut',
+          data: {
+            labels: ["Setting", "Replacement", "Improvement", "Preventive"],
+            datasets: [{
+              label: 'Data',
+              data: [this.Setting, this.Replacement, this.Improvement, this.Preventive],
+              backgroundColor: [
+                '#316879',
+                '#f47a60',
+                '#7fe7dc',
+                '#ffc13b',
+              ],
+              borderColor: [
+                'white',
+                'white',
+                'white',
+                'white',
+              ],
+              borderWidth: 1
+            }]
           },
         });
 
@@ -2608,60 +2637,6 @@ export class AmMOci1Component implements OnInit {
       this.service.getReportingHarianam(this.tglsearch, '1').subscribe(data => {
         this.reportharian.push(data);
       })
-
-      this.service.getCountTotalFinding().subscribe(data => {
-        this.totalkategori = data;
-
-
-        Object.values(this.totalkategori).forEach(data => {
-          var array = Object.keys(data).map(function (key) {
-            return data[key];
-          });
-          for (let i = 0; i < array.length; i++) {
-            this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
-          }
-          for (var i = 0; i < this.totalkategoriarr.length; i++) {
-            if (this.totalkategoriarr[i].bulan == this.month) {
-              if (this.totalkategoriarr[i].id_area == 1) {
-                if (this.totalkategoriarr[i].kategori === 'Preventive') {
-                  this.Setting += 1;
-                }
-                if (this.totalkategoriarr[i].kategori === 'Replacement') {
-                  this.Replacement += 1;
-                }
-                if (this.totalkategoriarr[i].kategori === 'Improvement') {
-                  this.Improvement += 1;
-                }
-              }
-            }
-          }
-
-          this.typefinding = new Chart('typefinding', {
-            type: 'doughnut',
-            data: {
-              labels: ["Setting", "Replacement", "Improvement"],
-              datasets: [{
-                label: 'Data',
-                data: [this.Setting, this.Replacement, this.Improvement],
-                backgroundColor: [
-                  '#316879',
-                  '#f47a60',
-                  '#7fe7dc',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-        })
-      }
-      );
-
-
 
       this.service.getTotalDataPost(this.tgl1, this.tgl2).subscribe(data => {
         this.datarange.push(data);
@@ -3115,35 +3090,80 @@ export class AmMOci1Component implements OnInit {
 
 
               if (elem.status_pengerjaan == 'Done') {
-                if (elem.bulan == this.month) {
-                  this.finishexecute += 1; this.finishexecutetop += 1;
-                }
-                // //console.log(elem);
-                
+                if (elem.bulanTahun == this.month) { 
+                  this.finishexecute += 1;
+                  if (elem.kategori === 'Preventive') {
+                    this.Setting += 1;
+                  }
+                  if (elem.kategori === 'Replacement') {
+                    this.Replacement += 1;
+                  }
+                  if (elem.kategori === 'Improvement') {
+                    this.Improvement += 1;
+                  }                
+                  if (elem.kategori === 'Preventive') {
+                    this.Preventive += 1;
+                  }                
+                 }
+  
                 this.temuanperday_data_temp.push(elem)
               }
               else if (elem.status2 == 'READY') {
-                if (elem.bulan == this.month) {
+                if (elem.bulanTahun == this.month) { 
                   this.readyexecute += 1;
-                  this.readyexecutetop += 1;
-                  
+                  if (elem.kategori === 'Preventive') {
+                    this.Setting += 1;
+                  }
+                  if (elem.kategori === 'Replacement') {
+                    this.Replacement += 1;
+                  }
+                  if (elem.kategori === 'Improvement') {
+                    this.Improvement += 1;
+                  }        
+                  if (elem.kategori === 'Preventive') {
+                    this.Preventive += 1;
+                  }        
                 }
-
+  
                 this.temuanperday_data_temp.push(elem)
               } else if (elem.status1 == 'Create' || elem.status1 == 'None' || elem.status1 == 'Emergency') {
                 if (elem.status2 == 'RELEASED' || elem.status2 == 'CREATED') {
-                  if (elem.bulan == this.month) {
-                    this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                  if (elem.bulanTahun == this.month) { 
+                    this.pendingexecute += 1; 
+                    if (elem.kategori === 'Preventive') {
+                      this.Setting += 1;
+                    }
+                    if (elem.kategori === 'Replacement') {
+                      this.Replacement += 1;
+                    }
+                    if (elem.kategori === 'Improvement') {
+                      this.Improvement += 1;
+                    }        
+                    if (elem.kategori === 'Preventive') {
+                      this.Preventive += 1;
+                    }        
                   }
-
+  
                   this.temuanperday_data_temp.push(elem)
                 }
               }
               else if (elem.status1 == 'Draft' || elem.status1 == 'Submit' || elem.status1 == 'Revise' || elem.status1 == 'Approved' || elem.status1 == 'Not Yet') {
-                if (elem.bulan == this.month) {
-                  this.pendingexecute += 1; this.pendingexecutetop += 1; 
+                if (elem.bulanTahun == this.month) { 
+                  this.pendingexecute += 1; 
+                  if (elem.kategori === 'Preventive') {
+                    this.Setting += 1;
+                  }
+                  if (elem.kategori === 'Replacement') {
+                    this.Replacement += 1;
+                  }
+                  if (elem.kategori === 'Improvement') {
+                    this.Improvement += 1;
+                  }        
+                  if (elem.kategori === 'Preventive') {
+                    this.Preventive += 1;
+                  }        
                 }
-
+  
                 this.temuanperday_data_temp.push(elem)
               }
             }
@@ -3278,6 +3298,31 @@ export class AmMOci1Component implements OnInit {
               ]
             },
           });
+
+          this.typefinding = new Chart('typefinding', {
+            type: 'doughnut',
+            data: {
+              labels: ["Setting", "Replacement", "Improvement", "Preventive"],
+              datasets: [{
+                label: 'Data',
+                data: [this.Setting, this.Replacement, this.Improvement, this.Preventive],
+                backgroundColor: [
+                  '#316879',
+                  '#f47a60',
+                  '#7fe7dc',
+                  '#ffc13b',
+                ],
+                borderColor: [
+                  'white',
+                  'white',
+                  'white',
+                  'white',
+                ],
+                borderWidth: 1
+              }]
+            },
+          });
+
           this.resolved = true;
         })
 
