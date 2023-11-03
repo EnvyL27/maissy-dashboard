@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   pendingexecute: number = 0;
   finishexecute: number = 0;
   readyexecute: number = 0;
+  Preventive: number = 0;
   showSuccessAlert : boolean = true;
   deskripsi: any = 'Loading..';
   closeSuccessAlert(){
@@ -38,6 +39,8 @@ export class DashboardComponent implements OnInit {
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getCountTotalFinding().subscribe(data => {
+        console.log(data);
+        
         this.totalkategori = data;
         Object.values(this.totalkategori).forEach(data => {
           // // ////////////console.log(data);
@@ -49,7 +52,7 @@ export class DashboardComponent implements OnInit {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
           for (var i = 0; i < this.totalkategoriarr.length; i++) {
-            if (this.totalkategoriarr[i].kategori === 'Preventive') {
+            if (this.totalkategoriarr[i].kategori === 'Setting') {
               this.Setting += 1;
             }
             if (this.totalkategoriarr[i].kategori === 'Replacement') {
@@ -58,20 +61,25 @@ export class DashboardComponent implements OnInit {
             if (this.totalkategoriarr[i].kategori === 'Improvement') {
               this.Improvement += 1;
             }
+            if (this.totalkategoriarr[i].kategori === 'Preventive') {
+              this.Preventive += 1;
+            }
           }
           new Chart('donut', {
             type: 'doughnut',
             data: {
-              labels: ["Setting", "Replacement", "Improvement"],
+              labels: ["Setting", "Replacement", "Improvement", "Preventive"],
               datasets: [{
                 label: 'Data',
-                data: [this.Setting, this.Replacement, this.Improvement],
+                data: [this.Setting, this.Replacement, this.Improvement, this.Preventive],
                 backgroundColor: [
                   '#316879',
                   '#f47a60',
                   '#7fe7dc',
+                  '#ffc13b',
                 ],
                 borderColor: [
+                  'white',
                   'white',
                   'white',
                   'white',

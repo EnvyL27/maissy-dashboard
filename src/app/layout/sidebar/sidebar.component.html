@@ -987,14 +987,14 @@
                 5
               </a>
             </li>
-            <li class="ml-6">
+            <!-- <li class="ml-6">
               <a routerLink="live_alarm"
                 class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Live Alarm
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
-       
+
       </div>
       <ng-template #lain6>
         <li class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
@@ -1034,11 +1034,11 @@
                 5
               </a>
             </li>
-            <li class="ml-6">
+            <!-- <li class="ml-6">
               <a routerLink="live_alarm"
                 class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">Live Alarm
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
       </ng-template>
@@ -3322,18 +3322,30 @@ else lain6
               </ng-template>
             </ul>
             <ul class="">
-              <div *ngIf="router.url === '/live_alarm'; else liveAlarm">
-                <li class="ml-6">
-                  <a routerLink="live_alarm"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm</a>
-                </li>
-              </div>
-              <ng-template #liveAlarm>
-                <li class="ml-6">
-                  <a routerLink="live_alarm"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm</a>
-                </li>
-              </ng-template>
+              <li class="ml-6">
+                <button (click)="alarmSub()"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live
+                  Alarm
+                </button>
+              </li>
+              <li *ngIf="liveAlarmSub" class="ml-6">
+                <ul class="">
+                  <li class="ml-6">
+                    <a routerLink="live_alarm"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                      1
+                    </a>
+                  </li>
+                </ul>
+                <ul class="">
+                  <li class="ml-6">
+                    <a routerLink="big5"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                      2
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
         </div>
@@ -3380,9 +3392,28 @@ else lain6
             </ul>
             <ul class="">
               <li class="ml-6">
-                <a routerLink="live_alarm"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live Alarm
-                </a>
+                <button (click)="alarmSub()"
+                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">Live
+                  Alarm
+                </button>
+              </li>
+              <li *ngIf="liveAlarmSub" class="ml-6">
+                <ul class="">
+                  <li class="ml-6">
+                    <a routerLink="live_alarm"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                      1
+                    </a>
+                  </li>
+                </ul>
+                <ul class="">
+                  <li class="ml-6">
+                    <a routerLink="big5"
+                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 pl-11">OCI
+                      2
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>

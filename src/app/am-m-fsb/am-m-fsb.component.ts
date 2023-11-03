@@ -2208,7 +2208,7 @@ export class AmMFsbComponent implements OnInit {
       this.datarange.push(data);
       for (let elem of this.datarange[0]) {
         if (elem.plant_section == "Prod SnackBar1") {
-          if (elem.teco_date != null) {
+          if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
             this.donereport += 1;
           } else {
             this.pendingreport += 1;
@@ -2219,28 +2219,28 @@ export class AmMFsbComponent implements OnInit {
       for (let elem of this.datarange[0]) {
         if (elem.plant_section == "Prod SnackBar1") {
           if (elem.order_type == 'WO02') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo02donereport += 1;
             } else {
               this.wo02report += 1;
             }
             this.totalwo02report += 1;
           } else if (elem.order_type == 'WO03') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo03donereport += 1;
             } else {
               this.wo03report += 1;
             }
             this.totalwo03report += 1;
           } else if (elem.order_type == 'WO06') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo06donereport += 1;
             } else {
               this.wo06report += 1;
             }
             this.totalwo06report += 1;
           } else if (elem.order_type == 'WO07') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo07donereport += 1;
             } else {
               this.wo07report += 1;
@@ -2559,7 +2559,7 @@ export class AmMFsbComponent implements OnInit {
             }
           } else if (elem.bulan == 'September') {
             if (elem.plant_section == "Prod SnackBar1") {
-              if (elem.teco_date == 'RELEASED' || elem.status == 'CLOSED') {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
                 this.septemberclose += 1;
                 this.septembercloseelem.push(elem)
                 this.september += 1;
@@ -2569,6 +2569,8 @@ export class AmMFsbComponent implements OnInit {
                 this.septemberelem.push(elem)
               }
             }
+            console.log(this.septembercloseelem);
+            
           } else if (elem.bulan == 'October') {
             if (elem.plant_section == "Prod SnackBar1") {
               if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {

@@ -32,6 +32,7 @@ export class SidebarComponent implements OnInit {
   public renewSub : boolean = false;
   public offSub : boolean = false;
   public onSub : boolean = false;
+  public liveAlarmSub : boolean = false;
   currentDate = new Date();
   isAllowed:boolean = false;
   userLogged:any;
@@ -129,5 +130,8 @@ export class SidebarComponent implements OnInit {
   }
   big5sub(){
     this.sub4 = !this.sub4;
+  }
+  alarmSub(){
+    this.liveAlarmSub = !this.liveAlarmSub;
   }
 }

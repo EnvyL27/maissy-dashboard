@@ -2227,7 +2227,7 @@ export class AmMOci1Component implements OnInit {
       this.datarange.push(data);
       for (let elem of this.datarange[0]) {
         if (elem.plant_section == "Prod OCI 1") {
-          if (elem.teco_date != null) {
+          if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
             this.donereport += 1;
           } else {
             this.pendingreport += 1;
@@ -2238,28 +2238,28 @@ export class AmMOci1Component implements OnInit {
       for (let elem of this.datarange[0]) {
         if (elem.plant_section == "Prod OCI 1") {
           if (elem.order_type == 'WO02') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo02donereport += 1;
             } else {
               this.wo02report += 1;
             }
             this.totalwo02report += 1;
           } else if (elem.order_type == 'WO03') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo03donereport += 1;
             } else {
               this.wo03report += 1;
             }
             this.totalwo03report += 1;
           } else if (elem.order_type == 'WO06') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo06donereport += 1;
             } else {
               this.wo06report += 1;
             }
             this.totalwo06report += 1;
           } else if (elem.order_type == 'WO07') {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.wo07donereport += 1;
             } else {
               this.wo07report += 1;
@@ -2642,7 +2642,7 @@ export class AmMOci1Component implements OnInit {
         this.datarange.push(data);
         for (let elem of this.datarange[0]) {
           if (elem.plant_section == "Prod OCI 1") {
-            if (elem.teco_date != null) {
+            if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
               this.donereport += 1;
             } else {
               this.pendingreport += 1;
@@ -2653,28 +2653,28 @@ export class AmMOci1Component implements OnInit {
         for (let elem of this.datarange[0]) {
           if (elem.plant_section == "Prod OCI 1") {
             if (elem.order_type == 'WO02') {
-              if (elem.teco_date != null) {
+              if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
                 this.wo02donereport += 1;
               } else {
                 this.wo02report += 1;
               }
               this.totalwo02report += 1;
             } else if (elem.order_type == 'WO03') {
-              if (elem.teco_date != null) {
+              if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
                 this.wo03donereport += 1;
               } else {
                 this.wo03report += 1;
               }
               this.totalwo03report += 1;
             } else if (elem.order_type == 'WO06') {
-              if (elem.teco_date != null) {
+              if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
                 this.wo06donereport += 1;
               } else {
                 this.wo06report += 1;
               }
               this.totalwo06report += 1;
             } else if (elem.order_type == 'WO07') {
-              if (elem.teco_date != null) {
+              if (elem.teco_date != null || elem.status === 'PARTIAL CONFIRMATION') {
                 this.wo07donereport += 1;
               } else {
                 this.wo07report += 1;
@@ -3230,7 +3230,7 @@ export class AmMOci1Component implements OnInit {
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
-              // //console.log(elem);
+              console.log(element);
               
               if (elem.bulan == this.month) {
                 if (elem.tanggal_temuan == element) {

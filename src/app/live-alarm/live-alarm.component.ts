@@ -26,6 +26,7 @@
     coba: any;
     donut: any = [];
     barchart: any;
+    listAlarm : any
     public loaddata: any;
     public resolved: boolean = false;
     deskripsi: any = 'Loading..';
@@ -211,7 +212,12 @@
       this.service.getBigFiveByMachine(this.machineA, this.start, this.end);
       // ////////////console.log(this.service.getBigFiveByMachine("AlarmInformation_OC2"));
       // ////////////console.log(this.service.bigFiveByMachine.length);
-      this.service.getBigFive();
+      this.service
+      this.service.getLiveAlarm().subscribe(data => {
+        console.log(data);
+        this.listAlarm = data
+        var array
+      });
       this.refresh();
       // ////////////console.log(this.labels);
       this.chart();
