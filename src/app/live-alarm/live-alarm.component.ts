@@ -26,7 +26,9 @@
     coba: any;
     donut: any = [];
     barchart: any;
+    liveAlarm : any = []
     listAlarm : any
+    currentPage2: number = 1;
     public loaddata: any;
     public resolved: boolean = false;
     deskripsi: any = 'Loading..';
@@ -207,16 +209,26 @@
   
     ngOnInit(): void {
       window.scrollTo(0, 0);
-      // this.service.getBigFive();
-      // ////////////console.log(this.start);
       this.service.getBigFiveByMachine(this.machineA, this.start, this.end);
-      // ////////////console.log(this.service.getBigFiveByMachine("AlarmInformation_OC2"));
-      // ////////////console.log(this.service.bigFiveByMachine.length);
       this.service
       this.service.getLiveAlarm().subscribe(data => {
-        console.log(data);
-        this.listAlarm = data
+        // console.log(data);
         var array
+        this.listAlarm = data
+          this.listAlarm.forEach((elem: any) => {
+            if (elem.line === 'OC1' && elem.value === 1 && elem.description !== '-') {
+              this.liveAlarm.push(elem);
+            }
+          });
+        
+          // Then, push items with "-" in the description to the liveAlarm array.
+          this.listAlarm.forEach((elem: any) => {
+            if (elem.line === 'OC1' && elem.value === 1 && elem.description === '-') {
+              this.liveAlarm.push(elem);
+            }
+          });
+        console.log(this.liveAlarm);
+        
       });
       this.refresh();
       // ////////////console.log(this.labels);

@@ -78,9 +78,9 @@
                         </thead>
                         <tbody>
                           <tr class="border-b border-gray-200"
-                            *ngFor="let header of listAlarm; let i = index;">
+                            *ngFor="let header of liveAlarm | paginate: { id:'pagination2', currentPage: currentPage2, itemsPerPage: 10 }; let i = index ">
                             <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
-                              {{ i + 1 }}
+                              {{ i + 1 + (currentPage2 - 1) * 10}}
                             </th>
                             <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
                               {{header.device}}
@@ -96,13 +96,15 @@
                             </td>
                             <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50 "
                               style="color: black; word-wrap: break-word; white-space: normal !important; ">
-                              {{header.activeAt}}
+                              {{header.activeAt | date:'yyyy-MM-dd'}}
                             </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                   </div>
+                  <pagination-controls class="text-center" id="pagination2" (pageChange)="currentPage2 = $event">
+                  </pagination-controls>
                 </div>
               </div>
             </div>
