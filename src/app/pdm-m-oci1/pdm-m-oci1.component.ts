@@ -194,15 +194,16 @@ export class PdmMOci1Component implements OnInit {
     } else if (this.currentChange == '2023-12') {
       bulanPilih = 12;
     }
-    // //console.log(bulanPilih);
+    // console.log(bulanPilih);
 
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
     this.valuemonth = []
-    var date : any;
+    var date : any = [];
     this.service.getOci1Valuemonth(this.current).subscribe(data => {
       // //console.log(this.currentChange);
-
+      // console.log('sini');
+      
       ////console.log(data);
 
       this.valuemonth = data;
@@ -268,17 +269,16 @@ export class PdmMOci1Component implements OnInit {
             this.temuanperday_data_temp.push(elem)
           }
         }
-        //console.log(this.juni);
-
+        
         var dummytemuan: any = []
         date.forEach((element: any) => {
-
+          
           this.temuanperday_data_temp.forEach((elem: any) => {
             // console.log(elem.bulan);
             // console.log(this.month);
 
 
-            if (elem.bulan == this.month) {
+            if (elem.bulan == this.currentChange) {
               if (elem.do_date == element) {
                 this.temuanperday_dum++
                 dummytemuan.push(elem)
@@ -286,40 +286,41 @@ export class PdmMOci1Component implements OnInit {
             }
           });
         });
+        console.log(dummytemuan);
+        
         dummytemuan.forEach((element: any) => {
           this.temuanperday_label.push(element.do_date)
         });
         const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
-
+        console.log(this.temuanperday_label);
+        
         this.temuanperday_label = []
         this.temuanperday_label = uniqueLabel
 
-        console.log(uniqueLabel.length);
+        console.log(uniqueLabel);
         var dataTotal: number = 0
         for (let j = 0; j < uniqueLabel.length; j++) {
           for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
 
             if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
-              // console.log(this.temuanperday_data_temp[i]);
+              console.log(this.temuanperday_data_temp[i]);
               // console.log('aha');
               dataTotal++
             }
 
           }
           // console.log(this.temuanperday_data_temp[i].do_date);
-          // console.log(uniqueLabel[i]);
-          console.log(dataTotal);
+          console.log(uniqueLabel);
+          // console.log(dataTotal);
           this.temuanperday_data.push(dataTotal)
           dataTotal = 0
-
-
-
         };
 
-        console.log(this.totalasset);
+        // console.log(this.totalasset);
 
         this.totaldatayear.destroy();
 
+        this.dailyChart();
         this.monthlyChart();
 
         this.totaldatayear = new Chart("valuepermonthchart", {
