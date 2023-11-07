@@ -74,6 +74,8 @@ export class PdmMOci1Component implements OnInit {
   combineChart(){
     this.each = false
     this.combine = true
+    this.monthlytotalchart = false
+    this.dailytotalchart = false
   }
 
   changeprep() {
@@ -1241,9 +1243,9 @@ export class PdmMOci1Component implements OnInit {
       },
       fill: {
         opacity: 1,
-        colors: ['#CBFFA9']
+        colors: ['#f94b47']
       }, legend: {
-      }, colors: ['#CBFFA9']
+      }, colors: ['#f94b47']
     };
   }
 
