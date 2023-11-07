@@ -1419,21 +1419,62 @@
                   </div>
                 </div>
               </div>
-              <div [ngClass]="!totaldatacurrentyear ? '' : 'hidden'"
+              <div *ngIf="!totaldatacurrentyear"
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
-                  <label for="month"
-                    class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Date
-                    : </label>
-                  <input type="month" style=" border: 1px solid #c4c4c4;
+                  <div class="flex pb-4">
+                    <div class="w-1/2">
+                      <label for="month"
+                        class="inline-block px-0 py-3 mb-0 ml-4 font-bold leading-normal uppercase align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer ease-soft-in bg-150 text-md active:opacity-85 tracking-tight-soft bg-x-25 text-slate-700 px-4">Date
+                        : </label>
+                      <input type="month" style=" border: 1px solid #c4c4c4;
                         border-radius: 5px;
                         background-color: #fff;
                         padding: 3px 5px;
                         box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
                       " width="48" [(ngModel)]="currentChange" (ngModelChange)="totaldataChange()">
+                    </div>
+                    <div class="w-1/2 flex justify-end items-center space-x-4">
+                      <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 duration-200 text-white rounded" (click)="monthlyChartClick()">Monthly</button>
+                      <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 duration-200 text-white rounded" (click)="combineChart()">/</button>
+                      <button class="px-4 py-2 bg-blue-500 hover:bg-blue-700 duration-200 text-white rounded" (click)="dailyChartClick()">Daily</button>
+                    </div>
+                  </div>
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
-                  <div class="flex flex-wrap -mx-1 lg:-mx-3">
-                    <canvas id="valuepermonthchart"></canvas>
+                  <div *ngIf="each" class="flex flex-wrap -mx-1 lg:-mx-3">
+                    <div *ngIf="monthlytotalchart">
+                      <!-- <canvas id="valuepermonthchart"></canvas> -->
+                      <div>
+                        <apx-chart [series]="monthlytotal.series" [chart]="monthlytotal.chart" [dataLabels]="monthlytotal.dataLabels"
+                        [plotOptions]="monthlytotal.plotOptions" [yaxis]="monthlytotal.yaxis" [legend]="monthlytotal.legend"
+                        [fill]="monthlytotal.fill" [stroke]="monthlytotal.stroke" [tooltip]="monthlytotal.tooltip"
+                        [xaxis]="monthlytotal.xaxis" [colors]="monthlytotal.colors"></apx-chart>
+                      </div>
+                    </div>
+                    <div *ngIf="dailytotalchart">
+                      <apx-chart [series]="dailytotal.series" [chart]="dailytotal.chart" [dataLabels]="dailytotal.dataLabels"
+                      [plotOptions]="dailytotal.plotOptions" [yaxis]="dailytotal.yaxis" [legend]="dailytotal.legend"
+                      [fill]="dailytotal.fill" [stroke]="dailytotal.stroke" [tooltip]="dailytotal.tooltip"
+                      [xaxis]="dailytotal.xaxis" [colors]="dailytotal.colors"></apx-chart>
+                    </div>
+                  </div>
+                  <div *ngIf="combine" class="mx-4">
+                    <div class="w-full max-w-full md:w-full">
+                      <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
+                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2" height="250">
+                          <apx-chart [series]="monthlytotal.series" [chart]="monthlytotal.chart2" [dataLabels]="monthlytotal.dataLabels"
+                        [plotOptions]="monthlytotal.plotOptions" [yaxis]="monthlytotal.yaxis" [legend]="monthlytotal.legend"
+                        [fill]="monthlytotal.fill" [stroke]="monthlytotal.stroke" [tooltip]="monthlytotal.tooltip"
+                        [xaxis]="monthlytotal.xaxis" [colors]="monthlytotal.colors"></apx-chart>
+                        </div>
+                        <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2" height="250">
+                          <apx-chart [series]="dailytotal.series" [chart]="dailytotal.chart2" [dataLabels]="dailytotal.dataLabels"
+                      [plotOptions]="dailytotal.plotOptions" [yaxis]="dailytotal.yaxis" [legend]="dailytotal.legend"
+                      [fill]="dailytotal.fill" [stroke]="dailytotal.stroke" [tooltip]="dailytotal.tooltip"
+                      [xaxis]="dailytotal.xaxis" [colors]="dailytotal.colors"></apx-chart>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -3083,10 +3083,14 @@ export class AmMOci1Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
+          console.log(this.totalfm2);
+          
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
               date.push(elem.tanggal_temuan)
             }
+            
+            
 
             if (elem.id_area == 1) {
 
@@ -3171,7 +3175,7 @@ export class AmMOci1Component implements OnInit {
             }
           })
 
-          console.log(this.pendingexecute);
+          console.log(date);
           
 
           this.temuanperday_data_temp.forEach((element: any) => {
@@ -3230,7 +3234,7 @@ export class AmMOci1Component implements OnInit {
           date.forEach((element: any) => {
 
             this.temuanperday_data_temp.forEach((elem: any) => {
-              console.log(element);
+              // console.log(element);
               
               if (elem.bulan == this.month) {
                 if (elem.tanggal_temuan == element) {
