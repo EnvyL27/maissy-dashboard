@@ -19,9 +19,12 @@ import * as XLSX from 'xlsx'
   ]
 })
 export class PdmMOci2Component implements OnInit {
-  current: any = moment().format("YYYY-MM-30");
-  currentChange: any = moment().format("YYYY-MM-30");
   public chartOptions!: Partial<ChartOptions> | any;
+  public dailytotal!: Partial<ChartOptions> | any;
+  public monthlytotal!: Partial<ChartOptions> | any;
+  current: any = moment().format("YYYY-MM-30");
+  month: any = moment().format("YYYY-MM");
+  currentChange: any = moment().format("YYYY-MM-30");
   currentDate = new Date();
   newTanggal: any = new Date();
   bulan: any;
@@ -32,6 +35,10 @@ export class PdmMOci2Component implements OnInit {
   totaldatayear: any;
   constructor(private service: CountService, private spinner: NgxSpinnerService, private captureService: NgxCaptureService, private cdr: ChangeDetectorRef, private datePipe: DatePipe) { this.newTanggal = this.datePipe.transform(this.newTanggal, 'yyyy-MM-dd'); }
 
+  temuanperday_data_temp: any = [];
+  temuanperday_label: any = [];
+  temuanperday_data: any = [];
+  temuanperday_dum: number = 0;
   boolprep: Boolean = false;
   boolinj: Boolean = false;
   boolblow: Boolean = false;
@@ -46,6 +53,31 @@ export class PdmMOci2Component implements OnInit {
   boolpacknull: Boolean = false;
   boolkaneshonull: Boolean = false;
   boolstu1null: Boolean = false;
+  dailytotalchart : boolean = false;
+  monthlytotalchart : boolean = true;
+  each : boolean = true;
+  combine : boolean = false;
+
+  monthlyChartClick(){
+    this.each = true
+    this.combine = false
+    this.monthlytotalchart = !this.monthlytotalchart
+    this.dailytotalchart = false
+  }
+
+  dailyChartClick(){
+    this.each = true
+    this.combine = false
+    this.dailytotalchart = !this.dailytotalchart
+    this.monthlytotalchart = false
+  }
+
+  combineChart(){
+    this.each = false
+    this.combine = true
+    this.monthlytotalchart = false
+    this.dailytotalchart = false
+  }
 
   changeprep() {
     this.boolprepnull = this.boolinjnull = this.boolblownull = this.boolfillnull = this.boolpacknull = this.boolkaneshonull = this.boolstu1null = false;
@@ -133,13 +165,50 @@ export class PdmMOci2Component implements OnInit {
     this.cdr.detectChanges();
   }
 
+  removeDuplicatesFromArray(inputArray: any[]): any[] {
+    return Array.from(new Set(inputArray));
+  }
+
   totaldataChange() {
+    this.temuanperday_data_temp = []
+    this.temuanperday_label = []
+    this.temuanperday_data = []
+    var bulanPilih: any;
+    if (this.currentChange == '2023-01') {
+      bulanPilih = 1;
+    } else if (this.currentChange == '2023-02') {
+      bulanPilih = 2;
+    } else if (this.currentChange == '2023-03') {
+      bulanPilih = 3;
+    } else if (this.currentChange == '2023-04') {
+      bulanPilih = 4;
+    } else if (this.currentChange == '2023-05') {
+      bulanPilih = 5;
+    } else if (this.currentChange == '2023-06') {
+      bulanPilih = 6;
+    } else if (this.currentChange == '2023-07') {
+      bulanPilih = 7;
+    } else if (this.currentChange == '2023-08') {
+      bulanPilih = 8;
+    } else if (this.currentChange == '2023-09') {
+      bulanPilih = 9;
+    } else if (this.currentChange == '2023-10') {
+      bulanPilih = 10;
+    } else if (this.currentChange == '2023-11') {
+      bulanPilih = 11;
+    } else if (this.currentChange == '2023-12') {
+      bulanPilih = 12;
+    }
+    // console.log(bulanPilih);
+
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
-
-    this.service.getOci2Valuemonth(this.currentChange).subscribe(data => {
-      ////console.log(this.currentChange);
-
+    this.valuemonth = []
+    var date : any = [];
+    this.service.getOci2Valuemonth(this.current).subscribe(data => {
+      // //console.log(this.currentChange);
+      // console.log('sini');
+      
       ////console.log(data);
 
       this.valuemonth = data;
@@ -153,35 +222,111 @@ export class PdmMOci2Component implements OnInit {
         for (let i = 0; i < array.length; i++) {
           this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
         }
+        //console.log(this.valuemonthlist);
+
+        this.valuemonthlist.forEach((elem: any, i: number) => {
+          if (elem.do_date != this.valuemonthlist[i + 1]?.do_date) {
+            date.push(elem.do_date)
+            // console.log(date);
+          }
+        });
+
         for (let elem of this.valuemonthlist) {
-          if (elem.bulan == 'January') {
+          //console.log('ha');
+
+          //console.log(elem);
+
+          if (elem.month == 1 && elem.month <= bulanPilih) {
             this.januari += 1;
-          } else if (elem.bulan == 'February') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 2 && elem.month <= bulanPilih) {
             this.febuari += 1;
-          } else if (elem.bulan == 'March') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 3 && elem.month <= bulanPilih) {
             this.maret += 1;
-          } else if (elem.bulan == 'April') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 4 && elem.month <= bulanPilih) {
             this.april += 1;
-          } else if (elem.bulan == 'May') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 5 && elem.month <= bulanPilih) {
             this.mei += 1;
-          } else if (elem.bulan == 'June') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 6 && elem.month <= bulanPilih) {
             this.juni += 1;
-          } else if (elem.bulan == 'July') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 7 && elem.month <= bulanPilih) {
             this.juli += 1;
-          } else if (elem.bulan == 'August') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 8 && elem.month <= bulanPilih) {
             this.agustus += 1;
-          } else if (elem.bulan == 'September') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 9 && elem.month <= bulanPilih) {
             this.september += 1;
-          } else if (elem.bulan == 'October') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 10 && elem.month <= bulanPilih) {
             this.oktober += 1;
-          } else if (elem.bulan == 'November') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 11 && elem.month <= bulanPilih) {
             this.november += 1;
-          } else if (elem.bulan == 'December') {
+            this.temuanperday_data_temp.push(elem)
+          } else if (elem.month == 12 && elem.month <= bulanPilih) {
             this.desember += 1;
+            this.temuanperday_data_temp.push(elem)
           }
         }
+        
+        var dummytemuan: any = []
+        date.forEach((element: any) => {
+          
+          this.temuanperday_data_temp.forEach((elem: any) => {
+            // console.log(elem.bulan);
+            // console.log(this.month);
+
+
+            if (elem.bulan == this.currentChange) {
+              if (elem.do_date == element) {
+                this.temuanperday_dum++
+                dummytemuan.push(elem)
+              }
+            }
+          });
+        });
+        console.log(dummytemuan);
+        
+        dummytemuan.forEach((element: any) => {
+          this.temuanperday_label.push(element.do_date)
+        });
+        const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
+        console.log(this.temuanperday_label);
+        
+        this.temuanperday_label = []
+        this.temuanperday_label = uniqueLabel
+
+        console.log(uniqueLabel);
+        var dataTotal: number = 0
+        for (let j = 0; j < uniqueLabel.length; j++) {
+          for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
+
+            if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
+              console.log(this.temuanperday_data_temp[i]);
+              // console.log('aha');
+              dataTotal++
+            }
+
+          }
+          // console.log(this.temuanperday_data_temp[i].do_date);
+          console.log(uniqueLabel);
+          // console.log(dataTotal);
+          this.temuanperday_data.push(dataTotal)
+          dataTotal = 0
+        };
+
+        // console.log(this.totalasset);
 
         this.totaldatayear.destroy();
+
+        this.dailyChart();
+        this.monthlyChart();
 
         this.totaldatayear = new Chart("valuepermonthchart", {
           type: "bar",
@@ -189,7 +334,7 @@ export class PdmMOci2Component implements OnInit {
             labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
             datasets: [
               {
-                "label": "Total Data OCI2 Data %",
+                "label": "Total Data OCI1 Data %",
                 "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
                 "backgroundColor": "#34568B"
               },
@@ -253,39 +398,9 @@ export class PdmMOci2Component implements OnInit {
         });
         for (let i = 0; i < array.length; i++) {
           this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
-          // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
         }
-        // this.spinner.hide();
         this.resolved = true;
       })
-      // ////console.log(this.totalfinishtoday2);
-
-      // Object.values(this.totalfinishtdy).forEach(data => {
-      //   // // //////////////////console.log(data);
-      //   var array = Object.keys(data).map(function (key) {
-      //     return data[key];
-      //   });
-      //   // // //////////////////console.log(array);
-      //   for (let i = 0; i < array.length; i++) {
-      //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
-      //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
-      //   }
-      // })
-
-      // // ////////////////console.log(this.totalfinishtoday2);
-      // ////////////////console.log(this.totalfinishtdy2);
-      // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
-      // }
-
-      // for (let i = 0; i < this.totalfinishtdy2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
-      // }
-
-      ////////////////console.log(this.totalfinishresult);
-
-
-
     }
     );
   }
@@ -648,6 +763,116 @@ export class PdmMOci2Component implements OnInit {
       XLSX.writeFile(wb, 'PDM_List_Satisfactory.xlsx');
     }
 
+  }
+
+  dailyChart() {
+    this.dailytotal = {
+      series: [
+        {
+          name: "Total Finding / day",
+          data: this.temuanperday_data
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 600,
+        width: 1500,
+      },
+      chart2: {
+        type: "bar",
+        height: 500,
+        width: 750,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "60%",
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        categories: this.temuanperday_label
+      },
+      yaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        title: {
+          text: ""
+        }
+      },
+      fill: {
+        opacity: 1,
+        colors: ['#f94b47']
+      }, legend: {
+      }, colors: ['#f94b47']
+    };
+  }
+
+  monthlyChart() {
+    this.monthlytotal = {
+      series: [
+        {
+          name: "Total Data OCI2 Data %",
+          data: [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 600,
+        width: 1500,
+      },
+      chart2: {
+        type: "bar",
+        height: 600,
+        width: 750,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "60%",
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        categories: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      },
+      yaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        title: {
+          text: ""
+        }
+      },
+      fill: {
+        opacity: 1,
+        colors: ["#34568B"]
+      }, legend: {
+      }, colors: ["#34568B"]
+    };
   }
 
   getphoto(dataget: any) {
@@ -1212,10 +1437,15 @@ export class PdmMOci2Component implements OnInit {
     this.finishNotYet();
     this.dataCurrentYear();
     this.chartFunction();
+    this.dailyChart(); 
+    this.monthlyChart(); 
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getReadTotalPdmAssetoci2().subscribe(data => {
         this.asset = data;
+        // console.log(data);
+        
+        var date: any = [];
         Object.values(this.asset).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1225,6 +1455,10 @@ export class PdmMOci2Component implements OnInit {
             this.totalasset = elem.total;
           }
           this.service.getOci2Valuemonth(this.current).subscribe(data => {
+            //console.log(this.current);
+
+            // console.log(data);
+
             this.valuemonth = data;
             Object.values(this.valuemonth).forEach(data => {
               // // //////////////////console.log(data);
@@ -1232,44 +1466,126 @@ export class PdmMOci2Component implements OnInit {
                 return data[key];
               });
 
-              // // //////////////////console.log(array);
+              console.log(array);
               for (let i = 0; i < array.length; i++) {
                 this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
               }
+
+              console.log(this.valuemonthlist);
+
+              this.valuemonthlist.forEach((elem: any, i: number) => {
+                if (elem.do_date != this.valuemonthlist[i + 1]?.do_date) {
+                  date.push(elem.do_date)
+                  // console.log(date);
+                }
+              });
+
+
+              console.log(this.valuemonthlist);
+
               for (let elem of this.valuemonthlist) {
-                if (elem.bulan == 'January') {
+                if (elem.month == 1) {
                   this.januari += 1;
-                } else if (elem.bulan == 'February') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 2) {
                   this.febuari += 1;
-                } else if (elem.bulan == 'March') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 3) {
                   this.maret += 1;
-                } else if (elem.bulan == 'April') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 4) {
                   this.april += 1;
-                } else if (elem.bulan == 'May') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 5) {
                   this.mei += 1;
-                } else if (elem.bulan == 'June') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 6) {
                   this.juni += 1;
-                } else if (elem.bulan == 'July') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 7) {
                   this.juli += 1;
-                } else if (elem.bulan == 'August') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 8) {
                   this.agustus += 1;
-                } else if (elem.bulan == 'September') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 9) {
                   this.september += 1;
-                } else if (elem.bulan == 'October') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 10) {
                   this.oktober += 1;
-                } else if (elem.bulan == 'November') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 11) {
                   this.november += 1;
-                } else if (elem.bulan == 'December') {
+                  this.temuanperday_data_temp.push(elem)
+                } else if (elem.month == 12) {
                   this.desember += 1;
+                  this.temuanperday_data_temp.push(elem)
                 }
               }
+              console.log(this.november);
+              
+              var dummytemuan: any = []
+              date.forEach((element: any) => {
+
+                this.temuanperday_data_temp.forEach((elem: any) => {
+                  // console.log(elem.bulan);
+                  // console.log(this.month);
+
+
+                  if (elem.bulan == this.month) {
+                    if (elem.do_date == element) {
+                      this.temuanperday_dum++
+                      dummytemuan.push(elem)
+                    }
+                  }
+                });
+              });
+              dummytemuan.forEach((element: any) => {
+                this.temuanperday_label.push(element.do_date)
+                // this.temuanperday_data.push(this.temuanperday_dum)
+              });
+              const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
+              // Object.values(uniqueLabel).forEach(data => {
+              //   var arrayLabel = Object.keys(data).map(function (key) {
+              //     return data[key];
+              //   });
+              //   console.log(arrayLabel);
+              // });
+
+              this.temuanperday_label = []
+              this.temuanperday_label = uniqueLabel
+
+              console.log(uniqueLabel.length);
+              var dataTotal: number = 0
+              for (let j = 0; j < uniqueLabel.length; j++) {
+                for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
+
+                  if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
+                    // console.log(this.temuanperday_data_temp[i]);
+                    // console.log('aha');
+                    dataTotal++
+                  }
+
+                }
+                // console.log(this.temuanperday_data_temp[i].do_date);
+                // console.log(uniqueLabel[i]);
+                console.log(dataTotal);
+                this.temuanperday_data.push(dataTotal)
+                dataTotal = 0
+
+
+
+              };
+
+              console.log(this.totalasset);
+
               this.totaldatayear = new Chart("valuepermonthchart", {
                 type: "bar",
                 data: {
                   labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                   datasets: [
                     {
-                      "label": "Total Data OCI2 Data %",
+                      "label": "Total Data OCI1 Data %",
                       "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
                       "backgroundColor": "#34568B"
                     },
@@ -1294,6 +1610,9 @@ export class PdmMOci2Component implements OnInit {
                 }
               });
             })
+
+            this.dailyChart();
+            this.monthlyChart();
 
           }
           );
