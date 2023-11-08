@@ -44,6 +44,8 @@ export class LiveAlarmOc2Component implements OnInit {
 
   bigFiveByMachine(value: any) {
     ////////////console.log(value);
+    this.resolved = false
+    this.spinner.show()
     this.listAlarm = []
     this.liveAlarm = []
     this.service.getLiveAlarm().subscribe(data => {
@@ -65,7 +67,8 @@ export class LiveAlarmOc2Component implements OnInit {
       const uniqueMachineNamesArray = Array.from(this.machineName);
       this.uniqueArray = this.removeDuplicatesFromArray(uniqueMachineNamesArray);
       console.log(this.uniqueArray);
-
+      this.spinner.hide()
+      this.resolved = true
     });
     this.refresh();
     // ////////////console.log(this.labels);
