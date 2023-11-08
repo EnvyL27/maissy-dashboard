@@ -799,7 +799,7 @@ export class PdmMOci2Component implements OnInit {
         crosshairs: {
           show: false,
         },
-        categories: this.temuanperday_label
+        categories: this.temuanperday_label.reverse()
       },
       yaxis: {
         axixTicks: {
