@@ -44,6 +44,8 @@ export class LiveAlarmComponent implements OnInit {
 
   bigFiveByMachine(value: any) {
     ////////////console.log(value);
+    this.resolved = false
+    this.spinner.show()
     this.listAlarm = []
     this.liveAlarm = []
     this.service.getLiveAlarm().subscribe(data => {
@@ -65,7 +67,8 @@ export class LiveAlarmComponent implements OnInit {
       const uniqueMachineNamesArray = Array.from(this.machineName);
       this.uniqueArray = this.removeDuplicatesFromArray(uniqueMachineNamesArray);
       console.log(this.uniqueArray);
-
+      this.spinner.hide()
+      this.resolved = true
     });
     this.refresh();
     // ////////////console.log(this.labels);
@@ -145,7 +148,7 @@ export class LiveAlarmComponent implements OnInit {
       }, 300);
     });
     // ////////////console.log(this.service.bigFiveByMachineValue);
-    this.spinner.show();
+    // this.spinner.show();
     this.loaddata = await this.loaddata;
   };
 
@@ -201,13 +204,13 @@ export class LiveAlarmComponent implements OnInit {
         // Before  if (this.service.bigFiveByMachineValue != 0)
         if (this.service.bigFiveByMachineValue == 0 || this.service.bigFiveByMachineValue != 0) {
           //////////////console.log("3");
-          this.spinner.hide();
+          // this.spinner.hide();
           this.resolved = true;
           clearInterval(a);
         } else {
           // this.spinner.show();
           this.deskripsi = 'Reconnect To Server';
-          this.spinner.show();
+          // this.spinner.show();
           this.service.big5load.unsubscribe();
           this.service.big5load.unsubscribe();
           // this.barchart.unsubscribe();
@@ -226,7 +229,7 @@ export class LiveAlarmComponent implements OnInit {
       }, 300);
     });
     // ////////////console.log(this.service.bigFiveByMachineValue);
-    this.spinner.show();
+    // this.spinner.show();
     this.loaddata = await this.loaddata;
   };
 
@@ -237,6 +240,8 @@ export class LiveAlarmComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.service.getBigFiveByMachine(this.machineA, this.start, this.end);
+    this.bigFiveByMachine('')
+    
     this.service
     this.service.getLiveAlarm().subscribe(data => {
       this.listAlarm = data
@@ -257,7 +262,7 @@ export class LiveAlarmComponent implements OnInit {
       const uniqueMachineNamesArray = Array.from(this.machineName);
       this.uniqueArray = this.removeDuplicatesFromArray(uniqueMachineNamesArray);
       console.log(this.uniqueArray);
-
+     
     });
     this.refresh();
     this.chart();
