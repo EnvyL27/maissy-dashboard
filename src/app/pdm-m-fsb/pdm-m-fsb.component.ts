@@ -194,42 +194,42 @@ export class PdmMFsbComponent implements OnInit {
     } else if (this.currentChange == '2023-12') {
       bulanPilih = 12;
     }
-    // console.log(bulanPilih);
+    // //console.log(bulanPilih);
 
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
     this.valuemonth = []
     var date : any = [];
     this.service.getFsbValuemonth(this.current).subscribe(data => {
-      // //console.log(this.currentChange);
-      // console.log('sini');
+      // ////console.log(this.currentChange);
+      // //console.log('sini');
       
-      ////console.log(data);
+      //////console.log(data);
 
       this.valuemonth = data;
       Object.values(this.valuemonth).forEach(data => {
-        // // //////////////////console.log(data);
+        // // ////////////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
 
-        // // //////////////////console.log(array);
+        // // ////////////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
         }
-        //console.log(this.valuemonthlist);
+        ////console.log(this.valuemonthlist);
 
         this.valuemonthlist.forEach((elem: any, i: number) => {
           if (elem.do_date != this.valuemonthlist[i + 1]?.do_date) {
             date.push(elem.do_date)
-            // console.log(date);
+            // //console.log(date);
           }
         });
 
         for (let elem of this.valuemonthlist) {
-          //console.log('ha');
+          ////console.log('ha');
 
-          //console.log(elem);
+          ////console.log(elem);
 
           if (elem.month == 1 && elem.month <= bulanPilih) {
             this.januari += 1;
@@ -274,8 +274,8 @@ export class PdmMFsbComponent implements OnInit {
         date.forEach((element: any) => {
           
           this.temuanperday_data_temp.forEach((elem: any) => {
-            // console.log(elem.bulan);
-            // console.log(this.month);
+            // //console.log(elem.bulan);
+            // //console.log(this.month);
 
 
             if (elem.bulan == this.currentChange) {
@@ -286,37 +286,37 @@ export class PdmMFsbComponent implements OnInit {
             }
           });
         });
-        console.log(dummytemuan);
+        //console.log(dummytemuan);
         
         dummytemuan.forEach((element: any) => {
           this.temuanperday_label.push(element.do_date)
         });
         const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
-        console.log(this.temuanperday_label);
+        //console.log(this.temuanperday_label);
         
         this.temuanperday_label = []
         this.temuanperday_label = uniqueLabel
 
-        console.log(uniqueLabel);
+        //console.log(uniqueLabel);
         var dataTotal: number = 0
         for (let j = 0; j < uniqueLabel.length; j++) {
           for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
 
             if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
-              console.log(this.temuanperday_data_temp[i]);
-              // console.log('aha');
+              //console.log(this.temuanperday_data_temp[i]);
+              // //console.log('aha');
               dataTotal++
             }
 
           }
-          // console.log(this.temuanperday_data_temp[i].do_date);
-          console.log(uniqueLabel);
-          // console.log(dataTotal);
+          // //console.log(this.temuanperday_data_temp[i].do_date);
+          //console.log(uniqueLabel);
+          // //console.log(dataTotal);
           this.temuanperday_data.push(dataTotal)
           dataTotal = 0
         };
 
-        // console.log(this.totalasset);
+        // //console.log(this.totalasset);
 
         this.totaldatayear.destroy();
 
@@ -477,12 +477,12 @@ export class PdmMFsbComponent implements OnInit {
 
   changeDate(){
     this.totalfinishtoday2 = [];
-    // ////console.log(this.tgl1);
+    // //////console.log(this.tgl1);
     
     this.service.getReadHistoryCheckfsb(this.tgl2, this.tgl3).subscribe(data => {
-      //console.log(this.tgl2 + '  ' + this.tgl3);
+      ////console.log(this.tgl2 + '  ' + this.tgl3);
       
-      //console.log(data);
+      ////console.log(data);
       this.totalfinishtoday = data;
 
       Object.values(this.totalfinishtoday).forEach(data => {
@@ -501,7 +501,7 @@ export class PdmMFsbComponent implements OnInit {
     this.service.getReadFinishTodayfsb(this.tgl1).subscribe(data => {
 
       this.totalfinishtoday = data;
-      // ////console.log(data);
+      // //////console.log(data);
       
       Object.values(this.totalfinishtoday).forEach(data => {
         var array = Object.keys(data).map(function (key) {
@@ -514,22 +514,22 @@ export class PdmMFsbComponent implements OnInit {
         // this.spinner.hide();
         this.resolved = true;
       })
-      // ////console.log(this.totalfinishtoday2);
+      // //////console.log(this.totalfinishtoday2);
       
       // Object.values(this.totalfinishtdy).forEach(data => {
-      //   // // //////////////////console.log(data);
+      //   // // ////////////////////console.log(data);
       //   var array = Object.keys(data).map(function (key) {
       //     return data[key];
       //   });
-      //   // // //////////////////console.log(array);
+      //   // // ////////////////////console.log(array);
       //   for (let i = 0; i < array.length; i++) {
       //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
       //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
       //   }
       // })
 
-      // // ////////////////console.log(this.totalfinishtoday2);
-      // ////////////////console.log(this.totalfinishtdy2);
+      // // //////////////////console.log(this.totalfinishtoday2);
+      // //////////////////console.log(this.totalfinishtdy2);
       // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
       //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
       // }
@@ -538,7 +538,7 @@ export class PdmMFsbComponent implements OnInit {
       //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
       // }
 
-      ////////////////console.log(this.totalfinishresult);
+      //////////////////console.log(this.totalfinishresult);
 
 
 
@@ -586,7 +586,7 @@ export class PdmMFsbComponent implements OnInit {
       .getImage(this.taptap.nativeElement, true)
       .subscribe((img: any) => {
         this.imgBase64 = img;
-        //////////////console.log(this.imgBase64);
+        ////////////////console.log(this.imgBase64);
         this.downloadJson();
       });
   }
@@ -767,7 +767,7 @@ export class PdmMFsbComponent implements OnInit {
     return element ? element.id : null;
   }
   date(masukandate: HTMLInputElement) {
-    ////////////////////console.log(moment(masukandate.value).format("DD-MM-YYYY"));
+    //////////////////////console.log(moment(masukandate.value).format("DD-MM-YYYY"));
     this.currentPage = 1;
     this.searchDate = masukandate.value;
   }
@@ -827,13 +827,13 @@ export class PdmMFsbComponent implements OnInit {
   exportwo(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    // ////////console.log(this.januarielem);
+    // //////////console.log(this.januarielem);
     
-    ////////////////////console.log(this.findingpending2);
+    //////////////////////console.log(this.findingpending2);
     if(this.listoftotalasset == true){
       const janexport : any = []
       janexport.push(this.pdmassetlist)
-      ////////console.log(janexport);
+      //////////console.log(janexport);
       
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
@@ -855,7 +855,7 @@ export class PdmMFsbComponent implements OnInit {
     }else if(this.listoftotalgood == true){
       const janexport : any = []
       janexport.push(this.listofgood)
-      ////////console.log(janexport);
+      //////////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -876,7 +876,7 @@ export class PdmMFsbComponent implements OnInit {
     }else if(this.listoftotalsatisfactory == false){
       const janexport : any = []
       janexport.push(this.listofsatisfactory)
-      ////////console.log(janexport);
+      //////////console.log(janexport);
       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
       ws["!cols"] = [{ wch: 10 },
         { wch: 60 },
@@ -901,7 +901,7 @@ export class PdmMFsbComponent implements OnInit {
   print(): void {
     let printContents, popupWin: any;
     printContents = this.myNameElem.nativeElement.innerHTML;
-    ////////////////////console.log(printContents);
+    //////////////////////console.log(printContents);
 
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     popupWin.document.open();
@@ -931,12 +931,12 @@ export class PdmMFsbComponent implements OnInit {
   }
   daterange() {
     this.totalfinishtoday2down = [];
-    //console.log(this.totalfinishtoday2);
+    ////console.log(this.totalfinishtoday2);
 
     this.service.getReadHistoryCheckfsb(this.tgl2, this.tgl3).subscribe(data => {
-      //console.log(this.tgl2 + '  ' + this.tgl3);
+      ////console.log(this.tgl2 + '  ' + this.tgl3);
       
-      //console.log(data);
+      ////console.log(data);
       this.totalfinishtoday = data;
 
       Object.values(this.totalfinishtoday).forEach(data => {
@@ -1000,7 +1000,7 @@ export class PdmMFsbComponent implements OnInit {
       }
     }
     this.temperaturelist = this.temperaturelist.filter(function (e: any) { return e != null; });
-    ////////////////////console.log(this.temperaturelist);
+    //////////////////////console.log(this.temperaturelist);
 
     for (let i = 0; i < this.temperaturelist.length; i++) {
       if (this.temperaturelist[i].test_name === 'Thermal') {
@@ -1008,7 +1008,7 @@ export class PdmMFsbComponent implements OnInit {
         this.temperatureDate.splice(this.temperatureDate.lenght, 0, this.temperaturelist[i].do_date);
       }
     }
-    ////////////////////console.log(this.temperatureDate);
+    //////////////////////console.log(this.temperatureDate);
 
 
     for (let i = 0; i < this.totalamperelist.length; i++) {
@@ -1017,7 +1017,7 @@ export class PdmMFsbComponent implements OnInit {
       }
     }
     this.amperelist = this.amperelist.filter(function (e: any) { return e != null; });
-    ////////////console.log(this.amperelist);
+    //////////////console.log(this.amperelist);
 
     for (let i = 0; i < this.amperelist.length; i++) {
       if (this.amperelist[i].test_name === 'R') {
@@ -1080,7 +1080,7 @@ export class PdmMFsbComponent implements OnInit {
       if(length2h != length3h){
         lengthBetween = length2h - length3h + 1
       }
-      //console.log(lengthBetween);
+      ////console.log(lengthBetween);
       if (this.vibrationlist[i].year === 2022) {
         if (this.vibration3H.length < lengthBetween) {
           this.vibration3H.push(null); // You can use null or another placeholder value
@@ -1134,10 +1134,10 @@ export class PdmMFsbComponent implements OnInit {
         },
       ],
     };
-      // //////////////////console.log(this.ampereR);
-      // //////////////////console.log(this.ampereS);
-      // //////////////////console.log(this.ampereT);
-      // //////////////////console.log(this.ampereFreq);
+      // ////////////////////console.log(this.ampereR);
+      // ////////////////////console.log(this.ampereS);
+      // ////////////////////console.log(this.ampereT);
+      // ////////////////////console.log(this.ampereFreq);
     var dataAmpere = {
       labels: this.ampereDate.reverse(),
       datasets: [
@@ -1252,7 +1252,7 @@ export class PdmMFsbComponent implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // //////////////////console.log(config);
+            // ////////////////////console.log(config);
 
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeprep();
@@ -1345,7 +1345,7 @@ export class PdmMFsbComponent implements OnInit {
     this.listoftotalsatisfactory = true
     this.listoftotalgood = false
     this.listoftotalasset =  !this.listoftotalasset
-    // ////////console.log(this.listoftotalasset);
+    // //////////console.log(this.listoftotalasset);
     
   }
 
@@ -1359,7 +1359,7 @@ export class PdmMFsbComponent implements OnInit {
     this.listoftotalasset = false
     this.listoftotalgood = false
     this.listoftotalsatisfactory = !this.listoftotalsatisfactory
-    // ////////console.log(this.listoftotalsatisfactory);
+    // //////////console.log(this.listoftotalsatisfactory);
     
   }
 
@@ -1427,7 +1427,7 @@ export class PdmMFsbComponent implements OnInit {
           for (let elem of this.asset2) {
             this.totalasset = elem.total;
           }
-          console.log(this.asset2);
+          //console.log(this.asset2);
           
           this.service.getFsbValuemonth(this.current).subscribe(data => {
             this.valuemonth = data;
@@ -1439,17 +1439,17 @@ export class PdmMFsbComponent implements OnInit {
                 this.valuemonthlist.splice(this.valuemonthlist.lenght, 0, array[i]);
               }
 
-              // console.log(this.valuemonthlist);
+              // //console.log(this.valuemonthlist);
 
               this.valuemonthlist.forEach((elem: any, i: number) => {
                 if (elem.do_date != this.valuemonthlist[i + 1]?.do_date) {
                   date.push(elem.do_date)
-                  // console.log(date);
+                  // //console.log(date);
                 }
               });
 
 
-              console.log(this.valuemonthlist);
+              //console.log(this.valuemonthlist);
 
               for (let elem of this.valuemonthlist) {
                 if (elem.month == 1) {
@@ -1490,14 +1490,14 @@ export class PdmMFsbComponent implements OnInit {
                   this.temuanperday_data_temp.push(elem)
                 }
               }
-              console.log(this.november);
+              //console.log(this.november);
               
               var dummytemuan: any = []
               date.forEach((element: any) => {
 
                 this.temuanperday_data_temp.forEach((elem: any) => {
-                  // console.log(elem.bulan);
-                  // console.log(this.month);
+                  // //console.log(elem.bulan);
+                  // //console.log(this.month);
 
 
                   if (elem.bulan == this.month) {
@@ -1517,27 +1517,27 @@ export class PdmMFsbComponent implements OnInit {
               //   var arrayLabel = Object.keys(data).map(function (key) {
               //     return data[key];
               //   });
-              //   console.log(arrayLabel);
+              //   //console.log(arrayLabel);
               // });
 
               this.temuanperday_label = []
               this.temuanperday_label = uniqueLabel
 
-              console.log(uniqueLabel.length);
+              //console.log(uniqueLabel.length);
               var dataTotal: number = 0
               for (let j = 0; j < uniqueLabel.length; j++) {
                 for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
 
                   if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
-                    // console.log(this.temuanperday_data_temp[i]);
-                    // console.log('aha');
+                    // //console.log(this.temuanperday_data_temp[i]);
+                    // //console.log('aha');
                     dataTotal++
                   }
 
                 }
-                // console.log(this.temuanperday_data_temp[i].do_date);
-                // console.log(uniqueLabel[i]);
-                console.log(dataTotal);
+                // //console.log(this.temuanperday_data_temp[i].do_date);
+                // //console.log(uniqueLabel[i]);
+                //console.log(dataTotal);
                 this.temuanperday_data.push(dataTotal)
                 dataTotal = 0
 
@@ -1545,7 +1545,7 @@ export class PdmMFsbComponent implements OnInit {
 
               };
 
-              console.log(this.totalasset);
+              //console.log(this.totalasset);
 
               this.totaldatayear = new Chart("valuepermonthchart", {
                 type: "bar",
@@ -1589,7 +1589,7 @@ export class PdmMFsbComponent implements OnInit {
       );
       this.service.getReadPdmAssetFSB().subscribe(data=>{
         this.pdmasset = data;
-        //////////////////console.log(this.pdmasset);
+        ////////////////////console.log(this.pdmasset);
         Object.values(this.pdmasset).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1597,14 +1597,14 @@ export class PdmMFsbComponent implements OnInit {
           for(let i = 0; i < array.length; i++){
             this.pdmassetlist.splice(this.pdmassetlist.get, 0, array[i])
           }
-          // //////////////////console.log(this.pdmassetlist);
+          // ////////////////////console.log(this.pdmassetlist);
 
         })
 
       });
       this.service.getFsbfNotFinish().subscribe(data => {
         this.finishnot = data;
-        // //////////////////console.log(data);
+        // ////////////////////console.log(data);
         Object.values(this.finishnot).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];
@@ -1619,9 +1619,9 @@ export class PdmMFsbComponent implements OnInit {
 
           }
 
-          // //////////////////console.log(this.finishnotlist);
-          // //////////////////console.log(m);
-          // //////////////////console.log(y);
+          // ////////////////////console.log(this.finishnotlist);
+          // ////////////////////console.log(m);
+          // ////////////////////console.log(y);
 
 
 
@@ -1645,12 +1645,12 @@ export class PdmMFsbComponent implements OnInit {
           this.tahun = this.newTanggal.split("-");
           this.tahun = this.tahun[0];
 
-          // //////////////////console.log(array);
+          // ////////////////////console.log(array);
 
           for (let i = 0; i < this.finishnotlist.length; i++) {
             if(this.finishnotlist[i].month == m){
               if(this.finishnotlist[i].year == y){
-                // //////////////////console.log(this.finishnotlist[i]);
+                // ////////////////////console.log(this.finishnotlist[i]);
 
                 if (this.finishnotlist[i].name_area == 'PREPARATION') {
                   if (this.finishnotlist[i].value == null) {
@@ -1705,19 +1705,19 @@ export class PdmMFsbComponent implements OnInit {
 
         }
         )
-        ////////////////////console.log(this.finishnotlist);
+        //////////////////////console.log(this.finishnotlist);
 
       }
       );
       this.service.getNotePdm().subscribe(data => {
         this.notepdm = data;
         Object.values(this.notepdm).forEach(data => {
-          // // //////////////////console.log(data);
+          // // ////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
 
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.notepdmlist.splice(this.notepdmlist.lenght, 0, array[i]);
           }
@@ -1728,18 +1728,18 @@ export class PdmMFsbComponent implements OnInit {
       // this.fungsi
       this.service.getReadFinishTodayfsbabnormal().subscribe(data => {
         this.abnormalasset = data;
-        ////////////console.log(data);
+        //////////////console.log(data);
         Object.values(this.abnormalasset).forEach(data => {
           // // //////
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
 
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.abnormalassetlist.splice(this.abnormalassetlist.lenght, 0, array[i]);
           }
-          // ////////////console.log(this.abnormalassetlist);
+          // //////////////console.log(this.abnormalassetlist);
 
           for (let elem of this.abnormalassetlist) {
             if (elem.Stat == 'Good') {
@@ -1753,7 +1753,7 @@ export class PdmMFsbComponent implements OnInit {
             } else if (elem.Stat == 'Unacceptable') {
               this.unacc2 += 1;
             }
-            // //////////////////console.log(this.listofsatisfactory);
+            // ////////////////////console.log(this.listofsatisfactory);
 
           }
           for (let elem of this.abnormalassetlist) {
@@ -1766,7 +1766,7 @@ export class PdmMFsbComponent implements OnInit {
             } else if (elem.Stat == 'Unacceptable') {
               this.unacc += 1;
             }
-            ////////////console.log(this.good2);
+            //////////////console.log(this.good2);
 
           }
           this.coba = new Chart('donut', {
@@ -1793,7 +1793,7 @@ export class PdmMFsbComponent implements OnInit {
             },
           });
           // this.abnormalassetlist = this.abnormalassetlist.filter((el: any, i: any, a: any) => i === a.indexOf(el))
-          // //////////////////console.log(this.abnormalassetlist);
+          // ////////////////////console.log(this.abnormalassetlist);
 
           for (let i = 0; i < this.abnormalassetlist.length; i++) {
             if (this.abnormalassetlist[i].Stat == 'Unsatisfactory' || this.abnormalassetlist[i].Stat == 'Unacceptable') {
@@ -1807,16 +1807,16 @@ export class PdmMFsbComponent implements OnInit {
       this.service.getTemperatureLinefsb().subscribe(data => {
         this.temperature = data;
         Object.values(this.temperature).forEach(data => {
-          // // //////////////////console.log(data);
+          // // ////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
 
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totaltemperaturelist.splice(this.totaltemperaturelist.lenght, 0, array[i]);
             this.totaltemperaturedate.splice(this.totaltemperaturedate.lenght, 0, array[i]);
-            //// //////////////////console.log(array[i]);
+            //// ////////////////////console.log(array[i]);
           }
         })
       }
@@ -1824,15 +1824,15 @@ export class PdmMFsbComponent implements OnInit {
       this.service.getAmpereLinefsb().subscribe(data => {
         this.ampere = data;
         Object.values(this.ampere).forEach(data => {
-          // // //////////////////console.log(data);
+          // // ////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalamperelist.splice(this.totalamperelist.lenght, 0, array[i]);
             this.totalamperedate.splice(this.totalamperedate.lenght, 0, array[i]);
-            //// //////////////////console.log(array[i]);
+            //// ////////////////////console.log(array[i]);
           }
         })
       }
@@ -1840,23 +1840,23 @@ export class PdmMFsbComponent implements OnInit {
       this.service.getVibrationLinefsb().subscribe(data => {
         this.vibration = data;
         Object.values(this.vibration).forEach(data => {
-          // // //////////////////console.log(data);
+          // // ////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalvibrationlist.splice(this.totalvibrationlist.lenght, 0, array[i]);
             this.totalvibrationdate.splice(this.totalvibrationdate.lenght, 0, array[i]);
-            //// //////////////////console.log(array[i]);
+            //// ////////////////////console.log(array[i]);
           }
         })
       }
       );
       this.service.getReadHistoryCheckoci2(this.tgl2, this.tgl3).subscribe(data => {
-        //console.log(this.tgl2 + '  ' + this.tgl3);
+        ////console.log(this.tgl2 + '  ' + this.tgl3);
         
-        //console.log(data);
+        ////console.log(data);
         this.totalfinishtoday = data;
   
         Object.values(this.totalfinishtoday).forEach(data => {
@@ -1873,16 +1873,16 @@ export class PdmMFsbComponent implements OnInit {
       })
   
       this.service.getReadFinishTodayfsb(this.tgl1).subscribe(data => {
-        ////////////////console.log(data);
+        //////////////////console.log(data);
 
         this.totalfinishtoday = data;
 
         Object.values(this.totalfinishtoday).forEach(data => {
-          // // //////////////////console.log(data);
+          // // ////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////console.log(array);
+          // // ////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
             // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
@@ -1892,19 +1892,19 @@ export class PdmMFsbComponent implements OnInit {
         })
 
         // Object.values(this.totalfinishtdy).forEach(data => {
-        //   // // //////////////////console.log(data);
+        //   // // ////////////////////console.log(data);
         //   var array = Object.keys(data).map(function (key) {
         //     return data[key];
         //   });
-        //   // // //////////////////console.log(array);
+        //   // // ////////////////////console.log(array);
         //   for (let i = 0; i < array.length; i++) {
         //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
         //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
         //   }
         // })
 
-        // // ////////////////console.log(this.totalfinishtoday2);
-        // ////////////////console.log(this.totalfinishtdy2);
+        // // //////////////////console.log(this.totalfinishtoday2);
+        // //////////////////console.log(this.totalfinishtdy2);
         // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
         //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
         // }
@@ -1913,7 +1913,7 @@ export class PdmMFsbComponent implements OnInit {
         //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
         // }
 
-        ////////////////console.log(this.totalfinishresult);
+        //////////////////console.log(this.totalfinishresult);
 
 
 
@@ -1937,7 +1937,7 @@ export class PdmMFsbComponent implements OnInit {
       }
       );
     });
-    //// //////////////////console.log("1");
+    //// ////////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }
