@@ -2915,6 +2915,8 @@ export class AmMOci2Component implements OnInit {
       });
       this.service.getReadFindingPendingoci2().subscribe(data => {
         this.findingpending = data;
+        console.log(data);
+        
         Object.values(this.findingpending).forEach(data => {
           var array = Object.keys(data).map(function (key) {
             return data[key];

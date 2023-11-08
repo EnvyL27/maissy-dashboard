@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-  <div class="relative flex flex-col text-center mb-4 min-w-0 bg-white rounded-2xl" style="font-weight: bold;">
+  <!-- <div class="relative flex flex-col text-center mb-4 min-w-0 bg-white rounded-2xl" style="font-weight: bold;">
     <div class="flex flex-wrap -mx-3 p-4">
       <div class="w-full mb-2 max-w-full px-2">
         <h5 class="text-lg font-bold">Select To Find Data:</h5>
@@ -21,7 +21,7 @@
         </select>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div class="flex flex-wrap -mx-3">
     <div class="w-full px-1 py-1 mx-auto">
@@ -30,22 +30,22 @@
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
             <div class="flex-auto p-6">
               <div class="overflow-x-auto relative shadow-lg sm:rounded-lg" id="prinsection" #printsection>
-                <table border="1" class="w-full text-lg text-left text-gray-500 text-md">
+                <table border="1" class="w-full text-lg text-left text-gray-500 text-sm">
                   <thead class="text-gray-700 uppercase">
                     <tr>
-                      <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
+                      <!-- <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
                         No
-                      </th>
-                      <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
+                      </th> -->
+                      <th scope="col" class="py-2 px-6 text-white border border-white border-1" bgcolor="#878790">
                         Device Name
                       </th>
-                      <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
+                      <th scope="col" class="py-2 px-6 text-white border border-white border-1" bgcolor="#878790">
                         Description
                       </th>
-                      <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
+                      <th scope="col" class="py-2 px-6 text-white border border-white border-1" bgcolor="#878790">
                         Machine
                       </th>
-                      <th scope="col" class="py-3 px-6 text-white border border-white border-1" bgcolor="#878790">
+                      <th scope="col" class="py-2 px-6 text-white border border-white border-1" bgcolor="#878790">
                         Start Date
                       </th>
                     </tr>
@@ -53,22 +53,22 @@
                   <tbody>
                     <tr class="border-b border-gray-200"
                       *ngFor="let header of liveAlarm | paginate: { id:'pagination2', currentPage: currentPage2, itemsPerPage: 10 }; let i = index ">
-                      <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
+                      <!-- <th class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap text-white" bgcolor="#878790">
                         {{ i + 1 + (currentPage2 - 1) * 10}}
-                      </th>
-                      <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
+                      </th> -->
+                      <td class="py-3 px-6 font-medium whitespace-nowrap bg-gray-50" style="color: black">
                         {{header.device}}
                       </td>
                       <!-- <td *ngIf="header.Two_H < 2" bgcolor="green" class="text-white text-center"> -->
-                      <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50 "
+                      <td class="py-3 px-6 font-medium whitespace-nowrap bg-gray-50 "
                         style="color: black; word-wrap: break-word; white-space: normal !important; ">
                         {{header.description}}
                       </td>
-                      <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50 "
+                      <td class="py-3 px-6 font-medium whitespace-nowrap bg-gray-50 "
                         style="color: black; word-wrap: break-word; white-space: normal !important; ">
                         {{header.machine}}
                       </td>
-                      <td class="py-4 px-6 font-medium whitespace-nowrap bg-gray-50 "
+                      <td class="py-3 px-6 font-medium whitespace-nowrap bg-gray-50 "
                         style="color: black; word-wrap: break-word; white-space: normal !important; ">
                         {{header.activeAt | date:'yyyy-MM-dd'}}
                       </td>
