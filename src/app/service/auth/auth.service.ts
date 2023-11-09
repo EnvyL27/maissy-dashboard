@@ -50,6 +50,7 @@ export class AuthService {
 
   public getUser(): any {
     const user = localStorage.getItem(USER_KEY);
+    
     if (user) {
       return JSON.parse(user);
     }

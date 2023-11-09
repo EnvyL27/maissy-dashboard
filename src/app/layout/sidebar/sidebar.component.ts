@@ -75,6 +75,7 @@ export class SidebarComponent implements OnInit {
     this.isAllowed = false;
     this.authService.signOut()
     this.showInfo()
+    window.location.reload();
   }
 
   lubiPlantClick(){

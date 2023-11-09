@@ -17,16 +17,12 @@
                     <span class="ml-2 text-sm tracking-wide truncate text-gray-600">Dashboard</span>
                 </a>
             </li>
-            <!-- <li>
+             <li>
         <a
-          [routerLink]="['/dashboard/activity']"
+          routerLink="/dashboard/activity"
           routerLinkActive="active"
           class="relative flex items-center py-3 space-x-4"
-          [ngClass]="
-            router.url == '/dashboard/activity'
-              ? 'bg-gradient-to-r from-sky-600 to-cyan-400  border-l-0 px-1'
-              : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500'
-          "
+         
         >
           <span class="inline-flex items-center justify-center ml-4">
             <svg
@@ -52,13 +48,13 @@
           </span>
           <span
             [ngClass]="router.url == '/dashboard/activity' ? 'text-white' : ''"
-            class="ml-2 text-sm tracking-wide truncate"
-            >Activity</span
+            class="ml-2 text-sm tracking-wide truncate text-gray-600"
+            >PR Monitoring</span
           >
         </a>
       </li>
 
-      <li>
+     <!-- <li>
         <a
           (click)="dropdown()"
           class="relative flex flex-row items-center pr-6 space-x-4 text-gray-600 border-l-4 border-transparent h-11 focus:outline-none hover:bg-gray-50 hover:text-gray-800 hover:border-indigo-500"
