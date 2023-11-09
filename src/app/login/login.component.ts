@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit{
   showPassword: Boolean = false;
   submitted = false;
   name: string = '';
+  maissy : boolean = false
+  am : boolean = false
 
   constructor(
     public toastr: ToastrService,
@@ -30,6 +32,19 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  maissyLogin(){
+    this.maissy = !this.maissy
+    this.am = false
+    console.log(this.maissy);
+    console.log(this.am);
+  }
+
+  amLogin(){
+    this.am = !this.am
+    this.maissy = false
+    console.log(this.maissy);
+    console.log(this.am);
+  }
 
   showSuccess() {
     this.toastr.success('HELLO ' + this.name + '!', 'Login Success',{
@@ -57,6 +72,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmit(): void {
+   
+    
     this.submitted = true;
     if (this.form.invalid) {
       return;
@@ -72,42 +89,27 @@ export class LoginComponent implements OnInit{
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
         (data: { user: { lg_name: any; }[]; access_token: any; }) => {
-          // //////////////console.log(data);
-          // //////////////console.log(data.user[0].lg_name);
           this.name = data.user[0].lg_name;
           localStorage.setItem('nikLogged', this.f['nik'].value)
           this.authService.saveToken(data.access_token);
           this.authService.saveUser(data.user);
           this.showSuccess()
-          // //////////////console.log('Sign In Success');
-          // this.alertService.onCallAlert('Login Success', AlertType.Success);
-
-          // this.alertService.onCallAlert('Login Success', AlertType.Success);
-          this.reloadPage();
+          if(this.maissy == true){
+            this.reloadPage();
+          }else if(this.am == true){
+            this.reloadPageAm();
+          }
+          
         },
         (err: { statusText: string; }) => {
           if (err.statusText == 'Unauthorized') {
             this.showWarning()
-            // //////////////console.log('Email or Pass Invalid');
-            // this.alertService.onCallAlert(
-            //   'Email or Password Invalid',
-            //   AlertType.Error
-            // );
             '<div class="alert success-alert" ><h3>Success Alert Message < /h3>< a class="close" >& times; </a> < /div>'
           } else {
-            // this.alertService.onCallAlert('Login Failed', AlertType.Error);
             this.showError()
-            //////////////console.log('Sign In Failed');
           }
-
-          // //////////////console.log(err.statusText);
-
-          // this.errorMessage = err.error.message;
-          // this.isLoginFailed = true;
-          // this.submitted = false;
           this.submitted = false;
           this.f['password'].setValue('');
-          // this.form.setValue({ email: '', password: '' });
         },
         () => {
           this.submitted = false;
@@ -122,6 +124,12 @@ export class LoginComponent implements OnInit{
 
   reloadPage(): void {
     this.router.navigate(['/']), {
+      queryParams: { successAlert: true },
+    };
+    // window.location.reload();
+  }
+  reloadPageAm(): void {
+    this.router.navigate(['/am_checksheet']), {
       queryParams: { successAlert: true },
     };
     // window.location.reload();

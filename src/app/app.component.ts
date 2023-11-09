@@ -24,6 +24,9 @@ export class AppComponent {
     return this.router.url === '/login';
   }
 
+  isChecksheetRoute(){
+    return this.router.url === '/am_checksheet'
+  }
 
   @HostListener('window:scroll')
   checkScroll() {

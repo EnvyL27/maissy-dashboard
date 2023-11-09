@@ -148,12 +148,12 @@
         <div class="switch__container" id="switch-c1">
           <p class="text-lg font-bold text-gray-500 leading-relaxed">MAISSY Dashboard!</p>
           <p class="switch__description description">機械の状態とメンテナンスを監視するためのダッシュボード</p>
-          <button class="switch__button button switch-btn">Checksheet</button>
+          <button class="switch__button button switch-btn" (click)="amLogin()">Checksheet</button>
         </div>
         <div class="switch__container is-hidden" id="switch-c2">
           <p class="text-lg text-gray-500 font-bold leading-relaxed">AM Checksheet!</p>
           <p class="switch__description description">メンテナンス中の機械の発見を入力するためのアプリケーション</p>
-          <button class="switch__button buttonMaissy switch-btn bg-orange-300">MAISSY</button>
+          <button class="switch__button buttonMaissy switch-btn bg-orange-300" (click)="maissyLogin()">MAISSY</button>
         </div>
       </div>
     </div>

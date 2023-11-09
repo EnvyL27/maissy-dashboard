@@ -1,25 +1,35 @@
 <main class="">
-<app-navbar  [ngClass]="!isLoginRoute() ? '': 'hidden'"></app-navbar>
-<app-sidebar [ngClass]="!isLoginRoute() ? '': 'hidden'"></app-sidebar>
-<div >
-  <!-- <body  onload = "JavaScript:AutoRefresh(1000);"> -->
-  <!-- <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' "> -->
-  <router-outlet>
-  </router-outlet>
-  <!-- </div> -->
-  <!-- </body> -->
-  <!-- <ng-template #loading2> -->
-  <!-- </ng-template> -->
-  <app-footer  [ngClass]="!isLoginRoute() ? '': 'hidden'">
-  </app-footer>
-</div>
-<div fixed-plugin *ngIf="isShow">
-  <a fixed-plugin-button (click)="gotoTop()"
-    class="bottom-7.5 right-7.5 p-4 text-sm z-990 shadow-soft-lg rounded-circle fixed cursor-pointer py-3 bg-white text-slate-700"
-    style="margin-right: 46.5px;">
-    <div class="w-full">
-      <i class="fa fa-arrow-up fa-1" aria-hidden="true"></i>
-    </div>
-  </a>
-</div>
+  <app-navbar [ngClass]="{
+    '': !isLoginRoute() || !isChecksheetRoute(),
+    'hidden': isLoginRoute() || isChecksheetRoute()
+  }"></app-navbar>
+  <app-sidebar [ngClass]="{
+    '': !isLoginRoute() || !isChecksheetRoute(),
+    'hidden': isLoginRoute() || isChecksheetRoute()
+  }"></app-sidebar>
+  <app-sidebar2></app-sidebar2>
+  <div>
+    <!-- <body  onload = "JavaScript:AutoRefresh(1000);"> -->
+    <!-- <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' "> -->
+    <router-outlet>
+    </router-outlet>
+    <!-- </div> -->
+    <!-- </body> -->
+    <!-- <ng-template #loading2> -->
+    <!-- </ng-template> -->
+    <app-footer [ngClass]="{
+      '': !isLoginRoute() || !isChecksheetRoute(),
+      'hidden': isLoginRoute() || isChecksheetRoute()
+    }">
+    </app-footer>
+  </div>
+  <div fixed-plugin *ngIf="isShow">
+    <a fixed-plugin-button (click)="gotoTop()"
+      class="bottom-7.5 right-7.5 p-4 text-sm z-990 shadow-soft-lg rounded-circle fixed cursor-pointer py-3 bg-white text-slate-700"
+      style="margin-right: 46.5px;">
+      <div class="w-full">
+        <i class="fa fa-arrow-up fa-1" aria-hidden="true"></i>
+      </div>
+    </a>
+  </div>
 </main>

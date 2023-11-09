@@ -105,6 +105,8 @@ import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.comp
 import { LimitComponent } from './limit/limit.component';
 import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component';
+import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
+import { Sidebar2Component } from './checksheet/layout/sidebar2/sidebar2.component';
 
 
 
@@ -204,6 +206,8 @@ import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component
     LimitComponent,
     LiveAlarmComponent,
     LiveAlarmOc2Component,
+    ChecksheetDashboardComponent,
+    Sidebar2Component,
 
   ],
   imports: [

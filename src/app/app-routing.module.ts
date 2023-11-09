@@ -88,10 +88,14 @@ import { PdmMOc1OnlineComponent } from './pdm-m-oc1-online/pdm-m-oc1-online.comp
 import { LimitComponent } from './limit/limit.component';
 import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component';
+import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
+  //CHECKSHEET ROUTE//
+  {path: 'am_checksheet', component: ChecksheetDashboardComponent, canActivate: [AuthGuard]},
 
+  //MAISSY ROUTE//
+  {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
   {path: '', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'pdm_dashboard', component: PdmDashboardComponent, canActivate: [AuthGuard]},
   {path: 'energy_review', component: EnergyIndexComponent, canActivate: [AuthGuard]},
