@@ -3146,44 +3146,34 @@
               </p>
               <div class="flex items-center text-center">
                 <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
-                  <h6
-                    class="pl-2 text-sm text-left focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-transparent border-transparent bg-white bg-clip-padding pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow font-semibold">
-                    Section :</h6>
-                  <h6
-                    class="pl-2 text-sm text-left focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-transparent border-transparent bg-white bg-clip-padding pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow font-semibold">
-                    Func Loc :</h6>
-                  <!-- <h6
-                      class="pl-2 text-sm text-left focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-transparent border-transparent bg-white bg-clip-padding pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow">
-                      Filter</h6> -->
+                  <h6 class="pl-2 text-sm text-left focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-transparent border-transparent bg-white bg-clip-padding pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow font-semibold">
+                    Section :
+                  </h6>
+                  <h6 class="pl-2 text-sm text-left focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-transparent border-transparent bg-white bg-clip-padding pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow font-semibold">
+                    Func Loc :
+                  </h6>
                 </div>
               </div>
+              
               <div class="flex flex-col gap-4 items-center text-center py-4">
-                <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft ">
-                  <select
-                    class=" text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative  block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                    [(ngModel)]="searchSect">
+                <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
+                  <select class="text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" [(ngModel)]="searchSect">
                     <ng-container *ngFor="let user of fpsectarr" class="px-4">
-
                       <option value={{user.section}}>
                         {{ user.section }}
                       </option>
                     </ng-container>
                   </select>
-                  <select
-                    class="px-4 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative  block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                    [(ngModel)]="funloc" (change)="data(funloc)">
+                  <select class="px-4 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow" [(ngModel)]="funloc" (change)="data(funloc)">
                     <ng-container *ngFor="let data of funlockarr">
                       <option *ngIf="data.section == this.searchSect" value={{data.func_loc}}>
                         {{ data.funclocdesc }}
                       </option>
                     </ng-container>
                   </select>
-
-                  <!-- <input type="text" id="target" #target
-                      class="pl-2 text-sm focus:shadow-soft-primary-outline ease-soft w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                      placeholder="Type here..." name="search" [(ngModel)]="searchText2" /> -->
                 </div>
               </div>
+              
               <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
 
                 <table class="w-full text-sm text-left text-gray-500">
@@ -3280,7 +3270,7 @@
         <div class="px-1 w-full">
           <div [ngClass]="listjobfinish ? '': 'hidden'"
             class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border ">
-            <div class="flex-auto p-6  px-2">
+            <div class="flex-auto p-6 px-8">
               <p class="text-center" style="color: red;">Click NO WO Get Detail Part</p>
               <div class="flex items-center text-center mb-4">
                 <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease-soft">
@@ -3372,7 +3362,7 @@
                       <td class="py-4 px-6" *ngIf="item.total != null;else nulltotal">
                         {{item.total}} %
                       </td>
-                      <ng-template #nulltotal>
+                      <ng-template class="py-4 px-6" #nulltotal>
                         -
                       </ng-template>
                     </tr>

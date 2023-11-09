@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { AlertType } from 'src/app/services/alert/alert.model';
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   form!: FormGroup;
   showPassword: Boolean = false;
   submitted = false;
@@ -29,6 +29,7 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
+
 
   showSuccess() {
     this.toastr.success('HELLO ' + this.name + '!', 'Login Success',{
@@ -70,7 +71,7 @@ export class LoginComponent {
     this.authService
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
-        (data) => {
+        (data: { user: { lg_name: any; }[]; access_token: any; }) => {
           // //////////////console.log(data);
           // //////////////console.log(data.user[0].lg_name);
           this.name = data.user[0].lg_name;
@@ -84,7 +85,7 @@ export class LoginComponent {
           // this.alertService.onCallAlert('Login Success', AlertType.Success);
           this.reloadPage();
         },
-        (err) => {
+        (err: { statusText: string; }) => {
           if (err.statusText == 'Unauthorized') {
             this.showWarning()
             // //////////////console.log('Email or Pass Invalid');
@@ -125,4 +126,43 @@ export class LoginComponent {
     };
     // window.location.reload();
   }
-}
+
+  ngOnInit() {
+    const switchCtn = document.querySelector("#switch-cnt");
+    const switchC1 = document.querySelector("#switch-c1");
+    const switchC2 = document.querySelector("#switch-c2");
+    const switchCircle = document.querySelectorAll(".switch__circle");
+    const switchBtn = document.querySelectorAll(".switch-btn");
+    const aContainer = document.querySelector("#a-container");
+    const bContainer = document.querySelector("#b-container");
+    const allButtons = document.querySelectorAll(".submit");
+
+    const getButtons = (e: { preventDefault: () => any; }) => e.preventDefault();
+
+    const changeForm = (e: any) => {
+      switchCtn?.classList.add("is-gx");
+      setTimeout(function () {
+        switchCtn?.classList.remove("is-gx");
+      }, 1500);
+
+      switchCtn?.classList.toggle("is-txr");
+      switchCircle[0].classList.toggle("is-txr");
+      switchCircle[1].classList.toggle("is-txr");
+
+      switchC1?.classList.toggle("is-hidden");
+      switchC2?.classList.toggle("is-hidden");
+      aContainer?.classList.toggle("is-txl");
+      bContainer?.classList.toggle("is-txl");
+      bContainer?.classList.toggle("is-z200");
+    };
+
+    const mainF = (e: any) => {
+      for (let i = 0; i < allButtons.length; i++)
+        allButtons[i].addEventListener("click", getButtons);
+      for (let i = 0; i < switchBtn.length; i++)
+        switchBtn[i].addEventListener("click", changeForm);
+    };
+
+    window.addEventListener("load", mainF);
+  }
+  }
