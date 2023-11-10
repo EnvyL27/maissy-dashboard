@@ -108,6 +108,7 @@ import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component
 import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
 import { Sidebar2Component } from './checksheet/layout/sidebar2/sidebar2.component';
 import { Navbar2Component } from './checksheet/layout/navbar2/navbar2.component';
+import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 
 
 
@@ -210,6 +211,7 @@ import { Navbar2Component } from './checksheet/layout/navbar2/navbar2.component'
     ChecksheetDashboardComponent,
     Sidebar2Component,
     Navbar2Component,
+    PrListComponent,
 
   ],
   imports: [

@@ -1,0 +1,130 @@
+<!-- component -->
+<div class="bg-gray-100 w-screen h-screen">
+    <div class="max-lg:pl-20 lg:pl-[10%]">
+        <div class="ml-auto mb-6  ">
+            <div class="sticky z-10 top-0 h-16  lg:py-2.5 rounded-lg">
+                <!-- <div class="px-6 flex items-center justify-between space-x-4 2xl:container">
+                  <h5 hidden class="text-2xl text-gray-600 font-medium lg:block">Dashboard</h5>
+      
+              </div> -->
+            </div>
+
+            <!-- component -->
+            <section class="container mx-auto">
+
+                <div class="flex flex-col mt-6">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                            <!--
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+-->
+
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+                                    <thead class="ltr:text-left rtl:text-right">
+                                        <tr>
+                                            <th scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                No
+                                            </th>
+                                            <th scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Item Description
+                                            </th>
+                                            <th colspan="2" scope="col" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Request By
+                                            </th>
+                                            <th  scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Due Date
+                                            </th>
+                                            <th  scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Reason
+                                            </th>
+                                            <th  scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                PR Number
+                                            </th>
+                                            <th colspan="2" scope="col" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Vendor 1
+                                            </th>
+                                            <th colspan="2" scope="col" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Vendor 2
+                                            </th>
+                                            <th  scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Bidding
+                                            </th>
+                                            <th  scope="col" rowspan="2" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Keterangan
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">PIC</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Section /
+                                                Area</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Value</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Value</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="divide-y divide-gray-200">
+                                        <tr class="odd:bg-gray-50">
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                John Doe
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Developer</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$120,000</td>
+                                        </tr>
+
+                                        <tr class="odd:bg-gray-50">
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Jane Doe
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">04/11/1980</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Web Designer</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$100,000</td>
+                                        </tr>
+
+                                        <tr class="odd:bg-gray-50">
+                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                Gary Barlow
+                                            </td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">24/05/1995</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Singer</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">$20,000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- <div class="px-6 pt-6 2xl:container">
+              <div class="grid grid-cols-3 gap-4 pt-10 mb-4 max-sm:grid-cols-1  ">
+                  <div class="md:col-span-2 lg:col-span-3 position:right" >
+                    <apx-chart
+                    [series]="chartOptions.series"
+                    [chart]="chartOptions.chart"
+                    [dataLabels]="chartOptions.dataLabels"
+                    [title]="chartOptions.title"
+                    [colors]="chartOptions.colors"
+                  ></apx-chart>
+      
+                  </div>
+      
+              </div>
+          </div> -->
+        </div>
+
+    </div>
+</div>

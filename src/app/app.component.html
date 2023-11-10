@@ -7,7 +7,7 @@
     '': !isLoginRoute() || !isChecksheetRoute(),
     'hidden': isLoginRoute() || isChecksheetRoute()
   }"></app-sidebar>
-  <app-navbar2 [ngClass]="!isLoginRoute() ? '' : 'hidden'"></app-navbar2>
+  <app-navbar2 *ngIf="!isLoginRoute()"></app-navbar2>
   <app-sidebar2 [ngClass]="!isLoginRoute() ? '' : 'hidden'"></app-sidebar2>
   <div>
     <!-- <body  onload = "JavaScript:AutoRefresh(1000);"> -->

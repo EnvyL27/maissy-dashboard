@@ -13,6 +13,7 @@ export class AppComponent {
   public isShow: boolean = false;
   topPosToStartShowing = 100;
   name = 'Get Current Url Route Demo';
+  amNav : boolean = false
   currentRoute: string | undefined;
   
   constructor(public router: Router ) {
@@ -25,7 +26,8 @@ export class AppComponent {
   }
 
   isChecksheetRoute(){
-    return this.router.url === '/am_checksheet'
+    return this.router.url === '/am_checksheet' ||
+    this.router.url === '/pr_list'
   }
 
   @HostListener('window:scroll')

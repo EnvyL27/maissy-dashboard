@@ -132,7 +132,7 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['/am_checksheet']), {
       queryParams: { successAlert: true },
     };
-    // window.location.reload();
+    
   }
 
   ngOnInit() {

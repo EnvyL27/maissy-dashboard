@@ -89,10 +89,12 @@ import { LimitComponent } from './limit/limit.component';
 import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component';
 import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
+import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
   {path: 'am_checksheet', component: ChecksheetDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'pr_list', component: PrListComponent, canActivate: [AuthGuard]},
 
   //MAISSY ROUTE//
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},

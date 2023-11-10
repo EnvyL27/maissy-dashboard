@@ -18,8 +18,8 @@ export class Navbar2Component implements OnInit{
   }
 
   USER_KEY = 'auth-user';
-  user = this.authService.getUser()
-  username = this.user[0]?.lg_name
+  user : any;
+  username : any;
   isAllowed:boolean = false;
 
   showInfo() {
@@ -36,6 +36,8 @@ export class Navbar2Component implements OnInit{
   }
   
   ngOnInit(){
+    this.user = this.authService.getUser()
+    this.username =  this.user[0]?.lg_name
     console.log(this.username);
     
   }
