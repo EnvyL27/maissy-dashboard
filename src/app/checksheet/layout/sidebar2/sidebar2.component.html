@@ -1,5 +1,5 @@
 <div class="fixed top-0 left-0 flex flex-col h-full bg-white border-r w-52 max-lg:hidden">
-  <a routerLink="/" class="flex items-center justify-center border-b h-28">
+  <a routerLink="/am_checksheet" class="flex items-center justify-center border-b h-28">
     <img src="assets/img/amLogoFull.png" class="w-28" alt="" />
   </a>
 <!-- fill="#3d90e3" -->
@@ -25,7 +25,8 @@
       </li>
       <li>
         <a [ngClass]="
-        router.url == '/pr_list'
+        router.url == '/pr_list' ||
+        router.url == '/pr_input'
           ? 'text-blue-400 pl-4 bg-gray-100'
           : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
         "
@@ -40,6 +41,25 @@
             </svg>
           </span>
           <span class="ml-2 text-sm tracking-wide truncate text-gray-600">PR Monitoring</span>
+        </a>
+      </li>
+      <li>
+        <a [ngClass]="
+        router.url == '/cilt_monitoring' 
+          ? 'text-blue-400 pl-4 bg-gray-100'
+          : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
+        "
+         routerLink="/pr_list" routerLinkActive="active" class="relative flex items-center py-3 space-x-4">
+          <span class="inline-flex items-center justify-center ml-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
+                clip-rule="evenodd" />
+              <path 
+                d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
+            </svg>
+          </span>
+          <span class="ml-2 text-sm tracking-wide truncate text-gray-600">CILT Monitoring</span>
         </a>
       </li>
 
