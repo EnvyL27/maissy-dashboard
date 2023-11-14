@@ -13,7 +13,7 @@
                                         Add Data
                                     </a>
                                 </div> -->
-                                <form class="min-w-full bg-white divide-y-2 text-sm rounded-xl py-6 px-8">
+                                <form (submit)="onUpload()" [formGroup]="form" class="min-w-full bg-white divide-y-2 text-sm rounded-xl py-6 px-8">
                                     <div>
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -28,7 +28,7 @@
                                                     type="file" (change)="onFileChanged($event)">
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
-                                                <input
+                                                <input formControlName="item_desc"
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                     id="grid-last-name" type="text" placeholder="Put Description Here">
                                             </div>
@@ -44,10 +44,11 @@
                                             </label>
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full md:w-full px-3">
-                                                    <input
+                                                    <input formControlName="pic"
                                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                         id="grid-last-name" type="text"
-                                                        placeholder="Put Description Here">
+                                                        placeholder="Put Description Here"
+                                                        >
                                                 </div>
                                             </div>
                                         </div>
@@ -60,12 +61,12 @@
                                                     Area
                                                 </label>
                                                 <div class="flex">
-                                                    <select
+                                                    <select formControlName="area"
                                                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                         id="grid-state">
-                                                        <option>New Mexico</option>
-                                                        <option>Missouri</option>
-                                                        <option>Texas</option>
+                                                        <option value="1">New Mexico</option>
+                                                        <option value="2">Missouri</option>
+                                                        <option value="3">Texas</option>
                                                     </select>
                                                     <!-- <div
                                                         class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -78,18 +79,18 @@
                                                 </div>
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
-                                                <label
+                                                <label 
                                                     class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                                     for="grid-state">
                                                     Section
                                                 </label>
                                                 <div class="flex">
-                                                    <select
+                                                    <select formControlName="section"
                                                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                         id="grid-state">
-                                                        <option>New Mexico</option>
-                                                        <option>Missouri</option>
-                                                        <option>Texas</option>
+                                                        <option value="1">New Mexico</option>
+                                                        <option value="2">Missouri</option>
+                                                        <option value="3">Texas</option>
                                                     </select>
                                                     <!-- <div
                                                         class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -111,7 +112,7 @@
                                                 for="grid-password">
                                                 Due Date
                                             </label>
-                                            <input
+                                            <input formControlName="due_date"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="date">
                                         </div>
@@ -124,7 +125,7 @@
                                                 for="grid-password">
                                                 Reason
                                             </label>
-                                            <input
+                                            <input formControlName="reason"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -137,7 +138,7 @@
                                                 for="grid-password">
                                                 PR Number
                                             </label>
-                                            <input
+                                            <input formControlName="pr_number"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -157,7 +158,7 @@
                                                 for="grid-password">
                                                 Name
                                             </label>
-                                            <input
+                                            <input formControlName="v_name"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -167,7 +168,7 @@
                                                 for="grid-password">
                                                 Value
                                             </label>
-                                            <input
+                                            <input formControlName="v_value"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -187,7 +188,7 @@
                                                 for="grid-password">
                                                 Name
                                             </label>
-                                            <input
+                                            <input formControlName="v2_name"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -197,7 +198,7 @@
                                                 for="grid-password">
                                                 Value
                                             </label>
-                                            <input
+                                            <input formControlName="v2_value"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
@@ -213,13 +214,13 @@
                                             <!-- component -->
                                             <div class="grid w-[40rem] grid-cols-2 gap-2 rounded-xl bg-gray-200 p-3">
                                                 <div>
-                                                    <input type="radio" name="option" id="1" value="1"
+                                                    <input formControlName="bidding" type="radio" id="1" value="Yes"
                                                         class="peer hidden" checked />
                                                     <label for="1"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">Yes</label>
                                                 </div>
                                                 <div>
-                                                    <input type="radio" name="option" id="2" value="2"
+                                                    <input formControlName="bidding" type="radio" id="2" value="No"
                                                         class="peer hidden" />
                                                     <label for="2"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">No</label>
@@ -235,16 +236,16 @@
                                                 for="grid-password">
                                                 Keterangan
                                             </label>
-                                            <input
+                                            <input formControlName="keterangan"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-16 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                         </div>
                                     </div>
                                     <div class="flex flex-row gap-4 content-end justify-end items-end py-2">
-                                        <button class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 duration-200 focus:outline-none focus:ring" (click)="onUpload()">
+                                        <button type="submit" class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 duration-200 focus:outline-none focus:ring">
                                             Submit
                                         </button>
-                                        <button routerLink="/pr_input" class="block rounded-lg bg-gray-400 px-5 py-3 text-sm font-medium text-white transition hover:bg-red-700 duration-200 focus:outline-none focus:ring">
+                                        <button type="reset" class="block rounded-lg bg-gray-400 px-5 py-3 text-sm font-medium text-white transition hover:bg-red-700 duration-200 focus:outline-none focus:ring">
                                             Cancel
                                         </button>
                                     </div>

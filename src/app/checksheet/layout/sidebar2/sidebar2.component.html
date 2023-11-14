@@ -8,7 +8,7 @@
       <li>
         <a [ngClass]="
         router.url == '/am_checksheet'
-          ? 'text-blue-400 pl-4 bg-gray-100'
+          ? 'text-gray-100 pl-4 bg-blue-400'
           : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
         "
          routerLink="/am_checksheet" class="relative flex items-center py-3 space-x-4">
@@ -20,14 +20,19 @@
                 d="M13,0h6a5,5,0,0,1,5,5v6H13ZM11,0h-.959L0,10.041V11H3.172L11,3.172Zm2,18,5-5H13Zm11-5H20.828L13,20.828V24h.959L24,13.959ZM11,13H0v6a5,5,0,0,0,5,5h6Zm0-7L6,11h5Zm5.787,18H19a5,5,0,0,0,5-5V16.787ZM7.213,0H5A5,5,0,0,0,0,5V7.213Z" />
             </svg>
           </span>
-          <span class="ml-2 text-sm tracking-wide truncate text-gray-600">Dashboard</span>
+          <span  [ngClass]=" 
+          router.url == '/am_checksheet' 
+            ? 'text-gray-100'
+            : 'text-gray-600'
+          " 
+          class="ml-2 text-sm tracking-wide truncate">Dashboard</span>
         </a>
       </li>
       <li>
         <a [ngClass]="
         router.url == '/pr_list' ||
         router.url == '/pr_input'
-          ? 'text-blue-400 pl-4 bg-gray-100'
+          ? 'text-gray-100 pl-4 bg-blue-400'
           : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
         "
          routerLink="/pr_list" routerLinkActive="active" class="relative flex items-center py-3 space-x-4">
@@ -40,13 +45,19 @@
                 d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z" />
             </svg>
           </span>
-          <span class="ml-2 text-sm tracking-wide truncate text-gray-600">PR Monitoring</span>
+          <span [ngClass]=" 
+          router.url == '/pr_list' ||
+          router.url == '/pr_input'
+            ? 'text-gray-100'
+            : 'text-gray-600'
+          " 
+          class="ml-2 text-sm tracking-wide truncate">PR Monitoring</span>
         </a>
       </li>
       <li>
         <a [ngClass]="
         router.url == '/cilt_monitoring' 
-          ? 'text-blue-400 pl-4 bg-gray-100'
+          ? 'text-gray-100 pl-4 bg-blue-400'
           : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
         "
          routerLink="/pr_list" routerLinkActive="active" class="relative flex items-center py-3 space-x-4">

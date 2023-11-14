@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs';
 
 var api = environment.baseUrlApi;
+var apiAM = 'http://localhost:3010'
 
 @Injectable({
   providedIn: 'root'
@@ -746,4 +747,11 @@ export class CountService {
     return this.httpClient.get(api + "table/" + id);
   }
 
+  /////////////////////////////
+  // ROUTE FOR AM CHECKSHEET //
+  /////////////////////////////
+
+  postPrData(formData : any){
+    return this.httpClient.post(apiAM + '/pr/store', formData);
+  }
 };
