@@ -754,6 +754,9 @@ export class CountService {
   getPrAllData(){
     return this.httpClient.get(apiAM + '/pr/');
   }
+  getPrAllSection(){
+    return this.httpClient.get(apiAM + '/pr/section');
+  }
   postPrData(formData : any){
     return this.httpClient.post(apiAM + '/pr/store', formData);
   }
