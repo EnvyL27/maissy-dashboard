@@ -17,6 +17,11 @@ export class PrInputPageComponent implements OnInit {
   form! : FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
   validateSubmit : boolean = false
+  prData : any
+  target: any;
+  sectionlist: any = [];
+  section: any;
+  area: any;
 
   constructor(
     private service: CountService, 
@@ -27,9 +32,24 @@ export class PrInputPageComponent implements OnInit {
     this.validateSubmit = !this.validateSubmit
   }
 
+  areaSelect($event: any) { 
+    this.sectionlist = []
+    this.area = $event; 
+    this.service.getPrAllSection().subscribe(data => {
+      this.prData = data
+      this.prData.forEach((element : any) => {
+        if(element.id_area == this.area){
+          this.sectionlist.push(element)
+        }
+      });
+    })
+  }
+  
+  sectionSelect($event: any) { 
+    this.section = $event; 
+  }
+
   ngOnInit() {
-    console.log(this.currentDate);
-    
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
       item_desc: new FormControl(''),
@@ -59,11 +79,9 @@ export class PrInputPageComponent implements OnInit {
 
 
   onUpload() {
-    console.log(this.form.value);
     const formData = new FormData();
     if (this.selectedFile) {
      
-      console.log(this.selectedFile.name); 
       
       formData.append('item_desc_img', this.selectedFile, this.selectedFile.name);
       formData.append('req_date', this.form.value.req_date),

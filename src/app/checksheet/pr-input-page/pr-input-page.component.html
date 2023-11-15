@@ -92,10 +92,10 @@
                                                     <div class="flex">
                                                         <select formControlName="area"
                                                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                            id="grid-state">
-                                                            <option value="1">New Mexico</option>
-                                                            <option value="2">Missouri</option>
-                                                            <option value="3">Texas</option>
+                                                            id="grid-state"[(ngModel)]="area" (change)="areaSelect(area)">
+                                                            <option value="1">OCI 1</option>
+                                                            <option value="2">OCI 2</option>
+                                                            <option value="3">FSB</option>
                                                         </select>
                                                         <!-- <div
                                                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -116,10 +116,13 @@
                                                     <div class="flex">
                                                         <select formControlName="section"
                                                             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                            id="grid-state">
-                                                            <option value="1">New Mexico</option>
-                                                            <option value="2">Missouri</option>
-                                                            <option value="3">Texas</option>
+                                                            id="grid-state" [(ngModel)]="section" (change)="sectionSelect(section)">
+                                                            <ng-container *ngFor="let data of sectionlist" class="px-4">
+
+                                                                <option value={{data.section}}>
+                                                                  {{ data.section }}
+                                                                </option>
+                                                              </ng-container>
                                                         </select>
                                                         <!-- <div
                                                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

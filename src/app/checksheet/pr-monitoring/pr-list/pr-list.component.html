@@ -78,11 +78,11 @@
                                             <th scope="col"
                                                 class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">PIC</th>
                                             <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Section
-                                            </th>
-                                            <th scope="col"
                                                 class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                                                 Area</th>
+                                            <th scope="col"
+                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Section
+                                            </th>
                                             <th scope="col"
                                                 class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
                                             <th scope="col"
@@ -101,8 +101,9 @@
                                             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 ">
                                                 {{(currentPage-1) * 10 + i + 1}}
                                             </td>
-                                            
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.req_date | date:'yyyy-MM-dd'}}</td>
+
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.req_date |
+                                                date:'yyyy-MM-dd'}}</td>
                                             <td class="whitespace-nowrap px-8 py-8 text-gray-700">
                                                 <img src="http://127.0.0.1:3010{{data.item_desc_img}}" class="center"
                                                     style="width: 100%;
@@ -110,9 +111,15 @@
                                                 height: auto;">
                                             </td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.pic}}</td>
+                                            <td *ngIf="data.area == 1"
+                                                class="whitespace-nowrap px-4 py-2 text-gray-700">OCI 1</td>
+                                            <td *ngIf="data.area == 2"
+                                                class="whitespace-nowrap px-4 py-2 text-gray-700">OCI 2</td>
+                                            <td *ngIf="data.area == 3"
+                                                class="whitespace-nowrap px-4 py-2 text-gray-700">FSB</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.section}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.area}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.due_date | date:'yyyy-MM-dd'}}</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.due_date |
+                                                date:'yyyy-MM-dd'}}</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.reason}}</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.pr_number}}
                                             </td>
@@ -126,7 +133,8 @@
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700 group">
                                                 <div class="flex">
                                                     <a class="whitespace-nowrap px-4 py-2">
-                                                        <svg width="45px" height="45px" class="text-gray-500 hover:text-indigo-700 duration-200"
+                                                        <svg width="45px" height="45px"
+                                                            class="text-gray-500 hover:text-indigo-700 duration-200"
                                                             viewBox="0 -0.5 25 25" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -139,7 +147,9 @@
                                                         </svg>
                                                     </a>
                                                     <a class="whitespace-nowrap px-4 py-2">
-                                                        <svg width="40px" height="40px"  class="text-gray-500 hover:text-red-700 duration-200" viewBox="0 0 24 24" fill="none"
+                                                        <svg width="40px" height="40px"
+                                                            class="text-gray-500 hover:text-red-700 duration-200"
+                                                            viewBox="0 0 24 24" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10 11V17" stroke="currentColor" stroke-width="2"
                                                                 stroke-linecap="round" stroke-linejoin="round" />
@@ -149,16 +159,16 @@
                                                                 stroke-linecap="round" stroke-linejoin="round" />
                                                             <path
                                                                 d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
                                                             <path
                                                                 d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"
-                                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                                stroke-linejoin="round" />
+                                                                stroke="currentColor" stroke-width="2"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
                                                         </svg>
                                                     </a>
                                                 </div>
-                                              
+
 
                                             </td>
 
