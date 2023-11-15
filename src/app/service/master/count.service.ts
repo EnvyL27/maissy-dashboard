@@ -751,6 +751,9 @@ export class CountService {
   // ROUTE FOR AM CHECKSHEET //
   /////////////////////////////
 
+  getPrAllData(){
+    return this.httpClient.get(apiAM + '/pr/');
+  }
   postPrData(formData : any){
     return this.httpClient.post(apiAM + '/pr/store', formData);
   }

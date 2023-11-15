@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-pr-input-page',
@@ -14,15 +15,23 @@ export class PrInputPageComponent implements OnInit {
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
   form! : FormGroup
+  currentDate: any = moment().format("YYYY-MM-DD");
+  validateSubmit : boolean = false
 
   constructor(
     private service: CountService, 
     private http: HttpClient,
     private authService:AuthService,) {}
 
+  validate(){
+    this.validateSubmit = !this.validateSubmit
+  }
+
   ngOnInit() {
+    console.log(this.currentDate);
+    
     this.form = new FormGroup({
-      req_date: new FormControl(''),
+      req_date: new FormControl(this.currentDate),
       item_desc: new FormControl(''),
       pic: new FormControl(this.name),
       section: new FormControl(''),

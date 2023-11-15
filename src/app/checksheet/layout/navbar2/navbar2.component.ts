@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr'
 })
 
 export class Navbar2Component implements OnInit{
-
+  validateLogout : boolean = false
   
   constructor(
     private authService:AuthService,
@@ -21,6 +21,10 @@ export class Navbar2Component implements OnInit{
   user : any;
   username : any;
   isAllowed:boolean = false;
+
+  validate(){
+    this.validateLogout = !this.validateLogout
+  }
 
   showInfo() {
     this.toastr.info('Thank you for using AM Checksheet! 😁', 'Log out Success', {
