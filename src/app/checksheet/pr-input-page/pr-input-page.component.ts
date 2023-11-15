@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -26,7 +27,16 @@ export class PrInputPageComponent implements OnInit {
   constructor(
     private service: CountService, 
     private http: HttpClient,
-    private authService:AuthService,) {}
+    private authService:AuthService,
+    private router: Router,) {}
+
+  submitted(){
+    // this.router.navigate(['/pr_list']), {
+    //   queryParams: { successAlert: true },
+      
+    // };
+    this.router.navigateByUrl('/pr_list',{state: { successAlert: true },})
+  }
 
   validate(){
     this.validateSubmit = !this.validateSubmit
@@ -101,6 +111,7 @@ export class PrInputPageComponent implements OnInit {
       this.service.postPrData(formData).subscribe(
         (response) => {
           console.log('Upload successful:', response);
+          this.submitted()
           // Handle success
         },
         (error) => {
@@ -126,10 +137,11 @@ export class PrInputPageComponent implements OnInit {
       this.service.postPrData(formData).subscribe(
         (response) => {
           console.log('Upload successful:', response);
+          this.submitted()
           // Handle success
         },
         (error) => {
-          console.error('Upload failed:', error);
+          // console.error('Upload failed:', error);
           // Handle error
         }
       );

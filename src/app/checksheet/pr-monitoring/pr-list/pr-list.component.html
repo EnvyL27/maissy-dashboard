@@ -1,6 +1,30 @@
+<section *ngIf="successAlert" class="fixed inset-0 bg-[#514c4c35] opacity-100 flex justify-center items-center">
+    <div class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+      <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+        <div class="flex flex-col items-center text-center">
+          <div class="inline-block p-4 bg-green-50 rounded-full">
+            <svg class="w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.4" d="M22 11.1V6.9C22 3.4 20.6 2 17.1 2H12.9C9.4 2 8 3.4 8 6.9V8H11.1C14.6 8 16 9.4 16 12.9V16H17.1C20.6 16 22 14.6 22 11.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 17.1V12.9C16 9.4 14.6 8 11.1 8H6.9C3.4 8 2 9.4 2 12.9V17.1C2 20.6 3.4 22 6.9 22H11.1C14.6 22 16 20.6 16 17.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.08008 14.9998L8.03008 16.9498L11.9201 13.0498" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+          </div>
+          <h1 class="mt-2 font-semibold text-gray-800 text-2xl">Success!</h1>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">Data submitted successfully!</p>
+        </div>
+  
+        <div class="flex items-center mt-3">
+  
+          <button (click)="oke()" class="flex-1 px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md">
+            Okay
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 <!-- component -->
-<div class="bg-gray-100 h-screen">
-    <div class="max-lg:pl-20 lg:pl-[10%]">
+<div class="h-screen ">
+    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-full pb-12">
         <div class="ml-auto mb-6  ">
             <div class="sticky z-10 top-0 h-16  lg:py-2.5 rounded-lg">
                 <!-- <div class="px-6 flex items-center justify-between space-x-4 2xl:container">
@@ -14,14 +38,22 @@
 
                 <div class="flex flex-col mt-6">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="flex content-end justify-end items-end py-2">
+                            <a routerLink="/pr_input"
+                                class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
+                                Add Data
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="container mx-auto">
+
+                <div class="flex flex-col mt-6">
+                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                             <div class="overflow-x-auto">
-                                <div class="flex content-start justify-start items-start py-2">
-                                    <a routerLink="/pr_input"
-                                        class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
-                                        Add Data
-                                    </a>
-                                </div>
+
                                 <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm rounded-xl">
                                     <thead class="text-center">
                                         <tr>
@@ -133,8 +165,8 @@
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700 group">
                                                 <div class="flex">
                                                     <a class="whitespace-nowrap px-4 py-2">
-                                                        <svg width="45px" height="45px"
-                                                            class="text-gray-500 hover:text-indigo-700 duration-200"
+                                                        <svg width="40px" height="40px"
+                                                            class="text-gray-700 hover:text-indigo-700 duration-200"
                                                             viewBox="0 -0.5 25 25" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -146,9 +178,9 @@
                                                                 fill="currentColor" />
                                                         </svg>
                                                     </a>
-                                                    <a class="whitespace-nowrap px-4 py-2">
-                                                        <svg width="40px" height="40px"
-                                                            class="text-gray-500 hover:text-red-700 duration-200"
+                                                    <a (click)="delete(data.id)" class="whitespace-nowrap px-4 py-2">
+                                                        <svg width="35px" height="35px"
+                                                            class="text-gray-700 hover:text-red-700 duration-200"
                                                             viewBox="0 0 24 24" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10 11V17" stroke="currentColor" stroke-width="2"

@@ -760,4 +760,7 @@ export class CountService {
   postPrData(formData : any){
     return this.httpClient.post(apiAM + '/pr/store', formData);
   }
+  deletePrData(id : any){
+    return this.httpClient.delete(apiAM + '/pr/' + id);
+  }
 };
