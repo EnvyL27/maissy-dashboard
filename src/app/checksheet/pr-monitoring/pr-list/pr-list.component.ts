@@ -12,7 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class PrListComponent implements OnInit {
 
   prData : any 
+  idDelete : any
   successAlert : boolean = false
+  deleteAlert : boolean = false
   prDataArray : any = []
   itemsPerPage: number = 0;
   math = Math;
@@ -34,9 +36,19 @@ export class PrListComponent implements OnInit {
   }
 
   delete(id : any){
-    this.service.deletePrData(id).subscribe((data:any) => {
+    this.idDelete = 0
+    this.idDelete = id
+    this.deleteAlert = !this.deleteAlert
+  }
+
+  okeDelete(){
+    this.service.deletePrData(this.idDelete).subscribe((data:any) => {
       this.ngOnInit()
     })
+    this.deleteAlert = !this.deleteAlert
+  }
+  cancelDelete(){
+    this.deleteAlert = !this.deleteAlert
   }
 
   ngOnInit() {

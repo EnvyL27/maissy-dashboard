@@ -1,27 +1,72 @@
 <section *ngIf="successAlert" class="fixed inset-0 bg-[#514c4c35] opacity-100 flex justify-center items-center">
-    <div class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
-      <div class="flex flex-col p-5 rounded-lg shadow bg-white">
-        <div class="flex flex-col items-center text-center">
-          <div class="inline-block p-4 bg-green-50 rounded-full">
-            <svg class="w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.4" d="M22 11.1V6.9C22 3.4 20.6 2 17.1 2H12.9C9.4 2 8 3.4 8 6.9V8H11.1C14.6 8 16 9.4 16 12.9V16H17.1C20.6 16 22 14.6 22 11.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M16 17.1V12.9C16 9.4 14.6 8 11.1 8H6.9C3.4 8 2 9.4 2 12.9V17.1C2 20.6 3.4 22 6.9 22H11.1C14.6 22 16 20.6 16 17.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6.08008 14.9998L8.03008 16.9498L11.9201 13.0498" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-          </div>
-          <h1 class="mt-2 font-semibold text-gray-800 text-2xl">Success!</h1>
-          <p class="mt-2 text-sm text-gray-600 leading-relaxed">Data submitted successfully!</p>
+    <div
+        class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+        <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+            <div class="flex flex-col items-center text-center">
+                <div class="inline-block p-4 bg-green-50 rounded-full">
+                    <svg class="w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4"
+                            d="M22 11.1V6.9C22 3.4 20.6 2 17.1 2H12.9C9.4 2 8 3.4 8 6.9V8H11.1C14.6 8 16 9.4 16 12.9V16H17.1C20.6 16 22 14.6 22 11.1Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M16 17.1V12.9C16 9.4 14.6 8 11.1 8H6.9C3.4 8 2 9.4 2 12.9V17.1C2 20.6 3.4 22 6.9 22H11.1C14.6 22 16 20.6 16 17.1Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M6.08008 14.9998L8.03008 16.9498L11.9201 13.0498" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h1 class="mt-2 font-semibold text-gray-800 text-2xl">Success!</h1>
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">Data submitted successfully!</p>
+            </div>
+
+            <div class="flex items-center mt-3">
+
+                <button (click)="oke()"
+                    class="flex-1 px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md">
+                    Okay
+                </button>
+            </div>
         </div>
-  
-        <div class="flex items-center mt-3">
-  
-          <button (click)="oke()" class="flex-1 px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md">
-            Okay
-          </button>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
+
+<section *ngIf="deleteAlert" class="fixed inset-0 bg-[#514c4c35] opacity-100 flex justify-center items-center">
+    <div
+        class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+        <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+            <div class="flex flex-col items-center text-center">
+                <div class="inline-block p-4 bg-red-50 rounded-full">
+                    <svg class="w-12 h-12 text-red-500" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                        <g>
+                            <path fill="currentColor" d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472
+		c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z" />
+                            <polygon fill="currentColor"
+                                points="240,234.656 246.234,320 265.781,320 272,233.875 272,128 240,128 	" />
+                            <rect fill="currentColor" x="240" y="352" width="32" height="32" />
+                        </g>
+                    </svg>
+                </div>
+                <h1 class="mt-2 font-semibold text-gray-800 text-2xl">Warning!</h1>
+                <p class="mt-2 text-sm text-gray-600 leading-relaxed">Are you sure you want to delete this? This action
+                    cannot be undone</p>
+            </div>
+
+            <div class="flex items-center mt-3">
+                <button (click)="cancelDelete()"
+                    class="flex-1 px-4 py-2 ml-2 bg-gray-200 hover:bg-gray-400 duration-200 text-gray-600 hover:text-gray-100 text-sm font-medium rounded-md">
+                    Cancel
+                </button>
+                <button (click)="okeDelete()"
+                    class="flex-1 px-4 py-2 ml-2 bg-red-500 hover:bg-red-600 duration-200 text-white text-sm font-medium rounded-md">
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- component -->
 <div class="h-screen ">
     <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-full pb-12">
@@ -35,12 +80,111 @@
 
             <!-- component -->
             <section class="container mx-auto">
-
-                <div class="flex flex-col mt-6">
-                    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <!-- <div class="overflow-x-auto">
+                    <div class="flex flex-auto">
+                        <div class="content-start justify-start items-start pt-1">
+                            <a href="">
+                                <svg  class="w-14 h-14" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <linearGradient id="a" x1="4.494" y1="-2092.086" x2="13.832" y2="-2075.914"
+                                            gradientTransform="translate(0 2100)" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#18884f" />
+                                            <stop offset="0.5" stop-color="#117e43" />
+                                            <stop offset="1" stop-color="#0b6631" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>file_type_excel</title>
+                                    <path
+                                        d="M19.581,15.35,8.512,13.4V27.809A1.192,1.192,0,0,0,9.705,29h19.1A1.192,1.192,0,0,0,30,27.809h0V22.5Z"
+                                        style="fill:#185c37" />
+                                    <path
+                                        d="M19.581,3H9.705A1.192,1.192,0,0,0,8.512,4.191h0V9.5L19.581,16l5.861,1.95L30,16V9.5Z"
+                                        style="fill:#21a366" />
+                                    <path d="M8.512,9.5H19.581V16H8.512Z" style="fill:#107c41" />
+                                    <path
+                                        d="M16.434,8.2H8.512V24.45h7.922a1.2,1.2,0,0,0,1.194-1.191V9.391A1.2,1.2,0,0,0,16.434,8.2Z"
+                                        style="opacity:0.10000000149011612;isolation:isolate" />
+                                    <path
+                                        d="M15.783,8.85H8.512V25.1h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M15.783,8.85H8.512V23.8h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M15.132,8.85H8.512V23.8h6.62a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.132,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M3.194,8.85H15.132a1.193,1.193,0,0,1,1.194,1.191V21.959a1.193,1.193,0,0,1-1.194,1.191H3.194A1.192,1.192,0,0,1,2,21.959V10.041A1.192,1.192,0,0,1,3.194,8.85Z"
+                                        style="fill:url(#a)" />
+                                    <path
+                                        d="M5.7,19.873l2.511-3.884-2.3-3.862H7.758L9.013,14.6c.116.234.2.408.238.524h.017c.082-.188.169-.369.26-.546l1.342-2.447h1.7l-2.359,3.84,2.419,3.905H10.821l-1.45-2.711A2.355,2.355,0,0,1,9.2,16.8H9.176a1.688,1.688,0,0,1-.168.351L7.515,19.873Z"
+                                        style="fill:#fff" />
+                                    <path d="M28.806,3H19.581V9.5H30V4.191A1.192,1.192,0,0,0,28.806,3Z"
+                                        style="fill:#33c481" />
+                                    <path d="M19.581,16H30v6.5H19.581Z" style="fill:#107c41" />
+                                </svg>
+                            </a>
+                        </div>
                         <div class="flex content-end justify-end items-end py-2">
+                            
                             <a routerLink="/pr_input"
                                 class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
+                                Add Data
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="overflow-x-auto">
+                    <div class="grid grid-cols-2">
+                        <div class="flex justify-start pt-1">
+                            <a href="">
+                                <svg class="w-12 h-12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- SVG path data -->
+                                    <defs>
+                                        <linearGradient id="a" x1="4.494" y1="-2092.086" x2="13.832" y2="-2075.914"
+                                            gradientTransform="translate(0 2100)" gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#18884f" />
+                                            <stop offset="0.5" stop-color="#117e43" />
+                                            <stop offset="1" stop-color="#0b6631" />
+                                        </linearGradient>
+                                    </defs>
+                                    <title>file_type_excel</title>
+                                    <path
+                                        d="M19.581,15.35,8.512,13.4V27.809A1.192,1.192,0,0,0,9.705,29h19.1A1.192,1.192,0,0,0,30,27.809h0V22.5Z"
+                                        style="fill:#185c37" />
+                                    <path
+                                        d="M19.581,3H9.705A1.192,1.192,0,0,0,8.512,4.191h0V9.5L19.581,16l5.861,1.95L30,16V9.5Z"
+                                        style="fill:#21a366" />
+                                    <path d="M8.512,9.5H19.581V16H8.512Z" style="fill:#107c41" />
+                                    <path
+                                        d="M16.434,8.2H8.512V24.45h7.922a1.2,1.2,0,0,0,1.194-1.191V9.391A1.2,1.2,0,0,0,16.434,8.2Z"
+                                        style="opacity:0.10000000149011612;isolation:isolate" />
+                                    <path
+                                        d="M15.783,8.85H8.512V25.1h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M15.783,8.85H8.512V23.8h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M15.132,8.85H8.512V23.8h6.62a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.132,8.85Z"
+                                        style="opacity:0.20000000298023224;isolation:isolate" />
+                                    <path
+                                        d="M3.194,8.85H15.132a1.193,1.193,0,0,1,1.194,1.191V21.959a1.193,1.193,0,0,1-1.194,1.191H3.194A1.192,1.192,0,0,1,2,21.959V10.041A1.192,1.192,0,0,1,3.194,8.85Z"
+                                        style="fill:url(#a)" />
+                                    <path
+                                        d="M5.7,19.873l2.511-3.884-2.3-3.862H7.758L9.013,14.6c.116.234.2.408.238.524h.017c.082-.188.169-.369.26-.546l1.342-2.447h1.7l-2.359,3.84,2.419,3.905H10.821l-1.45-2.711A2.355,2.355,0,0,1,9.2,16.8H9.176a1.688,1.688,0,0,1-.168.351L7.515,19.873Z"
+                                        style="fill:#fff" />
+                                    <path d="M28.806,3H19.581V9.5H30V4.191A1.192,1.192,0,0,0,28.806,3Z"
+                                        style="fill:#33c481" />
+                                    <path d="M19.581,16H30v6.5H19.581Z" style="fill:#107c41" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="flex justify-end py-2">
+                            <a routerLink="/pr_input"
+                                class="block rounded-lg bg-gray-400 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
                                 Add Data
                             </a>
                         </div>
@@ -166,7 +310,7 @@
                                                 <div class="flex">
                                                     <a class="whitespace-nowrap px-4 py-2">
                                                         <svg width="40px" height="40px"
-                                                            class="text-gray-700 hover:text-indigo-700 duration-200"
+                                                            class="text-gray-700 hover:text-indigo-700 duration-200 hover:-mt-3"
                                                             viewBox="0 -0.5 25 25" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -180,7 +324,7 @@
                                                     </a>
                                                     <a (click)="delete(data.id)" class="whitespace-nowrap px-4 py-2">
                                                         <svg width="35px" height="35px"
-                                                            class="text-gray-700 hover:text-red-700 duration-200"
+                                                            class="text-gray-700 hover:text-red-700 duration-200 hover:-mt-2"
                                                             viewBox="0 0 24 24" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10 11V17" stroke="currentColor" stroke-width="2"

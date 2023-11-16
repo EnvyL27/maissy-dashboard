@@ -110,6 +110,7 @@ import { Sidebar2Component } from './checksheet/layout/sidebar2/sidebar2.compone
 import { Navbar2Component } from './checksheet/layout/navbar2/navbar2.component';
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
+import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
 
 
 
@@ -214,6 +215,7 @@ import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/p
     Navbar2Component,
     PrListComponent,
     PrInputPageComponent,
+    PrUpdatePageComponent,
 
   ],
   imports: [
