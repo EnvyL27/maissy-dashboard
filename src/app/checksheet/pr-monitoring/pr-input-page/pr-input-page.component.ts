@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CountService } from '../../service/master/count.service';
+import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { Router } from '@angular/router';

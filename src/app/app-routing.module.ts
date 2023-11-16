@@ -90,7 +90,7 @@ import { LiveAlarmComponent } from './live-alarm/live-alarm.component';
 import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component';
 import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
-import { PrInputPageComponent } from './checksheet/pr-input-page/pr-input-page.component';
+import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//

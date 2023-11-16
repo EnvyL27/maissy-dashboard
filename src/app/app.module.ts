@@ -109,7 +109,7 @@ import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/
 import { Sidebar2Component } from './checksheet/layout/sidebar2/sidebar2.component';
 import { Navbar2Component } from './checksheet/layout/navbar2/navbar2.component';
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
-import { PrInputPageComponent } from './checksheet/pr-input-page/pr-input-page.component';
+import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
 
 
 
