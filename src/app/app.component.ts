@@ -28,7 +28,8 @@ export class AppComponent {
   isChecksheetRoute(){
     return this.router.url === '/am_checksheet' ||
     this.router.url === '/pr_list' || 
-    this.router.url === '/pr_input' 
+    this.router.url === '/pr_input' ||
+    this.router.url === '/pr_update' 
   }
 
   @HostListener('window:scroll')

@@ -91,12 +91,14 @@ import { LiveAlarmOc2Component } from './live-alarm-oc2/live-alarm-oc2.component
 import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/checksheet-dashboard.component';
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
+import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
   {path: 'am_checksheet', component: ChecksheetDashboardComponent, canActivate: [AuthGuard]},
   {path: 'pr_list', component: PrListComponent, canActivate: [AuthGuard]},
   {path: 'pr_input', component: PrInputPageComponent, canActivate: [AuthGuard]},
+  {path: 'pr_update', component: PrUpdatePageComponent, canActivate: [AuthGuard]},
 
   //MAISSY ROUTE//
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},

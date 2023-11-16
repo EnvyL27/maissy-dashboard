@@ -15,7 +15,7 @@ export class PrUpdatePageComponent implements OnInit {
   selectedFile!: File;
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
-  form! : FormGroup
+  // form! : FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
   validateSubmit : boolean = false
   prData : any
@@ -23,6 +23,26 @@ export class PrUpdatePageComponent implements OnInit {
   sectionlist: any = [];
   section: any;
   area: any;
+  idState : any
+  byIdData : any =[]
+
+  form = new FormGroup({
+    req_date: new FormControl(),
+    item_desc: new FormControl(),
+    // item_desc_img: new FormControl(),
+    pic: new FormControl(),
+    section: new FormControl(),
+    area : new FormControl(),
+    due_date: new FormControl(),
+    reason: new FormControl(),
+    pr_number: new FormControl(),
+    v_name: new FormControl(),
+    v_value: new FormControl(),
+    v2_name: new FormControl(),
+    v2_value: new FormControl(),
+    bidding: new FormControl(),
+    keterangan: new FormControl(),
+  })
 
   constructor(
     private service: CountService, 
@@ -59,23 +79,41 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event; 
   }
 
+
   ngOnInit() {
-    this.form = new FormGroup({
-      req_date: new FormControl(this.currentDate),
-      item_desc: new FormControl(''),
-      pic: new FormControl(this.name),
-      section: new FormControl(''),
-      area : new FormControl(''),
-      due_date: new FormControl(''),
-      reason: new FormControl(''),
-      pr_number: new FormControl(''),
-      v_name: new FormControl(''),
-      v_value: new FormControl(''),
-      v2_name: new FormControl(''),
-      v2_value: new FormControl(''),
-      bidding: new FormControl(''),
-      keterangan: new FormControl(''),
+    // console.log(history.state);
+    
+    this.idState = history.state.id
+    this.service.getPrbyId(this.idState).subscribe(data => {
+      this.byIdData.push(data)
+      console.log(this.byIdData[0].pic);
+      
+      // Object.values(this.byIdData).forEach(data => {
+      //  console.log(data);
+       
+      // })
+      this.form.controls.req_date.setValue(this.byIdData[0].req_date)
+      this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
+      // this.form.controls.item_desc_img.setValue(this.byIdData[0].item_desc_img)
+      this.form.controls.pic.setValue(this.byIdData[0].pic)
+      this.form.controls.section.setValue(this.byIdData[0].section)
+      this.form.controls.area .setValue(this.byIdData[0].area)
+      this.form.controls.due_date.setValue(this.byIdData[0].due_date)
+      this.form.controls.reason.setValue(this.byIdData[0].reason)
+      this.form.controls.pr_number.setValue(this.byIdData[0].pr_number)
+      this.form.controls.v_name.setValue(this.byIdData[0].v_name)
+      this.form.controls.v_value.setValue(this.byIdData[0].v_value)
+      this.form.controls.v2_name.setValue(this.byIdData[0].v2_name)
+      this.form.controls.v2_value.setValue(this.byIdData[0].v2_value)
+      this.form.controls.bidding.setValue(this.byIdData[0].bidding)
+      this.form.controls.keterangan.setValue(this.byIdData[0].keterangan)
+      
     })
+    console.log(this.form);
+    
+    
+
+  
   }
 
   onFileChanged(event : any) {
@@ -108,7 +146,7 @@ export class PrUpdatePageComponent implements OnInit {
       formData.append('v2_value', this.form.value.v2_value),
       formData.append('bidding', this.form.value.bidding),
       formData.append('keterangan', this.form.value.keterangan),
-      this.service.postPrData(formData).subscribe(
+      this.service.updatePrData(formData, this.idState).subscribe(
         (response) => {
           console.log('Upload successful:', response);
           this.submitted()
@@ -134,7 +172,7 @@ export class PrUpdatePageComponent implements OnInit {
       formData.append('v2_value', this.form.value.v2_value),
       formData.append('bidding', this.form.value.bidding),
       formData.append('keterangan', this.form.value.keterangan),
-      this.service.postPrData(formData).subscribe(
+      this.service.updatePrData(formData, this.idState).subscribe(
         (response) => {
           console.log('Upload successful:', response);
           this.submitted()

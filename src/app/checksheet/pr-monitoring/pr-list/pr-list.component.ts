@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-pr-list',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PrListComponent implements OnInit {
 
+  resolved : boolean = false
   prData : any 
   idDelete : any
   successAlert : boolean = false
@@ -27,7 +29,8 @@ export class PrListComponent implements OnInit {
     private service: CountService, 
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private spinner: NgxSpinnerService) {}
 
   oke(){
     this.successAlert = !this.successAlert
@@ -51,12 +54,19 @@ export class PrListComponent implements OnInit {
     this.deleteAlert = !this.deleteAlert
   }
 
+  navigateUpdate(idData:any){
+    this.router.navigateByUrl('/pr_update',{state: { id: idData },})
+  }
+
   ngOnInit() {
+    this.spinner.show()
     console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getPrAllData().subscribe(data => {
       this.prData = data
-      console.log(this.prData);      
+      console.log(this.prData);   
+      this.spinner.hide()
+      this.resolved = true   
     })
 
     console.log(this.successAlert);

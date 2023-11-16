@@ -754,13 +754,19 @@ export class CountService {
   getPrAllData(){
     return this.httpClient.get(apiAM + '/pr/');
   }
+  getPrbyId(id : any){
+    return this.httpClient.get(apiAM + '/pr/' + id);
+  }
   getPrAllSection(){
     return this.httpClient.get(apiAM + '/pr/section');
   }
   postPrData(formData : any){
     return this.httpClient.post(apiAM + '/pr/store', formData);
   }
+  updatePrData(formData : any, id : any){
+    return this.httpClient.put(apiAM + '/pr/update/' + id, formData);
+  }
   deletePrData(id : any){
-    return this.httpClient.delete(apiAM + '/pr/' + id);
+    return this.httpClient.delete(apiAM + '/pr/delete/' + id);
   }
 };
