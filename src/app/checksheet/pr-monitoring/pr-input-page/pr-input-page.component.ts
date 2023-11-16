@@ -45,7 +45,11 @@ export class PrInputPageComponent implements OnInit {
   areaSelect($event: any) { 
     this.sectionlist = []
     this.area = $event; 
+    console.log(this.area);
+    
     this.service.getPrAllSection().subscribe(data => {
+      console.log(data);
+      
       this.prData = data
       this.prData.forEach((element : any) => {
         if(element.id_area == this.area){

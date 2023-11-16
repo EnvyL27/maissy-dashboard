@@ -12,12 +12,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class PrListComponent implements OnInit {
 
-  resolved : boolean = false
-  prData : any 
-  idDelete : any
-  successAlert : boolean = false
-  deleteAlert : boolean = false
-  prDataArray : any = []
+  resolved: boolean = false
+  prData: any
+  idDelete: any
+  successAlert: boolean = false
+  deleteAlert: boolean = false
+  imagePopUp: boolean = false
+  imageUrl: any
+  prDataArray: any = []
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
@@ -26,36 +28,51 @@ export class PrListComponent implements OnInit {
   }
 
   constructor(
-    private service: CountService, 
+    private service: CountService,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private spinner: NgxSpinnerService) {}
+    private spinner: NgxSpinnerService) { }
 
-  oke(){
+  popUp(url : any) {
+    this.imagePopUp = !this.imagePopUp
+    this.imageUrl = url
+    console.log(this.imageUrl);
+    
+  }
+
+  cancelPopUp(){
+    this.imagePopUp = !this.imagePopUp
+  }
+
+  oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
     console.log(history.state);
   }
 
-  delete(id : any){
+  delete(id: any) {
     this.idDelete = 0
     this.idDelete = id
     this.deleteAlert = !this.deleteAlert
   }
 
-  okeDelete(){
-    this.service.deletePrData(this.idDelete).subscribe((data:any) => {
+  okeDelete() {
+    this.spinner.show()
+    this.resolved = false
+    this.service.deletePrData(this.idDelete).subscribe((data: any) => {
       this.ngOnInit()
     })
+    this.spinner.hide()
+    this.resolved = true
     this.deleteAlert = !this.deleteAlert
   }
-  cancelDelete(){
+  cancelDelete() {
     this.deleteAlert = !this.deleteAlert
   }
 
-  navigateUpdate(idData:any){
-    this.router.navigateByUrl('/pr_update',{state: { id: idData },})
+  navigateUpdate(idData: any) {
+    this.router.navigateByUrl('/pr_update', { state: { id: idData }, })
   }
 
   ngOnInit() {
@@ -64,13 +81,13 @@ export class PrListComponent implements OnInit {
     this.successAlert = history.state.successAlert
     this.service.getPrAllData().subscribe(data => {
       this.prData = data
-      console.log(this.prData);   
+      console.log(this.prData);
       this.spinner.hide()
-      this.resolved = true   
+      this.resolved = true
     })
 
     console.log(this.successAlert);
-    
+
   }
 
 }

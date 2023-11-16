@@ -51,10 +51,6 @@ export class PrUpdatePageComponent implements OnInit {
     private router: Router,) {}
 
   submitted(){
-    // this.router.navigate(['/pr_list']), {
-    //   queryParams: { successAlert: true },
-      
-    // };
     this.router.navigateByUrl('/pr_list',{state: { successAlert: true },})
   }
 
@@ -81,24 +77,15 @@ export class PrUpdatePageComponent implements OnInit {
 
 
   ngOnInit() {
-    // console.log(history.state);
-    
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
       this.byIdData.push(data)
-      console.log(this.byIdData[0].pic);
-      
-      // Object.values(this.byIdData).forEach(data => {
-      //  console.log(data);
-       
-      // })
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
-      // this.form.controls.item_desc_img.setValue(this.byIdData[0].item_desc_img)
       this.form.controls.pic.setValue(this.byIdData[0].pic)
       this.form.controls.section.setValue(this.byIdData[0].section)
-      this.form.controls.area .setValue(this.byIdData[0].area)
-      this.form.controls.due_date.setValue(this.byIdData[0].due_date)
+      this.form.controls.area.setValue(this.byIdData[0].area)
+      this.form.controls.due_date.setValue(this.byIdData[0].due_date.slice(0, 10))
       this.form.controls.reason.setValue(this.byIdData[0].reason)
       this.form.controls.pr_number.setValue(this.byIdData[0].pr_number)
       this.form.controls.v_name.setValue(this.byIdData[0].v_name)
@@ -107,9 +94,16 @@ export class PrUpdatePageComponent implements OnInit {
       this.form.controls.v2_value.setValue(this.byIdData[0].v2_value)
       this.form.controls.bidding.setValue(this.byIdData[0].bidding)
       this.form.controls.keterangan.setValue(this.byIdData[0].keterangan)
-      
+      this.service.getPrAllSection().subscribe(data => {
+        this.prData = data
+        this.prData.forEach((element : any) => {
+          if(element.id_area == this.form.value.area){
+            this.sectionlist.push(element)
+          }
+        });
+      })
     })
-    console.log(this.form);
+   
     
     
 

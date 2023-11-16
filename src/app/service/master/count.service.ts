@@ -755,10 +755,10 @@ export class CountService {
     return this.httpClient.get(apiAM + '/pr/');
   }
   getPrbyId(id : any){
-    return this.httpClient.get(apiAM + '/pr/' + id);
+    return this.httpClient.get(apiAM + '/pr/get/' + id);
   }
   getPrAllSection(){
-    return this.httpClient.get(apiAM + '/pr/section');
+    return this.httpClient.get(apiAM + '/pr/sect');
   }
   postPrData(formData : any){
     return this.httpClient.post(apiAM + '/pr/store', formData);
