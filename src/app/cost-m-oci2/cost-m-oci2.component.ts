@@ -920,8 +920,12 @@ export class CostMOci2Component implements OnInit {
       forkJoin(this.service.getCostOci2(),
         this.service.getFgOci2()).subscribe(([datacost, datafg]) => {
           this.datafg = datafg;
+          console.log(this.totalindexjan);
+          
           this.dataindex = datacost;
           this.datafg.forEach((element: any, index: any) => {
+            console.log(element);
+            
             element.month = parseInt(element.month);
             element.fg_eq = parseInt(element.fg_eq);
             if (Number.isNaN(element.fg_eq)) {
