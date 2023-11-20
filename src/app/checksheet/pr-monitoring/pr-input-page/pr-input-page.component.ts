@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -12,6 +12,8 @@ import * as moment from 'moment';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
+  plannerLevel : boolean = false
+  purchasingLevel : boolean = false
   selectedFile!: File;
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
@@ -45,10 +47,10 @@ export class PrInputPageComponent implements OnInit {
   areaSelect($event: any) { 
     this.sectionlist = []
     this.area = $event; 
-    console.log(this.area);
+    //console.log(this.area);
     
     this.service.getPrAllSection().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       
       this.prData = data
       this.prData.forEach((element : any) => {
@@ -64,6 +66,26 @@ export class PrInputPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authService.getUser()
+    
+    
+    this.router.events.subscribe((val) => {
+      
+      // console.log(val);
+      if (val instanceof NavigationEnd) {
+        // Hide loading indicator
+        console.log(this.user[0]?.user_level);
+        
+    }
+    
+      // see also 
+      if(this.user[0]?.user_level == 3){
+        this.plannerLevel = true
+      }else if(this.user[0]?.user_level == 8) {
+        this.purchasingLevel = true
+      }
+      console.log(this.plannerLevel); 
+  });
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
       item_desc: new FormControl(''),
@@ -83,10 +105,10 @@ export class PrInputPageComponent implements OnInit {
   }
 
   onFileChanged(event : any) {
-    // console.log(event);
+    // //console.log(event);
     
     this.selectedFile = event.target.files[0]
-    // console.log(file);
+    // //console.log(file);
     
   }
 
@@ -114,7 +136,7 @@ export class PrInputPageComponent implements OnInit {
       formData.append('keterangan', this.form.value.keterangan),
       this.service.postPrData(formData).subscribe(
         (response) => {
-          console.log('Upload successful:', response);
+          //console.log('Upload successful:', response);
           this.submitted()
           // Handle success
         },
@@ -140,7 +162,7 @@ export class PrInputPageComponent implements OnInit {
       formData.append('keterangan', this.form.value.keterangan),
       this.service.postPrData(formData).subscribe(
         (response) => {
-          console.log('Upload successful:', response);
+          //console.log('Upload successful:', response);
           this.submitted()
           // Handle success
         },

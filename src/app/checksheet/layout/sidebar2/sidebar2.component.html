@@ -59,7 +59,7 @@
           class="ml-2 text-sm tracking-wide truncate">Input Temuan</span>
         </a>
       </li> -->
-      <li >
+      <li *ngIf="plannerLevel || purchasinLevel">
         <a [ngClass]="
         router.url == '/pr_list' ||
         router.url == '/pr_input' ||

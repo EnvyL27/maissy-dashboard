@@ -408,7 +408,7 @@ export class AmMOci2Component implements OnInit {
     document.body.removeChild(element);
   }
   finddata2() {
-    ////console.log('log masuk ' + this.tgl4 + ' hah ' + this.tgl3);
+    //////console.log('log masuk ' + this.tgl4 + ' hah ' + this.tgl3);
     
     // if (this.chartdestroy != null) {
     //   this.chartdestroy.destroy();
@@ -1312,7 +1312,7 @@ export class AmMOci2Component implements OnInit {
     this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
     this.boolAguBulan = !this.boolAguBulan;
     this.cdr.detectChanges();
-    //////////////console.log(this.boolAguBulan);
+    ////////////////console.log(this.boolAguBulan);
 
   }
   changeSepBulan() {
@@ -1453,7 +1453,7 @@ export class AmMOci2Component implements OnInit {
     }else if(this.month == '2023-12'){
       bulanPilihan = 12;
     }
-    ////console.log(bulanPilihan);
+    //////console.log(bulanPilihan);
     this.totalfm = []
     this.totalfm2 = []
     this.temuanperday_data_temp = []
@@ -1462,7 +1462,7 @@ export class AmMOci2Component implements OnInit {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      ////console.log(data);
+      //////console.log(data);
       
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
@@ -1525,7 +1525,7 @@ export class AmMOci2Component implements OnInit {
           this.temuanperday_data_temp.forEach((elem: any) => {
             
             if (elem.bulan == bulanPilihan) {
-              ////console.log(elem);
+              //////console.log(elem);
               
               if (elem.tanggal_temuan == element) {
                 this.temuanperday_dum++
@@ -1541,7 +1541,7 @@ export class AmMOci2Component implements OnInit {
 
         });
 
-        // ////console.log(this.temuanperday_data_temp);
+        // //////console.log(this.temuanperday_data_temp);
         
 
          this.temuanperday_data_temp.forEach((element: any) => {
@@ -1563,15 +1563,15 @@ export class AmMOci2Component implements OnInit {
               } else if (element.bulan <= bulanPilihan && element.bulan == 5) {
                 this.meielembulan.push(element)
                 this.termuanperday_mei++
-                ////console.log(this.termuanperday_mei);
+                //////console.log(this.termuanperday_mei);
               } else if (element.bulan <= bulanPilihan && element.bulan == 6) {
                 this.junielembulan.push(element)
                 this.termuanperday_jun++
-                ////console.log(this.termuanperday_jun);
+                //////console.log(this.termuanperday_jun);
               } else if (element.bulan <= bulanPilihan && element.bulan == 7) {
                 this.julielembulan.push(element)
                 this.termuanperday_jul++
-                ////console.log(this.termuanperday_jul);
+                //////console.log(this.termuanperday_jul);
               } else if (element.bulan <= bulanPilihan && element.bulan == 8) {
                 this.agustuselembulan.push(element)
                 this.termuanperday_ags++
@@ -1623,8 +1623,8 @@ export class AmMOci2Component implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // //////////////////////console.log(config);
-            // //////////////console.log(this.maretcloseelem);
+            // ////////////////////////console.log(config);
+            // ////////////////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJanBulan();
             }
@@ -1743,7 +1743,7 @@ export class AmMOci2Component implements OnInit {
   }
 
   hariChart() {
-    ////console.log(this.temuanperday_data);
+    //////console.log(this.temuanperday_data);
     
     this.harian = {
       series: [
@@ -1954,7 +1954,7 @@ export class AmMOci2Component implements OnInit {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      //console.log(data);
+      ////console.log(data);
       
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
@@ -2320,7 +2320,7 @@ export class AmMOci2Component implements OnInit {
   }
 
   showFinding() {
-    //console.log(this.totalfindinglist);
+    ////console.log(this.totalfindinglist);
     
       this.totalfindinglist = !this.totalfindinglist;
   }
@@ -2870,7 +2870,7 @@ export class AmMOci2Component implements OnInit {
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////////////////////console.log(array);
+          // // //////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
@@ -2915,7 +2915,7 @@ export class AmMOci2Component implements OnInit {
       });
       this.service.getReadFindingPendingoci2().subscribe(data => {
         this.findingpending = data;
-        //console.log(data);
+        ////console.log(data);
         
         Object.values(this.findingpending).forEach(data => {
           var array = Object.keys(data).map(function (key) {
@@ -2987,7 +2987,7 @@ export class AmMOci2Component implements OnInit {
 
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        //////console.log(data);
+        ////////console.log(data);
         
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
@@ -3138,9 +3138,9 @@ export class AmMOci2Component implements OnInit {
             }
           });
 
-          ////console.log(this.temuanperday_data_temp);
-          ////console.log(this.month);
-          ////console.log(date);
+          //////console.log(this.temuanperday_data_temp);
+          //////console.log(this.month);
+          //////console.log(date);
           
           date.forEach((element: any) => {
 
@@ -3148,7 +3148,7 @@ export class AmMOci2Component implements OnInit {
               if (elem.bulan == this.month) {
                 
                 
-                ////console.log(elem);
+                //////console.log(elem);
                 
                 if (elem.tanggal_temuan == element) {
                   this.temuanperday_dum++

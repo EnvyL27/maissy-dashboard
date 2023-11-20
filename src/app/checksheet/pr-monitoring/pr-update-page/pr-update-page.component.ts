@@ -111,10 +111,10 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   onFileChanged(event : any) {
-    // console.log(event);
+    // //console.log(event);
     
     this.selectedFile = event.target.files[0]
-    // console.log(file);
+    // //console.log(file);
     
   }
 
@@ -142,7 +142,7 @@ export class PrUpdatePageComponent implements OnInit {
       formData.append('keterangan', this.form.value.keterangan),
       this.service.updatePrData(formData, this.idState).subscribe(
         (response) => {
-          console.log('Upload successful:', response);
+          //console.log('Upload successful:', response);
           this.submitted()
           // Handle success
         },
@@ -168,7 +168,7 @@ export class PrUpdatePageComponent implements OnInit {
       formData.append('keterangan', this.form.value.keterangan),
       this.service.updatePrData(formData, this.idState).subscribe(
         (response) => {
-          console.log('Upload successful:', response);
+          //console.log('Upload successful:', response);
           this.submitted()
           // Handle success
         },

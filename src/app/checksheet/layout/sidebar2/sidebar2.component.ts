@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth/auth.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 // import { TokenStorageService } from 'src/app/service/auth/token-storage.service';
 
 @Component({
@@ -18,36 +18,48 @@ export class Sidebar2Component implements OnInit  {
   operatorLevel: boolean = false;
   supervisorLevel: boolean = false;
   plannerLevel: boolean = false;
+  purchasinLevel: boolean = false;
 
   constructor(
     private authService:AuthService,
     public router: Router) {
-    // console.log(this.router.url)
-  }
-
-  operator(){
-    this.operatorLevel = !this.operatorLevel
-    console.log(this.operatorLevel);
-    
+    // //console.log(this.router.url)
   }
 
   ngOnInit() {
     this.user = this.authService.getUser()
-    console.log(this.user); 
-    if(this.user[0]?.user_level == 1){
-      this.operator()
+    
+    
+    this.router.events.subscribe((val) => {
+      
+      // console.log(val);
+      if (val instanceof NavigationEnd) {
+        // Hide loading indicator
+        console.log(this.user[0]?.user_level);
+        
     }
+    
+      // see also 
+      if(this.user[0]?.user_level == 3){
+        this.plannerLevel = true
+      }else if(this.user[0]?.user_level == 8) {
+        this.purchasinLevel = true
+      }
+      console.log(this.plannerLevel); 
+  });
+   
+  
   }
 
   onMouseEnter() {
     this.hideElement = false;
-    console.log(this.hideElement);
+    //console.log(this.hideElement);
   }
   onMouseOut() {
-    console.log('out');
+    //console.log('out');
     this.boolDropdown = false;
     this.hideElement = true;
-    console.log(this.hideElement);
+    //console.log(this.hideElement);
   }
 
   dropdown() {
@@ -58,14 +70,14 @@ export class Sidebar2Component implements OnInit  {
   }
 
   falseAll(event: any) {
-    // console.log(this.menuList.nativeElement);
-    // console.log(event.target);
+    // //console.log(this.menuList.nativeElement);
+    // //console.log(event.target);
 
     if (
       this.ModalElement &&
       this.ModalElement.nativeElement.contains(event.target)
     ) {
-      // console.log('test1');
+      // //console.log('test1');
     }
   }
   signOutModal() {

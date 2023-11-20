@@ -100,14 +100,14 @@ export class LimitComponent implements OnInit {
   }
 
   submitForm() {
-    //console.log(this.tableName);
-    //console.log(this.satisLimit);
-    //console.log(this.unsatisLimit);
-    //console.log(this.unacceptLimit);
+    ////console.log(this.tableName);
+    ////console.log(this.satisLimit);
+    ////console.log(this.unsatisLimit);
+    ////console.log(this.unacceptLimit);
     this.service.postValueLimit(this.tableName, this.satisLimit, this.unsatisLimit, this.unacceptLimit).subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
       this.service.getValueLimit().subscribe(data => {
-        //console.log(data);
+        ////console.log(data);
         this.totallimit = data;
         this.spinner.hide()
       });
@@ -124,21 +124,21 @@ export class LimitComponent implements OnInit {
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getNodeRedTable().subscribe(data => {
-        // //console.log(data);
+        // ////console.log(data);
         this.totalkategori = data;
 
         Object.values(this.totalkategori).forEach(data => {
-          // // ////////////////////////console.log(data);
+          // // //////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////////////console.log(array);
+          // //////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
-          // //console.log(this.totalkategoriarr);
+          // ////console.log(this.totalkategoriarr);
 
-          // // ////////////////////////console.log(this.findingpending2);
+          // // //////////////////////////console.log(this.findingpending2);
         })
 
         this.spinner.hide()
@@ -146,12 +146,12 @@ export class LimitComponent implements OnInit {
     })
 
     this.service.getValueLimit().subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
       this.totallimit = data;
       this.spinner.hide()
     });
    
-    //// //////////////console.log("1");
+    //// ////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

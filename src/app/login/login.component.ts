@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit{
   maissyLogin(){
     this.maissy = !this.maissy
     this.am = false
-    console.log(this.maissy);
-    console.log(this.am);
+    //console.log(this.maissy);
+    //console.log(this.am);
   }
 
   amLogin(){
     this.am = !this.am
     this.maissy = false
-    console.log(this.maissy);
-    console.log(this.am);
+    //console.log(this.maissy);
+    //console.log(this.am);
   }
 
   showSuccess() {
@@ -81,9 +81,16 @@ export class LoginComponent implements OnInit{
     if(this.f['nik'].value == '0000' && this.f['password'].value == 'password'){
       this.name = 'Admin'
       this.authService.saveToken('ewarstdyfugihojlikujyrhtrsgfxcvhbjkjouliykturyjethsdcg')
+      const userData = [{lg_name:this.name,is_admin:true}]
       localStorage.setItem('nikLogged', this.f['nik'].value)
+      this.authService.saveUser(userData)
+      // localStorage.setItem('is_admin', 'true')
       this.showSuccess()
-      this.reloadPage()
+      if(this.maissy == true){
+        this.reloadPage();
+      }else if(this.am == true){
+        this.reloadPageAm();
+      }
     }else {
     this.authService
       .login(this.f['nik'].value, this.f['password'].value)
@@ -132,7 +139,6 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['/am_checksheet']), {
       queryParams: { successAlert: true },
     };
-    
   }
 
   ngOnInit() {
