@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class PrListComponent implements OnInit {
 
   resolved: boolean = false
+  searchText : any 
   prData: any
   idDelete: any
   successAlert: boolean = false

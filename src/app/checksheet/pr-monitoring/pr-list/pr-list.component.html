@@ -91,8 +91,8 @@
 </section>
 
 <!-- component -->
-<div class="h-screen overflow-hidden">
-    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-screen  overflow-y-auto pb-12">
+<div class="h-full overflow-hidden">
+    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-full  overflow-y-auto pb-12">
         <div class="ml-auto mb-6">
             <div class="sticky z-10 top-0 h-16  lg:py-2.5 rounded-lg">
             </div>
@@ -102,6 +102,11 @@
                 <div class="overflow-x-auto">
                     <div class="grid grid-cols-2">
                         <div class="flex justify-start pt-1">
+                            <div class="w-full px-4">
+                                <input type="text"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                placeholder="Type here..." name="search" [(ngModel)]="searchText" />
+                            </div>
                             <a class="hover:-mt-1 duration-200">
                                 <svg class="w-12 h-12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -156,7 +161,6 @@
                 </div>
             </section>
             <section class="container mx-auto">
-
                 <div class="flex flex-col mt-6">
                     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -235,7 +239,7 @@
                                     </thead>
 
                                     <tbody
-                                        *ngFor="let data of prData | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
+                                        *ngFor="let data of prData | filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
                                         class="divide-y divide-gray-200 text-center">
                                         <tr class="odd:bg-gray-50">
                                             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 ">
@@ -338,6 +342,8 @@
                                 </table>
                             </div>
                         </div>
+                        <pagination-controls class="text-center" id="pagination1" (pageChange)="currentPage = $event">
+                        </pagination-controls>
                     </div>
                 </div>
 
