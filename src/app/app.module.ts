@@ -111,7 +111,8 @@ import { Navbar2Component } from './checksheet/layout/navbar2/navbar2.component'
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
 import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
-
+import { TemuanListComponent } from './checksheet/input-temuan/temuan-list/temuan-list.component';
+import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component'
 
 
 @NgModule({
@@ -216,7 +217,8 @@ import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page
     PrListComponent,
     PrInputPageComponent,
     PrUpdatePageComponent,
-
+    TemuanListComponent,
+    UserLevelListComponent,
   ],
   imports: [
     BrowserModule,

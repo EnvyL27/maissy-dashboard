@@ -29,7 +29,9 @@ export class AppComponent {
     return this.router.url === '/am_checksheet' ||
     this.router.url === '/pr_list' || 
     this.router.url === '/pr_input' ||
-    this.router.url === '/pr_update' 
+    this.router.url === '/pr_update' ||
+    this.router.url === '/input_temuan' ||
+    this.router.url === '/user_level' 
   }
 
   @HostListener('window:scroll')

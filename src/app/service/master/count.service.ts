@@ -751,6 +751,7 @@ export class CountService {
   // ROUTE FOR AM CHECKSHEET //
   /////////////////////////////
 
+  //PR MONITORING//
   getPrAllData(){
     return this.httpClient.get(apiAM + '/pr/');
   }
@@ -768,5 +769,10 @@ export class CountService {
   }
   deletePrData(id : any){
     return this.httpClient.delete(apiAM + '/pr/delete/' + id);
+  }
+
+  //USER LEVEL//
+  getTableUser(){
+    return this.httpClient.get(apiAM + '/users/');
   }
 };

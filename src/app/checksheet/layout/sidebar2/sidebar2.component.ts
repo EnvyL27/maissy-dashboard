@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/service/auth/auth.service';
 import { Router } from '@angular/router';
 // import { TokenStorageService } from 'src/app/service/auth/token-storage.service';
 
@@ -7,16 +8,37 @@ import { Router } from '@angular/router';
   templateUrl: './sidebar2.component.html',
   styleUrls: ['./sidebar2.component.css']
 })
-export class Sidebar2Component  {
+export class Sidebar2Component implements OnInit  {
   @ViewChild('signOutModal') ModalElement!: ElementRef;
   boolModal: boolean = false;
   boolDropdown: Boolean = false;
   hideElement: Boolean = true;
   boolAcc: Boolean = false;
+  user: any
+  operatorLevel: boolean = false;
+  supervisorLevel: boolean = false;
+  plannerLevel: boolean = false;
 
-  constructor(public router: Router) {
+  constructor(
+    private authService:AuthService,
+    public router: Router) {
     // console.log(this.router.url)
   }
+
+  operator(){
+    this.operatorLevel = !this.operatorLevel
+    console.log(this.operatorLevel);
+    
+  }
+
+  ngOnInit() {
+    this.user = this.authService.getUser()
+    console.log(this.user); 
+    if(this.user[0]?.user_level == 1){
+      this.operator()
+    }
+  }
+
   onMouseEnter() {
     this.hideElement = false;
     console.log(this.hideElement);
@@ -49,13 +71,4 @@ export class Sidebar2Component  {
   signOutModal() {
     this.boolModal = !this.boolModal;
   }
-  // signOut(event: any) {
-  //   // console.log(event.target.id);
-  //   if (event.target.id == 'yesBtn') {
-  //     this.session.signOut();
-
-  //   } else {
-  //     this.signOutModal();
-  //   }
-  // }
 }

@@ -92,6 +92,8 @@ import { ChecksheetDashboardComponent } from './checksheet/checksheet-dashboard/
 import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.component';
 import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
 import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
+import { TemuanListComponent } from './checksheet/input-temuan/temuan-list/temuan-list.component';
+import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
@@ -99,6 +101,8 @@ const routes: Routes = [
   {path: 'pr_list', component: PrListComponent, canActivate: [AuthGuard]},
   {path: 'pr_input', component: PrInputPageComponent, canActivate: [AuthGuard]},
   {path: 'pr_update', component: PrUpdatePageComponent, canActivate: [AuthGuard]},
+  {path: 'input_temuan', component: TemuanListComponent, canActivate: [AuthGuard]},
+  {path: 'user_level', component: UserLevelListComponent, canActivate: [AuthGuard]},
 
   //MAISSY ROUTE//
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
