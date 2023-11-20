@@ -94,6 +94,7 @@ import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/p
 import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
 import { TemuanListComponent } from './checksheet/input-temuan/temuan-list/temuan-list.component';
 import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component';
+import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-update/user-level-update.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
@@ -103,6 +104,7 @@ const routes: Routes = [
   {path: 'pr_update', component: PrUpdatePageComponent, canActivate: [AuthGuard]},
   {path: 'input_temuan', component: TemuanListComponent, canActivate: [AuthGuard]},
   {path: 'user_level', component: UserLevelListComponent, canActivate: [AuthGuard]},
+  {path: 'user_level_update', component: UserLevelUpdateComponent, canActivate: [AuthGuard]},
 
   //MAISSY ROUTE//
   {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},

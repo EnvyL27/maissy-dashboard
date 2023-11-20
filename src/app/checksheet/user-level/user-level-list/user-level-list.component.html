@@ -91,13 +91,22 @@
 </section>
 
 <!-- component -->
-<div class="h-screen overflow-hidden">
-    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-screen  overflow-y-auto pb-12">
+<div class="h-full">
+    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-full overflow-y-auto pb-12">
         <div class="ml-auto mb-6">
             <div class="sticky z-10 top-0 h-16  lg:py-2.5 rounded-lg">
             </div>
 
             <!-- component -->
+            <section class="container mx-auto">
+                <div class="overflow-x-auto">
+                    <div class="w-full">
+                        <input type="text"
+                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        placeholder="Type here..." name="search" [(ngModel)]="searchText" />
+                    </div>
+                </div>
+            </section>
             <section class="container mx-auto">
 
                 <div class="flex flex-col mt-6">
@@ -132,7 +141,7 @@
                                     </thead>
 
                                     <tbody
-                                        *ngFor="let data of prData | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
+                                        *ngFor="let data of prData | filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
                                         class="divide-y divide-gray-200 text-center">
                                         <tr class="odd:bg-gray-50">
                                             <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 ">
@@ -181,15 +190,14 @@
                                                         </svg>
                                                     </a> -->
                                                 </div>
-
-
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <pagination-controls class="text-center" id="pagination1" (pageChange)="currentPage = $event">
+                        </pagination-controls>
                     </div>
                 </div>
 

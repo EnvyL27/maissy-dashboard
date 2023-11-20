@@ -775,4 +775,10 @@ export class CountService {
   getTableUser(){
     return this.httpClient.get(apiAM + '/users/');
   }
+  getTableUserById(id : any){
+    return this.httpClient.get(apiAM + '/users/get/' + id);
+  }
+  updateTableUser(formData : any, id : any){
+    return this.httpClient.put(apiAM + '/users/update/' + id, formData);
+  }
 };

@@ -13,6 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class UserLevelListComponent implements OnInit {
 
   resolved: boolean = false
+  searchText: any;
   prData: any
   idDelete: any
   successAlert: boolean = false
@@ -72,7 +73,7 @@ export class UserLevelListComponent implements OnInit {
   }
 
   navigateUpdate(idData: any) {
-    this.router.navigateByUrl('/pr_update', { state: { id: idData }, })
+    this.router.navigateByUrl('/user_level_update', { state: { id: idData }, })
   }
 
   ngOnInit() {

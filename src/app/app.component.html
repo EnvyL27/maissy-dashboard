@@ -1,4 +1,8 @@
 <main class="">
+  <div *ngIf="isChecksheetRoute()" class="fixed -z-50 bgAm"></div>
+  <div *ngIf="!isChecksheetRoute()" class="bg"></div>
+  <div *ngIf="!isChecksheetRoute()" class="bg bg2"></div>
+  <div *ngIf="!isChecksheetRoute()" class="bg bg3"></div>
   <app-navbar [ngClass]="{
     '': !isLoginRoute() || !isChecksheetRoute(),
     'hidden': isLoginRoute() || isChecksheetRoute()

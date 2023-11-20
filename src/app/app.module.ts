@@ -112,7 +112,8 @@ import { PrListComponent } from './checksheet/pr-monitoring/pr-list/pr-list.comp
 import { PrInputPageComponent } from './checksheet/pr-monitoring/pr-input-page/pr-input-page.component';
 import { PrUpdatePageComponent } from './checksheet/pr-monitoring/pr-update-page/pr-update-page.component';
 import { TemuanListComponent } from './checksheet/input-temuan/temuan-list/temuan-list.component';
-import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component'
+import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component';
+import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-update/user-level-update.component'
 
 
 @NgModule({
@@ -219,6 +220,7 @@ import { UserLevelListComponent } from './checksheet/user-level/user-level-list/
     PrUpdatePageComponent,
     TemuanListComponent,
     UserLevelListComponent,
+    UserLevelUpdateComponent,
   ],
   imports: [
     BrowserModule,
