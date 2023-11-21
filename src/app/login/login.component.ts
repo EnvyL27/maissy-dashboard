@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit{
   maissyLogin(){
     this.maissy = !this.maissy
     this.am = false
-    //console.log(this.maissy);
-    //console.log(this.am);
+    ////console.log(this.maissy);
+    ////console.log(this.am);
   }
 
   amLogin(){
     this.am = !this.am
     this.maissy = false
-    //console.log(this.maissy);
-    //console.log(this.am);
+    ////console.log(this.maissy);
+    ////console.log(this.am);
   }
 
   showSuccess() {
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit{
     if(this.f['nik'].value == '0000' && this.f['password'].value == 'password'){
       this.name = 'Admin'
       this.authService.saveToken('ewarstdyfugihojlikujyrhtrsgfxcvhbjkjouliykturyjethsdcg')
-      const userData = [{lg_name:this.name,is_admin:true}]
+      const userData = [{lg_name:this.name,is_admin:true, user_level : 99}]
       localStorage.setItem('nikLogged', this.f['nik'].value)
       this.authService.saveUser(userData)
       // localStorage.setItem('is_admin', 'true')

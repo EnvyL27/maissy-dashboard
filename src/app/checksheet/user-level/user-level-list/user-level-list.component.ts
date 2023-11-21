@@ -38,7 +38,7 @@ export class UserLevelListComponent implements OnInit {
   popUp(url : any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
-    //console.log(this.imageUrl);
+    ////console.log(this.imageUrl);
     
   }
 
@@ -49,7 +49,7 @@ export class UserLevelListComponent implements OnInit {
   oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
-    //console.log(history.state);
+    ////console.log(history.state);
   }
 
   delete(id: any) {
@@ -78,16 +78,16 @@ export class UserLevelListComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show()
-    //console.log(history.state);
+    ////console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getTableUser().subscribe(data => {
       this.prData = data
-      //console.log(this.prData);
+      ////console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })
 
-    //console.log(this.successAlert);
+    ////console.log(this.successAlert);
 
   }
 

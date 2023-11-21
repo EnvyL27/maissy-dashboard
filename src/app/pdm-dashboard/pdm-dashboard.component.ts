@@ -100,7 +100,7 @@ export class PdmDashboardComponent implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.goodsatis2.splice(this.goodsatis2.lenght, 0, array[i]);
           }
-          // ////////////////console.log(this.goodsatis2);
+          // //////////////////console.log(this.goodsatis2);
 
           for (let elem of this.goodsatis2) {
             if (elem.Stat == 'Good') {
@@ -112,7 +112,7 @@ export class PdmDashboardComponent implements OnInit {
             } else if (elem.Stat == 'Unacceptable') {
               this.unacc += 1;
             }
-            //// ////////////////console.log(this.good);
+            //// //////////////////console.log(this.good);
 
           }
           new Chart('donut', {
@@ -160,7 +160,7 @@ export class PdmDashboardComponent implements OnInit {
             } else if (elem.Stat == 'Unacceptable') {
               this.unaccfsb += 1;
             }
-            //// ////////////////console.log(this.good);
+            //// //////////////////console.log(this.good);
 
           }
           new Chart('donutku', {
@@ -213,7 +213,7 @@ export class PdmDashboardComponent implements OnInit {
             } else if (elem.Stat == 'Unacceptable') {
               this.unaccoci1 += 1;
             }
-            //// ////////////////console.log(this.good);
+            //// //////////////////console.log(this.good);
           }
           new Chart('dum', {
             type: 'doughnut',
@@ -250,14 +250,14 @@ export class PdmDashboardComponent implements OnInit {
             return data[key];
           });
           this.asset2.splice(this.asset2.lenght, 0, array[0]);
-          // // ////////////////console.log(this.const2);
+          // // //////////////////console.log(this.const2);
           for (let elem of this.asset2) {
             // this.totalfinding[0] = elem.total;
             this.totalasset = elem.total;
-            //// ////////////////console.log(this.totalfinding[0]);
+            //// //////////////////console.log(this.totalfinding[0]);
           }
 
-          // // ////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
+          // // //////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
         })
 
 
@@ -270,14 +270,14 @@ export class PdmDashboardComponent implements OnInit {
             return data[key];
           });
           this.assetoci12.splice(this.assetoci12.lenght, 0, array[0]);
-          // // ////////////////console.log(this.const2);
+          // // //////////////////console.log(this.const2);
           for (let elem of this.assetoci12) {
             // this.totalfinding[0] = elem.total;
             this.totalassetoci1 = elem.total;
-            //// ////////////////console.log(this.totalfinding[0]);
+            //// //////////////////console.log(this.totalfinding[0]);
           }
 
-          // // ////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
+          // // //////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
         })
 
 
@@ -290,14 +290,14 @@ export class PdmDashboardComponent implements OnInit {
             return data[key];
           });
           this.assetoci22.splice(this.assetoci22.lenght, 0, array[0]);
-          // // ////////////////console.log(this.const2);
+          // // //////////////////console.log(this.const2);
           for (let elem of this.assetoci22) {
             // this.totalfinding[0] = elem.total;
             this.totalassetoci2 = elem.total;
-            //// ////////////////console.log(this.totalfinding[0]);
+            //// //////////////////console.log(this.totalfinding[0]);
           }
 
-          // // ////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
+          // // //////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
         })
 
 
@@ -310,20 +310,20 @@ export class PdmDashboardComponent implements OnInit {
             return data[key];
           });
           this.assetfsb2.splice(this.assetfsb2.lenght, 0, array[0]);
-          // // ////////////////console.log(this.const2);
+          // // //////////////////console.log(this.const2);
           for (let elem of this.assetfsb2) {
             // this.totalfinding[0] = elem.total;
             this.totalfsb = elem.total;
-            //// ////////////////console.log(this.totalfinding[0]);
+            //// //////////////////console.log(this.totalfinding[0]);
           }
-          // // ////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
+          // // //////////////////console.log(this.const2.splice(this.const2.lenght,0,array[0]).total);
         })
 
 
       }
       );
     });
-    // // ////////////////console.log("1");
+    // // //////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

@@ -22,12 +22,12 @@ export class SpraysComponent implements OnInit {
     this.spraysproduct = this.service.getSpraysProduct().subscribe(data => {
       this.sprays = data;
       Object.values(this.sprays).forEach(data => {
-        // // ////////////////console.log(data);
+        // // //////////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
 
-        // // ////////////////console.log(array);
+        // // //////////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.sprayslist.splice(this.sprayslist.lenght, 0, array[i]);
         }
