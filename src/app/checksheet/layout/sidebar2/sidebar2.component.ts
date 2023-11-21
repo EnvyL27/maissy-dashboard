@@ -21,6 +21,8 @@ export class Sidebar2Component implements OnInit  {
   purchasinLevel: boolean = false;
   adminLevel : boolean = false
 
+  private hasReloaded: boolean = false;
+
   constructor(
     private authService:AuthService,
     public router: Router) {
@@ -38,6 +40,13 @@ export class Sidebar2Component implements OnInit  {
       if (val instanceof NavigationEnd) {
         // Hide loading indicator
         //console.log(this.user[0]?.user_level);
+        if (!this.hasReloaded) {
+          // Reload the page only once
+          if (this.authService.hasJustLoggedIn()) {
+            // Reload the page only if the user has just logged in
+            window.location.reload();
+          }
+        }
         
     }
     
