@@ -75,9 +75,9 @@ export class UserLevelUpdateComponent implements OnInit {
       this.byIdData.push(data)
       this.form.controls.lg_nik.setValue(this.byIdData[0].lg_nik)
       this.form.controls.lg_name.setValue(this.byIdData[0].lg_name)
-      this.form.controls.user_level.setValue(this.byIdData[0].user_level)
+      this.form.controls.user_level.setValue(this.byIdData[0].user_level.toString())
       ////console.log(this.form.value);
-
+      this.form.updateValueAndValidity();
     })
 
 

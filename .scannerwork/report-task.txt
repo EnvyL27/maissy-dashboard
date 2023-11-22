@@ -1,0 +1,6 @@
+projectKey=maissy_123
+serverUrl=http://192.168.110.127:31232
+serverVersion=8.9.10.61524
+dashboardUrl=http://192.168.110.127:31232/dashboard?id=maissy_123
+ceTaskId=AYvw8-x266RG92X9iSSM
+ceTaskUrl=http://192.168.110.127:31232/api/ce/task?id=AYvw8-x266RG92X9iSSM
