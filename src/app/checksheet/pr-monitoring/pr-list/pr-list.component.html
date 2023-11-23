@@ -101,7 +101,7 @@
                 <div class="overflow-x-auto">
                     <div class="grid grid-cols-2">
                         <div class="flex justify-start pt-1">
-                            <div class="w-12 h-12 rounded-lg px-4 bg-gray-200 text-gray-400">
+                            <div (click)="filterButton()" class="w-12 h-12 rounded-lg px-4 bg-gray-200 text-gray-400">
                                 <svg class="pr-2 h-8 w-8 mr-8 mt-2" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -175,10 +175,49 @@
                                 Add Data
                             </a>
                         </div>
-                        <div>
-                            <input type="text"
-                            class="pl-12 appearance-none block hover w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-3.5 leading-tight focus:outline-none focus:border-gray-300"
-                            placeholder="Search here..." name="search" [(ngModel)]="searchText" />
+                        <div [ngClass]="filter
+                          ? 'text-gray-100'
+                          : 'text-gray-600 hidden'
+                        " >
+                             <div class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-1/2 px-3">
+                                    <label
+                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">
+                                        Area
+                                    </label>
+                                    <!-- component -->
+                                    <div class="grid w-[20rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2" (change)="areaFilter()">
+                                        <div>
+                                            <input type="radio" id="1" value="1" name="area"
+                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <label for="1"
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 1</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="2" value="2" name="area"
+                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <label for="2"
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 2</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="3" value="3" name="area"
+                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <label for="3"
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">FSB</label>
+                                        </div>
+                                    </div>
+
+                                    <div  *ngFor="let data of sectionList" class="grid w-[20rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2" (change)="areaFilter()">
+                                        <div>
+                                            <input type="radio" id="1" value="1" name="area"
+                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <label for="1"
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 1</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

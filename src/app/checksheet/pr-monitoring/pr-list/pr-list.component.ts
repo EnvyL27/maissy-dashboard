@@ -4,6 +4,7 @@ import { CountService } from '../../../service/master/count.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-pr-list',
@@ -12,9 +13,14 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class PrListComponent implements OnInit {
 
+  filter: boolean = false
+  sectionList : any
+  area: any
   resolved: boolean = false
-  searchText : any 
-  prData: any
+  sectionData : any
+  searchText: any
+  prData: any = []
+  dataFilter: any = []
   idDelete: any
   successAlert: boolean = false
   deleteAlert: boolean = false
@@ -35,14 +41,43 @@ export class PrListComponent implements OnInit {
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService) { }
 
-  popUp(url : any) {
-    this.imagePopUp = !this.imagePopUp
-    this.imageUrl = url
-    ////console.log(this.imageUrl);
+  filterButton() {
+    this.filter = !this.filter
+    console.log(this.filter);
+   
+  }
+
+  areaFilter(){
+    console.log(this.area);
+    this.prData = []   
+      this.service.getPrAllData().subscribe(data => {
+        this.dataFilter = data
+        this.dataFilter.forEach((element : any) => {
+          if(element.area == this.area){
+            this.prData.push(element)
+          }else if(element.area == this.area){
+            this.prData.push(element)
+          }else if(element.area == this.area){
+            this.prData.push(element)
+          }
+        });
+        
+        console.log(this.prData);
+        
+        this.spinner.hide()
+        this.resolved = true
+      })
     
   }
 
-  cancelPopUp(){
+  popUp(url: any) {
+    this.imagePopUp = !this.imagePopUp
+    this.imageUrl = url
+    ////console.log(this.imageUrl);
+
+  }
+
+  cancelPopUp() {
     this.imagePopUp = !this.imagePopUp
   }
 
@@ -87,7 +122,13 @@ export class PrListComponent implements OnInit {
       this.resolved = true
     })
 
-    ////console.log(this.successAlert);
+    this.service.getPrAllSection().subscribe(data => {
+      this.sectionData = data
+      // console.log(this.sectionData);
+      
+      
+      
+    })
 
   }
 
