@@ -43,7 +43,7 @@ export class LiveAlarmComponent implements OnInit {
   };
 
   bigFiveByMachine(value: any) {
-    //////////////////console.log(value);
+    ////////////////////console.log(value);
     this.resolved = false
     this.spinner.show()
     this.listAlarm = []
@@ -63,28 +63,28 @@ export class LiveAlarmComponent implements OnInit {
           this.machineName.push(elem.machine);
         }
       });
-      //////console.log(this.liveAlarm);
+      ////////console.log(this.liveAlarm);
       const uniqueMachineNamesArray = Array.from(this.machineName);
       this.uniqueArray = this.removeDuplicatesFromArray(uniqueMachineNamesArray);
-      //////console.log(this.uniqueArray);
+      ////////console.log(this.uniqueArray);
       this.spinner.hide()
       this.resolved = true
     });
     this.refresh();
-    // //////////////////console.log(this.labels);
+    // ////////////////////console.log(this.labels);
     // this.chart();
     this.updateChart();
   }
 
   dateRangeChange(start: HTMLInputElement, end: HTMLInputElement) {
-    // //////////////////console.log(dateRangeStart.value);
-    // //////////////////console.log(dateRangeEnd.value);
+    // ////////////////////console.log(dateRangeStart.value);
+    // ////////////////////console.log(dateRangeEnd.value);
     this.start = moment(start.value).format("YYYY-MM-DD");
     this.end = moment(end.value).format("YYYY-MM-DD");
-    // //////////////////console.log(this.start);
+    // ////////////////////console.log(this.start);
     this.service.getBigFiveByMachine(this.machineA, this.start, this.end);
     this.refresh();
-    // //////////////////console.log(this.labels);
+    // ////////////////////console.log(this.labels);
     // this.chart();
     this.updateChart();
   }
@@ -147,7 +147,7 @@ export class LiveAlarmComponent implements OnInit {
         }
       }, 300);
     });
-    // //////////////////console.log(this.service.bigFiveByMachineValue);
+    // ////////////////////console.log(this.service.bigFiveByMachineValue);
     // this.spinner.show();
     this.loaddata = await this.loaddata;
   };
@@ -203,7 +203,7 @@ export class LiveAlarmComponent implements OnInit {
 
         // Before  if (this.service.bigFiveByMachineValue != 0)
         if (this.service.bigFiveByMachineValue == 0 || this.service.bigFiveByMachineValue != 0) {
-          ////////////////////console.log("3");
+          //////////////////////console.log("3");
           // this.spinner.hide();
           this.resolved = true;
           clearInterval(a);
@@ -228,7 +228,7 @@ export class LiveAlarmComponent implements OnInit {
         }
       }, 300);
     });
-    // //////////////////console.log(this.service.bigFiveByMachineValue);
+    // ////////////////////console.log(this.service.bigFiveByMachineValue);
     // this.spinner.show();
     this.loaddata = await this.loaddata;
   };
@@ -258,10 +258,10 @@ export class LiveAlarmComponent implements OnInit {
           this.machineName.push(elem.machine);
         }
       });
-      //////console.log(this.liveAlarm);
+      ////////console.log(this.liveAlarm);
       const uniqueMachineNamesArray = Array.from(this.machineName);
       this.uniqueArray = this.removeDuplicatesFromArray(uniqueMachineNamesArray);
-      //////console.log(this.uniqueArray);
+      ////////console.log(this.uniqueArray);
      
     });
     this.refresh();

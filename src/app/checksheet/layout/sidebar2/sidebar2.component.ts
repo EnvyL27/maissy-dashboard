@@ -26,7 +26,7 @@ export class Sidebar2Component implements OnInit  {
   constructor(
     private authService:AuthService,
     public router: Router) {
-    // ////console.log(this.router.url)
+    // //////console.log(this.router.url)
   }
 
   ngOnInit() {
@@ -36,10 +36,10 @@ export class Sidebar2Component implements OnInit  {
     
     this.router.events.subscribe((val) => {
       
-      // //console.log(val);
+      // ////console.log(val);
       if (val instanceof NavigationEnd) {
         // Hide loading indicator
-        //console.log(this.user[0]?.user_level);
+        ////console.log(this.user[0]?.user_level);
         if (!this.hasReloaded) {
           // Reload the page only once
           if (this.authService.hasJustLoggedIn()) {
@@ -60,7 +60,7 @@ export class Sidebar2Component implements OnInit  {
       else if(this.user[0]?.user_level == 99) {
         this.adminLevel = true
       }
-      //console.log(this.purchasinLevel); 
+      ////console.log(this.purchasinLevel); 
   });
    
   
@@ -68,13 +68,13 @@ export class Sidebar2Component implements OnInit  {
 
   onMouseEnter() {
     this.hideElement = false;
-    ////console.log(this.hideElement);
+    //////console.log(this.hideElement);
   }
   onMouseOut() {
-    ////console.log('out');
+    //////console.log('out');
     this.boolDropdown = false;
     this.hideElement = true;
-    ////console.log(this.hideElement);
+    //////console.log(this.hideElement);
   }
 
   dropdown() {
@@ -85,14 +85,14 @@ export class Sidebar2Component implements OnInit  {
   }
 
   falseAll(event: any) {
-    // ////console.log(this.menuList.nativeElement);
-    // ////console.log(event.target);
+    // //////console.log(this.menuList.nativeElement);
+    // //////console.log(event.target);
 
     if (
       this.ModalElement &&
       this.ModalElement.nativeElement.contains(event.target)
     ) {
-      // ////console.log('test1');
+      // //////console.log('test1');
     }
   }
   signOutModal() {

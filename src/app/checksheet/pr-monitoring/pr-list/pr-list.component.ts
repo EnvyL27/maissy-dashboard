@@ -14,10 +14,15 @@ import { elementAt } from 'rxjs';
 export class PrListComponent implements OnInit {
 
   filter: boolean = false
+  isOc: boolean = false
+  isFsb: boolean = false
   sectionList : any
   area: any
+  section : any
   resolved: boolean = false
-  sectionData : any
+  sectionShow : boolean = false
+  sectionData : any =[]
+  sectionFiltered : any = []
   searchText: any
   prData: any = []
   dataFilter: any = []
@@ -43,26 +48,50 @@ export class PrListComponent implements OnInit {
 
   filterButton() {
     this.filter = !this.filter
-    console.log(this.filter);
+    //console.log(this.filter);
    
   }
 
   areaFilter(){
-    console.log(this.area);
+    this.section = ''
     this.prData = []   
+    this.sectionData = []
+    this.sectionFiltered = []
+    this.sectionShow = true
       this.service.getPrAllData().subscribe(data => {
         this.dataFilter = data
         this.dataFilter.forEach((element : any) => {
           if(element.area == this.area){
             this.prData.push(element)
-          }else if(element.area == this.area){
-            this.prData.push(element)
-          }else if(element.area == this.area){
-            this.prData.push(element)
           }
         });
+
+        if(this.area == 1 || this.area == 2){
+          this.isOc = true
+        }else{
+          this.isOc = false
+        }
         
-        console.log(this.prData);
+        //console.log(this.prData);
+
+        this.service.getPrAllSection().subscribe(data => {
+          this.sectionData = data
+          //console.log(this.area + ' hah');
+          
+          this.sectionData.forEach((element : any) => {
+            //console.log('sini si');
+            //console.log(element.id_area);
+            
+            if(element.id_area == this.area){
+              this.sectionFiltered.push(element)
+            }
+          });
+          
+          //console.log(this.sectionFiltered);
+          
+          
+          
+        })
         
         this.spinner.hide()
         this.resolved = true
@@ -70,10 +99,69 @@ export class PrListComponent implements OnInit {
     
   }
 
+  sectionFilter(){
+    this.prData = []   
+    //console.log(this.section);
+    this.service.getPrAllData().subscribe(data => {
+      this.dataFilter = data
+      this.dataFilter.forEach((element : any) => {
+        if(element.section == this.section && element.area == this.area){
+          this.prData.push(element)
+        }
+      });
+      
+      //console.log(this.prData);
+      
+      this.spinner.hide()
+      this.resolved = true
+    })
+    // this.isOc = false
+    // this.prData = []   
+    // this.sectionData = []
+    // this.sectionFiltered = []
+    //   this.service.getPrAllData().subscribe(data => {
+    //     this.dataFilter = data
+    //     this.dataFilter.forEach((element : any) => {
+    //       if(element.area == this.area){
+    //         this.prData.push(element)
+    //       }
+    //     });
+
+    //     if(this.area == 1 || this.area == 2){
+    //       this.isOc = true
+    //     }
+        
+    //     //console.log(this.prData);
+
+    //     this.service.getPrAllSection().subscribe(data => {
+    //       this.sectionData = data
+    //       //console.log(this.area + ' hah');
+          
+    //       this.sectionData.forEach((element : any) => {
+    //         //console.log('sini si');
+    //         //console.log(element.id_area);
+            
+    //         if(element.id_area == this.area){
+    //           this.sectionFiltered.push(element)
+    //         }
+    //       });
+          
+    //       //console.log(this.sectionFiltered);
+          
+          
+          
+    //     })
+        
+    //     this.spinner.hide()
+    //     this.resolved = true
+      // })
+    
+  }
+
   popUp(url: any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
-    ////console.log(this.imageUrl);
+    //////console.log(this.imageUrl);
 
   }
 
@@ -84,7 +172,7 @@ export class PrListComponent implements OnInit {
   oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
-    ////console.log(history.state);
+    //////console.log(history.state);
   }
 
   delete(id: any) {
@@ -113,22 +201,18 @@ export class PrListComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show()
-    ////console.log(history.state);
+    //////console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getPrAllData().subscribe(data => {
       this.prData = data
-      ////console.log(this.prData);
+      //////console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })
 
-    this.service.getPrAllSection().subscribe(data => {
-      this.sectionData = data
-      // console.log(this.sectionData);
-      
-      
-      
-    })
+    
+    // //console.log(this.sectionData);
+    
 
   }
 

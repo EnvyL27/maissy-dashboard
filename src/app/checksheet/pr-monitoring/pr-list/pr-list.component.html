@@ -178,42 +178,59 @@
                         <div [ngClass]="filter
                           ? 'text-gray-100'
                           : 'text-gray-600 hidden'
-                        " >
-                             <div class="flex flex-wrap -mx-3 mb-6">
+                        ">
+                            <div class="flex flex-wrap -mx-3 mb-6">
                                 <div class="w-1/2 px-3">
-                                    <label
-                                        class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                         for="grid-password">
                                         Area
                                     </label>
                                     <!-- component -->
-                                    <div class="grid w-[20rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2" (change)="areaFilter()">
+                                    <div class="grid w-[20rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2"
+                                        (change)="areaFilter()">
                                         <div>
-                                            <input type="radio" id="1" value="1" name="area"
-                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <input type="radio" id="1" value="1" name="area" class="peer hidden"
+                                                [(ngModel)]="area" />
                                             <label for="1"
-                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 1</label>
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI
+                                                1</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="2" value="2" name="area"
-                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <input type="radio" id="2" value="2" name="area" class="peer hidden"
+                                                [(ngModel)]="area" />
                                             <label for="2"
-                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 2</label>
+                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI
+                                                2</label>
                                         </div>
                                         <div>
-                                            <input type="radio" id="3" value="3" name="area"
-                                                class="peer hidden" [(ngModel)]="area"/>
+                                            <input type="radio" id="3" value="3" name="area" class="peer hidden"
+                                                [(ngModel)]="area" />
                                             <label for="3"
                                                 class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">FSB</label>
                                         </div>
                                     </div>
-
-                                    <div  *ngFor="let data of sectionList" class="grid w-[20rem] grid-cols-3 gap-2 rounded-xl bg-gray-200 p-2" (change)="areaFilter()">
-                                        <div>
-                                            <input type="radio" id="1" value="1" name="area"
-                                                class="peer hidden" [(ngModel)]="area"/>
-                                            <label for="1"
-                                                class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">OCI 1</label>
+                                </div>
+                            </div>
+                            <div *ngIf="sectionShow" class="flex flex-wrap -mx-3 mb-6">
+                                <div class="w-full px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-password">
+                                        Section | selected section => {{section}}
+                                    </label>
+                                    <!-- component -->
+                                    <div [ngClass]=" isOc
+                                      ? ' grid-cols-7 w-[90rem]'
+                                      : ' grid-cols-5 w-[50rem]'
+                                    "  class="grid py-4 gap-2 rounded-xl bg-gray-200 p-2" 
+                                       >
+                                        <div *ngFor="let data of sectionFiltered" (change)="sectionFilter()">
+                                            <div >
+                                                <input type="radio" id="{{data.section}}" value="{{data.section}}" name="section" class="peer hidden"
+                                                [(ngModel)]="section"  />
+                                                <label for="{{data.section}}"
+                                                    class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">{{data.section}} 
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

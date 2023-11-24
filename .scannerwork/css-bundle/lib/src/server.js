@@ -6,7 +6,7 @@ const stylelint = require("stylelint");
 const fs = require("fs");
 const bodyParser = require("body-parser");
 // for testing purposes
-let log = console.log;
+let log = //console.log;
 let logError = console.error;
 const MAX_REQUEST_SIZE = "50mb";
 function setLogHandlersForTests(logHandler, errorHandler) {
@@ -22,7 +22,7 @@ function start(port = 0, host = "127.0.0.1") {
         app.post("/analyze", analyzeWithStylelint);
         app.get("/status", (_, resp) => resp.send("OK!"));
         app.post("/close", (_req, resp) => {
-            console.log("DEBUG stylelint-bridge server will shutdown");
+            //console.log("DEBUG stylelint-bridge server will shutdown");
             resp.end(() => {
                 server.close();
             });

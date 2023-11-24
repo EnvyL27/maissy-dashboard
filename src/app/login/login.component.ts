@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit{
   maissyLogin(){
     this.maissy = !this.maissy
     this.am = false
-    ////console.log(this.maissy);
-    ////console.log(this.am);
+    //////console.log(this.maissy);
+    //////console.log(this.am);
   }
 
   amLogin(){
     this.am = !this.am
     this.maissy = false
-    ////console.log(this.maissy);
-    ////console.log(this.am);
+    //////console.log(this.maissy);
+    //////console.log(this.am);
   }
 
   showSuccess() {

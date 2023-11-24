@@ -24,7 +24,7 @@ export class EmissionComponent implements OnInit {
   //   // Remove the app-sidebar element from its parent node
   //   appSidebar.parentNode?.removeChild(appSidebar);
   // } else {
-  //   ////////console.log('app-sidebar not found');
+  //   //////////console.log('app-sidebar not found');
   // }
   
   //   }
