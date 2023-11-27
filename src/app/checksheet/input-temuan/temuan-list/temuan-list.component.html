@@ -72,7 +72,7 @@
         class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
         <div class="flex flex-col p-5 rounded-lg shadow bg-white">
             <div class="flex flex-col items-center text-center">
-                    <img src="http://127.0.0.1:3010{{imageUrl}}" class="center"
+                    <img src="http://192.168.9.47/plan_am/files/{{imageUrl}}" class="center"
                     style="width: 700px;;
                 height: auto;">
                 </div>
@@ -166,71 +166,90 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                class=" px-4 py-2 font-medium text-gray-900">
                                                 No
                                             </th>
                                             <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Request Date
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-8 py-8 font-medium text-gray-900">
-                                                Item Description
-                                            </th>
-                                            <th colspan="3" scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Request By
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Due Date
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Reason
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                PR Number
-                                            </th>
-                                            <th colspan="2" scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Vendor 1
-                                            </th>
-                                            <th colspan="2" scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Vendor 2
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Bidding
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Keterangan
-                                            </th>
-                                            <th scope="col" rowspan="2"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                                                class=" px-4 py-2 font-medium text-gray-900">
                                                 Action
                                             </th>
-                                        </tr>
-                                        <tr>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">PIC</th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                                                Area</th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Section
+                                            <!-- <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                id
+                                            </th> -->
+                                            <th scope="col" rowspan="2"
+                                                class=" px-2 py-2 w-36 font-medium text-gray-900">
+                                                Finding
                                             </th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Value</th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
-                                            <th scope="col"
-                                                class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Value</th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-12 py-4 font-medium text-gray-900">
+                                                Photo
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Description
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                User
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 w-full font-medium text-gray-900">
+                                                Tanggal Temuan
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Area
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Func Loc
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Object Part
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Detail Object
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Damage
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Priority
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Detail Damage
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Cause Code
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Detail
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Kategori
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Scope
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Status
+                                            </th>
+                                            <th scope="col" rowspan="2"
+                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                Note
+                                            </th>
+                                            
                                         </tr>
                                     </thead>
 
@@ -238,61 +257,12 @@
                                         *ngFor="let data of prData | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
                                         class="divide-y divide-gray-200 text-center">
                                         <tr class="odd:bg-gray-50">
-                                            <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 ">
+                                            <td class=" px-4 py-2 font-medium text-gray-900 ">
                                                 {{(currentPage-1) * 10 + i + 1}}
                                             </td>
-
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.req_date |
-                                                date:'yyyy-MM-dd'}}</td>
-                                            <td *ngIf="data.item_desc_img != '' && data.item_desc == ''"
-                                                class="whitespace-nowrap px-8 py-8 text-gray-700 hover:scale-125 hover:z-10 duration-200">
-                                                <img (click)="popUp(data.item_desc_img)" src="http://127.0.0.1:3010{{data.item_desc_img}}" class="center"
-                                                    style="width: 100%;
-                                                max-width: 150px;
-                                                height: auto;">
-                                            </td>
-                                            <td *ngIf="data.item_desc != '' && data.item_desc_img == ''"
-                                                class="whitespace-nowrap px-8 py-8 text-gray-700">
-                                                {{data.item_desc}}
-                                            </td>
-                                            <td *ngIf="data.item_desc != '' && data.item_desc_img != ''"
-                                                class="whitespace-nowrap px-8 py-8 text-gray-700 ">
-                                                <div class="flex flex-col hover:scale-125 duration-200 ">
-                                                    <img (click)="popUp(data.item_desc_img)" src="http://127.0.0.1:3010{{data.item_desc_img}}"
-                                                        class="center" style="width: 100%;
-                                                max-width: 150px;
-                                                height: auto;">
-                                                
-                                                   
-                                                </div>
-                                                <div>
-                                                    <p> {{data.item_desc}}</p>
-                                                </div>
-
-                                            </td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.pic}}</td>
-                                            <td *ngIf="data.area == 1"
-                                                class="whitespace-nowrap px-4 py-2 text-gray-700">OCI 1</td>
-                                            <td *ngIf="data.area == 2"
-                                                class="whitespace-nowrap px-4 py-2 text-gray-700">OCI 2</td>
-                                            <td *ngIf="data.area == 3"
-                                                class="whitespace-nowrap px-4 py-2 text-gray-700">FSB</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.section}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.due_date |
-                                                date:'yyyy-MM-dd'}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.reason}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.pr_number}}
-                                            </td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v_name}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v_value}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_name}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_value}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.bidding}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.keterangan}}
-                                            </td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700 group">
+                                            <td class=" px-4 py-2 text-gray-700 group">
                                                 <div class="flex">
-                                                    <a (click)="navigateUpdate(data.id)" class="whitespace-nowrap px-4 py-2  hover:-mt-3 duration-200">
+                                                    <a (click)="navigateUpdate(data.id)" class=" px-4 py-2  hover:-mt-3 duration-200">
                                                         <svg width="40px" height="40px"
                                                             class="text-gray-700 hover:text-indigo-700 duration-200"
                                                             viewBox="0 -0.5 25 25" fill="none"
@@ -307,7 +277,7 @@
                                                         </svg>
                                                     </a>
                                                     <a (click)="delete(data.id)"
-                                                        class="whitespace-nowrap px-4 py-2  hover:-mt-3 duration-200">
+                                                        class=" px-4 py-2  hover:-mt-3 duration-200">
                                                         <svg width="35px" height="35px"
                                                             class="text-gray-700 hover:text-red-700 duration-200"
                                                             viewBox="0 0 24 24" fill="none"
@@ -332,7 +302,37 @@
 
 
                                             </td>
-
+                                            <!-- <td class=" px-4 py-2 text-gray-700">{{data.id}}</td> -->
+                                            <td class=" px-2 py-2 w-36 text-gray-700">{{data.finding}}</td>
+                                            <td
+                                                class=" px-8 py-8 text-gray-700 hover:scale-125 hover:z-10 duration-200">
+                                                <img (click)="popUp(data.photo)" src="http://192.168.9.47/plan_am/files/{{data.photo}}" class="center"
+                                                    style="width: 150%;
+                                                max-width: 300px;
+                                                height: auto;">
+                                            </td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.finding_description}}</td>
+                                            <!--  -->
+                                            <td class=" px-4 py-2 text-gray-700">{{data.user}}</td>
+                                            <td class=" px-8 py-2 w-full text-gray-700">{{data.tanggal_temuan |
+                                                date:'yyyy-MM-dd'}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.id_area}}
+                                            </td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.id_section}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.func_loc}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.object_part}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.ob_detail}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.damage}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.level}}
+                                            </td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.d_detail}}
+                                            </td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.cause_code}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.cc_detail}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.Kategori}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.scope}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.approve_spv}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.status}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

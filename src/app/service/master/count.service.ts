@@ -781,4 +781,9 @@ export class CountService {
   updateTableUser(formData : any, id : any){
     return this.httpClient.put(apiAM + '/users/update/' + id, formData);
   }
+
+  //TEMUAN INPUT//
+  getTemuanData(){
+    return this.httpClient.get(apiAM + '/temuan/');
+  }
 };

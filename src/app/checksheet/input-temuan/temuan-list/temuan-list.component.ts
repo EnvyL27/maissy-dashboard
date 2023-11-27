@@ -79,9 +79,9 @@ export class TemuanListComponent implements OnInit {
     this.spinner.show()
     //////console.log(history.state);
     this.successAlert = history.state.successAlert
-    this.service.getPrAllData().subscribe(data => {
+    this.service.getTemuanData().subscribe(data => {
       this.prData = data
-      //////console.log(this.prData);
+      console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })
