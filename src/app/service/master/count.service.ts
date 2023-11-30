@@ -783,7 +783,10 @@ export class CountService {
   }
 
   //TEMUAN INPUT//
-  getTemuanData(){
+  getTemuanHdata(){
     return this.httpClient.get(apiAM + '/temuan/');
+  }
+  getTemuanDdata(){
+    return this.httpClient.get(apiAM + '/temuand/');
   }
 };

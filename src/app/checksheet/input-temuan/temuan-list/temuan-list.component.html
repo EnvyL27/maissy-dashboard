@@ -91,8 +91,8 @@
 </section>
 
 <!-- component -->
-<div class="h-screen overflow-hidden">
-    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-screen  overflow-y-auto pb-12">
+<div class="h-full overflow-hidden">
+    <div class="max-lg:pl-20 lg:pl-[10%] bg-gray-100 h-full  overflow-y-auto pb-12">
         <div class="ml-auto mb-6">
             <div class="sticky z-10 top-0 h-16  lg:py-2.5 rounded-lg">
             </div>
@@ -102,49 +102,73 @@
                 <div class="overflow-x-auto">
                     <div class="grid grid-cols-2">
                         <div class="flex justify-start pt-1">
-                            <a class="hover:-mt-1 duration-200">
-                                <svg class="w-12 h-12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                    <!-- SVG path data -->
-                                    <defs>
-                                        <linearGradient id="a" x1="4.494" y1="-2092.086" x2="13.832" y2="-2075.914"
-                                            gradientTransform="translate(0 2100)" gradientUnits="userSpaceOnUse">
-                                            <stop offset="0" stop-color="#18884f" />
-                                            <stop offset="0.5" stop-color="#117e43" />
-                                            <stop offset="1" stop-color="#0b6631" />
-                                        </linearGradient>
-                                    </defs>
-                                    <title>file_type_excel</title>
+                            <!-- <div (click)="filterButton()" class="w-12 h-12 rounded-lg px-4 bg-gray-200 text-gray-400">
+                                <svg class="pr-2 h-8 w-8 mr-8 mt-2" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M19.581,15.35,8.512,13.4V27.809A1.192,1.192,0,0,0,9.705,29h19.1A1.192,1.192,0,0,0,30,27.809h0V22.5Z"
-                                        style="fill:#185c37" />
-                                    <path
-                                        d="M19.581,3H9.705A1.192,1.192,0,0,0,8.512,4.191h0V9.5L19.581,16l5.861,1.95L30,16V9.5Z"
-                                        style="fill:#21a366" />
-                                    <path d="M8.512,9.5H19.581V16H8.512Z" style="fill:#107c41" />
-                                    <path
-                                        d="M16.434,8.2H8.512V24.45h7.922a1.2,1.2,0,0,0,1.194-1.191V9.391A1.2,1.2,0,0,0,16.434,8.2Z"
-                                        style="opacity:0.10000000149011612;isolation:isolate" />
-                                    <path
-                                        d="M15.783,8.85H8.512V25.1h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
-                                        style="opacity:0.20000000298023224;isolation:isolate" />
-                                    <path
-                                        d="M15.783,8.85H8.512V23.8h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
-                                        style="opacity:0.20000000298023224;isolation:isolate" />
-                                    <path
-                                        d="M15.132,8.85H8.512V23.8h6.62a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.132,8.85Z"
-                                        style="opacity:0.20000000298023224;isolation:isolate" />
-                                    <path
-                                        d="M3.194,8.85H15.132a1.193,1.193,0,0,1,1.194,1.191V21.959a1.193,1.193,0,0,1-1.194,1.191H3.194A1.192,1.192,0,0,1,2,21.959V10.041A1.192,1.192,0,0,1,3.194,8.85Z"
-                                        style="fill:url(#a)" />
-                                    <path
-                                        d="M5.7,19.873l2.511-3.884-2.3-3.862H7.758L9.013,14.6c.116.234.2.408.238.524h.017c.082-.188.169-.369.26-.546l1.342-2.447h1.7l-2.359,3.84,2.419,3.905H10.821l-1.45-2.711A2.355,2.355,0,0,1,9.2,16.8H9.176a1.688,1.688,0,0,1-.168.351L7.515,19.873Z"
-                                        style="fill:#fff" />
-                                    <path d="M28.806,3H19.581V9.5H30V4.191A1.192,1.192,0,0,0,28.806,3Z"
-                                        style="fill:#33c481" />
-                                    <path d="M19.581,16H30v6.5H19.581Z" style="fill:#107c41" />
+                                        d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
-                            </a>
+                            </div> -->
+                            <div
+                                class="w-16 h-14 rounded-full hover:w-full duration-500 px-2 relative text-gray-400 focus-within:text-cyan-500 block">
+                                <svg class="pointer-events-none w-8 h-8 absolute pt-2 pl-2 top-1 transform left-3"
+                                    viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                        fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <input type="text"
+                                    class="pl-12 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-3.5 leading-tight focus:outline-none focus:border-gray-300"
+                                    placeholder="Search here..." name="search" [(ngModel)]="searchText" />
+
+                            </div>
+                            <div class="px-2">
+                                <a class="hover:-mt-1 duration-200">
+                                    <svg class="w-12 h-12" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- SVG path data -->
+                                        <defs>
+                                            <linearGradient id="a" x1="4.494" y1="-2092.086" x2="13.832" y2="-2075.914"
+                                                gradientTransform="translate(0 2100)" gradientUnits="userSpaceOnUse">
+                                                <stop offset="0" stop-color="#18884f" />
+                                                <stop offset="0.5" stop-color="#117e43" />
+                                                <stop offset="1" stop-color="#0b6631" />
+                                            </linearGradient>
+                                        </defs>
+                                        <title>file_type_excel</title>
+                                        <path
+                                            d="M19.581,15.35,8.512,13.4V27.809A1.192,1.192,0,0,0,9.705,29h19.1A1.192,1.192,0,0,0,30,27.809h0V22.5Z"
+                                            style="fill:#185c37" />
+                                        <path
+                                            d="M19.581,3H9.705A1.192,1.192,0,0,0,8.512,4.191h0V9.5L19.581,16l5.861,1.95L30,16V9.5Z"
+                                            style="fill:#21a366" />
+                                        <path d="M8.512,9.5H19.581V16H8.512Z" style="fill:#107c41" />
+                                        <path
+                                            d="M16.434,8.2H8.512V24.45h7.922a1.2,1.2,0,0,0,1.194-1.191V9.391A1.2,1.2,0,0,0,16.434,8.2Z"
+                                            style="opacity:0.10000000149011612;isolation:isolate" />
+                                        <path
+                                            d="M15.783,8.85H8.512V25.1h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                            style="opacity:0.20000000298023224;isolation:isolate" />
+                                        <path
+                                            d="M15.783,8.85H8.512V23.8h7.271a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.783,8.85Z"
+                                            style="opacity:0.20000000298023224;isolation:isolate" />
+                                        <path
+                                            d="M15.132,8.85H8.512V23.8h6.62a1.2,1.2,0,0,0,1.194-1.191V10.041A1.2,1.2,0,0,0,15.132,8.85Z"
+                                            style="opacity:0.20000000298023224;isolation:isolate" />
+                                        <path
+                                            d="M3.194,8.85H15.132a1.193,1.193,0,0,1,1.194,1.191V21.959a1.193,1.193,0,0,1-1.194,1.191H3.194A1.192,1.192,0,0,1,2,21.959V10.041A1.192,1.192,0,0,1,3.194,8.85Z"
+                                            style="fill:url(#a)" />
+                                        <path
+                                            d="M5.7,19.873l2.511-3.884-2.3-3.862H7.758L9.013,14.6c.116.234.2.408.238.524h.017c.082-.188.169-.369.26-.546l1.342-2.447h1.7l-2.359,3.84,2.419,3.905H10.821l-1.45-2.711A2.355,2.355,0,0,1,9.2,16.8H9.176a1.688,1.688,0,0,1-.168.351L7.515,19.873Z"
+                                            style="fill:#fff" />
+                                        <path d="M28.806,3H19.581V9.5H30V4.191A1.192,1.192,0,0,0,28.806,3Z"
+                                            style="fill:#33c481" />
+                                        <path d="M19.581,16H30v6.5H19.581Z" style="fill:#107c41" />
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                         <div class="flex justify-end py-2">
                             <a routerLink="/pr_input"
@@ -254,7 +278,7 @@
                                     </thead>
 
                                     <tbody
-                                        *ngFor="let data of prData | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
+                                        *ngFor="let data of prDataArray| filter:searchText | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index"
                                         class="divide-y divide-gray-200 text-center">
                                         <tr class="odd:bg-gray-50">
                                             <td class=" px-4 py-2 font-medium text-gray-900 ">
@@ -311,14 +335,14 @@
                                                 max-width: 300px;
                                                 height: auto;">
                                             </td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.finding_description}}</td>
+                                            <td class="w-36 px-4 py-2 text-gray-700">{{data.finding_description}}</td>
                                             <!--  -->
                                             <td class=" px-4 py-2 text-gray-700">{{data.user}}</td>
-                                            <td class=" px-8 py-2 w-full text-gray-700">{{data.tanggal_temuan |
+                                            <td class="whitespace-nowrap px-8 py-2 w-full text-gray-700">{{data.tanggal_temuan |
                                                 date:'yyyy-MM-dd'}}</td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.id_area}}
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.id_area}}
                                             </td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.id_section}}</td>
+                                            <!-- <td class=" px-4 py-2 text-gray-700">{{data.id_section}}</td> -->
                                             <td class=" px-4 py-2 text-gray-700">{{data.func_loc}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.object_part}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.ob_detail}}</td>
@@ -329,15 +353,17 @@
                                             </td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.cause_code}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.cc_detail}}</td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.Kategori}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.kategori}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.scope}}</td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.approve_spv}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.status}}</td>
+                                            <td class=" px-4 py-2 text-gray-700">{{data.note}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
+                        <pagination-controls class="text-center" id="pagination1" (pageChange)="currentPage = $event">
+                        </pagination-controls>
                     </div>
                 </div>
 

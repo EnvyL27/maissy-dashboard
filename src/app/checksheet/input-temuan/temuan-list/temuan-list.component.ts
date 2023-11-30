@@ -4,6 +4,7 @@ import { CountService } from '../../../service/master/count.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-temuan-list',
@@ -15,6 +16,7 @@ export class TemuanListComponent implements OnInit {
   resolved: boolean = false
   prData: any
   idDelete: any
+  searchText: any
   successAlert: boolean = false
   deleteAlert: boolean = false
   imagePopUp: boolean = false
@@ -23,6 +25,7 @@ export class TemuanListComponent implements OnInit {
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
+  currentYear: any = moment().format("YYYY");
   absoluteIndex(indexOnPage: number): number {
     return this.itemsPerPage * (this.currentPage - 1) + indexOnPage;
   }
@@ -34,14 +37,14 @@ export class TemuanListComponent implements OnInit {
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService) { }
 
-  popUp(url : any) {
+  popUp(url: any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
     //////console.log(this.imageUrl);
-    
+
   }
 
-  cancelPopUp(){
+  cancelPopUp() {
     this.imagePopUp = !this.imagePopUp
   }
 
@@ -79,12 +82,22 @@ export class TemuanListComponent implements OnInit {
     this.spinner.show()
     //////console.log(history.state);
     this.successAlert = history.state.successAlert
-    this.service.getTemuanData().subscribe(data => {
-      this.prData = data
-      console.log(this.prData);
-      this.spinner.hide()
-      this.resolved = true
-    })
+    this.service.getTemuanHdata().subscribe((dataH: any) => {
+      this.prData = dataH;
+      console.log(dataH);
+
+      // Filter the data based on matching id and id_temuan
+      this.prDataArray = this.prData.filter((element: any) => { // assuming id represents the related id in TemuanDdata
+        return (
+          moment(element.tanggal_temuan).format("YYYY") == this.currentYear &&
+          element.approve_by == null
+        );
+      });
+      
+      console.log(this.prDataArray);
+      this.spinner.hide();
+      this.resolved = true;
+    });
 
     //////console.log(this.successAlert);
 

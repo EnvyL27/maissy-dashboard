@@ -20,6 +20,7 @@ export class PrInputPageComponent implements OnInit {
   name = this.user[0]?.lg_name
   form! : FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
+  
   validateSubmit : boolean = false
   prData : any
   target: any;
