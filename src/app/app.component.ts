@@ -31,6 +31,7 @@ export class AppComponent {
     this.router.url === '/pr_input' ||
     this.router.url === '/pr_update' ||
     this.router.url === '/input_temuan' ||
+    this.router.url === '/temuan_list' ||
     this.router.url === '/user_level' ||
     this.router.url === '/user_level_update' ||
     this.router.url === '/cilt_list' ||

@@ -97,6 +97,7 @@ import { UserLevelListComponent } from './checksheet/user-level/user-level-list/
 import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-update/user-level-update.component';
 import { CiltListComponent } from './checksheet/cilt/cilt-list/cilt-list.component';
 import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.component';
+import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
@@ -104,7 +105,8 @@ const routes: Routes = [
   {path: 'pr_list', component: PrListComponent, canActivate: [AuthGuard]},
   {path: 'pr_input', component: PrInputPageComponent, canActivate: [AuthGuard]},
   {path: 'pr_update', component: PrUpdatePageComponent, canActivate: [AuthGuard]},
-  {path: 'input_temuan', component: TemuanListComponent, canActivate: [AuthGuard]},
+  {path: 'temuan_list', component: TemuanListComponent, canActivate: [AuthGuard]},
+  {path: 'input_temuan', component: TemuanInputComponent, canActivate: [AuthGuard]},
   {path: 'user_level', component: UserLevelListComponent, canActivate: [AuthGuard]},
   {path: 'user_level_update', component: UserLevelUpdateComponent, canActivate: [AuthGuard]},
   {path: 'cilt_list', component: CiltListComponent, canActivate: [AuthGuard]},

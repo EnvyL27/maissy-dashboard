@@ -115,7 +115,8 @@ import { TemuanListComponent } from './checksheet/input-temuan/temuan-list/temua
 import { UserLevelListComponent } from './checksheet/user-level/user-level-list/user-level-list.component';
 import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-update/user-level-update.component';
 import { CiltListComponent } from './checksheet/cilt/cilt-list/cilt-list.component';
-import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.component'
+import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.component';
+import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component'
 
 
 @NgModule({
@@ -225,6 +226,7 @@ import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.comp
     UserLevelUpdateComponent,
     CiltListComponent,
     CiltInputComponent,
+    TemuanInputComponent,
   ],
   imports: [
     BrowserModule,
