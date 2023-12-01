@@ -202,7 +202,7 @@
                                                 id
                                             </th> -->
                                             <th scope="col" rowspan="2"
-                                                class=" px-2 py-2 w-36 font-medium text-gray-900">
+                                                class=" px-20 py-2 w-36 font-medium text-gray-900">
                                                 Finding
                                             </th>
                                             <th scope="col" rowspan="2"
@@ -210,7 +210,7 @@
                                                 Photo
                                             </th>
                                             <th scope="col" rowspan="2"
-                                                class=" px-4 py-2 font-medium text-gray-900">
+                                                class="w-36 px-20 py-2 font-medium text-gray-900">
                                                 Description
                                             </th>
                                             <th scope="col" rowspan="2"
@@ -226,8 +226,8 @@
                                                 Area
                                             </th>
                                             <th scope="col" rowspan="2"
-                                                class=" px-4 py-2 font-medium text-gray-900">
-                                                Func Loc
+                                                class=" px-12 py-2 font-medium text-gray-900">
+                                                Func-Loc
                                             </th>
                                             <th scope="col" rowspan="2"
                                                 class=" px-4 py-2 font-medium text-gray-900">
@@ -354,7 +354,8 @@
                                             <td class=" px-4 py-2 text-gray-700">{{data.cause_code}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.cc_detail}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.kategori}}</td>
-                                            <td class=" px-4 py-2 text-gray-700">{{data.scope}}</td>
+                                            <td  *ngIf="data.scope == 0" class=" px-4 py-2 text-gray-700">AM</td>
+                                            <td  *ngIf="data.scope == 1" class=" px-4 py-2 text-gray-700">PDM</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.status}}</td>
                                             <td class=" px-4 py-2 text-gray-700">{{data.note}}</td>
                                         </tr>
