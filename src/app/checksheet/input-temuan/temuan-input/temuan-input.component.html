@@ -59,7 +59,7 @@
                                                 Finding
                                             </label>
                                             <div class="w-full ">
-                                                <input formControlName="item_desc"
+                                                <input formControlName="finding"
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                     id="grid-last-name" type="text">
                                             </div>
@@ -73,7 +73,8 @@
                                             <div class="w-full ">
                                                 <input
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                    type="file" (change)="onFileChanged($event)">
+                                                    type="file" (change)="cardChange($event)">
+                                                    <img [src]="uploadPhotoSrc" *ngIf="uploadPhotoSrc" style="max-height: 100%; max-width: 100%;" />
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +89,7 @@
                                             </label>
                                             <div class="flex flex-wrap -mx-3 mb-6">
                                                 <div class="w-full md:w-full px-3">
-                                                    <input formControlName="keterangan"
+                                                    <input formControlName="finding_description"
                                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-16 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                         id="grid-password" type="text">
                                                 </div>
@@ -102,7 +103,7 @@
                                                     for="grid-password">
                                                     Tanggal Temuan
                                                 </label>
-                                                <input formControlName="due_date"
+                                                <input formControlName="tanggal_temuan"
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                     id="grid-password" type="date">
                                             </div>
@@ -116,7 +117,7 @@
                                                     Area
                                                 </label>
                                                 <div class="flex">
-                                                    <select formControlName="area"
+                                                    <select formControlName="id_area"
                                                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                         id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                         <option value="1">OCI 1</option>
@@ -132,7 +133,7 @@
                                                     Section
                                                 </label>
                                                 <div class="flex">
-                                                    <select formControlName="section"
+                                                    <select formControlName="id_section"
                                                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                         id="grid-state" [(ngModel)]="section"
                                                         (change)="sectionSelect(section)">
@@ -156,7 +157,7 @@
                                                 Func Loc
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="func_loc"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -175,7 +176,7 @@
                                                 Object Part
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="object_part"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -191,7 +192,7 @@
                                                 Detail Object
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="section"
+                                                <select formControlName="ob_detail"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="section"
                                                     (change)="sectionSelect(section)">
@@ -214,7 +215,7 @@
                                                 Damage Part
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="damage"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -230,7 +231,7 @@
                                                 Detail Damage
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="section"
+                                                <select formControlName="d_detail"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="section"
                                                     (change)="sectionSelect(section)">
@@ -253,7 +254,7 @@
                                                 Priority
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="level"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -272,7 +273,7 @@
                                                 Cause Code
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="cause_code"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -288,7 +289,7 @@
                                                 Detail 
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="section"
+                                                <select formControlName="cc_detail"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="section"
                                                     (change)="sectionSelect(section)">
@@ -311,7 +312,7 @@
                                                 Kategori
                                             </label>
                                             <div class="flex">
-                                                <select formControlName="area"
+                                                <select formControlName="kategori"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
                                                     <option value="1">OCI 1</option>
@@ -332,13 +333,13 @@
                                             <!-- component -->
                                             <div class="grid w-[40rem] grid-cols-2 gap-2 rounded-xl bg-gray-200 p-3">
                                                 <div>
-                                                    <input formControlName="bidding" type="radio" id="1" value="Yes"
+                                                    <input formControlName="scope" type="radio" id="1" value="Yes"
                                                         class="peer hidden" checked />
                                                     <label for="1"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">Am</label>
                                                 </div>
                                                 <div>
-                                                    <input formControlName="bidding" type="radio" id="2" value="No"
+                                                    <input formControlName="scope" type="radio" id="2" value="No"
                                                         class="peer hidden" />
                                                     <label for="2"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">Pdm</label>
@@ -356,15 +357,15 @@
                                             <!-- component -->
                                             <div class="grid w-[40rem] grid-cols-2 gap-2 rounded-xl bg-gray-200 p-3">
                                                 <div>
-                                                    <input formControlName="bidding" type="radio" id="1" value="Yes"
+                                                    <input formControlName="status" type="radio" id="3" value="draft"
                                                         class="peer hidden" checked />
-                                                    <label for="1"
+                                                    <label for="3"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">Draft</label>
                                                 </div>
                                                 <div>
-                                                    <input formControlName="bidding" type="radio" id="2" value="No"
+                                                    <input formControlName="status" type="radio" id="4" value="submit"
                                                         class="peer hidden" />
-                                                    <label for="2"
+                                                    <label for="4"
                                                         class="block cursor-pointer text-gray-500 select-none rounded-lg p-2 text-center peer-checked:bg-blue-500 duration-200 peer-checked:font-bold peer-checked:text-white">Submit</label>
                                                 </div>
                                             </div>

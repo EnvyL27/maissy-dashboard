@@ -90,7 +90,7 @@ export class TemuanListComponent implements OnInit {
       this.prDataArray = this.prData.filter((element: any) => { // assuming id represents the related id in TemuanDdata
         return (
           moment(element.tanggal_temuan).format("YYYY") == this.currentYear &&
-          element.approve_by == null
+          element.approve_by == null && element.status == 'Draft' || element.status == 'Submit' || element.status == 'Revise'
         );
       });
       

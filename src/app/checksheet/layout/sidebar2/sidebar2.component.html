@@ -27,7 +27,8 @@
       </li>
       <li>
         <a [ngClass]="
-        router.url == '/temuan_list'
+        router.url == '/temuan_list' ||
+        router.url == '/temuan_input' 
           ? 'text-gray-100 pl-4 bg-blue-400'
           : 'text-gray-600 hover:text-blue-400 hover:bg-gray-100 hover:pl-4 duration-200'
         " routerLink="/temuan_list" class="relative flex items-center py-3 space-x-4">
