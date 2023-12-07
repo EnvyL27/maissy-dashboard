@@ -80,12 +80,12 @@ export class TemuanInputComponent implements OnInit {
       reader.onload = () => {
         this.uploadPhotoSrc = reader.result as string;
         this.form.patchValue({
-          uploadPhotoFile: reader.result,
+          selectedFile: reader.result,
         })
       }
     }
 
-    this.uploadPhotoFile = event.target.files[0];
+    this.selectedFile = event.target.files[0];
   }
 
   ngOnInit() {

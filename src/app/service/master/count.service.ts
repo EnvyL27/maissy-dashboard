@@ -358,6 +358,9 @@ export class CountService {
   getTemperatureLineoci1() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci1");
   }
+  dimas() {
+    return this.httpClient.get(api + 'pdm/' + "dimas");
+  }
 
   getTemperatureLineoci2() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci2");

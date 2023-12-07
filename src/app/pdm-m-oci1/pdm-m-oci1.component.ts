@@ -71,6 +71,28 @@ export class PdmMOci1Component implements OnInit {
     this.monthlytotalchart = false
   }
 
+  dimas(){
+    this.service.dimas().subscribe(data => {
+
+      this.totalfinishtoday = data;
+      console.log(data);
+
+      // Object.values(this.totalfinishtoday).forEach(data => {
+      //   var array = Object.keys(data).map(function (key) {
+      //     return data[key];
+      //   });
+      //   for (let i = 0; i < array.length; i++) {
+      //     this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+      //     this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+      //   }
+      //   // this.spinner.hide();
+      //   this.resolved = true;
+      // })
+
+    }
+    );
+  }
+
   combineChart(){
     this.each = false
     this.combine = true
