@@ -36,6 +36,8 @@ export class TemuanInputComponent implements OnInit {
   filteriflotxarea: any[] = []
   filteriflotxsection: any[] = []
   ifloxtdata : any[] = []
+  currentPage = 0
+  searchText : any
   constructor(
     private service: CountService,
     private http: HttpClient,

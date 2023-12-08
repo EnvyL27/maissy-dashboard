@@ -44,19 +44,21 @@
                     class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
                     <div class="flex flex-col p-5 rounded-lg shadow bg-white">
                         <div class="flex flex-col items-center text-center">
-                            <div class="inline-block p-4 bg-yellow-50 rounded-full">
-                                <svg class="w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24">
-                                    <path d="M0 0h24v24H0V0z" fill="none" />
-                                    <path
-                                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z" />
-                                </svg>
+                            
+                            <h2 class="mt-2 font-semibold text-gray-800">Lookup Func Loc!</h2>
+                            <div class="p-2">
+                                <input type="text"
+                                class="pl-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-2 leading-tight focus:outline-none focus:border-gray-300"
+                                placeholder="Search here.." name="search" [(ngModel)]="searchText" />
                             </div>
-                            <h2 class="mt-2 font-semibold text-gray-800">This will be list!</h2>
                             <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
-                            <div class="mt-2 text-sm text-gray-600 leading-relaxed" *ngFor="let data of ifloxtdata">
-                                {{data.TPLNR}}, {{data.PLTXT}}
-                            </div>
+                            <button class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 duration-200 rounded-lg" *ngFor="let data of ifloxtdata  | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
+                                <h1 >{{data.TPLNR}}, {{data.PLTXT}}</h1>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <pagination-controls class="text-center" id="pagination1" (pageChange)="currentPage = $event">
+                            </pagination-controls>
                         </div>
 
                         <div class="flex items-center mt-3">
@@ -64,11 +66,6 @@
                                 class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
                                 Cancel
                         </button> 
-
-                            <div type="menu" routerLink="/pr_list"
-                                class="text-center flex-1 px-4 py-2 ml-2 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded-md">
-                                Agree
-                            </div>
                         </div>
                     </div>
                 </div>
