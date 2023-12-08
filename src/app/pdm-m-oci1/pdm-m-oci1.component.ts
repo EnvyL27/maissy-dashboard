@@ -52,48 +52,26 @@ export class PdmMOci1Component implements OnInit {
   boolpacknull: Boolean = false;
   boolkaneshonull: Boolean = false;
   boolstu1null: Boolean = false;
-  dailytotalchart : boolean = false;
-  monthlytotalchart : boolean = true;
-  each : boolean = true;
-  combine : boolean = false;
+  dailytotalchart: boolean = false;
+  monthlytotalchart: boolean = true;
+  each: boolean = true;
+  combine: boolean = false;
 
-  monthlyChartClick(){
+  monthlyChartClick() {
     this.each = true
     this.combine = false
     this.monthlytotalchart = !this.monthlytotalchart
     this.dailytotalchart = false
   }
 
-  dailyChartClick(){
+  dailyChartClick() {
     this.each = true
     this.combine = false
     this.dailytotalchart = !this.dailytotalchart
     this.monthlytotalchart = false
   }
 
-  dimas(){
-    this.service.dimas().subscribe(data => {
-
-      this.totalfinishtoday = data;
-      console.log(data);
-
-      // Object.values(this.totalfinishtoday).forEach(data => {
-      //   var array = Object.keys(data).map(function (key) {
-      //     return data[key];
-      //   });
-      //   for (let i = 0; i < array.length; i++) {
-      //     this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
-      //     this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
-      //   }
-      //   // this.spinner.hide();
-      //   this.resolved = true;
-      // })
-
-    }
-    );
-  }
-
-  combineChart(){
+  combineChart() {
     this.each = false
     this.combine = true
     this.monthlytotalchart = false
@@ -221,11 +199,11 @@ export class PdmMOci1Component implements OnInit {
     this.januari = this.febuari = this.maret = this.april = this.mei = this.juni = this.juli = this.agustus = this.september = this.oktober = this.november = this.desember = 0
     this.valuemonthlist = []
     this.valuemonth = []
-    var date : any = [];
+    var date: any = [];
     this.service.getOci1Valuemonth(this.current).subscribe(data => {
       // //////////console.log(this.currentChange);
       // ////////console.log('sini');
-      
+
       ////////////console.log(data);
 
       this.valuemonth = data;
@@ -291,10 +269,10 @@ export class PdmMOci1Component implements OnInit {
             this.temuanperday_data_temp.push(elem)
           }
         }
-        
+
         var dummytemuan: any = []
         date.forEach((element: any) => {
-          
+
           this.temuanperday_data_temp.forEach((elem: any) => {
             // ////////console.log(elem.bulan);
             // ////////console.log(this.month);
@@ -309,13 +287,13 @@ export class PdmMOci1Component implements OnInit {
           });
         });
         ////////console.log(dummytemuan);
-        
+
         dummytemuan.forEach((element: any) => {
           this.temuanperday_label.push(element.do_date)
         });
         const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
         ////////console.log(this.temuanperday_label);
-        
+
         this.temuanperday_label = []
         this.temuanperday_label = uniqueLabel
 
@@ -1405,9 +1383,9 @@ export class PdmMOci1Component implements OnInit {
     this.totalSatisfactory();
     this.finishNotYet();
     this.dataCurrentYear();
-    this.chartFunction(); 
-    this.dailyChart(); 
-    this.monthlyChart(); 
+    this.chartFunction();
+    this.dailyChart();
+    this.monthlyChart();
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getReadTotalPdmAssetoci1().subscribe(data => {
@@ -1491,7 +1469,7 @@ export class PdmMOci1Component implements OnInit {
                 }
               }
               ////////console.log(this.november);
-              
+
               var dummytemuan: any = []
               date.forEach((element: any) => {
 

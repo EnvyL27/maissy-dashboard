@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-temuan-input',
@@ -15,21 +16,26 @@ export class TemuanInputComponent implements OnInit {
   adminLevel: boolean = false
   plannerLevel: boolean = false
   purchasingLevel: boolean = false
-  uploadPhotoSrc : any
+  listFuncloc: boolean = false
+  uploadPhotoSrc: any
   uploadPhotoFile !: File;
   selectedFile!: File;
+  areaResults = [];
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
   form!: FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
-
   validateSubmit: boolean = false
   prData: any
   target: any;
-  sectionlist: any = [];
   section: any;
+  sectionlist: any = []
+  getcolumn: any = []
+  iflotx: any = []
   area: any;
-
+  filteriflotxarea: any[] = []
+  filteriflotxsection: any[] = []
+  ifloxtdata : any[] = []
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -47,11 +53,19 @@ export class TemuanInputComponent implements OnInit {
   validate() {
     this.validateSubmit = !this.validateSubmit
   }
+  validateFuncLoc() {
+    this.listFuncloc = !this.listFuncloc
+  }
+  funcloc() {
+    this.listFuncloc = !this.listFuncloc
+    console.log(this.filteriflotxarea);
+    
+  }
 
   areaSelect($event: any) {
     this.sectionlist = []
     this.area = $event;
-    //////console.log(this.area);
+    console.log(this.area);
 
     this.service.getPrAllSection().subscribe(data => {
       //////console.log(data);
@@ -63,13 +77,83 @@ export class TemuanInputComponent implements OnInit {
         }
       });
     })
+
+    
   }
 
   sectionSelect($event: any) {
+    this.ifloxtdata = []
     this.section = $event;
+    this.service.getIflotxData().subscribe(data => {
+      this.getcolumn = data
+      this.getcolumn.forEach((element: any) => {
+        this.filteriflotxarea.push(this.iflotxSelectArea(element.TPLNR))
+        this.filteriflotxsection.push(this.iflotxSelectSection(element.TPLNR))
+      });
+      if(this.area == 1){
+        this.getcolumn.forEach((element : any, index : number) => {
+          if(this.iflotxSelectArea(element.TPLNR) == 'OCI1'){
+            if(this.section == 'Preparation'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'PREP'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Injection'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'INJT'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Blow'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'BLOW'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Packing'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'PACK'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Preform Transfer'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'PREF'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Filling'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'FILL'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }else if(this.section == 'Sterilisasi'){
+              if(this.iflotxSelectSection(element.TPLNR) == 'STU1'){
+                this.ifloxtdata.push(this.getcolumn[index])
+              }
+            }
+            
+          }
+        });
+       console.log(this.ifloxtdata);
+      }
+    })
   }
 
-  
+  iflotxSelectSection(tplnr: any) {
+    // Split the string by '-' and get the second part
+
+    const parts = tplnr.split('-').slice(0, -1);
+
+    // Join the parts back together using '-' as the separator
+    const section = parts.join('-');
+
+    const lastPart = section.split('-').pop();
+
+    return lastPart;
+
+
+  }
+
+  iflotxSelectArea(tplnr: any) {
+    // Split the string by '-' and get the second part
+
+    const splitted = tplnr.split('-')[1];
+
+    return splitted
+  }
+
+
   cardChange(event: any) {
     const reader = new FileReader();
 
@@ -91,27 +175,6 @@ export class TemuanInputComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.getUser()
 
-
-    this.router.events.subscribe((val) => {
-
-      // ////console.log(val);
-      if (val instanceof NavigationEnd) {
-        // Hide loading indicator
-        ////console.log(this.user[0]?.user_level);
-
-      }
-
-      // see also 
-      if (this.user[0]?.user_level == 3) {
-        this.plannerLevel = true
-      } else if (this.user[0]?.user_level == 8) {
-        this.purchasingLevel = true
-      }
-      else if (this.user[0]?.user_level == 99) {
-        this.adminLevel = true
-      }
-      ////console.log(this.plannerLevel); 
-    });
     this.form = new FormGroup({
       user: new FormControl(this.user),
       finding: new FormControl(''),
@@ -119,6 +182,7 @@ export class TemuanInputComponent implements OnInit {
       photo: new FormControl(''),
       tanggal_temuan: new FormControl(this.currentDate),
       id_area: new FormControl(''),
+      id_section: new FormControl(''),
       func_loc: new FormControl(''),
       object_part: new FormControl(''),
       ob_detail: new FormControl(''),
@@ -130,33 +194,11 @@ export class TemuanInputComponent implements OnInit {
       kategori: new FormControl(''),
       scope: new FormControl(''),
       status: new FormControl(''),
-      last_update: new FormControl(''),
-      note: new FormControl(''),
-      approve_by: new FormControl(''),
-      approve_date: new FormControl(''),
-      schedule: new FormControl(''),
-      pic: new FormControl(''),
-      photo_type: new FormControl(''),
-      photo_size: new FormControl(''),
-      photo_width: new FormControl(''),
-      photo_height: new FormControl(''),
-      order_type: new FormControl(''),
-      pm_act_type: new FormControl(''),
-      sys_cond: new FormControl(''),
-      basic_start: new FormControl(''),
-      basic_finish: new FormControl(''),
-      report_by: new FormControl(''),
-      main_work_center: new FormControl(''),
-      planner_group: new FormControl(''),
-      plant_section: new FormControl(''),
-      work_center: new FormControl(''),
-      profit_center: new FormControl(''),
-      responsible_cost_center: new FormControl(''),
-      wbs_element: new FormControl(''),
-      cost_center: new FormControl(''),
-      maintance_plan: new FormControl(''),
-      foto_validasi: new FormControl(''),
-      approve_spv: new FormControl(''),
+    })
+
+    this.service.getIflotxData().subscribe((data: any) => {
+      console.log(data);
+
     })
   }
 
@@ -167,6 +209,8 @@ export class TemuanInputComponent implements OnInit {
     // //////console.log(file);
 
   }
+
+
 
 
 

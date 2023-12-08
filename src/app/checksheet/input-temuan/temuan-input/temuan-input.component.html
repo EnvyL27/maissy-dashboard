@@ -38,6 +38,42 @@
                 </div>
             </section>
 
+            <section *ngIf="listFuncloc"
+                class="fixed inset-0 bg-[#514c4c35] px-12 opacity-100 flex justify-center items-center">
+                <div
+                    class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+                    <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="inline-block p-4 bg-yellow-50 rounded-full">
+                                <svg class="w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                    <path
+                                        d="M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z" />
+                                </svg>
+                            </div>
+                            <h2 class="mt-2 font-semibold text-gray-800">This will be list!</h2>
+                            <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
+                            <div class="mt-2 text-sm text-gray-600 leading-relaxed" *ngFor="let data of ifloxtdata">
+                                {{data.TPLNR}}, {{data.PLTXT}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-center mt-3">
+                            <button (click)="validateFuncLoc()"
+                                class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                                Cancel
+                        </button> 
+
+                            <div type="menu" routerLink="/pr_list"
+                                class="text-center flex-1 px-4 py-2 ml-2 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded-md">
+                                Agree
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- component -->
             <section class="container mx-auto rounded-lg">
                 <div class="flex flex-col mt-6">
@@ -74,7 +110,8 @@
                                                 <input
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                     type="file" (change)="cardChange($event)">
-                                                    <img [src]="uploadPhotoSrc" *ngIf="uploadPhotoSrc" style="max-height: 50%; max-width: 50%;" />
+                                                <img [src]="uploadPhotoSrc" *ngIf="uploadPhotoSrc"
+                                                    style="max-height: 50%; max-width: 50%;" />
                                             </div>
                                         </div>
                                     </div>
@@ -156,14 +193,10 @@
                                                 for="grid-state">
                                                 Func Loc
                                             </label>
-                                            <div class="flex">
-                                                <select formControlName="func_loc"
-                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
-                                                    <option value="1">OCI 1</option>
-                                                    <option value="2">OCI 2</option>
-                                                    <option value="3">FSB</option>
-                                                </select>
+                                            <div (click)="funcloc()" class="flex">
+                                                <div formControlName="funcloc" [attr.disabled]="true"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-password"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -286,7 +319,7 @@
                                             <label
                                                 class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                                 for="grid-state">
-                                                Detail 
+                                                Detail
                                             </label>
                                             <div class="flex">
                                                 <select formControlName="cc_detail"
@@ -302,7 +335,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>      
+                                    </div>
 
                                     <div class="flex flex-wrap -mx-3 mb-6">
                                         <div class="w-full px-3">

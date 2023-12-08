@@ -358,10 +358,6 @@ export class CountService {
   getTemperatureLineoci1() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci1");
   }
-  dimas() {
-    return this.httpClient.get(api + 'pdm/' + "dimas");
-  }
-
   getTemperatureLineoci2() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci2");
   }
@@ -791,5 +787,10 @@ export class CountService {
   }
   getTemuanDdata(){
     return this.httpClient.get(apiAM + '/temuand/');
+  }
+
+  //IFLOTX SERVICE//
+  getIflotxData(){
+    return this.httpClient.get(apiAM + '/sap/iflotx');
   }
 };
