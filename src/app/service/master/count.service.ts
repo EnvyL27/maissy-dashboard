@@ -355,6 +355,9 @@ export class CountService {
   /////////////////////////////
   // ROUTE FOR DASHBOARD PDM //
   /////////////////////////////
+  dimas() {
+    return this.httpClient.get(api + 'pdm/' + "dimas");
+  }
   getTemperatureLineoci1() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci1");
   }

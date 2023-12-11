@@ -38,6 +38,7 @@ export class TemuanInputComponent implements OnInit {
   ifloxtdata : any[] = []
   currentPage = 0
   searchText : any
+  funclocShow : any
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -50,6 +51,12 @@ export class TemuanInputComponent implements OnInit {
 
     // };
     this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
+  }
+
+  selectFuncLoc(id: any){
+    console.log(id);
+    this.funclocShow = id
+    this.listFuncloc = false
   }
 
   validate() {

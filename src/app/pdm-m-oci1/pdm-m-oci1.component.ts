@@ -358,6 +358,35 @@ export class PdmMOci1Component implements OnInit {
     }
     );
   }
+// diamsexport : any = []
+//   dimas(){
+//     this.service.dimas().subscribe(data => {
+
+    
+//       this.diamsexport = data
+//       console.log(this.diamsexport.get);
+//       const janexport: any = []
+//       janexport.push(this.diamsexport.get)
+//       ////////////////console.log(janexport);
+
+//       const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(janexport[0]);
+//       ws["!cols"] = [{ wch: 10 },
+//       { wch: 60 },
+//       { wch: 10 },
+//       { wch: 40 },
+//       { wch: 30 },
+//       { wch: 15 },
+//       { wch: 15 },
+//       { wch: 10 },
+//       { wch: 15 }];
+
+//       /* generate workbook and add the worksheet */
+//       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+//       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+//       XLSX.writeFile(wb, 'DataDimas.xlsx');
+
+//     })
+//   }
 
   changeDate() {
     this.totalfinishtoday2 = [];

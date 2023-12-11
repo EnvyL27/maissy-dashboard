@@ -52,7 +52,7 @@
                                 placeholder="Search here.." name="search" [(ngModel)]="searchText" />
                             </div>
                             <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
-                            <button class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 duration-200 rounded-lg" *ngFor="let data of ifloxtdata  | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
+                            <button (click)="selectFuncLoc(data.TPLNR + ', ' + data.PLTXT)" class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg" *ngFor="let data of ifloxtdata  | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
                                 <h1 >{{data.TPLNR}}, {{data.PLTXT}}</h1>
                             </button>
                         </div>
@@ -193,7 +193,7 @@
                                             <div (click)="funcloc()" class="flex">
                                                 <div formControlName="funcloc" [attr.disabled]="true"
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                    id="grid-password"></div>
+                                                    id="grid-password">{{funclocShow}}</div>
                                             </div>
                                         </div>
                                     </div>
