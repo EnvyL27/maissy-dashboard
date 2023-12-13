@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
-import { filter } from 'rxjs';
+import { filter, first } from 'rxjs';
 
 @Component({
   selector: 'app-temuan-input',
@@ -17,6 +17,9 @@ export class TemuanInputComponent implements OnInit {
   plannerLevel: boolean = false
   purchasingLevel: boolean = false
   listObj: boolean = false
+  listObjDetail: boolean = false
+  listDmg: boolean = false
+  listDmgDetail: boolean = false
   listFuncloc: boolean = false
   uploadPhotoSrc: any
   uploadPhotoFile !: File;
@@ -36,12 +39,15 @@ export class TemuanInputComponent implements OnInit {
   area: any;
   filteriflotxarea: any[] = []
   filteriflotxsection: any[] = []
-  ifloxtdata : any[] = []
+  ifloxtdata: any[] = []
   currentPage = 0
   currentPage2 = 0
-  searchText : any
-  funclocShow : any
-  objShow : any
+  searchText: any
+  funclocShow: any
+  objShow: any
+  objShowDetail: any
+  dmgShow: any
+  dmgShowDetail: any
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -56,16 +62,31 @@ export class TemuanInputComponent implements OnInit {
     this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
   }
 
-  selectFuncLoc(id: any){
+  selectFuncLoc(id: any) {
     console.log(id);
     this.funclocShow = id
     this.listFuncloc = false
   }
 
-  selectObj(id: any){
+  selectObj(id: any) {
     console.log(id);
     this.objShow = id
     this.listObj = false
+  }
+  selectObjDetail(id: any) {
+    console.log(id);
+    this.objShowDetail = id
+    this.listObjDetail = false
+  }
+  selectDmg(id: any) {
+    console.log(id);
+    this.dmgShow = id
+    this.listDmg = false
+  }
+  selectDmgDetail(id: any) {
+    console.log(id);
+    this.dmgShowDetail = id
+    this.listDmgDetail = false
   }
 
   validate() {
@@ -77,16 +98,43 @@ export class TemuanInputComponent implements OnInit {
   validateObj() {
     this.listObj = !this.listObj
   }
+  validateObjDetail() {
+    this.listObjDetail = !this.listObjDetail
+  }
+  validateDmg() {
+    this.listDmg = !this.listDmg
+  }
+  validateDmgDetail() {
+    this.listDmgDetail = !this.listDmgDetail
+  }
   funcloc() {
     this.listFuncloc = !this.listFuncloc
     console.log(this.filteriflotxarea);
-    
+
   }
   object() {
     this.listObj = !this.listObj
     this.qpgtSelect()
     // console.log(this.filteriflotxarea);
-    
+
+  }
+  objectDetail() {
+    this.listObjDetail = !this.listObjDetail
+    this.qpctSelect()
+    // console.log(this.filteriflotxarea);
+
+  }
+  damage() {
+    this.listDmg = !this.listDmg
+    this.dmgSelect()
+    // console.log(this.filteriflotxarea);
+
+  }
+  damageDetail() {
+    this.listDmgDetail = !this.listDmgDetail
+    this.dmgDetailSelect()
+    // console.log(this.filteriflotxarea);
+
   }
 
   areaSelect($event: any) {
@@ -105,7 +153,7 @@ export class TemuanInputComponent implements OnInit {
       });
     })
 
-    
+
   }
 
   sectionSelect($event: any) {
@@ -117,56 +165,123 @@ export class TemuanInputComponent implements OnInit {
         this.filteriflotxarea.push(this.iflotxSelectArea(element.TPLNR))
         this.filteriflotxsection.push(this.iflotxSelectSection(element.TPLNR))
       });
-      if(this.area == 1){
-        this.getcolumn.forEach((element : any, index : number) => {
-          if(this.iflotxSelectArea(element.TPLNR) == 'OCI1'){
-            if(this.section == 'Preparation'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'PREP'){
+      if (this.area == 1) {
+        this.getcolumn.forEach((element: any, index: number) => {
+          if (this.iflotxSelectArea(element.TPLNR) == 'OCI1') {
+            if (this.section == 'Preparation') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'PREP') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Injection'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'INJT'){
+            } else if (this.section == 'Injection') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'INJT') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Blow'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'BLOW'){
+            } else if (this.section == 'Blow') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'BLOW') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Packing'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'PACK'){
+            } else if (this.section == 'Packing') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'PACK') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Preform Transfer'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'PREF'){
+            } else if (this.section == 'Preform Transfer') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'PREF') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Filling'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'FILL'){
+            } else if (this.section == 'Filling') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'FILL') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
-            }else if(this.section == 'Sterilisasi'){
-              if(this.iflotxSelectSection(element.TPLNR) == 'STU1'){
+            } else if (this.section == 'Sterilisasi') {
+              if (this.iflotxSelectSection(element.TPLNR) == 'STU1') {
                 this.ifloxtdata.push(this.getcolumn[index])
               }
             }
-            
+
           }
         });
-       console.log(this.ifloxtdata);
+        console.log(this.ifloxtdata);
       }
     })
   }
 
-  qgptData : any
-  qpgtSelect(){
+  qgptData: any
+  qgptDataFiltered: any[] = []
+  qpgtSelect() {
     this.service.getqpgtData().subscribe(data => {
-      this.qgptData = data      
-      this.qgptData.forEach((element : any) => {
-        if(element.KATALOGART == 'B'){
-          console.log(element);
-          
+      this.qgptData = data
+      this.qgptData.forEach((element: any) => {
+        if (element.KATALOGART == 'B') {
+          this.qgptDataFiltered.push(element);
+
         }
       });
+    })
+  }
+
+  qgctData: any
+  qgctDataFiltered: any[] = []
+  qpctSelect() {
+    // Split the string using comma as the delimiter
+    const parts = this.objShow.split(',');
+
+    // Get the first word (trimmed to remove leading/trailing spaces)
+    const firstWord = parts[0].trim();
+    console.log(firstWord);
+
+    this.service.getqpctData().subscribe(data => {
+      console.log(data);
+
+      this.qgctData = data
+      this.qgctData.forEach((element: any) => {
+        if (element.CODEGRUPPE == firstWord) {
+          if (element.KATALOGART == 'B') {
+            this.qgctDataFiltered.push(element);
+          }
+        }
+      });
+      console.log(this.qgctDataFiltered);
+
+    })
+  }
+
+  dmgData: any
+  dmgDataFiltered: any[] = []
+  dmgSelect() {
+    this.service.getqpgtData().subscribe(data => {
+      this.qgptData = data
+      this.qgptData.forEach((element: any) => {
+        if (element.KATALOGART == 'C') {
+          this.dmgDataFiltered.push(element);
+
+        }
+      });
+    })
+  }
+
+  dmgDetailData: any
+  dmgDetailDataFiltered: any[] = []
+  dmgDetailSelect() {
+    // Split the string using comma as the delimiter
+    const parts = this.objShow.split(',');
+
+    // Get the first word (trimmed to remove leading/trailing spaces)
+    const firstWord = parts[0].trim();
+    console.log(firstWord);
+
+    this.service.getqpctData().subscribe(data => {
+      console.log(data);
+
+      this.dmgDetailData = data
+      this.dmgDetailData.forEach((element: any) => {
+        if (element.CODEGRUPPE == firstWord) {
+          if (element.KATALOGART == 'B') {
+            this.dmgDetailDataFiltered.push(element);
+          }
+        }
+      });
+      console.log(this.dmgDetailDataFiltered);
+
     })
   }
 
@@ -181,7 +296,6 @@ export class TemuanInputComponent implements OnInit {
     const lastPart = section.split('-').pop();
 
     return lastPart;
-
 
   }
 

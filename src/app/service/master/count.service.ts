@@ -799,4 +799,7 @@ export class CountService {
   getqpgtData(){
     return this.httpClient.get(apiAM + '/sap/qpgt');
   }
+  getqpctData(){
+    return this.httpClient.get(apiAM + '/sap/qpct');
+  }
 };
