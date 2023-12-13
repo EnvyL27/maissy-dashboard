@@ -796,4 +796,7 @@ export class CountService {
   getIflotxData(){
     return this.httpClient.get(apiAM + '/sap/iflotx');
   }
+  getqpgtData(){
+    return this.httpClient.get(apiAM + '/sap/qpgt');
+  }
 };

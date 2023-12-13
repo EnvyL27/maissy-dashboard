@@ -16,6 +16,7 @@ export class TemuanInputComponent implements OnInit {
   adminLevel: boolean = false
   plannerLevel: boolean = false
   purchasingLevel: boolean = false
+  listObj: boolean = false
   listFuncloc: boolean = false
   uploadPhotoSrc: any
   uploadPhotoFile !: File;
@@ -37,8 +38,10 @@ export class TemuanInputComponent implements OnInit {
   filteriflotxsection: any[] = []
   ifloxtdata : any[] = []
   currentPage = 0
+  currentPage2 = 0
   searchText : any
   funclocShow : any
+  objShow : any
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -59,15 +62,30 @@ export class TemuanInputComponent implements OnInit {
     this.listFuncloc = false
   }
 
+  selectObj(id: any){
+    console.log(id);
+    this.objShow = id
+    this.listObj = false
+  }
+
   validate() {
     this.validateSubmit = !this.validateSubmit
   }
   validateFuncLoc() {
     this.listFuncloc = !this.listFuncloc
   }
+  validateObj() {
+    this.listObj = !this.listObj
+  }
   funcloc() {
     this.listFuncloc = !this.listFuncloc
     console.log(this.filteriflotxarea);
+    
+  }
+  object() {
+    this.listObj = !this.listObj
+    this.qpgtSelect()
+    // console.log(this.filteriflotxarea);
     
   }
 
@@ -136,6 +154,19 @@ export class TemuanInputComponent implements OnInit {
         });
        console.log(this.ifloxtdata);
       }
+    })
+  }
+
+  qgptData : any
+  qpgtSelect(){
+    this.service.getqpgtData().subscribe(data => {
+      this.qgptData = data      
+      this.qgptData.forEach((element : any) => {
+        if(element.KATALOGART == 'B'){
+          console.log(element);
+          
+        }
+      });
     })
   }
 
