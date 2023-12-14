@@ -37,11 +37,14 @@ export class TemuanInputComponent implements OnInit {
   getcolumn: any = []
   iflotx: any = []
   area: any;
+  level: any;
   filteriflotxarea: any[] = []
   filteriflotxsection: any[] = []
   ifloxtdata: any[] = []
   currentPage = 0
   currentPage2 = 0
+  currentPage3 = 1
+  currentPage4 = 0
   searchText: any
   funclocShow: any
   objShow: any
@@ -156,6 +159,25 @@ export class TemuanInputComponent implements OnInit {
 
   }
 
+  levelSelect($event: any) {
+    this.sectionlist = []
+    this.area = $event;
+    console.log(this.area);
+
+    this.service.getPrAllSection().subscribe(data => {
+      //////console.log(data);
+
+      this.prData = data
+      this.prData.forEach((element: any) => {
+        if (element.id_area == this.area) {
+          this.sectionlist.push(element)
+        }
+      });
+    })
+
+
+  }
+
   sectionSelect($event: any) {
     this.ifloxtdata = []
     this.section = $event;
@@ -208,6 +230,8 @@ export class TemuanInputComponent implements OnInit {
   qgptData: any
   qgptDataFiltered: any[] = []
   qpgtSelect() {
+    this.qgptData = []
+    this.qgptDataFiltered = []
     this.service.getqpgtData().subscribe(data => {
       this.qgptData = data
       this.qgptData.forEach((element: any) => {
@@ -222,6 +246,8 @@ export class TemuanInputComponent implements OnInit {
   qgctData: any
   qgctDataFiltered: any[] = []
   qpctSelect() {
+    this.qgctData = []
+    this.qgctDataFiltered = []
     // Split the string using comma as the delimiter
     const parts = this.objShow.split(',');
 
@@ -243,11 +269,14 @@ export class TemuanInputComponent implements OnInit {
       console.log(this.qgctDataFiltered);
 
     })
+
   }
 
   dmgData: any
   dmgDataFiltered: any[] = []
   dmgSelect() {
+    this.dmgData = []
+    this.dmgDataFiltered = []
     this.service.getqpgtData().subscribe(data => {
       this.qgptData = data
       this.qgptData.forEach((element: any) => {
@@ -261,9 +290,13 @@ export class TemuanInputComponent implements OnInit {
 
   dmgDetailData: any
   dmgDetailDataFiltered: any[] = []
+  dmgDetailLength: any
   dmgDetailSelect() {
+    this.currentPage3 = 0
+    this.dmgDetailData = []
+    this.dmgDetailDataFiltered = []
     // Split the string using comma as the delimiter
-    const parts = this.objShow.split(',');
+    const parts = this.dmgShow.split(',');
 
     // Get the first word (trimmed to remove leading/trailing spaces)
     const firstWord = parts[0].trim();
@@ -271,17 +304,16 @@ export class TemuanInputComponent implements OnInit {
 
     this.service.getqpctData().subscribe(data => {
       console.log(data);
-
       this.dmgDetailData = data
-      this.dmgDetailData.forEach((element: any) => {
-        if (element.CODEGRUPPE == firstWord) {
-          if (element.KATALOGART == 'B') {
-            this.dmgDetailDataFiltered.push(element);
-          }
-        }
-      });
-      console.log(this.dmgDetailDataFiltered);
-
+      this.dmgDetailDataFiltered = this.dmgDetailData.filter((element: any) => {
+        return element.CODEGRUPPE == firstWord
+      })
+      console.log(this.dmgDetailDataFiltered.length);
+      if (this.dmgDetailDataFiltered.length < 10) {
+        this.dmgDetailLength = this.dmgDetailDataFiltered.length
+      }else if(this.dmgDetailDataFiltered.length > 10){
+        this.dmgDetailLength = 10
+      }
     })
   }
 

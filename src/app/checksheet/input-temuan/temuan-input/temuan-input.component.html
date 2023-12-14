@@ -137,6 +137,71 @@
                 </div>
             </section>
 
+            <section *ngIf="listDmg"
+                class="fixed inset-0 bg-[#514c4c35] px-12 opacity-100 flex justify-center items-center">
+                <div
+                    class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+                    <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+                        <div class="flex flex-col items-center text-center">
+                            
+                            <h2 class="mt-2 font-semibold text-gray-800">Damage Part!</h2>
+                            <div class="p-2">
+                                <input type="text"
+                                class="pl-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-2 leading-tight focus:outline-none focus:border-gray-300"
+                                placeholder="Search here.." name="search" [(ngModel)]="searchText" />
+                            </div>
+                            <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
+                            <button (click)="selectDmg(data.CODEGRUPPE + ', ' + data.KURZTEXT)" class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg" *ngFor="let data of dmgDataFiltered  | paginate: { id: 'pagination3', currentPage: currentPage3, itemsPerPage: 10 }; let i = index">
+                                <h1 >{{data.CODEGRUPPE}}, {{data.KURZTEXT}}</h1>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <pagination-controls class="text-center" id="pagination3" (pageChange)="currentPage3 = $event">
+                            </pagination-controls>
+                        </div>
+
+                        <div class="flex items-center mt-3">
+                            <button (click)="validateDmg()"
+                                class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                                Cancel
+                        </button> 
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section *ngIf="listDmgDetail"
+                class="fixed inset-0 bg-[#514c4c35] px-12 opacity-100 flex justify-center items-center">
+                <div
+                    class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+                    <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+                        <div class="flex flex-col items-center text-center">
+                            
+                            <h2 class="mt-2 font-semibold text-gray-800">Damage Detail!</h2>
+                            <div class="p-2">
+                                <input type="text"
+                                class="pl-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-2 leading-tight focus:outline-none focus:border-gray-300"
+                                placeholder="Search here.." name="search" [(ngModel)]="searchText" />
+                            </div>
+                            <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
+                            <button (click)="selectDmgDetail(data.CODE + ', ' + data.KURZTEXT)" class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg" *ngFor="let data of dmgDetailDataFiltered  | paginate: { id: 'pagination3', currentPage: currentPage3, itemsPerPage: dmgDetailLength }; let i = index">
+                                <h1 >{{data.CODE}}, {{data.KURZTEXT}}</h1>
+                            </button>
+                        </div>
+                        <div class="p-3">
+                            <pagination-controls class="text-center" id="pagination3" (pageChange)="currentPage3 = $event">
+                            </pagination-controls>
+                        </div>
+
+                        <div class="flex items-center mt-3">
+                            <button (click)="validateDmgDetail()"
+                                class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                                Cancel
+                        </button> 
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- component -->
             <section class="container mx-auto rounded-lg">
                 <div class="flex flex-col mt-6">
@@ -298,14 +363,10 @@
                                                 for="grid-state">
                                                 Damage Part
                                             </label>
-                                            <div class="flex">
-                                                <select formControlName="damage"
-                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
-                                                    <option value="1">OCI 1</option>
-                                                    <option value="2">OCI 2</option>
-                                                    <option value="3">FSB</option>
-                                                </select>
+                                            <div (click)="damage()" class="flex">
+                                                <div formControlName="object" [attr.disabled]="true"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-password">{{dmgShow}}</div>
                                             </div>
                                         </div>
                                         <div class="w-full md:w-1/2 px-3">
@@ -314,18 +375,10 @@
                                                 for="grid-state">
                                                 Detail Damage
                                             </label>
-                                            <div class="flex">
-                                                <select formControlName="d_detail"
-                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="section"
-                                                    (change)="sectionSelect(section)">
-                                                    <ng-container *ngFor="let data of sectionlist" class="px-4">
-
-                                                        <option value={{data.section}}>
-                                                            {{ data.section }}
-                                                        </option>
-                                                    </ng-container>
-                                                </select>
+                                            <div (click)="damageDetail()" class="flex">
+                                                <div formControlName="object" [attr.disabled]="true"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-password">{{dmgShowDetail}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -340,10 +393,10 @@
                                             <div class="flex">
                                                 <select formControlName="level"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
-                                                    <option value="1">OCI 1</option>
-                                                    <option value="2">OCI 2</option>
-                                                    <option value="3">FSB</option>
+                                                    id="grid-state" [(ngModel)]="level" (change)="levelSelect(level)">
+                                                    <option value="1">Low</option>
+                                                    <option value="2">Medium</option>
+                                                    <option value="3">High</option>
                                                 </select>
                                             </div>
                                         </div>
