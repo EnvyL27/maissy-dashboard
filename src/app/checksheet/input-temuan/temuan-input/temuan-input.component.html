@@ -394,9 +394,9 @@
                                                 <select formControlName="level"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="level" (change)="levelSelect(level)">
-                                                    <option value="1">Low</option>
-                                                    <option value="2">Medium</option>
-                                                    <option value="3">High</option>
+                                                    <option value="low">Low</option>
+                                                    <option value="medium">Medium</option>
+                                                    <option value="high">High</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -409,14 +409,10 @@
                                                 for="grid-state">
                                                 Cause Code
                                             </label>
-                                            <div class="flex">
-                                                <select formControlName="cause_code"
-                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
-                                                    <option value="1">OCI 1</option>
-                                                    <option value="2">OCI 2</option>
-                                                    <option value="3">FSB</option>
-                                                </select>
+                                            <div (click)="causeCode()" class="flex">
+                                                <div formControlName="object" [attr.disabled]="true"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-password">{{ccShow}}</div>
                                             </div>
                                         </div>
                                         <div class="w-full md:w-1/2 px-3">
@@ -425,18 +421,10 @@
                                                 for="grid-state">
                                                 Detail
                                             </label>
-                                            <div class="flex">
-                                                <select formControlName="cc_detail"
-                                                    class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
-                                                    id="grid-state" [(ngModel)]="section"
-                                                    (change)="sectionSelect(section)">
-                                                    <ng-container *ngFor="let data of sectionlist" class="px-4">
-
-                                                        <option value={{data.section}}>
-                                                            {{ data.section }}
-                                                        </option>
-                                                    </ng-container>
-                                                </select>
+                                            <div (click)="ccDetail()" class="flex">
+                                                <div formControlName="object" [attr.disabled]="true"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-password">{{ccShowDetail}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -452,9 +440,10 @@
                                                 <select formControlName="kategori"
                                                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                     id="grid-state" [(ngModel)]="area" (change)="areaSelect(area)">
-                                                    <option value="1">OCI 1</option>
-                                                    <option value="2">OCI 2</option>
-                                                    <option value="3">FSB</option>
+                                                    <option value="1">Setting</option>
+                                                    <option value="2">Replacement</option>
+                                                    <option value="3">Improvement</option>
+                                                    <option value="3">Preventive</option>
                                                 </select>
                                             </div>
                                         </div>

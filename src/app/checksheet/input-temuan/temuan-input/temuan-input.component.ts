@@ -20,6 +20,8 @@ export class TemuanInputComponent implements OnInit {
   listObjDetail: boolean = false
   listDmg: boolean = false
   listDmgDetail: boolean = false
+  listCc: boolean = false
+  listCcDetail: boolean = false
   listFuncloc: boolean = false
   uploadPhotoSrc: any
   uploadPhotoFile !: File;
@@ -51,6 +53,8 @@ export class TemuanInputComponent implements OnInit {
   objShowDetail: any
   dmgShow: any
   dmgShowDetail: any
+  ccShow: any
+  ccShowDetail: any
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -91,6 +95,16 @@ export class TemuanInputComponent implements OnInit {
     this.dmgShowDetail = id
     this.listDmgDetail = false
   }
+  selectCc(id: any) {
+    console.log(id);
+    this.ccShow = id
+    this.listCc = false
+  }
+  selectCcDetail(id: any) {
+    console.log(id);
+    this.ccShowDetail = id
+    this.listCcDetail = false
+  }
 
   validate() {
     this.validateSubmit = !this.validateSubmit
@@ -109,6 +123,12 @@ export class TemuanInputComponent implements OnInit {
   }
   validateDmgDetail() {
     this.listDmgDetail = !this.listDmgDetail
+  }
+  validateCc() {
+    this.listCc = !this.listCc
+  }
+  validateCcDetail() {
+    this.listCcDetail = !this.listCcDetail
   }
   funcloc() {
     this.listFuncloc = !this.listFuncloc
@@ -136,6 +156,18 @@ export class TemuanInputComponent implements OnInit {
   damageDetail() {
     this.listDmgDetail = !this.listDmgDetail
     this.dmgDetailSelect()
+    // console.log(this.filteriflotxarea);
+
+  }
+  causeCode() {
+    this.listCc = !this.listCc
+    this.ccSelect()
+    // console.log(this.filteriflotxarea);
+
+  }
+  ccDetail() {
+    this.listCcDetail = !this.listCcDetail
+    this.ccDetailSelect()
     // console.log(this.filteriflotxarea);
 
   }
@@ -278,8 +310,8 @@ export class TemuanInputComponent implements OnInit {
     this.dmgData = []
     this.dmgDataFiltered = []
     this.service.getqpgtData().subscribe(data => {
-      this.qgptData = data
-      this.qgptData.forEach((element: any) => {
+      this.dmgData = data
+      this.dmgData.forEach((element: any) => {
         if (element.KATALOGART == 'C') {
           this.dmgDataFiltered.push(element);
 
@@ -313,6 +345,51 @@ export class TemuanInputComponent implements OnInit {
         this.dmgDetailLength = this.dmgDetailDataFiltered.length
       }else if(this.dmgDetailDataFiltered.length > 10){
         this.dmgDetailLength = 10
+      }
+    })
+  }
+
+  ccData: any
+  ccFiltered: any[] = []
+  ccSelect() {
+    this.ccData = []
+    this.ccFiltered = []
+    this.service.getqpgtData().subscribe(data => {
+      this.ccData = data
+      this.ccData.forEach((element: any) => {
+        if (element.KATALOGART == '5') {
+          this.ccFiltered.push(element);
+
+        }
+      });
+    })
+  }
+
+  ccDetailData: any
+  ccDetailDataFiltered: any[] = []
+  ccDetailLength: any
+  ccDetailSelect() {
+    this.currentPage3 = 0
+    this.ccDetailData = []
+    this.ccDetailDataFiltered = []
+    // Split the string using comma as the delimiter
+    const parts = this.dmgShow.split(',');
+
+    // Get the first word (trimmed to remove leading/trailing spaces)
+    const firstWord = parts[0].trim();
+    console.log(firstWord);
+
+    this.service.getqpctData().subscribe(data => {
+      console.log(data);
+      this.ccDetailData = data
+      this.ccDetailDataFiltered = this.ccDetailData.filter((element: any) => {
+        return element.CODEGRUPPE == firstWord
+      })
+      console.log(this.ccDetailDataFiltered.length);
+      if (this.ccDetailDataFiltered.length < 10) {
+        this.ccDetailLength = this.ccDetailDataFiltered.length
+      }else if(this.ccDetailDataFiltered.length > 10){
+        this.ccDetailLength = 10
       }
     })
   }

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
+import { FilePondComponent } from 'ngx-filepond';
+import { FilePond, FilePondOptions } from 'filepond';
 
 @Component({
   selector: 'app-pr-input-page',
@@ -12,6 +14,45 @@ import * as moment from 'moment';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
+  @ViewChild('myPond')
+  myPond!: FilePond;
+
+  pondOptions: FilePondOptions = {
+    allowMultiple: true,
+    labelIdle: 'Drop files here...',
+    acceptedFileTypes: ['image/jpeg, image/png'],
+    allowReorder:true,
+    maxFiles:5,
+  }
+
+  pondFiles: FilePondOptions["files"] = [
+    {
+      source: 'assets/photo.jpeg',
+      options: {
+        type: 'local'
+      }
+    }
+  ]
+
+  pondHandleInit() {
+    console.log('FilePond has initialised', this.myPond);
+  }
+
+  pondHandleAddFile(event: any) {
+    console.log('A file was added', event);
+  }
+
+  pondHandleRemoveFile(event: any) {
+    console.log('A file was removed', event);
+  }
+
+  pondHandleActivateFile(event: any) {
+    console.log('A file was activated', event)
+  }
+
+  uploadFiles(){
+    console.log(this.myPond.getFiles());
+  }
   adminLevel : boolean = false
   plannerLevel : boolean = false
   purchasingLevel : boolean = false
@@ -102,8 +143,10 @@ export class PrInputPageComponent implements OnInit {
       pr_number: new FormControl(''),
       v_name: new FormControl(''),
       v_value: new FormControl(''),
+      attachment: new FormControl(''),
       v2_name: new FormControl(''),
       v2_value: new FormControl(''),
+      attachment2: new FormControl(''),
       bidding: new FormControl(''),
       keterangan: new FormControl(''),
     })
@@ -135,8 +178,10 @@ export class PrInputPageComponent implements OnInit {
       formData.append('pr_number', this.form.value.pr_number),
       formData.append('v_name', this.form.value.v_name),
       formData.append('v_value', this.form.value.v_value),
+      formData.append('attachment', this.form.value.attachment),
       formData.append('v2_name', this.form.value.v2_name),
       formData.append('v2_value', this.form.value.v2_value),
+      formData.append('attachment2', this.form.value.attachment2),
       formData.append('bidding', this.form.value.bidding),
       formData.append('keterangan', this.form.value.keterangan),
       this.service.postPrData(formData).subscribe(
@@ -161,8 +206,10 @@ export class PrInputPageComponent implements OnInit {
       formData.append('pr_number', this.form.value.pr_number),
       formData.append('v_name', this.form.value.v_name),
       formData.append('v_value', this.form.value.v_value),
+      formData.append('attachment', this.form.value.attachment),
       formData.append('v2_name', this.form.value.v2_name),
       formData.append('v2_value', this.form.value.v2_value),
+      formData.append('attachment2', this.form.value.attachment2),
       formData.append('bidding', this.form.value.bidding),
       formData.append('keterangan', this.form.value.keterangan),
       this.service.postPrData(formData).subscribe(

@@ -116,7 +116,16 @@ import { UserLevelListComponent } from './checksheet/user-level/user-level-list/
 import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-update/user-level-update.component';
 import { CiltListComponent } from './checksheet/cilt/cilt-list/cilt-list.component';
 import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.component';
-import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component'
+import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component';
+import { FilePondModule, registerPlugin } from 'ngx-filepond';
+
+// import and register filepond file type validation plugin
+// import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+// import and register filepond file type validation plugin
+import  * as FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import  * as FilepondPluginImageEdit from 'filepond-plugin-image-edit';
+import  * as FilepondPluginImagePreview from 'filepond-plugin-image-preview';
+registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
 @NgModule({
@@ -238,6 +247,7 @@ import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/tem
     NgxPaginationModule,
     CommonModule,
     FormsModule,
+    FilePondModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
