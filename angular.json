@@ -30,7 +30,8 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/aos/dist/aos.css",
               "./node_modules/filepond/dist/filepond.min.css",
-              "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"
+              "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css",
+              "./node_modules/filepond-plugin-pdf-preview/dist/filepond-plugin-pdf-preview.min.css"
             ],
             "scripts": []
           },
@@ -94,7 +95,8 @@
             "styles": [
               "src/styles.css",
               "./node_modules/filepond/dist/filepond.min.css",
-              "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"
+              "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css",
+              "./node_modules/filepond-plugin-pdf-preview/dist/filepond-plugin-pdf-preview.min.css"
             ],
             "scripts": []
           }

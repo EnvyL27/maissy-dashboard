@@ -6,7 +6,9 @@ import { FormGroup, FormControl, Validator } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 import { FilePondComponent } from 'ngx-filepond';
-import { FilePond, FilePondOptions } from 'filepond';
+import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
+import 'filepond-plugin-pdf-preview';
+
 
 @Component({
   selector: 'app-pr-input-page',
@@ -19,39 +21,38 @@ export class PrInputPageComponent implements OnInit {
 
   pondOptions: FilePondOptions = {
     allowMultiple: true,
-    labelIdle: 'Drop files here...',
-    acceptedFileTypes: ['image/jpeg, image/png'],
+    
+    labelIdle: 'Drop images here...',
+    acceptedFileTypes: ['image/png', 'application/pdf', 'image/jpeg', 'image/jpg'],
     allowReorder:true,
-    maxFiles:5,
+    maxFiles:1,    
   }
 
-  pondFiles: FilePondOptions["files"] = [
-    {
-      source: 'assets/photo.jpeg',
-      options: {
-        type: 'local'
-      }
-    }
-  ]
 
-  pondHandleInit() {
-    console.log('FilePond has initialised', this.myPond);
+  uploadFiles() {
+    // Using this.myPond.getFiles() to retrieve the uploaded files
+    const files: FilePondFile[] = this.myPond.getFiles();
+  
+    // Extract file data to send to the backend
+    const fileDataArray: any[] = files.map((file: FilePondFile) => {
+      return {
+        file: file.file,
+        // other file properties you might need
+      };
+    });
+  
+    // Send the file data to the backend
+    this.sendToBackend(fileDataArray);
   }
 
-  pondHandleAddFile(event: any) {
-    console.log('A file was added', event);
-  }
-
-  pondHandleRemoveFile(event: any) {
-    console.log('A file was removed', event);
-  }
-
-  pondHandleActivateFile(event: any) {
-    console.log('A file was activated', event)
-  }
-
-  uploadFiles(){
-    console.log(this.myPond.getFiles());
+  sendToBackend(fileDataArray: any[]) {
+    console.log(fileDataArray[0].file);
+    this.selectedFile = fileDataArray[0].file
+    // Use Angular's HttpClient to send the file data to the backend
+    // Example:
+    // this.http.post('your_backend_url', fileDataArray).subscribe(response => {
+    //   console.log(response);
+    // });
   }
   adminLevel : boolean = false
   plannerLevel : boolean = false
@@ -153,10 +154,10 @@ export class PrInputPageComponent implements OnInit {
   }
 
   onFileChanged(event : any) {
-    // //////console.log(event);
-    
-    this.selectedFile = event.target.files[0]
-    // //////console.log(file);
+    console.log(event);
+    this.uploadFiles()
+    // this.selectedFile = event.target.files[0]
+    // console.log(this.selectedFile);
     
   }
 

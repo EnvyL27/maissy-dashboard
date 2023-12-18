@@ -64,9 +64,11 @@
                                                     id="grid-last-name" type="text" placeholder="Put Description Here">
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
-                                                <input
+                                                <!-- <input
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                    type="file" (change)="onFileChanged($event)">
+                                                    type="file" (change)="onFileChanged($event)"> -->
+                                                <file-pond #myPond [options]="pondOptions">
+                                                </file-pond>
                                             </div>
                                         </div>
                                     </div>
@@ -262,13 +264,11 @@
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="file"> -->
                                             <!-- app.component.html -->
-                                            <file-pond #myPond [options]="pondOptions" [files]="pondFiles"
-                                                (onInit)="pondHandleInit()" (onAddfile)="pondHandleAddFile($event)"
-                                                (onActivatefile)="pondHandleActivateFile($event)"
-                                                (onRemovefile)="pondHandleRemoveFile($event)">
+                                            <file-pond #myPond [options]="pondOptions">
                                             </file-pond>
+                                            
 
-                                            <button (click)="uploadFiles()">Submit</button>
+                                            
                                         </div>
                                     </div>
 
@@ -310,7 +310,7 @@
                                         </div>
                                     </div>
                                     <div class="flex flex-row gap-4 content-end justify-end items-end py-2">
-                                        <button type="submit"
+                                        <button (click)="uploadFiles()" type="submit"
                                             class="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 duration-200 focus:outline-none focus:ring">
                                             Submit
                                         </button>
