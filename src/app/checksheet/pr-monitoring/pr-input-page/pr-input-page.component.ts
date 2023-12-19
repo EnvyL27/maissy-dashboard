@@ -7,7 +7,6 @@ import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 import { FilePondComponent } from 'ngx-filepond';
 import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
-import 'filepond-plugin-pdf-preview';
 
 
 @Component({
@@ -16,43 +15,78 @@ import 'filepond-plugin-pdf-preview';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
-  @ViewChild('myPond')
-  myPond!: FilePond;
+  @ViewChild('myPond1')myPond!: FilePond;
+  @ViewChild('myPond2')myPondAttach!: FilePond;
+  @ViewChild('myPond3')myPondAttach2!: FilePond;
 
   pondOptions: FilePondOptions = {
     allowMultiple: true,
     
     labelIdle: 'Drop images here...',
-    acceptedFileTypes: ['image/png', 'application/pdf', 'image/jpeg', 'image/jpg'],
+    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
+    allowReorder:true,
+    maxFiles:2,    
+  }
+  pondOptionsApp: FilePondOptions = {
+    allowMultiple: true,
+    
+    labelIdle: 'Drop images here...',
+    acceptedFileTypes: ['application/pdf'],
     allowReorder:true,
     maxFiles:1,    
   }
 
-
-  uploadFiles() {
-    // Using this.myPond.getFiles() to retrieve the uploaded files
-    const files: FilePondFile[] = this.myPond.getFiles();
-  
-    // Extract file data to send to the backend
-    const fileDataArray: any[] = files.map((file: FilePondFile) => {
-      return {
-        file: file.file,
-        // other file properties you might need
-      };
-    });
-  
-    // Send the file data to the backend
-    this.sendToBackend(fileDataArray);
+  pondHandleInit() {
+    console.log("FilePond has initialised", this.myPond);
   }
+
+  pondHandleAddFile(event: any, id : any) {
+    console.log("A file was added", event);
+    const coba = event.pond.getFiles()
+    console.log(coba);
+    console.log(id);
+    
+    this.uploadFiles(event.pond, id)
+  }
+
+  pondHandleActivateFile(event: any) {
+    console.log("A file was activated", event);
+    const coba = event.pond.getFiles()
+    
+    console.log(coba);
+    
+    
+  }
+
+  fileDataArray: any[] = []
+  uploadFiles(pond : any, id : string) {    
+    const files: FilePondFile[] = pond.getFiles();
+    console.log(pond);
+    
+    if (files.length > 0) {
+      const fileData = files.map((file: FilePondFile) => {
+        return {
+          file: file.file,
+          fromInput: id,
+        };
+      });
+      
+      // Do something with fileData, e.g., send to the backend
+      console.log(fileData);
+    } else {
+      console.warn('No files added or files array is empty.');
+    }
+   
+    console.log(this.fileDataArray);
+    
+    // this.sendToBackend(fileDataArray);
+  }
+
+  
 
   sendToBackend(fileDataArray: any[]) {
     console.log(fileDataArray[0].file);
     this.selectedFile = fileDataArray[0].file
-    // Use Angular's HttpClient to send the file data to the backend
-    // Example:
-    // this.http.post('your_backend_url', fileDataArray).subscribe(response => {
-    //   console.log(response);
-    // });
   }
   adminLevel : boolean = false
   plannerLevel : boolean = false
@@ -77,10 +111,6 @@ export class PrInputPageComponent implements OnInit {
     private router: Router,) {}
 
   submitted(){
-    // this.router.navigate(['/pr_list']), {
-    //   queryParams: { successAlert: true },
-      
-    // };
     this.router.navigateByUrl('/pr_list',{state: { successAlert: true },})
   }
 
@@ -155,7 +185,7 @@ export class PrInputPageComponent implements OnInit {
 
   onFileChanged(event : any) {
     console.log(event);
-    this.uploadFiles()
+    // this.uploadFiles()
     // this.selectedFile = event.target.files[0]
     // console.log(this.selectedFile);
     

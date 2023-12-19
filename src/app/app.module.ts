@@ -125,8 +125,7 @@ import { FilePondModule, registerPlugin } from 'ngx-filepond';
 import  * as FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import  * as FilepondPluginImageEdit from 'filepond-plugin-image-edit';
 import  * as FilepondPluginImagePreview from 'filepond-plugin-image-preview';
-import  * as FilepondPluginPdfPreview from 'filepond-plugin-pdf-preview';
-registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview, FilepondPluginPdfPreview);
+registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
 @NgModule({

@@ -26,7 +26,6 @@
     "filepond-plugin-file-validate-type": "^1.2.8",
     "filepond-plugin-image-edit": "^1.6.3",
     "filepond-plugin-image-preview": "^4.6.12",
-    "filepond-plugin-pdf-preview": "^1.0.4",
     "html2canvas": "^1.4.1",
     "json-server": "^0.17.3",
     "moment": "^2.29.4",
