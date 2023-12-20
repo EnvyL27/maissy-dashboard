@@ -15,160 +15,201 @@ import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
-  @ViewChild('myPond1')myPond!: FilePond;
-  @ViewChild('myPond2')myPondAttach!: FilePond;
-  @ViewChild('myPond3')myPondAttach2!: FilePond;
+  @ViewChild('myPond1') myPond!: FilePond;
+  @ViewChild('myPond2') myPondAttach!: FilePond;
+  @ViewChild('myPond3') myPondAttach2!: FilePond;
 
   pondOptions: FilePondOptions = {
     allowMultiple: true,
-    
     labelIdle: 'Drop images here...',
     acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
-    allowReorder:true,
-    maxFiles:2,    
+    allowReorder: true,
+    maxFiles: 1,
   }
   pondOptionsApp: FilePondOptions = {
     allowMultiple: true,
-    
-    labelIdle: 'Drop images here...',
+    labelIdle: 'Drop file here...',
     acceptedFileTypes: ['application/pdf'],
-    allowReorder:true,
-    maxFiles:1,    
+    allowReorder: true,
+    maxFiles: 1,
   }
 
   pondHandleInit() {
     console.log("FilePond has initialised", this.myPond);
   }
 
-  pondHandleAddFile(event: any, id : any) {
+  pondHandleAddFile(event: any, id: any) {
     console.log("A file was added", event);
     const coba = event.pond.getFiles()
     console.log(coba);
     console.log(id);
-    
+
     this.uploadFiles(event.pond, id)
   }
 
   pondHandleActivateFile(event: any) {
     console.log("A file was activated", event);
     const coba = event.pond.getFiles()
-    
+
     console.log(coba);
-    
-    
+
+
+  }
+  pondHandleRemoveFile(event: any) {
+    console.log('File removed:', event);
+
+    const removedFile: FilePondFile = event.file;
+
+    const removedFileName: string = removedFile.filename;
+
+    console.log('Removed file name:', removedFileName);
+
+    this.fileDataArray = this.fileDataArray.map(innerArray => {
+      return innerArray.filter((item: any) => item.file.name !== removedFileName);
+    }).filter(innerArray => innerArray.length > 0);
+
+    console.log('Updated fileDataArray:', this.fileDataArray);
+  }
+
+  pondHandleAddFileProgress(event: any) {
+    const file: FilePondFile = event.file;
+    const progress: number = event.progress;
+
+    console.log(`File '${file.filename}' is ${progress}% loaded.`);
   }
 
   fileDataArray: any[] = []
+  removeDuplicateArrays() {
+    const uniqueFiles: { [key: string]: any[] } = {};
+
+    this.fileDataArray.forEach(innerArray => {
+    if (Array.isArray(innerArray)) {
+      innerArray.forEach(item => {
+        const key = `${item.file.name}-${item.fromInput}`;
+        if (!uniqueFiles[key]) {
+          uniqueFiles[key] = [];
+        }
+        uniqueFiles[key].push(item);
+      });
+    } else {
+      console.warn('Invalid data found in fileDataArray:', innerArray);
+    }
+  });
+
+  // Convert uniqueFiles object back to array
+  this.fileDataArray = Object.values(uniqueFiles).map(arr => {
+    // Sort arrays based on length in descending order
+    return arr.sort((a, b) => b.length - a.length)[0];
+  });
+  }
+
   uploadFiles(pond : any, id : string) {    
     const files: FilePondFile[] = pond.getFiles();
-    console.log(pond);
     
     if (files.length > 0) {
-      const fileData = files.map((file: FilePondFile) => {
+      this.fileDataArray.push(files.map((file: FilePondFile) => {
         return {
           file: file.file,
           fromInput: id,
         };
-      });
+      }));
       
-      // Do something with fileData, e.g., send to the backend
-      console.log(fileData);
     } else {
       console.warn('No files added or files array is empty.');
     }
    
     console.log(this.fileDataArray);
-    
+    this.clusterFilesByInput()
     // this.sendToBackend(fileDataArray);
   }
 
-  
+
 
   sendToBackend(fileDataArray: any[]) {
     console.log(fileDataArray[0].file);
     this.selectedFile = fileDataArray[0].file
   }
-  adminLevel : boolean = false
-  plannerLevel : boolean = false
-  purchasingLevel : boolean = false
+  adminLevel: boolean = false
+  plannerLevel: boolean = false
+  purchasingLevel: boolean = false
   selectedFile!: File;
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
-  form! : FormGroup
+  form!: FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
-  
-  validateSubmit : boolean = false
-  prData : any
+
+  validateSubmit: boolean = false
+  prData: any
   target: any;
   sectionlist: any = [];
   section: any;
   area: any;
 
   constructor(
-    private service: CountService, 
+    private service: CountService,
     private http: HttpClient,
-    private authService:AuthService,
-    private router: Router,) {}
+    private authService: AuthService,
+    private router: Router,) { }
 
-  submitted(){
-    this.router.navigateByUrl('/pr_list',{state: { successAlert: true },})
+  submitted() {
+    this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
   }
 
-  validate(){
+  validate() {
     this.validateSubmit = !this.validateSubmit
   }
 
-  areaSelect($event: any) { 
+  areaSelect($event: any) {
     this.sectionlist = []
-    this.area = $event; 
+    this.area = $event;
     //////console.log(this.area);
-    
+
     this.service.getPrAllSection().subscribe(data => {
       //////console.log(data);
-      
+
       this.prData = data
-      this.prData.forEach((element : any) => {
-        if(element.id_area == this.area){
+      this.prData.forEach((element: any) => {
+        if (element.id_area == this.area) {
           this.sectionlist.push(element)
         }
       });
     })
   }
-  
-  sectionSelect($event: any) { 
-    this.section = $event; 
+
+  sectionSelect($event: any) {
+    this.section = $event;
   }
 
   ngOnInit() {
     this.user = this.authService.getUser()
-    
-    
+
+
     this.router.events.subscribe((val) => {
-      
+
       // ////console.log(val);
       if (val instanceof NavigationEnd) {
         // Hide loading indicator
         ////console.log(this.user[0]?.user_level);
-        
-    }
-    
+
+      }
+
       // see also 
-      if(this.user[0]?.user_level == 3){
+      if (this.user[0]?.user_level == 3) {
         this.plannerLevel = true
-      }else if(this.user[0]?.user_level == 8) {
+      } else if (this.user[0]?.user_level == 8) {
         this.purchasingLevel = true
       }
-      else if(this.user[0]?.user_level == 99) {
+      else if (this.user[0]?.user_level == 99) {
         this.adminLevel = true
       }
       ////console.log(this.plannerLevel); 
-  });
+    });
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
       item_desc: new FormControl(''),
       pic: new FormControl(this.name),
       section: new FormControl(''),
-      area : new FormControl(''),
+      area: new FormControl(''),
       due_date: new FormControl(''),
       reason: new FormControl(''),
       pr_number: new FormControl(''),
@@ -183,77 +224,118 @@ export class PrInputPageComponent implements OnInit {
     })
   }
 
-  onFileChanged(event : any) {
+  onFileChanged(event: any) {
     console.log(event);
     // this.uploadFiles()
     // this.selectedFile = event.target.files[0]
     // console.log(this.selectedFile);
+
+  }
+  clusteredFile: { [key: string]: any[] } = {};
+  imageFile !: File
+  attachFile !: File
+  attach2File !: File
+  clusterFilesByInput() {
+    this.clusteredFile = {}
+
+    this.fileDataArray.forEach(innerArray => {
+      innerArray.forEach((item: any) => {
+        const fromInput = item.fromInput;
+        if (!this.clusteredFile[fromInput]) {
+          this.clusteredFile[fromInput] = [];
+        }
+        this.clusteredFile[fromInput].push(item);
+      });
+    });
     
+
+    Object.keys(this.clusteredFile).forEach(key => {
+      switch (key) {
+        case 'image':
+          this.imageFile = this.clusteredFile[key][0].file;
+          break;
+        case 'attach':
+          this.attachFile = this.clusteredFile[key][0]?.file;
+          break;
+        case 'attach2':
+          this.attach2File = this.clusteredFile[key][0]?.file;
+          break;
+      }
+    });
+
+    console.log(this.clusteredFile);
+    console.log('image ' + this.imageFile);
+    console.log('attach ' + this.attachFile);
+    console.log('attach2 ' + this.attach2File);
+    
+    
+
+    return this.clusteredFile;
   }
 
 
 
   onUpload() {
     const formData = new FormData();
-    if (this.selectedFile) {
-     
-      
-      formData.append('item_desc_img', this.selectedFile, this.selectedFile.name);
+    if (this.imageFile || this.attachFile || this.attach2File) {
+
+
+      formData.append('item_desc_img',this.imageFile, this.imageFile.name);
       formData.append('req_date', this.form.value.req_date),
-      formData.append('item_desc', this.form.value.item_desc),
-      formData.append('pic', this.form.value.pic),
-      formData.append('section', this.form.value.section),
-      formData.append('area', this.form.value.area),
-      formData.append('due_date', this.form.value.due_date),
-      formData.append('reason', this.form.value.reason),
-      formData.append('pr_number', this.form.value.pr_number),
-      formData.append('v_name', this.form.value.v_name),
-      formData.append('v_value', this.form.value.v_value),
-      formData.append('attachment', this.form.value.attachment),
-      formData.append('v2_name', this.form.value.v2_name),
-      formData.append('v2_value', this.form.value.v2_value),
-      formData.append('attachment2', this.form.value.attachment2),
-      formData.append('bidding', this.form.value.bidding),
-      formData.append('keterangan', this.form.value.keterangan),
-      this.service.postPrData(formData).subscribe(
-        (response) => {
-          //////console.log('Upload successful:', response);
-          this.submitted()
-          // Handle success
-        },
-        (error) => {
-          console.error('Upload failed:', error);
-          // Handle error
-        }
-      );
-    }else{
+        formData.append('item_desc', this.form.value.item_desc),
+        formData.append('pic', this.form.value.pic),
+        formData.append('section', this.form.value.section),
+        formData.append('area', this.form.value.area),
+        formData.append('due_date', this.form.value.due_date),
+        formData.append('reason', this.form.value.reason),
+        formData.append('pr_number', this.form.value.pr_number),
+        formData.append('v_name', this.form.value.v_name),
+        formData.append('v_value', this.form.value.v_value),
+        formData.append('attachment', this.attachFile, this.attachFile.name),
+        formData.append('v2_name', this.form.value.v2_name),
+        formData.append('v2_value', this.form.value.v2_value),
+        formData.append('attachment2', this.attach2File, this.attach2File.name),
+        formData.append('bidding', this.form.value.bidding),
+        formData.append('keterangan', this.form.value.keterangan),
+        console.log(formData);
+        
+        this.service.postPrData(formData).subscribe(
+          (response) => {
+            //////console.log('Upload successful:', response);
+            this.submitted()
+            // Handle success
+          },
+          (error) => {
+            console.error('Upload failed:', error);
+            // Handle error
+          }
+        );
+    } else {
       formData.append('req_date', this.form.value.req_date),
-      formData.append('item_desc', this.form.value.item_desc),
-      formData.append('pic', this.form.value.pic),
-      formData.append('section', this.form.value.section),
-      formData.append('area', this.form.value.area),
-      formData.append('due_date', this.form.value.due_date),
-      formData.append('reason', this.form.value.reason),
-      formData.append('pr_number', this.form.value.pr_number),
-      formData.append('v_name', this.form.value.v_name),
-      formData.append('v_value', this.form.value.v_value),
-      formData.append('attachment', this.form.value.attachment),
-      formData.append('v2_name', this.form.value.v2_name),
-      formData.append('v2_value', this.form.value.v2_value),
-      formData.append('attachment2', this.form.value.attachment2),
-      formData.append('bidding', this.form.value.bidding),
-      formData.append('keterangan', this.form.value.keterangan),
-      this.service.postPrData(formData).subscribe(
-        (response) => {
-          //////console.log('Upload successful:', response);
-          this.submitted()
-          // Handle success
-        },
-        (error) => {
-          // console.error('Upload failed:', error);
-          // Handle error
-        }
-      );
+        formData.append('item_desc', this.form.value.item_desc),
+        formData.append('pic', this.form.value.pic),
+        formData.append('section', this.form.value.section),
+        formData.append('area', this.form.value.area),
+        formData.append('due_date', this.form.value.due_date),
+        formData.append('reason', this.form.value.reason),
+        formData.append('pr_number', this.form.value.pr_number),
+        formData.append('v_name', this.form.value.v_name),
+        formData.append('v_value', this.form.value.v_value),
+        formData.append('v2_name', this.form.value.v2_name),
+        formData.append('v2_value', this.form.value.v2_value),
+        formData.append('bidding', this.form.value.bidding),
+        formData.append('keterangan', this.form.value.keterangan),
+        this.service.postPrData(formData).subscribe(
+          (response) => {
+            //////console.log('Upload successful:', response);
+            this.submitted()
+            // Handle success
+          },
+          (error) => {
+            // console.error('Upload failed:', error);
+            // Handle error
+          }
+        );
     }
   }
 }

@@ -64,15 +64,10 @@
                                                     id="grid-last-name" type="text" placeholder="Put Description Here">
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
-                                                <!-- <input
-                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                    type="file" (change)="onFileChanged($event)"> -->
                                                     <file-pond #myPond [options]="pondOptions" id="image"
                                                     (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event, 'image')"
-                                                    (onactivatefile)="pondHandleActivateFile($event)">
+                                                    (onactivatefile)="pondHandleActivateFile($event)" (onremovefile)="pondHandleRemoveFile($event)">
                                                 </file-pond>
-                                                <!-- <div (click)=" uploadFiles(myPond)">click</div> -->
-                                                <!-- <div (click)="uploadFiles(myPondAttach)">click</div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -109,14 +104,6 @@
                                                         <option value="2">OCI 2</option>
                                                         <option value="3">FSB</option>
                                                     </select>
-                                                    <!-- <div
-                                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                                            <svg class="fill-current h-4 w-4"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                <path
-                                                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                                            </svg>
-                                                        </div> -->
                                                 </div>
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
@@ -137,14 +124,6 @@
                                                             </option>
                                                         </ng-container>
                                                     </select>
-                                                    <!-- <div
-                                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                                            <svg class="fill-current h-4 w-4"
-                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                                <path
-                                                                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                                            </svg>
-                                                        </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -224,9 +203,10 @@
                                                 for="grid-password">
                                                 Attachment
                                             </label>
-                                            <input formControlName="attachment"
-                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                id="grid-password" type="file">
+                                            <file-pond #myPondAttach [options]="pondOptionsApp" 
+                                                (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event, 'attach')"
+                                                (onactivatefile)="pondHandleActivateFile($event)" (onremovefile)="pondHandleRemoveFile($event)" (onaddfileprogress)="pondHandleAddFileProgress($event)">
+                                            </file-pond>
                                         </div>
                                     </div>
 
@@ -264,21 +244,11 @@
                                                 for="grid-password">
                                                 Attachment
                                             </label>
-                                            <!-- <input formControlName="attachment"
-                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                id="grid-password" type="file"> -->
-                                            <!-- app.component.html -->
-                                            <!-- <file-pond #myPondAttach [options]="pondOptionsApp">
-                                                <input type="file" name="filepond"/>
-                                            </file-pond> -->
-                                            <!-- app.component.html -->
                                             <file-pond #myPondAttach [options]="pondOptionsApp" 
-                                                (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event, 'attach')"
-                                                (onactivatefile)="pondHandleActivateFile($event)">
+                                                (oninit)="pondHandleInit()" (onaddfile)="pondHandleAddFile($event, 'attach2')"
+                                                (onactivatefile)="pondHandleActivateFile($event)" (onremovefile)="pondHandleRemoveFile($event)" (onaddfileprogress)="pondHandleAddFileProgress($event)">
                                             </file-pond>
-                                            <!-- <div (click)=" uploadFiles(myPondAttach)">click</div> -->
-
-
+                                            <div (click)="clusterFilesByInput()">click</div>
                                         </div>
                                     </div>
 
