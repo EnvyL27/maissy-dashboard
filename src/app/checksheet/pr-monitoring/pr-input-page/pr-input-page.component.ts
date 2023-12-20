@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
-import { FormGroup, FormControl, Validator } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 import { FilePondComponent } from 'ngx-filepond';
@@ -83,29 +83,29 @@ export class PrInputPageComponent implements OnInit {
     const uniqueFiles: { [key: string]: any[] } = {};
 
     this.fileDataArray.forEach(innerArray => {
-    if (Array.isArray(innerArray)) {
-      innerArray.forEach(item => {
-        const key = `${item.file.name}-${item.fromInput}`;
-        if (!uniqueFiles[key]) {
-          uniqueFiles[key] = [];
-        }
-        uniqueFiles[key].push(item);
-      });
-    } else {
-      console.warn('Invalid data found in fileDataArray:', innerArray);
-    }
-  });
+      if (Array.isArray(innerArray)) {
+        innerArray.forEach(item => {
+          const key = `${item.file.name}-${item.fromInput}`;
+          if (!uniqueFiles[key]) {
+            uniqueFiles[key] = [];
+          }
+          uniqueFiles[key].push(item);
+        });
+      } else {
+        console.warn('Invalid data found in fileDataArray:', innerArray);
+      }
+    });
 
-  // Convert uniqueFiles object back to array
-  this.fileDataArray = Object.values(uniqueFiles).map(arr => {
-    // Sort arrays based on length in descending order
-    return arr.sort((a, b) => b.length - a.length)[0];
-  });
+    // Convert uniqueFiles object back to array
+    this.fileDataArray = Object.values(uniqueFiles).map(arr => {
+      // Sort arrays based on length in descending order
+      return arr.sort((a, b) => b.length - a.length)[0];
+    });
   }
 
-  uploadFiles(pond : any, id : string) {    
+  uploadFiles(pond: any, id: string) {
     const files: FilePondFile[] = pond.getFiles();
-    
+
     if (files.length > 0) {
       this.fileDataArray.push(files.map((file: FilePondFile) => {
         return {
@@ -113,11 +113,11 @@ export class PrInputPageComponent implements OnInit {
           fromInput: id,
         };
       }));
-      
+
     } else {
       console.warn('No files added or files array is empty.');
     }
-   
+
     console.log(this.fileDataArray);
     this.clusterFilesByInput()
     // this.sendToBackend(fileDataArray);
@@ -149,7 +149,9 @@ export class PrInputPageComponent implements OnInit {
     private service: CountService,
     private http: HttpClient,
     private authService: AuthService,
-    private router: Router,) { }
+    private router: Router,
+    private renderer: Renderer2, 
+    private el: ElementRef) { }
 
   submitted() {
     this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
@@ -208,7 +210,7 @@ export class PrInputPageComponent implements OnInit {
       req_date: new FormControl(this.currentDate),
       item_desc: new FormControl(''),
       pic: new FormControl(this.name),
-      section: new FormControl(''),
+      section: new FormControl('', Validators.required),
       area: new FormControl(''),
       due_date: new FormControl(''),
       reason: new FormControl(''),
@@ -247,7 +249,7 @@ export class PrInputPageComponent implements OnInit {
         this.clusteredFile[fromInput].push(item);
       });
     });
-    
+
 
     Object.keys(this.clusteredFile).forEach(key => {
       switch (key) {
@@ -267,38 +269,48 @@ export class PrInputPageComponent implements OnInit {
     console.log('image ' + this.imageFile);
     console.log('attach ' + this.attachFile);
     console.log('attach2 ' + this.attach2File);
-    
-    
+
+
 
     return this.clusteredFile;
   }
 
-
+  onSubmit(event: Event): void {
+    event.preventDefault(); // Prevent default form submission behavior
+  
+    if (this.form.valid) {
+      // Your form submission logic here
+      console.log('Form is valid and can be submitted.');
+    } else {
+      console.log('Form is invalid.');
+    }
+  }
 
   onUpload() {
-    const formData = new FormData();
-    if (this.imageFile || this.attachFile || this.attach2File) {
+    if (this.form.valid) {
+      const formData = new FormData();
+      if (this.imageFile || this.attachFile || this.attach2File) {
 
 
-      formData.append('item_desc_img',this.imageFile, this.imageFile.name);
-      formData.append('req_date', this.form.value.req_date),
-        formData.append('item_desc', this.form.value.item_desc),
-        formData.append('pic', this.form.value.pic),
-        formData.append('section', this.form.value.section),
-        formData.append('area', this.form.value.area),
-        formData.append('due_date', this.form.value.due_date),
-        formData.append('reason', this.form.value.reason),
-        formData.append('pr_number', this.form.value.pr_number),
-        formData.append('v_name', this.form.value.v_name),
-        formData.append('v_value', this.form.value.v_value),
-        formData.append('attachment', this.attachFile, this.attachFile.name),
-        formData.append('v2_name', this.form.value.v2_name),
-        formData.append('v2_value', this.form.value.v2_value),
-        formData.append('attachment2', this.attach2File, this.attach2File.name),
-        formData.append('bidding', this.form.value.bidding),
-        formData.append('keterangan', this.form.value.keterangan),
-        console.log(formData);
-        
+        formData.append('item_desc_img', this.imageFile, this.imageFile.name);
+        formData.append('req_date', this.form.value.req_date),
+          formData.append('item_desc', this.form.value.item_desc),
+          formData.append('pic', this.form.value.pic),
+          formData.append('section', this.form.value.section),
+          formData.append('area', this.form.value.area),
+          formData.append('due_date', this.form.value.due_date),
+          formData.append('reason', this.form.value.reason),
+          formData.append('pr_number', this.form.value.pr_number),
+          formData.append('v_name', this.form.value.v_name),
+          formData.append('v_value', this.form.value.v_value),
+          formData.append('attachment', this.attachFile, this.attachFile.name),
+          formData.append('v2_name', this.form.value.v2_name),
+          formData.append('v2_value', this.form.value.v2_value),
+          formData.append('attachment2', this.attach2File, this.attach2File.name),
+          formData.append('bidding', this.form.value.bidding),
+          formData.append('keterangan', this.form.value.keterangan),
+          console.log(formData);
+
         this.service.postPrData(formData).subscribe(
           (response) => {
             //////console.log('Upload successful:', response);
@@ -310,32 +322,48 @@ export class PrInputPageComponent implements OnInit {
             // Handle error
           }
         );
+      } else {
+        formData.append('req_date', this.form.value.req_date),
+          formData.append('item_desc', this.form.value.item_desc),
+          formData.append('pic', this.form.value.pic),
+          formData.append('section', this.form.value.section),
+          formData.append('area', this.form.value.area),
+          formData.append('due_date', this.form.value.due_date),
+          formData.append('reason', this.form.value.reason),
+          formData.append('pr_number', this.form.value.pr_number),
+          formData.append('v_name', this.form.value.v_name),
+          formData.append('v_value', this.form.value.v_value),
+          formData.append('v2_name', this.form.value.v2_name),
+          formData.append('v2_value', this.form.value.v2_value),
+          formData.append('bidding', this.form.value.bidding),
+          formData.append('keterangan', this.form.value.keterangan),
+          this.service.postPrData(formData).subscribe(
+            (response) => {
+              //////console.log('Upload successful:', response);
+              this.submitted()
+              // Handle success
+            },
+            (error) => {
+              // console.error('Upload failed:', error);
+              // Handle error
+            }
+          );
+      }
     } else {
-      formData.append('req_date', this.form.value.req_date),
-        formData.append('item_desc', this.form.value.item_desc),
-        formData.append('pic', this.form.value.pic),
-        formData.append('section', this.form.value.section),
-        formData.append('area', this.form.value.area),
-        formData.append('due_date', this.form.value.due_date),
-        formData.append('reason', this.form.value.reason),
-        formData.append('pr_number', this.form.value.pr_number),
-        formData.append('v_name', this.form.value.v_name),
-        formData.append('v_value', this.form.value.v_value),
-        formData.append('v2_name', this.form.value.v2_name),
-        formData.append('v2_value', this.form.value.v2_value),
-        formData.append('bidding', this.form.value.bidding),
-        formData.append('keterangan', this.form.value.keterangan),
-        this.service.postPrData(formData).subscribe(
-          (response) => {
-            //////console.log('Upload successful:', response);
-            this.submitted()
-            // Handle success
-          },
-          (error) => {
-            // console.error('Upload failed:', error);
-            // Handle error
+      // Loop through form controls to find the first invalid one
+      for (const controlName in this.form.controls) {
+        if (this.form.controls.hasOwnProperty(controlName)) {
+          const control = this.form.controls[controlName];
+          if (control.invalid) {
+            // Set focus to the first invalid control
+            const element = this.el.nativeElement.querySelector(`[formcontrolname="${controlName}"]`);
+            if (element) {
+              element.focus();
+              break;  // Stop after setting focus to the first invalid control
+            }
           }
-        );
+        }
+      }
     }
   }
 }
