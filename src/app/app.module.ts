@@ -125,6 +125,7 @@ import { FilePondModule, registerPlugin } from 'ngx-filepond';
 import  * as FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import  * as FilepondPluginImageEdit from 'filepond-plugin-image-edit';
 import  * as FilepondPluginImagePreview from 'filepond-plugin-image-preview';
+import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
 registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
@@ -236,6 +237,7 @@ registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPl
     CiltListComponent,
     CiltInputComponent,
     TemuanInputComponent,
+    PrMOci1Component,
   ],
   imports: [
     BrowserModule,

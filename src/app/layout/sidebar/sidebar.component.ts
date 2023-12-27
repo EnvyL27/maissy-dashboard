@@ -25,6 +25,7 @@ export class SidebarComponent implements OnInit {
   public lubisub: boolean = false;
   public lubiplantsub: boolean = false;
   public energySub : boolean = false;
+  public prSub : boolean = false;
   public energyUsgSub : boolean = false;
   public energySrcSub : boolean = false;
   public energyDaily : boolean = false;
@@ -95,6 +96,9 @@ export class SidebarComponent implements OnInit {
   }
   enmonitoringsub(){
     this.energySub = !this.energySub;
+  }
+  prmonitoringsub(){
+    this.prSub = !this.prSub;
   }
   enusmonitoringsub(){
     this.energyUsgSub = !this.energyUsgSub;

@@ -98,6 +98,7 @@ import { UserLevelUpdateComponent } from './checksheet/user-level/user-level-upd
 import { CiltListComponent } from './checksheet/cilt/cilt-list/cilt-list.component';
 import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.component';
 import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component';
+import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
@@ -141,6 +142,7 @@ const routes: Routes = [
   {path: 'cilt_m_oci1', component: CiltMOci1Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_oci2', component: CiltMOci2Component, canActivate: [AuthGuard]},
   {path: 'cilt_m_fsb', component: CiltMFsbComponent, canActivate: [AuthGuard]},
+  {path: 'pr_m_oci1', component: PrMOci1Component, canActivate: [AuthGuard]},
   {path: 'cost_m_oci1', component: CostMOci1Component, canActivate: [AuthGuard]},
   {path: 'cost_m_oci2', component: CostMOci2Component, canActivate: [AuthGuard]},
   {path: 'cost_m_fsb', component: CostMFsbComponent, canActivate: [AuthGuard]},
