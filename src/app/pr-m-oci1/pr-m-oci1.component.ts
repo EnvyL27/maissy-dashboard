@@ -3,6 +3,7 @@
   import { Chart } from 'chart.js/auto';
   import { NgxSpinnerService } from 'ngx-spinner';
   import { ChartOptions } from './chart'
+  import { forkJoin } from 'rxjs';
   
   @Component({
     selector: 'app-pr-m-oci1',
@@ -28,6 +29,9 @@
     finishexecute: number = 0;
     readyexecute: number = 0;
     Preventive: number = 0;
+    totalReq: number = 0;
+    totalReqNoNum: number = 0;
+    totalReqNum: number = 0;
     showSuccessAlert : boolean = true;
     deskripsi: any = 'Loading..';
     closeSuccessAlert(){
@@ -41,7 +45,7 @@
         this.service.getCountTotalFinding().subscribe(data => {
           ////////console.log(data);
           
-          this.totalkategori = data;
+          // this.totalkategori = data;
           Object.values(this.totalkategori).forEach(data => {
             // // ////////////////////console.log(data);
             var array = Object.keys(data).map(function (key) {
@@ -92,7 +96,7 @@
         }
         );
         this.service.getCountTotalFinding().subscribe(data => {
-          this.const = data;
+          // this.const = data;
           Object.values(this.const).forEach(data => {
             var array = Object.keys(data).map(function (key) {
               return data[key];
@@ -184,6 +188,81 @@
   
         }
         );
+        forkJoin([
+          this.service.getTotalRequest(),
+          this.service.getTotalNumber()
+      ]).subscribe(([datacost, datafg]) => {
+          console.log(datacost);
+          console.log(datafg);
+          this.totalkategori = datacost
+          this.const = datafg
+          Object.values(this.totalkategori).forEach(data => {
+            console.log(data);
+            var array = Object.keys(data).map(function (key) {
+              return data[key];
+            });
+            array.forEach(element => {
+              this.totalReq++
+            });
+            console.log(this.totalReq);
+            
+        })
+        Object.values(this.const).forEach(data => {
+          console.log(data);
+          var array = Object.keys(data).map(function (key) {
+            return data[key];
+          });
+          array.forEach(element => {
+            this.totalReqNum++
+          });
+          console.log(this.totalReqNum);
+          
+      })
+
+      this.totalReqNoNum = this.totalReq - this.totalReqNum
+      new Chart('dum', {
+        type: 'bar',
+        data: {
+          labels: ["Total Request"],
+          datasets: [
+            {
+              label: 'Total Request',
+              data: [this.totalReq],
+              backgroundColor: [
+                '#f47a60'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'with PR Number',
+              data: [this.totalReqNum],
+              backgroundColor: [
+                '#7fe7dc'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+            {
+              label: 'no PR Number',
+              data: [this.totalReqNoNum],
+              backgroundColor: [
+                '#316879'
+              ],
+              borderColor: [
+                'white'
+              ],
+              borderWidth: 1
+            },
+          ]
+        },
+      });
+      });
+      
       });
       //// ////////////////////console.log("1");
       this.spinner.show();

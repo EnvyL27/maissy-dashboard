@@ -750,6 +750,22 @@ export class CountService {
   }
 
   /////////////////////////////
+  // ROUTE FOR PR DASHBOARD  //
+  /////////////////////////////
+  getTotalRequest(){
+    return this.httpClient.get(api + "pr/" + "totalreq");
+  }
+  getTotalNumber(){
+    return this.httpClient.get(api + "pr/" + "totalprnumber");
+  }
+  getTotalVendor1(){
+    return this.httpClient.get(api + "pr/" + "totalvendor1"); 
+  }
+  getTotalVendor2(){
+    return this.httpClient.get(api + "pr/" + "totalvendor2");
+  }
+
+  /////////////////////////////
   // ROUTE FOR AM CHECKSHEET //
   /////////////////////////////
 
