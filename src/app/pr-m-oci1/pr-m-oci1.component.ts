@@ -190,12 +190,16 @@
         );
         forkJoin([
           this.service.getTotalRequest(),
-          this.service.getTotalNumber()
-      ]).subscribe(([datacost, datafg]) => {
-          console.log(datacost);
-          console.log(datafg);
-          this.totalkategori = datacost
-          this.const = datafg
+          this.service.getTotalNumber(),
+          this.service.getTotalVendor1(),
+          this.service.getTotalVendor2(),
+      ]).subscribe(([dataReq, dataNum, dataV1, dataV2]) => {
+          console.log(dataReq);
+          console.log(dataNum);
+          console.log(dataV1);
+          console.log(dataV2);
+          this.totalkategori = dataReq
+          this.const = dataNum
           Object.values(this.totalkategori).forEach(data => {
             console.log(data);
             var array = Object.keys(data).map(function (key) {
