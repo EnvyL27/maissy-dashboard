@@ -281,7 +281,7 @@
                   background-color: #fff;
                   padding: 3px 5px;
                   box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                " width="48" [(ngModel)]="tgl3">
+                " width="48" [(ngModel)]="tgl3" (ngModelChange)="dateChange()">
               </div>
               <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                 <label>End Date :</label><br />
@@ -290,7 +290,7 @@
                   background-color: #fff;
                   padding: 3px 5px;
                   box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-                " width="48" [(ngModel)]="tgl4">
+                " width="48" [(ngModel)]="tgl4" (ngModelChange)="dateChange()">
               </div>
               <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-4/12">
                 <button (click)="finddata2()" class="button button2">Find Data</button>

@@ -286,7 +286,7 @@ export class AmMFsbComponent implements OnInit {
   tglsearch: any = moment().format("YYYY-MM-DD");
   tgl3: any = moment().format("YYYY") + "-01-" + "01";
   tgl4: any = moment().format("YYYY-MM-DD");
-  autodate: any = moment().format("YYYY");
+  autodate: any;
   month: any = new Date().toISOString().slice(0,7);
   bulan: any = moment().format('M');
   readyexecute: number = 0;
@@ -2424,7 +2424,16 @@ export class AmMFsbComponent implements OnInit {
     el.scrollIntoView();
   }
 
+  dateChange(){
+    console.log(this.autodate);
+    const yearFromTemuanFilter1 = moment(this.autodate).month()
+    console.log(yearFromTemuanFilter1);
+  }
+
   async ngOnInit(): Promise<void> {
+    this.autodate = moment(this.tgl3).month()
+    console.log(this.tgl3);
+    
     this.bulananChart();
     this.hariChart();
     this.chartFunction();
@@ -3201,7 +3210,9 @@ export class AmMFsbComponent implements OnInit {
 
           this.temuanperday_data_temp.forEach((element: any) => {
             ////////////////////////console.log(this.screenWidth);
-
+            // this.autodate = moment(this.tgl3).month()
+            // console.log(this.autodate);
+            
             if (element.tahun == this.autodate) {
               if(element.id_area == 3){
                 if (element.bulan == 1) {

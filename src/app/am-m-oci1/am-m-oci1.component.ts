@@ -290,6 +290,9 @@ export class AmMOci1Component implements OnInit {
   tgl4: any = moment().format("YYYY-MM-DD");
   autodate: any = moment().format("YYYY");
   month: any = new Date().toISOString().slice(0,7);
+  currentYear: any = moment().format('YYYY');
+  temuanFilter1: any = moment().format("YYYY-MM-DD");
+  temuanFilter2: any = moment().endOf('month').format("YYYY-MM-DD");
   bulan: any = moment().format('M');
   readyexecute: number = 0;
   readyexecutetop: number = 0;
@@ -309,22 +312,13 @@ export class AmMOci1Component implements OnInit {
   currentPage6 = 1
 
   data($event: any) {
-    // //////////////////////////console.log(this.scree);
 
     this.target.nativeElement.scrollIntoView();
-    //   behavior: 'smooth',
-    //   block: 'center',
-    //   inline: 'center',
-    // });
-    //// ////////////////////////////////console.log($event);
     this.funloclist = [];
     this.funloc = $event;
-    //////////////////////////console.log(this.funloc);
 
-    // ////////////////////////////////console.log(this.funloc);
     for (let i = 0; i < this.orderarr.length; i++) {
       if (this.orderarr[i].func_loc === this.funloc) {
-        ////////////////////////////////console.log(this.orderarr);
 
         this.total_cost += this.orderarr[i].total_actual;
       }
@@ -335,36 +329,14 @@ export class AmMOci1Component implements OnInit {
       }
     }
     this.funloclist = this.funloclist.filter(function (e: any) { return e != null; });
-    //////////////////////////console.log(this.funloclist);
   }
-  // totalCapture(){
-  //   this.captureService
-  //   .getImage(this.taptapTotal.nativeElement, true)
-  //   .subscribe((img: any) => {
-  //     this.imgBase64 = img;
-  //     this.downloadJson();
-  //   });
-  // }
-  // totalCapture() {
-  //   const element = document.getElementById('ssTotal')!;
-  //   html2canvas(element).then(canvas => {
-  //     // `canvas` contains the captured content as an image.
-  //     const link = document.createElement('a');
-  //     link.href = canvas.toDataURL('image/png');
-  //     link.download = 'totalreport.png';
-  //     this.showInfo();
-  //     link.click();
-  //   });
-  // }
 
 
   generatePaginate() {
     this.showPaginate = this.listoftotalfinding.length
-    // this.currentPage6 = 1;
   }
 
   resetPaginateSatis() {
-    // this.currentPage6 = 0;
     this.showPaginate = 5;
   }
 
@@ -1473,7 +1445,22 @@ export class AmMOci1Component implements OnInit {
     this.cdr.detectChanges();
   }
 
+  cobaGantiTaun(){
+    console.log(this.temuanFilter1);
+    const yearFromTemuanFilter1 = moment(this.temuanFilter1).year();
+    console.log(yearFromTemuanFilter1);
+    console.log(this.currentYear);
+    
+    if(yearFromTemuanFilter1 != this.currentYear){
+
+    }
+  }
+
   jumlahTemuanChange(){
+    console.log(this.currentYear);
+    const yearFromTemuanFilter1 = moment(this.month).month()
+    console.log(yearFromTemuanFilter1);
+    
     var bulanPilihan = 0;
     this.termuanperday_jan =
     this.termuanperday_feb =
