@@ -3065,7 +3065,7 @@ export class AmMOci1Component implements OnInit {
       this.service.getTotalFeeding().subscribe(data => {
         //////////console.log(this.month);
         // ////////console.log(data);
-        
+        this.month = '2023-12'
         this.totalfm = data;
 
         var date: any = [];
@@ -3085,7 +3085,7 @@ export class AmMOci1Component implements OnInit {
             
             
 
-            if (elem.id_area == 1) {
+            if (elem.id_area == 3) {
 
 
               if (elem.status_pengerjaan == 'Done') {
@@ -3174,7 +3174,6 @@ export class AmMOci1Component implements OnInit {
 
           this.temuanperday_data_temp.forEach((element: any) => {
             // ////////console.log(element.bulan);
-            
             if (element.bulanTahun ==this.month) {
               this.listoftotalfinding.push(element)
             }

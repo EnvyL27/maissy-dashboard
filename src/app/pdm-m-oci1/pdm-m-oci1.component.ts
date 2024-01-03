@@ -1429,8 +1429,10 @@ export class PdmMOci1Component implements OnInit {
           for (let elem of this.asset2) {
             this.totalasset = elem.total;
           }
+          console.log(this.totalasset);
+          
           this.service.getOci1Valuemonth(this.current).subscribe(data => {
-            //////////console.log(this.current);
+            console.log(this.current);
 
             ////////console.log(data);
 
@@ -1456,7 +1458,7 @@ export class PdmMOci1Component implements OnInit {
               });
 
 
-              //////////console.log(this.valuemonthlist);
+              console.log(this.valuemonthlist);
 
               for (let elem of this.valuemonthlist) {
                 if (elem.month == 1) {
