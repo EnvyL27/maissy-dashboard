@@ -178,7 +178,7 @@
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
                   {{(currentPage6-1) * 5 + i + 1}}
                 </th>
-                <td class="py-4 px-6 font-medium font-semibold text-gray-800">
+                <td class="py-4 px-6 font-medium text-gray-800">
                   {{findingpending.finding}}
                 </td>
                 <td class="py-4 px-6 text-gray-800">
@@ -1970,10 +1970,15 @@
           <div class="w-full max-w-full md:w-full">
             <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
               <div class="w-full max-w-full md:w-8/12 xl:w-8/12 xs:w-1/2">
-                <canvas id="dum"></canvas>
+                <!-- <canvas id="dum"></canvas> -->
+                <apx-chart [series]="typeFindingChart.series" [chart]="typeFindingChart.chart" [dataLabels]="typeFindingChart.dataLabels"
+                [plotOptions]="typeFindingChart.plotOptions" [yaxis]="typeFindingChart.yaxis" [legend]="typeFindingChart.legend"
+                [fill]="typeFindingChart.fill" [stroke]="typeFindingChart.stroke" [tooltip]="typeFindingChart.tooltip"
+                [xaxis]="typeFindingChart.xaxis" [colors]="typeFindingChart.colors"></apx-chart>
               </div>
               <div class="w-full max-w-full md:w-4/12 xl:w-4/12 xs:w-1/2">
-                <canvas id="typefinding"></canvas>
+                <!-- <canvas id="typefinding"></canvas> -->
+                
               </div>
             </div>
           </div>

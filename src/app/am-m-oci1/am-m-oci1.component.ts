@@ -6,11 +6,8 @@ import * as XLSX from 'xlsx';
 import { NgxCaptureService } from 'ngx-capture';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CountService } from '../service/master/count.service';
-import html2canvas from 'html2canvas';
 import { ToastrService } from 'ngx-toastr'
-import { ChartOptions, bulanan, harian } from './chart';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { ChartOptions, bulanan, harian, monthly, typefinding } from './chart';
 
 @Component({
   selector: 'app-am-m-oci1',
@@ -21,12 +18,12 @@ export class AmMOci1Component implements OnInit {
   public chartOptions!: Partial<ChartOptions> | any;
   public bulanan!: Partial<bulanan> | any;
   public harian!: Partial<harian> | any;
+  public monthly!: Partial<monthly> | any;
+  public typeFindingChart!: Partial<typefinding> | any;
 
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    ////////////////////////////////console.log(this.findingpending2);
-    ////////////////////console.log(this.findingpending2);
 
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.findingpending2);
@@ -461,107 +458,159 @@ export class AmMOci1Component implements OnInit {
     this.resolved = false;
 
     this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
+      this.autodate = moment(this.tgl3).format('YYYY')
       this.totaldata1year.push(data);
       for (let elem of this.totaldata1year[0]) {
-        if (elem.bulan == 'January') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.januariclose += 1
-            } else {
-              this.januari += 1;
+          if (elem.bulan == 'January') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.januariclose += 1
+                this.januaricloseelem.push(elem)
+                this.januari += 1;
+                this.januarielem.push(elem)
+              } else {
+                this.januari += 1;
+                this.januarielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'February') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.febuariclose += 1
+                this.febuaricloseelem.push(elem)
+                this.febuari += 1;
+                this.febuarielem.push(elem)
+              } else {
+                this.febuari += 1;
+                this.febuarielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'March') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.maretclose += 1;
+                this.maretcloseelem.push(elem)
+                this.maret += 1;
+                this.maretelem.push(elem)
+              } else {
+                this.maret += 1;
+                this.maretelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'April') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.aprilclose += 1;
+                this.aprilcloseelem.push(elem)
+                this.april += 1;
+                this.aprilelem.push(elem)
+              }
+              else {
+                this.april += 1;
+                this.aprilelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'May') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.meiclose += 1;
+                this.meicloseelem.push(elem)
+                this.mei += 1;
+                this.meielem.push(elem)
+              } else {
+                this.mei += 1;
+                this.meielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'June') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.juniclose += 1;
+                this.junicloseelem.push(elem)
+                this.juni += 1;
+                this.junielem.push(elem)
+              } else {
+                this.juni += 1;
+                this.junielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'July') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.juliclose += 1;
+                this.julicloseelem.push(elem)
+                this.juli += 1;
+                this.julielem.push(elem)
+              } else {
+                this.juli += 1;
+                this.julielem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'August') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.agustuscloseelem.push(elem)
+                this.agustus += 1;
+                this.agustuselem.push(elem)
+              } else {
+                this.agustus += 1;
+                this.agustuselem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'September') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.septemberclose += 1;
+                this.septembercloseelem.push(elem)
+                this.september += 1;
+                this.septemberelem.push(elem)
+              } else {
+                this.september += 1;
+                this.septemberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'October') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.oktoberclose += 1;
+                this.oktobercloseelem.push(elem)
+                this.oktober += 1;
+                this.oktoberelem.push(elem)
+              } else {
+                this.oktober += 1;
+                this.oktoberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'November') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.novemberclose += 1;
+                this.novembercloseelem.push(elem)
+                this.november += 1;
+                this.novemberelem.push(elem)
+              } else {
+                this.november += 1;
+                this.novemberelem.push(elem)
+              }
+            }
+          } else if (elem.bulan == 'December') {
+            if (elem.plant_section == "Prod OCI 1") {
+              if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
+                this.desemberclose += 1;
+                this.desembercloseelem.push(elem)
+                this.desember += 1;
+                this.desemberelem.push(elem)
+              } else {
+                this.desember += 1;
+                this.desemberelem.push(elem)
+              }
             }
           }
-        } else if (elem.bulan == 'February') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.febuariclose += 1
-            } else {
-              this.febuari += 1;
-            }
-          }
-        } else if (elem.bulan == 'March') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.maretclose += 1;
-            } else {
-              this.maret += 1;
-            }
-          }
-        } else if (elem.bulan == 'April') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.aprilclose += 1;
-            }
-            else {
-              this.april += 1;
-            }
-          }
-        } else if (elem.bulan == 'May') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.meiclose += 1;
-            } else {
-              this.mei += 1;
-            }
-          }
-        } else if (elem.bulan == 'June') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.juniclose += 1;
-            } else {
-              this.juni += 1;
-            }
-          }
-        } else if (elem.bulan == 'July') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.juliclose += 1;
-            } else {
-              this.juli += 1;
-            }
-          }
-        } else if (elem.bulan == 'August') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.agustusclose += 1;
-            } else {
-              this.agustus += 1;
-            }
-          }
-        } else if (elem.bulan == 'September') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.septemberclose += 1;
-            } else {
-              this.september += 1;
-            }
-          }
-        } else if (elem.bulan == 'October') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.oktoberclose += 1;
-            } else {
-              this.oktober += 1;
-            }
-          }
-        } else if (elem.bulan == 'November') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.novemberclose += 1;
-            } else {
-              this.november += 1;
-            }
-          }
-        } else if (elem.bulan == 'December') {
-          if (elem.plant_section == "Prod OCI 1") {
-            if (elem.status == 'TECO' || elem.status == 'CLOSED' || elem.status == 'PARTIAL CONFIRMATION') {
-              this.desemberclose += 1;
-            } else {
-              this.desember += 1;
-            }
-          }
+
+
+          this.chartFunction();
+
         }
-      }
       this.januari = this.januari + this.januariclose;
       this.febuari = this.febuari + this.febuariclose;
       this.maret = this.maret + this.maretclose;
@@ -574,7 +623,7 @@ export class AmMOci1Component implements OnInit {
       this.oktober = this.oktober + this.oktoberclose;
       this.november = this.november + this.novemberclose;
       this.desember = this.desember + this.desemberclose;
-      this.chartFunction();
+      // this.chartFunction();
     });
   }
 
@@ -1645,7 +1694,7 @@ export class AmMOci1Component implements OnInit {
         
         this.bulananChart();
         this.hariChart();
-
+        this.typeFinding();
         this.resolved = true;
       })
 
@@ -1840,6 +1889,55 @@ export class AmMOci1Component implements OnInit {
     };
   }
 
+  typeFinding() {
+    this.typeFindingChart = {
+      series: [
+        {
+          name: "Data",
+          data: [this.Setting, this.Replacement, this.Improvement, this.Preventive]
+        },
+      ],
+      chart: {
+        type: "bar",
+        height: 400,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "60%",
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      xaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        categories: ["Setting", "Replacement", "Improvement", "Preventive"]
+      },
+      yaxis: {
+        axixTicks: {
+          show: false,
+        },
+        crosshairs: {
+          show: false,
+        },
+        title: {
+          text: ""
+        }
+      },
+      fill: {
+        opacity: 1,
+        colors: ['#CBFFA9']
+      }, legend: {
+      }, colors: ['#CBFFA9']
+    };
+  }
+
 
   chartFunction() {
     this.chartOptions = {
@@ -1998,9 +2096,12 @@ export class AmMOci1Component implements OnInit {
     this.totalkategoriarr = [];
     this.temuanperday_data_temp = []
     this.listoftotalfinding = [];
-
+    console.log(this.month);
+    
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
+      console.log(data);
+      
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
         var array = Object.keys(data).map(function (key) {
@@ -2095,93 +2196,17 @@ export class AmMOci1Component implements OnInit {
             }
           }
         })
-
+        console.log(this.Setting);
+        console.log(this.Replacement);
+        console.log(this.Improvement);
+        console.log(this.Preventive);
+        
         this.temuanperday_data_temp.forEach((element: any) => {
           if (element.bulanTahun == this.month) {
             this.listoftotalfinding.push(element)
           }
         });
-        
-        this.dum.destroy();
-
-        this.dum = new Chart('dum', {
-          type: 'bar',
-          data: {
-            labels: [""],
-            datasets: [
-              {
-                label: 'Total Finding',
-                data: [this.pendingexecute + this.readyexecute + this.finishexecute],
-                backgroundColor: [
-                  '#7fe7dc'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'On Progress WO',
-                data: [this.pendingexecute],
-                backgroundColor: [
-                  '#ffc13b'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'Ready Execute',
-                data: [this.readyexecute],
-                backgroundColor: [
-                  '#ff6e40'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'Finish Execute',
-                data: [this.finishexecute],
-                backgroundColor: [
-                  '#316879'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-            ]
-          },
-        });
-
-        this.typefinding.destroy();
-
-        this.typefinding = new Chart('typefinding', {
-          type: 'doughnut',
-          data: {
-            labels: ["Setting", "Replacement", "Improvement", "Preventive"],
-            datasets: [{
-              label: 'Data',
-              data: [this.Setting, this.Replacement, this.Improvement, this.Preventive],
-              backgroundColor: [
-                '#316879',
-                '#f47a60',
-                '#7fe7dc',
-                '#ffc13b',
-              ],
-              borderColor: [
-                'white',
-                'white',
-                'white',
-                'white',
-              ],
-              borderWidth: 1
-            }]
-          },
-        });
+        this.typeFinding()
 
         this.resolved = true;
       })
@@ -2439,6 +2464,7 @@ export class AmMOci1Component implements OnInit {
     this.bulananChart();
     //////////console.log(this.listtemuanperhari );
     this.hariChart();
+    this.typeFinding();
     this.chartFunction();
     this.spinner.show();
     window.scrollTo(0, 0);
@@ -2462,7 +2488,7 @@ export class AmMOci1Component implements OnInit {
 
       this.service.getTotalDataPost(this.tgl3, this.tgl4).subscribe(data => {
         this.totaldata1year.push(data);
-        ////////////////console.log(data);
+        this.autodate = moment(this.tgl3).format('YYYY')
 
         for (let elem of this.totaldata1year[0]) {
           if (elem.bulan == 'January') {
@@ -3065,7 +3091,6 @@ export class AmMOci1Component implements OnInit {
       this.service.getTotalFeeding().subscribe(data => {
         //////////console.log(this.month);
         // ////////console.log(data);
-        this.month = '2023-12'
         this.totalfm = data;
 
         var date: any = [];
@@ -3250,84 +3275,7 @@ export class AmMOci1Component implements OnInit {
 
           this.bulananChart();
           this.hariChart();
-
-          this.dum = new Chart('dum', {
-            type: 'bar',
-            data: {
-              labels: [""],
-              datasets: [
-                {
-                  label: 'Total Finding',
-                  data: [this.pendingexecute + this.readyexecute + this.finishexecute],
-                  backgroundColor: [
-                    '#7fe7dc'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'On Progress WO',
-                  data: [this.pendingexecute],
-                  backgroundColor: [
-                    '#ffc13b'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'Ready Execute',
-                  data: [this.readyexecute],
-                  backgroundColor: [
-                    '#ff6e40'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-                {
-                  label: 'Finish Execute',
-                  data: [this.finishexecute],
-                  backgroundColor: [
-                    '#316879'
-                  ],
-                  borderColor: [
-                    'white'
-                  ],
-                  borderWidth: 1
-                },
-              ]
-            },
-          });
-
-          this.typefinding = new Chart('typefinding', {
-            type: 'doughnut',
-            data: {
-              labels: ["Setting", "Replacement", "Improvement", "Preventive"],
-              datasets: [{
-                label: 'Data',
-                data: [this.Setting, this.Replacement, this.Improvement, this.Preventive],
-                backgroundColor: [
-                  '#316879',
-                  '#f47a60',
-                  '#7fe7dc',
-                  '#ffc13b',
-                ],
-                borderColor: [
-                  'white',
-                  'white',
-                  'white',
-                  'white',
-                ],
-                borderWidth: 1
-              }]
-            },
-          });
-
+          this.typeFinding();
           this.resolved = true;
         })
 
