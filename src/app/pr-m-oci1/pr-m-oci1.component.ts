@@ -262,7 +262,7 @@ export class PrMOci1Component implements OnInit {
                 label: 'Total Request',
                 data: [this.totalReq],
                 backgroundColor: [
-                  '#f47a60'
+                  '#4ECDC4'
                 ],
                 borderColor: [
                   'white'
@@ -270,21 +270,10 @@ export class PrMOci1Component implements OnInit {
                 borderWidth: 1
               },
               {
-                label: 'with PR Number',
+                label: 'PR Number',
                 data: [this.totalReqNum],
                 backgroundColor: [
-                  '#7fe7dc'
-                ],
-                borderColor: [
-                  'white'
-                ],
-                borderWidth: 1
-              },
-              {
-                label: 'no PR Number',
-                data: [this.totalReqNoNum],
-                backgroundColor: [
-                  '#316879'
+                  '#FF6B6B'
                 ],
                 borderColor: [
                   'white'
@@ -304,7 +293,7 @@ export class PrMOci1Component implements OnInit {
                 label: 'Total Request',
                 data: [this.totalReq],
                 backgroundColor: [
-                  '#f47a60'
+                  '#4ECDC4'
                 ],
                 borderColor: [
                   'white'
@@ -315,7 +304,7 @@ export class PrMOci1Component implements OnInit {
                 label: 'Vendor 1',
                 data: [this.totalv1],
                 backgroundColor: [
-                  '#7fe7dc'
+                  '#FF6B6B'
                 ],
                 borderColor: [
                   'white'
@@ -326,7 +315,7 @@ export class PrMOci1Component implements OnInit {
                 label: 'Vendor 2',
                 data: [this.totalv2],
                 backgroundColor: [
-                  '#316879'
+                  '#FFE66D'
                 ],
                 borderColor: [
                   'white'

@@ -12,7 +12,7 @@
       <div class="flex-auto p-1">
         <div class="wrapper">
           <h5 class="typing-demo font-bold">
-            PR Monitoring
+            Pre-PR Monitoring
           </h5>
           
         </div>
@@ -30,7 +30,7 @@
                     Total Request
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{pendingexecute + finishexecute + readyexecute}}
+                    {{totalReq}}
                     <span> / Year</span>
                   </h5>
                 </div>
@@ -54,11 +54,11 @@
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
-                    On Progres WO
+                    PR Number
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{pendingexecute}}
-                    <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                    {{totalReqNum}}
+                    <span class="text-lime-500 ml-1">({{(totalReqNum * 100 / totalReq).toFixed(1)}} %)</span>
                   </h5>
                 </div>
               </div>
@@ -80,11 +80,11 @@
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
-                    Ready Execute
+                    Vendor 1
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{readyexecute}}
-                    <span class="text-lime-500 ml-1">({{(readyexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                    {{totalv1}}
+                    <span class="text-lime-500 ml-1">({{(totalv1 * 100 / totalReq).toFixed(1)}} %)</span>
                   </h5>
                 </div>
               </div>
@@ -106,11 +106,11 @@
               <div class="flex-none w-2/3 max-w-full px-3">
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-sm text-gray-500">
-                    Finish Execute
+                    Vendor 2
                   </p>
                   <h5 class="mb-0 font-bold">
-                    {{finishexecute}}
-                    <span class="text-lime-500 ml-1">({{(finishexecute * 100 / this.const2.length).toFixed(1)}} %)</span>
+                    {{totalv2}}
+                    <span class="text-lime-500 ml-1">({{(totalv2 * 100 / totalReq).toFixed(1)}} %)</span>
                   </h5>
                 </div>
               </div>
@@ -134,7 +134,7 @@
               class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
               <div class="flex-auto p-4">
                 <h5 class="text-center font-semibold text-2xl">Total Request</h5>
-                <h5 class="text-center font-semibold text-xs">with PR Number</h5>
+                <h5 class="text-center font-semibold text-xs">PR Number</h5>
               </div>
             </div>
             <div
@@ -145,8 +145,8 @@
                 </div>
                 <div class="px-6 pt-4 pb-2 text-center">
                   <span style="background-color: #f47a60;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">Total Request: {{totalReq}}</span>
-                  <span style="background-color: #7fe7dc;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">PR Number: {{totalReqNum}}</span>
-                  <span style="background-color: #316879" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">No Number: {{totalReqNoNum}}</span>
+                  <!-- <span style="background-color: #7fe7dc;" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">PR Number: {{totalReqNum}}</span> -->
+                  <span style="background-color: #316879" class="text-white inline-block bg-red rounded-full px-3 py-1 text-md font-semibold mr-2 mb-2">PR Number: {{totalReqNoNum}}</span>
                 </div>
               </div>
             </div>
@@ -156,7 +156,7 @@
               class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl mb-1 bg-clip-border">
               <div class="flex-auto p-4">
                 <h5 class="text-center font-semibold text-2xl">Total Request</h5>
-                <h5 class="text-center font-semibold text-xs">with vendor</h5>
+                <h5 class="text-center font-semibold text-xs">vendor</h5>
               </div>
             </div>
             <div
