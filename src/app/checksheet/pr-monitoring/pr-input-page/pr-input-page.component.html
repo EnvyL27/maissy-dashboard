@@ -55,7 +55,7 @@
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                             for="grid-password">
-                                            Item Description
+                                            Item Description <span class="text-red-500">*</span>
                                         </label>
                                         <div class="flex flex-wrap -mx-3 mb-6">
                                             <div class="w-full md:w-1/2 px-3">
@@ -64,7 +64,7 @@
                                                     id="grid-last-name" type="text" placeholder="Put Description Here"> -->
                                                 <input formControlName="item_desc"
                                                     class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                                [ngClass]="validation && validation.invalid && validation.touched
+                                                [ngClass]="validation && validation.invalid && validation.touched 
                                                     ? 'border border-red-500'
                                                     : 'border border-gray-200'
                                                   "

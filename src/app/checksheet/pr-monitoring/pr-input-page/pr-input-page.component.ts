@@ -208,12 +208,12 @@ export class PrInputPageComponent implements OnInit {
     });
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
-      item_desc: new FormControl('', [Validators.required]),
+      item_desc: new FormControl('', [Validators.required, Validators.minLength(5)]),
       pic: new FormControl(this.name),
       section: new FormControl('', [Validators.required]),
-      area: new FormControl(''),
-      due_date: new FormControl(''),
-      reason: new FormControl(''),
+      area: new FormControl('', [Validators.required]),
+      due_date: new FormControl('', [Validators.required]),
+      reason: new FormControl('', [Validators.required]),
       pr_number: new FormControl(''),
       v_name: new FormControl(''),
       v_value: new FormControl(''),
@@ -228,6 +228,18 @@ export class PrInputPageComponent implements OnInit {
 
   get validation(){
     return this.form.get('item_desc');
+  }
+  get validationArea(){
+    return this.form.get('area');
+  }
+  get validationSection(){
+    return this.form.get('section');
+  }
+  get validationDueDate(){
+    return this.form.get('due_date');
+  }
+  get validationReason(){
+    return this.form.get('reason');
   }
 
   onFileChanged(event: any) {
