@@ -15,6 +15,8 @@ import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
+  vendor1Date : any
+  vendor2Date : any
   @ViewChild('myPond1') myPond!: FilePond;
   @ViewChild('myPond2') myPondAttach!: FilePond;
   @ViewChild('myPond3') myPondAttach2!: FilePond;
