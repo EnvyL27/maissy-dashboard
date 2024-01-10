@@ -208,9 +208,9 @@ export class PrInputPageComponent implements OnInit {
     });
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
-      item_desc: new FormControl(''),
+      item_desc: new FormControl('', [Validators.required]),
       pic: new FormControl(this.name),
-      section: new FormControl('', Validators.required),
+      section: new FormControl('', [Validators.required]),
       area: new FormControl(''),
       due_date: new FormControl(''),
       reason: new FormControl(''),
@@ -224,6 +224,10 @@ export class PrInputPageComponent implements OnInit {
       bidding: new FormControl(''),
       keterangan: new FormControl(''),
     })
+  }
+
+  get validation(){
+    return this.form.get('item_desc');
   }
 
   onFileChanged(event: any) {

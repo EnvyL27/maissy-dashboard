@@ -59,9 +59,21 @@
                                         </label>
                                         <div class="flex flex-wrap -mx-3 mb-6">
                                             <div class="w-full md:w-1/2 px-3">
+                                                <!-- <input formControlName="item_desc"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    id="grid-last-name" type="text" placeholder="Put Description Here"> -->
                                                 <input formControlName="item_desc"
-                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                    class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                [ngClass]="validation && validation.invalid && validation.touched
+                                                    ? 'border border-red-500'
+                                                    : 'border border-gray-200'
+                                                  "
+                                                                                        
                                                     id="grid-last-name" type="text" placeholder="Put Description Here">
+                                                <span class="text-red-600"
+                                                    *ngIf="validation && validation.invalid && validation.touched">
+                                                    This form must be filled
+                                                </span>
                                             </div>
                                             <div class="w-full md:w-1/2 px-3">
                                                 <file-pond #myPond [options]="pondOptions" id="image"
@@ -115,11 +127,7 @@
                                                     Section <span class="text-red-600">*</span>
                                                 </label>
 
-                                                <div [ngClass]="{
-                                                    'border-red-500 border-2 rounded': form.get('section')?.invalid && form.get('section')?.touched,
-                                                    '': form.get('section')?.valid || form.get('section')?.pristine
-                                                  }"
-                                                   class="flex">
+                                                <div class="flex">
                                                     <select formControlName="section" id="section"
                                                         class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-gray-100 focus:border-gray-500"
                                                         [(ngModel)]="section" (change)="sectionSelect(section)">
@@ -129,6 +137,8 @@
                                                             </option>
                                                         </ng-container>
                                                     </select>
+                                                    <br>
+
                                                 </div>
                                             </div>
 
