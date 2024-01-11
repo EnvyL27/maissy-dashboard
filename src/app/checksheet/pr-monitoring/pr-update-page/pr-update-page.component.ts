@@ -25,6 +25,7 @@ export class PrUpdatePageComponent implements OnInit {
   area: any;
   idState: any
   byIdData: any = []
+  vendor1: any = []
 
   form = new FormGroup({
     req_date: new FormControl(),
@@ -80,27 +81,37 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event;
   }
 
-  vendor1Date(): void {
-    const vNameControl = this.form?.get('v_name');
-    if (vNameControl && vNameControl.value !== '') {
-      console.log('bener');
+  onClick(): void {
+    console.log('You typed:', this.vendor1);
+    // You can do more with the inputValue here, e.g., send it to an API, etc.
+  }
+
+  isVNameFilled(): boolean {
+    const vNameControl = this.form.get('v_name') as any;
+  
+    // Check if the v_name control exists and has a non-empty _pendingValue
+    return !!(
+      vNameControl && 
+      vNameControl['_pendingValue'] !== null && 
+      vNameControl['_pendingValue'] !== ''
+    );
+  }
+  
+    
+
+  checkVNameStatus(): void {
+    const isFilled = this.isVNameFilled();
+    
+    if (isFilled) {
+      console.log('v_name is filled.');
     } else {
-      console.log('salah');
+      console.log('v_name is not filled or has an empty value.');
     }
   }
+  
+  
   ngOnInit() {
-    this.byIdData = this.fb.group({
-      v_name: ['']
-    });
-
-    // Subscribe to value changes for 'v_name' only if form and control exist
-    const vNameControl = this.form?.get('v_name');
-    if (vNameControl) {
-      vNameControl.valueChanges.subscribe(value => {
-        this.vendor1Date();
-      });
-    }
-
+    this.checkVNameStatus()
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
       this.byIdData.push(data)
@@ -122,7 +133,6 @@ export class PrUpdatePageComponent implements OnInit {
       this.form.controls.attachment2.setValue(this.byIdData[0].attachment2)
       this.form.controls.bidding.setValue(this.byIdData[0].bidding)
       this.form.controls.keterangan.setValue(this.byIdData[0].keterangan)
-      this.vendor1Date()
       this.service.getPrAllSection().subscribe(data => {
         this.prData = data
         this.prData.forEach((element: any) => {
@@ -150,6 +160,7 @@ export class PrUpdatePageComponent implements OnInit {
 
 
   onUpload() {
+    this.onClick()
     const formData = new FormData();
     if (this.selectedFile) {
 
