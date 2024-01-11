@@ -88,7 +88,8 @@ export class PrUpdatePageComponent implements OnInit {
 
   isVNameFilled(): boolean {
     const vNameControl = this.form.get('v_name') as any;
-  
+    console.log(vNameControl['value']);
+    
     // Check if the v_name control exists and has a non-empty _pendingValue
     return !!(
       vNameControl && 
