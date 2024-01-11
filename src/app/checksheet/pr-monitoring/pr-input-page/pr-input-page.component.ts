@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2  } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
@@ -15,8 +15,8 @@ import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
   styleUrls: ['./pr-input-page.component.css']
 })
 export class PrInputPageComponent implements OnInit {
-  vendor1Date : any
-  vendor2Date : any
+  vendor1Date: any
+  vendor2Date: any
   @ViewChild('myPond1') myPond!: FilePond;
   @ViewChild('myPond2') myPondAttach!: FilePond;
   @ViewChild('myPond3') myPondAttach2!: FilePond;
@@ -152,7 +152,7 @@ export class PrInputPageComponent implements OnInit {
     private http: HttpClient,
     private authService: AuthService,
     private router: Router,
-    private renderer: Renderer2, 
+    private renderer: Renderer2,
     private el: ElementRef) { }
 
   submitted() {
@@ -219,28 +219,42 @@ export class PrInputPageComponent implements OnInit {
       pr_number: new FormControl(''),
       v_name: new FormControl(''),
       v_value: new FormControl(''),
+      v_inputDate: new FormControl(''),
       attachment: new FormControl(''),
       v2_name: new FormControl(''),
       v2_value: new FormControl(''),
+      v2_inputDate: new FormControl(''),
       attachment2: new FormControl(''),
       bidding: new FormControl(''),
       keterangan: new FormControl(''),
     })
   }
 
-  get validation(){
+  isV1Filled() {
+    console.log('masuk kesini');
+    const coba = this.form.get('v_name')
+    console.log(coba);
+
+    // if(  != ''){
+    //   this.vendor1Date = moment().format("YYYY-MM-DD");
+    // }
+    console.log(this.vendor1Date);
+
+  }
+
+  get validation() {
     return this.form.get('item_desc');
   }
-  get validationArea(){
+  get validationArea() {
     return this.form.get('area');
   }
-  get validationSection(){
+  get validationSection() {
     return this.form.get('section');
   }
-  get validationDueDate(){
+  get validationDueDate() {
     return this.form.get('due_date');
   }
-  get validationReason(){
+  get validationReason() {
     return this.form.get('reason');
   }
 
@@ -295,7 +309,7 @@ export class PrInputPageComponent implements OnInit {
 
   onSubmit(event: Event): void {
     event.preventDefault(); // Prevent default form submission behavior
-  
+    this.isV1Filled()
     if (this.form.valid) {
       // Your form submission logic here
       console.log('Form is valid and can be submitted.');
