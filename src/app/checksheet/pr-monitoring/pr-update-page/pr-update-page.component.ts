@@ -26,6 +26,8 @@ export class PrUpdatePageComponent implements OnInit {
   idState: any
   byIdData: any = []
   vendor1: any = []
+  vName: string = ''
+  vDate: any
 
   form = new FormGroup({
     req_date: new FormControl(),
@@ -81,38 +83,22 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event;
   }
 
-  onClick(): void {
-    console.log('You typed:', this.vendor1);
-    // You can do more with the inputValue here, e.g., send it to an API, etc.
-  }
 
-  isVNameFilled(): boolean {
-    const vNameControl = this.form.get('v_name') as any;
-    console.log(vNameControl['value']);
-    
-    // Check if the v_name control exists and has a non-empty _pendingValue
-    return !!(
-      vNameControl && 
-      vNameControl['_pendingValue'] !== null && 
-      vNameControl['_pendingValue'] !== ''
-    );
-  }
   
-    
-
-  checkVNameStatus(): void {
-    const isFilled = this.isVNameFilled();
-    
-    if (isFilled) {
-      console.log('v_name is filled.');
-    } else {
-      console.log('v_name is not filled or has an empty value.');
-    }
+  vendorChange(){
+      console.log(this.vName.length);
+      if(this.vName.length >= 3){
+        this.vDate = moment().format("YYYY-MM-DD");
+      }else{
+        this.vDate = ''
+      }
+      console.log(this.vDate);
+      
   }
+    
   
   
   ngOnInit() {
-    this.checkVNameStatus()
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
       this.byIdData.push(data)
@@ -161,7 +147,6 @@ export class PrUpdatePageComponent implements OnInit {
 
 
   onUpload() {
-    this.onClick()
     const formData = new FormData();
     if (this.selectedFile) {
 
@@ -177,8 +162,10 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('pr_number', this.form.value.pr_number),
         formData.append('v_name', this.form.value.v_name),
         formData.append('v_value', this.form.value.v_value),
+        formData.append('v_inputDate', this.form.value.v_inputDate),
         formData.append('v2_name', this.form.value.v2_name),
         formData.append('v2_value', this.form.value.v2_value),
+        formData.append('v2_inputDate', this.form.value.v2_inputDate),
         formData.append('bidding', this.form.value.bidding),
         formData.append('keterangan', this.form.value.keterangan),
         this.service.updatePrData(formData, this.idState).subscribe(
@@ -203,8 +190,10 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('pr_number', this.form.value.pr_number),
         formData.append('v_name', this.form.value.v_name),
         formData.append('v_value', this.form.value.v_value),
+        formData.append('v_inputDate', this.form.value.v_inputDate),
         formData.append('v2_name', this.form.value.v2_name),
         formData.append('v2_value', this.form.value.v2_value),
+        formData.append('v2_inputDate', this.form.value.v2_inputDate),
         formData.append('bidding', this.form.value.bidding),
         formData.append('keterangan', this.form.value.keterangan),
         this.service.updatePrData(formData, this.idState).subscribe(
