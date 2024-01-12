@@ -232,9 +232,13 @@
                                                 for="grid-password">
                                                 Name
                                             </label>
-                                            <input formControlName="v2_name"
+                                            <input formControlName="v2_name" [(ngModel)]="v2Name"
+                                                (ngModelChange)="vendor2Change()"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
+                                            <input formControlName="v2_inputDate" [(ngModel)]="v2Date"
+                                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                                id="grid-password" type="hidden">
                                         </div>
                                         <div class="w-full md:w-1/2 px-3">
                                             <label

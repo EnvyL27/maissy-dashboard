@@ -28,6 +28,8 @@ export class PrUpdatePageComponent implements OnInit {
   vendor1: any = []
   vName: string = ''
   vDate: any
+  v2Name: string = ''
+  v2Date: any
 
   form = new FormGroup({
     req_date: new FormControl(),
@@ -96,8 +98,15 @@ export class PrUpdatePageComponent implements OnInit {
       
   }
     
-  
-  
+  vendor2Change(){
+    console.log(this.v2Name.length);
+    if(this.v2Name.length >= 3){
+      this.v2Date = moment().format("YYYY-MM-DD");
+    }else{
+      this.v2Date = ''
+    }
+    console.log(this.v2Date);
+  }
   ngOnInit() {
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
