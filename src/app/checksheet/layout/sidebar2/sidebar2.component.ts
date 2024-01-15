@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import { CountService } from '../../../service/master/count.service';
 import { NavigationEnd, Router } from '@angular/router';
 // import { TokenStorageService } from 'src/app/service/auth/token-storage.service';
 
@@ -8,7 +9,7 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './sidebar2.component.html',
   styleUrls: ['./sidebar2.component.css']
 })
-export class Sidebar2Component implements OnInit  {
+export class Sidebar2Component implements OnInit {
   @ViewChild('signOutModal') ModalElement!: ElementRef;
   boolModal: boolean = false;
   boolDropdown: Boolean = false;
@@ -19,27 +20,33 @@ export class Sidebar2Component implements OnInit  {
   supervisorLevel: boolean = false;
   plannerLevel: boolean = false;
   purchasinLevel: boolean = false;
-  adminLevel : boolean = false
-
+  adminLevel: boolean = false
+  user_level : any
+  byId:any[]=[]
   private hasReloaded: boolean = false;
 
   constructor(
-    private authService:AuthService,
+    private authService: AuthService,
+    private countService: CountService,
     public router: Router) {
     // //////console.log(this.router.url)
   }
 
   ngOnInit() {
-  
+
     this.user = this.authService.getUser()
+    // console.log(this.user[0].lg_nik);
     
-    
+    this.countService.getTableUserById(this.user[0].lg_nik).subscribe(data=>{
+      this.byId.push(data)
+      this.user_level = this.byId[0].user_level
+    })
+
+
     this.router.events.subscribe((val) => {
-      
-      // ////console.log(val);
+
       if (val instanceof NavigationEnd) {
         // Hide loading indicator
-        ////console.log(this.user[0]?.user_level);
         if (!this.hasReloaded) {
           // Reload the page only once
           if (this.authService.hasJustLoggedIn()) {
@@ -47,23 +54,23 @@ export class Sidebar2Component implements OnInit  {
             window.location.reload();
           }
         }
-        
-    }
-    
+
+      }
+
       // see also 
-      if(this.user[0]?.user_level == 3){
+      if (this.user_level == 3) {
         this.plannerLevel = true
-      }else if(this.user[0]?.user_level == 8) {
+      } else if (this.user_level == 8) {
         this.purchasinLevel = true
       }
-      
-      else if(this.user[0]?.user_level == 99) {
+
+      else if (this.user_level == 99) {
         this.adminLevel = true
       }
       ////console.log(this.purchasinLevel); 
-  });
-   
-  
+    });
+
+
   }
 
   onMouseEnter() {
