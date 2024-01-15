@@ -21,8 +21,8 @@ export class Sidebar2Component implements OnInit {
   plannerLevel: boolean = false;
   purchasinLevel: boolean = false;
   adminLevel: boolean = false
-  user_level : any
-  byId:any[]=[]
+  user_level: any
+  byId: any[] = []
   private hasReloaded: boolean = false;
 
   constructor(
@@ -35,42 +35,23 @@ export class Sidebar2Component implements OnInit {
   ngOnInit() {
 
     this.user = this.authService.getUser()
-    // console.log(this.user[0].lg_nik);
-    
-    this.countService.getTableUserById(this.user[0].lg_nik).subscribe(data=>{
-      this.byId.push(data)
-      this.user_level = this.byId[0].user_level
-    })
 
+    console.log(this.user[0].user_level);
+    if (this.user[0].user_level == 99) {
+      this.adminLevel = true
+    } else {
+      this.countService.getTableUserById(this.user[0].lg_nik).subscribe(data => {
 
-    this.router.events.subscribe((val) => {
+        this.byId.push(data)
+        this.user_level = this.byId[0].user_level
 
-      if (val instanceof NavigationEnd) {
-        // Hide loading indicator
-        if (!this.hasReloaded) {
-          // Reload the page only once
-          if (this.authService.hasJustLoggedIn()) {
-            // Reload the page only if the user has just logged in
-            window.location.reload();
-          }
+        if (this.user_level == 3) {
+          this.plannerLevel = true
+        } else if (this.user_level == 8) {
+          this.purchasinLevel = true
         }
-
-      }
-
-      // see also 
-      if (this.user_level == 3) {
-        this.plannerLevel = true
-      } else if (this.user_level == 8) {
-        this.purchasinLevel = true
-      }
-
-      else if (this.user_level == 99) {
-        this.adminLevel = true
-      }
-      ////console.log(this.purchasinLevel); 
-    });
-
-
+      })
+    }
   }
 
   onMouseEnter() {

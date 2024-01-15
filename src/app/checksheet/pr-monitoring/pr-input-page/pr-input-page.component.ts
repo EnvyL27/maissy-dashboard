@@ -147,6 +147,9 @@ export class PrInputPageComponent implements OnInit {
   section: any;
   area: any;
 
+  user_level: any
+  byId: any[] = []
+
   constructor(
     private service: CountService,
     private http: HttpClient,
@@ -186,28 +189,33 @@ export class PrInputPageComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser()
+    console.log(this.user[0].lg_nik);
+    
+    this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
+      console.log(data);
+      
+      this.byId.push(data)
+      this.user_level = this.byId[0].user_level
+      console.log(this.user_level);
+      
+        // see also 
+        if (this.user_level == 3) {
+          this.plannerLevel = true
+        } else if (this.user_level == 8) {
+          this.purchasingLevel = true
+        }
+        else if (this.user_level == 99) {
+          this.adminLevel = true
+        }
+        console.log(this.user_level);
+        
+        console.log(this.plannerLevel); 
+        console.log(this.purchasingLevel); 
+        console.log(this.adminLevel); 
+    })
 
 
-    this.router.events.subscribe((val) => {
-
-      // ////console.log(val);
-      if (val instanceof NavigationEnd) {
-        // Hide loading indicator
-        ////console.log(this.user[0]?.user_level);
-
-      }
-
-      // see also 
-      if (this.user[0]?.user_level == 3) {
-        this.plannerLevel = true
-      } else if (this.user[0]?.user_level == 8) {
-        this.purchasingLevel = true
-      }
-      else if (this.user[0]?.user_level == 99) {
-        this.adminLevel = true
-      }
-      ////console.log(this.plannerLevel); 
-    });
+    
     this.form = new FormGroup({
       req_date: new FormControl(this.currentDate),
       item_desc: new FormControl('', [Validators.required, Validators.minLength(5)]),

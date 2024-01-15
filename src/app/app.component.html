@@ -3,16 +3,14 @@
   <div *ngIf="!isChecksheetRoute()" class="bg"></div>
   <div *ngIf="!isChecksheetRoute()" class="bg bg2"></div>
   <div *ngIf="!isChecksheetRoute()" class="bg bg3"></div>
-  <app-navbar [ngClass]="{
-    '': !isLoginRoute() || !isChecksheetRoute(),
-    'hidden': isLoginRoute() || isChecksheetRoute()
-  }"></app-navbar>
-  <app-sidebar [ngClass]="{
-    '': !isLoginRoute() || !isChecksheetRoute(),
-    'hidden': isLoginRoute() || isChecksheetRoute()
-  }"></app-sidebar>
+  <app-navbar  *ngIf="
+   !isLoginRoute() && !isChecksheetRoute()
+  "></app-navbar>
+  <app-sidebar *ngIf="
+    !isLoginRoute() && !isChecksheetRoute()
+  "></app-sidebar>
   <app-navbar2 *ngIf="isChecksheetRoute()"></app-navbar2>
-  <app-sidebar2 [ngClass]="isChecksheetRoute() ? '' : 'hidden'"></app-sidebar2>
+  <app-sidebar2 *ngIf="isChecksheetRoute()"></app-sidebar2>
   <div>
     <!-- <body  onload = "JavaScript:AutoRefresh(1000);"> -->
     <!-- <div [style.visibility]="(resolved === false) ? 'hidden' : 'visible' "> -->
