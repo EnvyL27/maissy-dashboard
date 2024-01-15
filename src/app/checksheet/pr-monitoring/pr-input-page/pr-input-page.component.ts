@@ -207,7 +207,7 @@ export class PrInputPageComponent implements OnInit {
           } else if (this.user_level == 8) {
             this.purchasingLevel = true
           }
-          else if (this.user_level == 99) {
+          else if (this.user_level == 99) { 
             this.adminLevel = true
           }
           console.log(this.user_level);
@@ -241,14 +241,11 @@ export class PrInputPageComponent implements OnInit {
   }
 
   isV1Filled() {
-    console.log('masuk kesini');
     const coba = this.form.get('v_name')
-    console.log(coba);
 
     // if(  != ''){
     //   this.vendor1Date = moment().format("YYYY-MM-DD");
     // }
-    console.log(this.vendor1Date);
 
   }
 
@@ -269,7 +266,7 @@ export class PrInputPageComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    console.log(event);
+    // console.log(event);
     // this.uploadFiles()
     // this.selectedFile = event.target.files[0]
     // console.log(this.selectedFile);

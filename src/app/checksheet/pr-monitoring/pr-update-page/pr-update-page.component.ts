@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormBuilder, FormControl, Validator } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
+import { FilePondComponent } from 'ngx-filepond';
+import { FilePond, FilePondOptions, FilePondFile } from 'filepond';
 
 @Component({
   selector: 'app-pr-update-page',
@@ -12,6 +14,163 @@ import * as moment from 'moment';
   styleUrls: ['./pr-update-page.component.css']
 })
 export class PrUpdatePageComponent implements OnInit {
+  @ViewChild('myPond1') myPond!: FilePond;
+  @ViewChild('myPond2') myPondAttach!: FilePond;
+  @ViewChild('myPond3') myPondAttach2!: FilePond;
+
+  pondOptions: FilePondOptions = {
+    allowMultiple: true,
+    labelIdle: 'Drop images here...',
+    acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
+    allowReorder: true,
+    maxFiles: 1,
+  }
+  pondOptionsApp: FilePondOptions = {
+    allowMultiple: true,
+    labelIdle: 'Drop file here...',
+    acceptedFileTypes: ['application/pdf'],
+    allowReorder: true,
+    maxFiles: 1,
+  }
+
+  pondHandleInit() {
+    console.log("FilePond has initialised", this.myPond);
+  }
+
+  pondHandleAddFile(event: any, id: any) {
+    console.log("A file was added", event);
+    const coba = event.pond.getFiles()
+    console.log(coba);
+    console.log(id);
+
+    this.uploadFiles(event.pond, id)
+  }
+
+  pondHandleActivateFile(event: any) {
+    console.log("A file was activated", event);
+    const coba = event.pond.getFiles()
+
+    console.log(coba);
+
+
+  }
+  pondHandleRemoveFile(event: any) {
+    console.log('File removed:', event);
+
+    const removedFile: FilePondFile = event.file;
+
+    const removedFileName: string = removedFile.filename;
+
+    console.log('Removed file name:', removedFileName);
+
+    this.fileDataArray = this.fileDataArray.map(innerArray => {
+      return innerArray.filter((item: any) => item.file.name !== removedFileName);
+    }).filter(innerArray => innerArray.length > 0);
+
+    console.log('Updated fileDataArray:', this.fileDataArray);
+  }
+
+  pondHandleAddFileProgress(event: any) {
+    const file: FilePondFile = event.file;
+    const progress: number = event.progress;
+
+    console.log(`File '${file.filename}' is ${progress}% loaded.`);
+  }
+
+  fileDataArray: any[] = []
+  removeDuplicateArrays() {
+    const uniqueFiles: { [key: string]: any[] } = {};
+
+    this.fileDataArray.forEach(innerArray => {
+      if (Array.isArray(innerArray)) {
+        innerArray.forEach(item => {
+          const key = `${item.file.name}-${item.fromInput}`;
+          if (!uniqueFiles[key]) {
+            uniqueFiles[key] = [];
+          }
+          uniqueFiles[key].push(item);
+        });
+      } else {
+        console.warn('Invalid data found in fileDataArray:', innerArray);
+      }
+    });
+
+    // Convert uniqueFiles object back to array
+    this.fileDataArray = Object.values(uniqueFiles).map(arr => {
+      // Sort arrays based on length in descending order
+      return arr.sort((a, b) => b.length - a.length)[0];
+    });
+  }
+
+  uploadFiles(pond: any, id: string) {
+    const files: FilePondFile[] = pond.getFiles();
+
+    if (files.length > 0) {
+      this.fileDataArray.push(files.map((file: FilePondFile) => {
+        return {
+          file: file.file,
+          fromInput: id,
+        };
+      }));
+
+    } else {
+      console.warn('No files added or files array is empty.');
+    }
+
+    console.log(this.fileDataArray);
+    this.clusterFilesByInput()
+    // this.sendToBackend(fileDataArray);
+  }
+
+  clusteredFile: { [key: string]: any[] } = {};
+  imageFile !: File
+  attachFile !: File
+  attach2File !: File
+  clusterFilesByInput() {
+    this.clusteredFile = {}
+
+    this.fileDataArray.forEach(innerArray => {
+      innerArray.forEach((item: any) => {
+        const fromInput = item.fromInput;
+        if (!this.clusteredFile[fromInput]) {
+          this.clusteredFile[fromInput] = [];
+        }
+        this.clusteredFile[fromInput].push(item);
+      });
+    });
+
+
+    Object.keys(this.clusteredFile).forEach(key => {
+      switch (key) {
+        case 'image':
+          this.imageFile = this.clusteredFile[key][0].file;
+          break;
+        case 'attach':
+          this.attachFile = this.clusteredFile[key][0]?.file;
+          break;
+        case 'attach2':
+          this.attach2File = this.clusteredFile[key][0]?.file;
+          break;
+      }
+    });
+
+    console.log(this.clusteredFile);
+    console.log('image ' + this.imageFile);
+    console.log('attach ' + this.attachFile);
+    console.log('attach2 ' + this.attach2File);
+
+
+
+    return this.clusteredFile;
+  }
+
+
+
+  sendToBackend(fileDataArray: any[]) {
+    console.log(fileDataArray[0].file);
+    this.selectedFile = fileDataArray[0].file
+  }
+
   selectedFile!: File;
   user = this.authService.getUser()
   name = this.user[0]?.lg_name
@@ -30,6 +189,11 @@ export class PrUpdatePageComponent implements OnInit {
   vDate: any
   v2Name: string = ''
   v2Date: any
+  adminLevel: boolean = false
+  plannerLevel: boolean = false
+  purchasingLevel: boolean = false
+  user_level: any
+  byId: any[] = []
 
   form = new FormGroup({
     req_date: new FormControl(),
@@ -108,6 +272,35 @@ export class PrUpdatePageComponent implements OnInit {
     console.log(this.v2Date);
   }
   ngOnInit() {
+    this.user = this.authService.getUser()
+    console.log(this.user[0].lg_nik);
+    
+    if (this.user[0].user_level == 99) {
+      this.adminLevel = true
+    }else{
+      this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
+        console.log(data);
+        
+        this.byId.push(data)
+        this.user_level = this.byId[0].user_level
+        console.log(this.user_level);
+        
+          // see also 
+          if (this.user_level == 3) {
+            this.plannerLevel = true
+          } else if (this.user_level == 8) {
+            this.purchasingLevel = true
+          }
+          else if (this.user_level == 99) {
+            this.adminLevel = true
+          }
+          console.log(this.user_level);
+          
+          console.log(this.plannerLevel); 
+          console.log(this.purchasingLevel); 
+          console.log(this.adminLevel); 
+      })
+    }
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
       this.byIdData.push(data)
