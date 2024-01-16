@@ -305,9 +305,9 @@ export class PrInputPageComponent implements OnInit {
     });
 
     //console.log(this.clusteredFile);
-    //console.log('image ' + this.imageFile);
-    //console.log('attach ' + this.attachFile);
-    //console.log('attach2 ' + this.attach2File);
+    console.log('image ' + this.imageFile);
+    console.log('attach ' + this.attachFile);
+    console.log('attach2 ' + this.attach2File);
 
 
 
@@ -328,11 +328,18 @@ export class PrInputPageComponent implements OnInit {
   onUpload() {
     if (this.form.valid) {
       const formData = new FormData();
-      if (this.imageFile || this.attachFile || this.attach2File) {
-
-
+      if (this.imageFile) {
         formData.append('item_desc_img', this.imageFile, this.imageFile.name);
-        formData.append('req_date', this.form.value.req_date),
+     }
+     if (this.attachFile) {
+       formData.append('attachment', this.attachFile, this.attachFile.name);
+     }
+
+     if (this.attach2File) {
+       formData.append('attachment2', this.attach2File, this.attach2File.name);
+     }
+
+        formData.append('req_date', this.form.value.req_date), 
           formData.append('item_desc', this.form.value.item_desc),
           formData.append('pic', this.form.value.pic),
           formData.append('section', this.form.value.section),
@@ -342,10 +349,8 @@ export class PrInputPageComponent implements OnInit {
           formData.append('pr_number', this.form.value.pr_number),
           formData.append('v_name', this.form.value.v_name),
           formData.append('v_value', this.form.value.v_value),
-          formData.append('attachment', this.attachFile, this.attachFile.name),
           formData.append('v2_name', this.form.value.v2_name),
           formData.append('v2_value', this.form.value.v2_value),
-          formData.append('attachment2', this.attach2File, this.attach2File.name),
           formData.append('bidding', this.form.value.bidding),
           formData.append('keterangan', this.form.value.keterangan),
           //console.log(formData);
@@ -361,48 +366,6 @@ export class PrInputPageComponent implements OnInit {
             // Handle error
           }
         );
-      } else {
-        formData.append('req_date', this.form.value.req_date),
-          formData.append('item_desc', this.form.value.item_desc),
-          formData.append('pic', this.form.value.pic),
-          formData.append('section', this.form.value.section),
-          formData.append('area', this.form.value.area),
-          formData.append('due_date', this.form.value.due_date),
-          formData.append('reason', this.form.value.reason),
-          formData.append('pr_number', this.form.value.pr_number),
-          formData.append('v_name', this.form.value.v_name),
-          formData.append('v_value', this.form.value.v_value),
-          formData.append('v2_name', this.form.value.v2_name),
-          formData.append('v2_value', this.form.value.v2_value),
-          formData.append('bidding', this.form.value.bidding),
-          formData.append('keterangan', this.form.value.keterangan),
-          this.service.postPrData(formData).subscribe(
-            (response) => {
-              ////////console.log('Upload successful:', response);
-              this.submitted()
-              // Handle success
-            },
-            (error) => {
-              // console.error('Upload failed:', error);
-              // Handle error
-            }
-          );
-      }
-    } else {
-      // Loop through form controls to find the first invalid one
-      for (const controlName in this.form.controls) {
-        if (this.form.controls.hasOwnProperty(controlName)) {
-          const control = this.form.controls[controlName];
-          if (control.invalid) {
-            // Set focus to the first invalid control
-            const element = this.el.nativeElement.querySelector(`[formcontrolname="${controlName}"]`);
-            if (element) {
-              element.focus();
-              break;  // Stop after setting focus to the first invalid control
-            }
-          }
-        }
-      }
-    }
+      } 
   }
 }

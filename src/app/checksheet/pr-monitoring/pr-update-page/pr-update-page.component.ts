@@ -260,24 +260,20 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event;
   }
 
-  vendorChange() {
-    //console.log(this.vName.length);
-    if (this.vName.length >= 3) {
+  vendorChange(nameVendor : any) {
+    // console.log(this.vName.length);
+    if (nameVendor.length >= 3) {
       this.vDate = moment().format("YYYY-MM-DD");
-    } else {
-      this.vDate = ''
-    }
-    //console.log(this.vDate);
+    } 
+    // console.log(this.vDate);
 
   }
 
-  vendor2Change() {
-    //console.log(this.v2Name.length);
-    if (this.v2Name.length >= 3) {
+  vendor2Change(name2 : any) {
+    // console.log(name2.length);
+    if (name2.length >= 3) {
       this.v2Date = moment().format("YYYY-MM-DD");
-    } else {
-      this.v2Date = ''
-    }
+    } 
     //console.log(this.v2Date);
   }
   ngOnInit() {
@@ -315,7 +311,7 @@ export class PrUpdatePageComponent implements OnInit {
      
       
       this.byIdData.push(data)
-      //console.log(this.byIdData[0].area);
+      // console.log(this.byIdData[0].v_name);
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
       this.form.controls.pic.setValue(this.byIdData[0].pic)
@@ -342,6 +338,8 @@ export class PrUpdatePageComponent implements OnInit {
           }
         });
       })
+      this.vendorChange(this.byIdData[0].v_name)
+      this.vendor2Change(this.byIdData[0].v2_name)
     })
 
 
@@ -396,10 +394,10 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('pr_number', this.form.value.pr_number),
         formData.append('v_name', this.form.value.v_name),
         formData.append('v_value', this.form.value.v_value),
-
+        formData.append('v_inputDate', this.form.value.v_inputDate),
         formData.append('v2_name', this.form.value.v2_name),
         formData.append('v2_value', this.form.value.v2_value),
-
+        formData.append('v2_inputDate', this.form.value.v2_inputDate),
         formData.append('bidding', this.form.value.bidding),
         formData.append('keterangan', this.form.value.keterangan),
         //console.log(formData);

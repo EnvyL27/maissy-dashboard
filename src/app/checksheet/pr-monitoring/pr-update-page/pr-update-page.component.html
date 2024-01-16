@@ -228,8 +228,8 @@
                                                 for="grid-password">
                                                 Name
                                             </label>
-                                            <input formControlName="v_name" [(ngModel)]="vName"
-                                                (ngModelChange)="vendorChange()"
+                                            <input formControlName="v_name" 
+                                                (ngModelChange)="vendorChange(form.value.v_name)"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                             <input formControlName="v_inputDate" [(ngModel)]="vDate"
@@ -276,8 +276,8 @@
                                                 for="grid-password">
                                                 Name
                                             </label>
-                                            <input formControlName="v2_name" [(ngModel)]="v2Name"
-                                                (ngModelChange)="vendor2Change()"
+                                            <input formControlName="v2_name"
+                                                (ngModelChange)="vendor2Change(form.value.v2_name)"
                                                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                 id="grid-password" type="text">
                                             <input formControlName="v2_inputDate" [(ngModel)]="v2Date"
@@ -307,7 +307,7 @@
                                                 (onremovefile)="pondHandleRemoveFile($event)"
                                                 (onaddfileprogress)="pondHandleAddFileProgress($event)">
                                             </file-pond>
-                                            <div (click)="clusterFilesByInput()">click</div>
+                                            <!-- <div (click)="clusterFilesByInput()">click</div> -->
                                         </div>
                                     </div>
 

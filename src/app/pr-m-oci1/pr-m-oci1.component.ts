@@ -199,10 +199,10 @@ export class PrMOci1Component implements OnInit {
         this.service.getTotalVendor1(),
         this.service.getTotalVendor2(),
       ]).subscribe(([dataReq, dataNum, dataV1, dataV2]) => {
-        //console.log(dataReq);
-        //console.log(dataNum);
-        //console.log(dataV1);
-        //console.log(dataV2);
+        console.log(dataReq);
+        console.log(dataNum);
+        console.log(dataV1);
+        console.log(dataV2);
         this.totalkategori = dataReq
         this.const = dataNum
         this.totalvendr1 = dataV1
