@@ -177,6 +177,7 @@ export class PrUpdatePageComponent implements OnInit {
   // form! : FormGroup
   currentDate: any = moment().format("YYYY-MM-DD");
   validateSubmit: boolean = false
+  error: boolean = false
   prData: any
   target: any;
   sectionlist: any = [];
@@ -228,8 +229,18 @@ export class PrUpdatePageComponent implements OnInit {
     this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
   }
 
+  errorSubmit(){
+    console.log(this.error);
+    
+    this.error = !this.error
+  }
+
   validate() {
     this.validateSubmit = !this.validateSubmit
+  }
+
+  validateError(){
+    this.error = false
   }
 
   areaSelect($event: any) {
@@ -248,8 +259,6 @@ export class PrUpdatePageComponent implements OnInit {
   sectionSelect($event: any) {
     this.section = $event;
   }
-
-
 
   vendorChange() {
     console.log(this.vName.length);
@@ -351,11 +360,6 @@ export class PrUpdatePageComponent implements OnInit {
 
   isV1Filled() {
     const coba = this.form.get('v_name')
-
-    // if(  != ''){
-    //   this.vendor1Date = moment().format("YYYY-MM-DD");
-    // }
-
   }
 
   onSubmit(event: Event): void {
@@ -373,7 +377,7 @@ export class PrUpdatePageComponent implements OnInit {
     if (this.form.valid) {
       const formData = new FormData();
       if (this.imageFile) {
-        formData.append('item_desc_img', this.imageFile, this.imageFile.name);
+         formData.append('item_desc_img', this.imageFile, this.imageFile.name);
       }
       if (this.attachFile) {
         formData.append('attachment', this.attachFile, this.attachFile.name);
@@ -404,30 +408,15 @@ export class PrUpdatePageComponent implements OnInit {
         (response) => {
           //////console.log('Upload successful:', response);
           this.submitted()
+          
           // Handle success
         },
         (error) => {
-          console.error('Upload failed:', error);
+          // console.error('Upload failed:', error);
+          this.errorSubmit()
           // Handle error
         }
       );
-
-
-      // } else {
-      //   // Loop through form controls to find the first invalid one
-      //   for (const controlName in this.form.controls) {
-      //     if (this.form.controls.hasOwnProperty(controlName)) {
-      //       const control = this.form.controls[controlName];
-      //       if (control.invalid) {
-      //         // Set focus to the first invalid control
-      //         const element = this.el.nativeElement.querySelector(`[formcontrolname="${controlName}"]`);
-      //         if (element) {
-      //           element.focus();
-      //           break;  // Stop after setting focus to the first invalid control
-      //         }
-      //       }
-      //     }
-      //   }
     }
   }
 }
