@@ -22,12 +22,12 @@ export class OilComponent implements OnInit {
     this.oilproduct = this.service.getOilProduct().subscribe(data => {
       this.oil = data;
       Object.values(this.oil).forEach(data => {
-        // // ////////////////////console.log(data);
+        // // //////////////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
 
-        // // ////////////////////console.log(array);
+        // // //////////////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.oilist.splice(this.oilist.lenght, 0, array[i]);
         }

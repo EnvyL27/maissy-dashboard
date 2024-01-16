@@ -37,47 +37,47 @@ export class PrInputPageComponent implements OnInit {
   }
 
   pondHandleInit() {
-    console.log("FilePond has initialised", this.myPond);
+    //console.log("FilePond has initialised", this.myPond);
   }
 
   pondHandleAddFile(event: any, id: any) {
-    console.log("A file was added", event);
+    //console.log("A file was added", event);
     const coba = event.pond.getFiles()
-    console.log(coba);
-    console.log(id);
+    //console.log(coba);
+    //console.log(id);
 
     this.uploadFiles(event.pond, id)
   }
 
   pondHandleActivateFile(event: any) {
-    console.log("A file was activated", event);
+    //console.log("A file was activated", event);
     const coba = event.pond.getFiles()
 
-    console.log(coba);
+    //console.log(coba);
 
 
   }
   pondHandleRemoveFile(event: any) {
-    console.log('File removed:', event);
+    //console.log('File removed:', event);
 
     const removedFile: FilePondFile = event.file;
 
     const removedFileName: string = removedFile.filename;
 
-    console.log('Removed file name:', removedFileName);
+    //console.log('Removed file name:', removedFileName);
 
     this.fileDataArray = this.fileDataArray.map(innerArray => {
       return innerArray.filter((item: any) => item.file.name !== removedFileName);
     }).filter(innerArray => innerArray.length > 0);
 
-    console.log('Updated fileDataArray:', this.fileDataArray);
+    //console.log('Updated fileDataArray:', this.fileDataArray);
   }
 
   pondHandleAddFileProgress(event: any) {
     const file: FilePondFile = event.file;
     const progress: number = event.progress;
 
-    console.log(`File '${file.filename}' is ${progress}% loaded.`);
+    //console.log(`File '${file.filename}' is ${progress}% loaded.`);
   }
 
   fileDataArray: any[] = []
@@ -120,7 +120,7 @@ export class PrInputPageComponent implements OnInit {
       console.warn('No files added or files array is empty.');
     }
 
-    console.log(this.fileDataArray);
+    //console.log(this.fileDataArray);
     this.clusterFilesByInput()
     // this.sendToBackend(fileDataArray);
   }
@@ -128,7 +128,7 @@ export class PrInputPageComponent implements OnInit {
 
 
   sendToBackend(fileDataArray: any[]) {
-    console.log(fileDataArray[0].file);
+    //console.log(fileDataArray[0].file);
     this.selectedFile = fileDataArray[0].file
   }
   adminLevel: boolean = false
@@ -169,10 +169,10 @@ export class PrInputPageComponent implements OnInit {
   areaSelect($event: any) {
     this.sectionlist = []
     this.area = $event;
-    //////console.log(this.area);
+    ////////console.log(this.area);
 
     this.service.getPrAllSection().subscribe(data => {
-      //////console.log(data);
+      ////////console.log(data);
 
       this.prData = data
       this.prData.forEach((element: any) => {
@@ -189,17 +189,17 @@ export class PrInputPageComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser()
-    console.log(this.user[0].lg_nik);
+    //console.log(this.user[0].lg_nik);
     
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
     }else{
       this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
-        console.log(data);
+        //console.log(data);
         
         this.byId.push(data)
         this.user_level = this.byId[0].user_level
-        console.log(this.user_level);
+        //console.log(this.user_level);
         
           // see also 
           if (this.user_level == 3) {
@@ -210,11 +210,11 @@ export class PrInputPageComponent implements OnInit {
           else if (this.user_level == 99) { 
             this.adminLevel = true
           }
-          console.log(this.user_level);
+          //console.log(this.user_level);
           
-          console.log(this.plannerLevel); 
-          console.log(this.purchasingLevel); 
-          console.log(this.adminLevel); 
+          //console.log(this.plannerLevel); 
+          //console.log(this.purchasingLevel); 
+          //console.log(this.adminLevel); 
       })
     }
       
@@ -266,10 +266,10 @@ export class PrInputPageComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    // console.log(event);
+    // //console.log(event);
     // this.uploadFiles()
     // this.selectedFile = event.target.files[0]
-    // console.log(this.selectedFile);
+    // //console.log(this.selectedFile);
 
   }
   clusteredFile: { [key: string]: any[] } = {};
@@ -304,10 +304,10 @@ export class PrInputPageComponent implements OnInit {
       }
     });
 
-    console.log(this.clusteredFile);
-    console.log('image ' + this.imageFile);
-    console.log('attach ' + this.attachFile);
-    console.log('attach2 ' + this.attach2File);
+    //console.log(this.clusteredFile);
+    //console.log('image ' + this.imageFile);
+    //console.log('attach ' + this.attachFile);
+    //console.log('attach2 ' + this.attach2File);
 
 
 
@@ -319,9 +319,9 @@ export class PrInputPageComponent implements OnInit {
     this.isV1Filled()
     if (this.form.valid) {
       // Your form submission logic here
-      console.log('Form is valid and can be submitted.');
+      //console.log('Form is valid and can be submitted.');
     } else {
-      console.log('Form is invalid.');
+      //console.log('Form is invalid.');
     }
   }
 
@@ -348,11 +348,11 @@ export class PrInputPageComponent implements OnInit {
           formData.append('attachment2', this.attach2File, this.attach2File.name),
           formData.append('bidding', this.form.value.bidding),
           formData.append('keterangan', this.form.value.keterangan),
-          console.log(formData);
+          //console.log(formData);
 
         this.service.postPrData(formData).subscribe(
           (response) => {
-            //////console.log('Upload successful:', response);
+            ////////console.log('Upload successful:', response);
             this.submitted()
             // Handle success
           },
@@ -378,7 +378,7 @@ export class PrInputPageComponent implements OnInit {
           formData.append('keterangan', this.form.value.keterangan),
           this.service.postPrData(formData).subscribe(
             (response) => {
-              //////console.log('Upload successful:', response);
+              ////////console.log('Upload successful:', response);
               this.submitted()
               // Handle success
             },

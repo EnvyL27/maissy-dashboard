@@ -48,7 +48,7 @@ export class PrListComponent implements OnInit {
 
   filterButton() {
     this.filter = !this.filter
-    //console.log(this.filter);
+    ////console.log(this.filter);
    
   }
 
@@ -72,22 +72,22 @@ export class PrListComponent implements OnInit {
           this.isOc = false
         }
         
-        //console.log(this.prData);
+        ////console.log(this.prData);
 
         this.service.getPrAllSection().subscribe(data => {
           this.sectionData = data
-          //console.log(this.area + ' hah');
+          ////console.log(this.area + ' hah');
           
           this.sectionData.forEach((element : any) => {
-            //console.log('sini si');
-            //console.log(element.id_area);
+            ////console.log('sini si');
+            ////console.log(element.id_area);
             
             if(element.id_area == this.area){
               this.sectionFiltered.push(element)
             }
           });
           
-          //console.log(this.sectionFiltered);
+          ////console.log(this.sectionFiltered);
           
           
           
@@ -101,7 +101,7 @@ export class PrListComponent implements OnInit {
 
   sectionFilter(){
     this.prData = []   
-    //console.log(this.section);
+    ////console.log(this.section);
     this.service.getPrAllData().subscribe(data => {
       this.dataFilter = data
       this.dataFilter.forEach((element : any) => {
@@ -110,7 +110,7 @@ export class PrListComponent implements OnInit {
         }
       });
       
-      //console.log(this.prData);
+      ////console.log(this.prData);
       
       this.spinner.hide()
       this.resolved = true
@@ -131,22 +131,22 @@ export class PrListComponent implements OnInit {
     //       this.isOc = true
     //     }
         
-    //     //console.log(this.prData);
+    //     ////console.log(this.prData);
 
     //     this.service.getPrAllSection().subscribe(data => {
     //       this.sectionData = data
-    //       //console.log(this.area + ' hah');
+    //       ////console.log(this.area + ' hah');
           
     //       this.sectionData.forEach((element : any) => {
-    //         //console.log('sini si');
-    //         //console.log(element.id_area);
+    //         ////console.log('sini si');
+    //         ////console.log(element.id_area);
             
     //         if(element.id_area == this.area){
     //           this.sectionFiltered.push(element)
     //         }
     //       });
           
-    //       //console.log(this.sectionFiltered);
+    //       ////console.log(this.sectionFiltered);
           
           
           
@@ -161,7 +161,7 @@ export class PrListComponent implements OnInit {
   popUp(url: any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
-    //////console.log(this.imageUrl);
+    ////////console.log(this.imageUrl);
 
   }
 
@@ -172,7 +172,7 @@ export class PrListComponent implements OnInit {
   oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
-    //////console.log(history.state);
+    ////////console.log(history.state);
   }
 
   delete(id: any) {
@@ -201,17 +201,17 @@ export class PrListComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show()
-    //////console.log(history.state);
+    ////////console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getPrAllData().subscribe(data => {
       this.prData = data
-      //////console.log(this.prData);
+      ////////console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })
 
     
-    // //console.log(this.sectionData);
+    // ////console.log(this.sectionData);
     
 
   }
