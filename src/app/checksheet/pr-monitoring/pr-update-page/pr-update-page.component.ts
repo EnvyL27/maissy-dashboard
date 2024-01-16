@@ -303,7 +303,10 @@ export class PrUpdatePageComponent implements OnInit {
     }
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
+     
+      
       this.byIdData.push(data)
+      console.log(this.byIdData[0].area);
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
       this.form.controls.pic.setValue(this.byIdData[0].pic)
