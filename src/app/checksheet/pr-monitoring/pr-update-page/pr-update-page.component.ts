@@ -155,9 +155,9 @@ export class PrUpdatePageComponent implements OnInit {
     });
 
     console.log(this.clusteredFile);
-    console.log('image ' + this.imageFile);
-    console.log('attach ' + this.attachFile);
-    console.log('attach2 ' + this.attach2File);
+    console.log(this.imageFile);
+    console.log(this.attachFile.name);
+    console.log(this.attach2File);
 
 
 
@@ -250,23 +250,23 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
 
-  
-  vendorChange(){
-      console.log(this.vName.length);
-      if(this.vName.length >= 3){
-        this.vDate = moment().format("YYYY-MM-DD");
-      }else{
-        this.vDate = ''
-      }
-      console.log(this.vDate);
-      
+
+  vendorChange() {
+    console.log(this.vName.length);
+    if (this.vName.length >= 3) {
+      this.vDate = moment().format("YYYY-MM-DD");
+    } else {
+      this.vDate = ''
+    }
+    console.log(this.vDate);
+
   }
-    
-  vendor2Change(){
+
+  vendor2Change() {
     console.log(this.v2Name.length);
-    if(this.v2Name.length >= 3){
+    if (this.v2Name.length >= 3) {
       this.v2Date = moment().format("YYYY-MM-DD");
-    }else{
+    } else {
       this.v2Date = ''
     }
     console.log(this.v2Date);
@@ -274,31 +274,31 @@ export class PrUpdatePageComponent implements OnInit {
   ngOnInit() {
     this.user = this.authService.getUser()
     console.log(this.user[0].lg_nik);
-    
+
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
-    }else{
+    } else {
       this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
         console.log(data);
-        
+
         this.byId.push(data)
         this.user_level = this.byId[0].user_level
         console.log(this.user_level);
-        
-          // see also 
-          if (this.user_level == 3) {
-            this.plannerLevel = true
-          } else if (this.user_level == 8) {
-            this.purchasingLevel = true
-          }
-          else if (this.user_level == 99) {
-            this.adminLevel = true
-          }
-          console.log(this.user_level);
-          
-          console.log(this.plannerLevel); 
-          console.log(this.purchasingLevel); 
-          console.log(this.adminLevel); 
+
+        // see also 
+        if (this.user_level == 3) {
+          this.plannerLevel = true
+        } else if (this.user_level == 8) {
+          this.purchasingLevel = true
+        }
+        else if (this.user_level == 99) {
+          this.adminLevel = true
+        }
+        console.log(this.user_level);
+
+        console.log(this.plannerLevel);
+        console.log(this.purchasingLevel);
+        console.log(this.adminLevel);
       })
     }
     this.idState = history.state.id
@@ -346,14 +346,39 @@ export class PrUpdatePageComponent implements OnInit {
 
   }
 
+  isV1Filled() {
+    const coba = this.form.get('v_name')
 
+    // if(  != ''){
+    //   this.vendor1Date = moment().format("YYYY-MM-DD");
+    // }
+
+  }
+
+  onSubmit(event: Event): void {
+    event.preventDefault(); // Prevent default form submission behavior
+    this.isV1Filled()
+    if (this.form.valid) {
+      // Your form submission logic here
+      console.log('Form is valid and can be submitted.');
+    } else {
+      console.log('Form is invalid.');
+    }
+  }
 
   onUpload() {
-    const formData = new FormData();
-    if (this.selectedFile) {
+    if (this.form.valid) {
+      const formData = new FormData();
+      if (this.imageFile) {
+        formData.append('item_desc_img', this.imageFile, this.imageFile.name);
+      }
+      if (this.attachFile) {
+        formData.append('attachment', this.attachFile, this.attachFile.name);
+      }
 
-
-      formData.append('item_desc_img', this.selectedFile, this.selectedFile.name);
+      if (this.attach2File) {
+        formData.append('attachment2', this.attach2File, this.attach2File.name);
+      }
       formData.append('req_date', this.form.value.req_date),
         formData.append('item_desc', this.form.value.item_desc),
         formData.append('pic', this.form.value.pic),
@@ -364,51 +389,42 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('pr_number', this.form.value.pr_number),
         formData.append('v_name', this.form.value.v_name),
         formData.append('v_value', this.form.value.v_value),
-        formData.append('v_inputDate', this.form.value.v_inputDate),
+
         formData.append('v2_name', this.form.value.v2_name),
         formData.append('v2_value', this.form.value.v2_value),
-        formData.append('v2_inputDate', this.form.value.v2_inputDate),
+
         formData.append('bidding', this.form.value.bidding),
         formData.append('keterangan', this.form.value.keterangan),
-        this.service.updatePrData(formData, this.idState).subscribe(
-          (response) => {
-            //////console.log('Upload successful:', response);
-            this.submitted()
-            // Handle success
-          },
-          (error) => {
-            console.error('Upload failed:', error);
-            // Handle error
-          }
-        );
-    } else {
-      formData.append('req_date', this.form.value.req_date),
-        formData.append('item_desc', this.form.value.item_desc),
-        formData.append('pic', this.form.value.pic),
-        formData.append('section', this.form.value.section),
-        formData.append('area', this.form.value.area),
-        formData.append('due_date', this.form.value.due_date),
-        formData.append('reason', this.form.value.reason),
-        formData.append('pr_number', this.form.value.pr_number),
-        formData.append('v_name', this.form.value.v_name),
-        formData.append('v_value', this.form.value.v_value),
-        formData.append('v_inputDate', this.form.value.v_inputDate),
-        formData.append('v2_name', this.form.value.v2_name),
-        formData.append('v2_value', this.form.value.v2_value),
-        formData.append('v2_inputDate', this.form.value.v2_inputDate),
-        formData.append('bidding', this.form.value.bidding),
-        formData.append('keterangan', this.form.value.keterangan),
-        this.service.updatePrData(formData, this.idState).subscribe(
-          (response) => {
-            //////console.log('Upload successful:', response);
-            this.submitted()
-            // Handle success
-          },
-          (error) => {
-            // console.error('Upload failed:', error);
-            // Handle error
-          }
-        );
+        console.log(formData);
+
+      this.service.updatePrData(formData, this.idState).subscribe(
+        (response) => {
+          //////console.log('Upload successful:', response);
+          this.submitted()
+          // Handle success
+        },
+        (error) => {
+          console.error('Upload failed:', error);
+          // Handle error
+        }
+      );
+
+
+      // } else {
+      //   // Loop through form controls to find the first invalid one
+      //   for (const controlName in this.form.controls) {
+      //     if (this.form.controls.hasOwnProperty(controlName)) {
+      //       const control = this.form.controls[controlName];
+      //       if (control.invalid) {
+      //         // Set focus to the first invalid control
+      //         const element = this.el.nativeElement.querySelector(`[formcontrolname="${controlName}"]`);
+      //         if (element) {
+      //           element.focus();
+      //           break;  // Stop after setting focus to the first invalid control
+      //         }
+      //       }
+      //     }
+      //   }
     }
   }
 }
