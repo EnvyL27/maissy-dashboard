@@ -1,6 +1,6 @@
 <div class="fixed top-0 left-0 flex flex-col h-full bg-white border-r w-52 max-lg:hidden">
   <a routerLink="/am_checksheet" class="flex items-center justify-center border-b h-28">
-    <img src="assets/img/amLogoFull.png" class="w-28" alt="" />
+    <img src="assets/img/purchasing.png" class="w-28" alt="" />
   </a>
   <!-- fill="#3d90e3" -->
   <div class="flex-grow overflow-x-hidden overflow-y-auto grid content-between">
@@ -26,7 +26,7 @@
 
         </a>
       </li>
-      <li>
+      <li *ngIf="adminLevel">
         <a [ngClass]="
         router.url == '/temuan_list' ||
         router.url == '/temuan_input' 
@@ -67,7 +67,7 @@
           router.url == '/pr_input'
             ? 'text-gray-100'
             : 'text-gray-600'
-          " class="ml-2 text-sm tracking-wide truncate">Pre-PR Monitoring</span>
+          " class="ml-2 text-sm tracking-wide truncate">Checksheet</span>
         </a>
       </li>
       <li *ngIf="adminLevel">
