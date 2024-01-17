@@ -110,7 +110,7 @@ export class ChecksheetDashboardComponent implements OnInit {
         new Chart('dum', {
           type: 'bar',
           data: {
-            labels: ["Total Request"],
+            labels: [""],
             datasets: [
               {
                 label: 'Total Request',
@@ -121,7 +121,8 @@ export class ChecksheetDashboardComponent implements OnInit {
                 borderColor: [
                   'white'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 20,
               },
               {
                 label: 'PR Number',
@@ -132,7 +133,8 @@ export class ChecksheetDashboardComponent implements OnInit {
                 borderColor: [
                   'white'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 20,
               },
             ]
           },
@@ -141,7 +143,7 @@ export class ChecksheetDashboardComponent implements OnInit {
         new Chart('vendor', {
           type: 'bar',
           data: {
-            labels: ["Total Request"],
+            labels: [""],
             datasets: [
               {
                 label: 'Total Request',
@@ -152,7 +154,8 @@ export class ChecksheetDashboardComponent implements OnInit {
                 borderColor: [
                   'white'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 20,
               },
               {
                 label: 'Vendor 1',
@@ -163,7 +166,8 @@ export class ChecksheetDashboardComponent implements OnInit {
                 borderColor: [
                   'white'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 20,
               },
               {
                 label: 'Vendor 2',
@@ -174,7 +178,8 @@ export class ChecksheetDashboardComponent implements OnInit {
                 borderColor: [
                   'white'
                 ],
-                borderWidth: 1
+                borderWidth: 1,
+                borderRadius: 20,
               },
             ]
           },
