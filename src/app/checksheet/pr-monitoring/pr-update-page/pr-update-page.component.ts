@@ -307,6 +307,7 @@ export class PrUpdatePageComponent implements OnInit {
     console.log($event);
     if (this.v_name != '') {
       this.v_name = $event
+      this.vendorChange(this.v_name)
     }
     this.vendorSect = false
   }
@@ -338,6 +339,7 @@ export class PrUpdatePageComponent implements OnInit {
   vendor2Name($event: any) {
     if (this.v2_name != '') {
       this.v2_name = $event
+      this.vendor2Change(this.v2_name)
     }
     console.log($event);
 
@@ -460,6 +462,8 @@ export class PrUpdatePageComponent implements OnInit {
       }
       this.form.value.v_name = this.v_name
       this.form.value.v2_name = this.v2_name
+      this.form.value.v_inputDate = this.vDate
+      this.form.value.v2_inputDate = this.v2Date
       formData.append('req_date', this.form.value.req_date),
         formData.append('item_desc', this.form.value.item_desc),
         formData.append('pic', this.form.value.pic),
