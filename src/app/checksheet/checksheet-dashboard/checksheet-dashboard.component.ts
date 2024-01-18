@@ -116,7 +116,7 @@ export class ChecksheetDashboardComponent implements OnInit {
                 label: 'Total Request',
                 data: [this.totalReq],
                 backgroundColor: [
-                  '#65afff'
+                  '#8ecae6'
                 ],
                 borderColor: [
                   'white'
@@ -128,7 +128,7 @@ export class ChecksheetDashboardComponent implements OnInit {
                 label: 'PR Number',
                 data: [this.totalReqNum],
                 backgroundColor: [
-                  '#1b2845'
+                  '#219ebc'
                 ],
                 borderColor: [
                   'white'
@@ -161,7 +161,7 @@ export class ChecksheetDashboardComponent implements OnInit {
                 label: 'Vendor 1',
                 data: [this.totalv1],
                 backgroundColor: [
-                  '#c9e4ca'
+                  '#83c5be'
                 ],
                 borderColor: [
                   'white'
