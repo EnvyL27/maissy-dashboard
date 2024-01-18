@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './dashboard/dashboard.component'; 
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NavbarComponent } from './layout/navbar/navbar.component';

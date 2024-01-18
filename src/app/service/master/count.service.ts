@@ -818,4 +818,9 @@ export class CountService {
   getqpctData(){
     return this.httpClient.get(apiAM + '/sap/qpct');
   }
+
+  //VENDOR SERVICE//
+  getVendorData(){
+    return this.httpClient.get(apiAM + '/pr/vendor');
+  }
 };

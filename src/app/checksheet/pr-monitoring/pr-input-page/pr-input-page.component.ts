@@ -187,7 +187,73 @@ export class PrInputPageComponent implements OnInit {
     this.section = $event;
   }
 
+  vendorData : any
+  vendorList : any[] = []
+  vendorSect : boolean = false
+  searchText : any
+  v_name: any
+  vendorSelect(){
+    this.service.getVendorData().subscribe(data => {
+      console.log(data);
+      this.vendorData = data
+      this.vendorData.forEach((element: any) => {
+        if (element.id_area == this.area) {
+          this.vendorList.push(element)
+        }
+      });
+      console.log(this.vendorList);
+      
+    })
+  }
+
+  vendorSection(){
+    this.vendorSect = !this.vendorSect
+  }
+
+  cancelVendor(){
+    this.vendorSect = false
+  }
+
+  vendorName($event : any){
+    this.v_name = $event
+    this.vendorSect = false
+  }
+  vendor2Data : any
+  vendor2List : any[] = []
+  vendor2Sect : boolean = false
+  v2_name: any
+  vendor2Select(){
+    this.service.getVendorData().subscribe(data => {
+      console.log(data);
+      this.vendor2Data = data
+      this.vendor2Data.forEach((element: any) => {
+        if (element.id_area == this.area) {
+          this.vendor2List.push(element)
+        }
+      });
+      console.log(this.vendorList);
+      
+    })
+  }
+
+  vendor2Section(){
+    this.vendor2Sect = !this.vendor2Sect
+  }
+
+  cancelVendor2(){
+    this.vendor2Sect = false
+  }
+
+  vendor2Name($event : any){
+    this.v2_name = $event
+    this.vendor2Sect = false
+  }
+
+  currentPage = 0
+
   ngOnInit() {
+    this.vendorSelect()
+    this.vendor2Select()
     this.user = this.authService.getUser()
     //console.log(this.user[0].lg_nik);
     
