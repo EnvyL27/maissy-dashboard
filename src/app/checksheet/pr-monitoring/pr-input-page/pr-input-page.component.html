@@ -75,40 +75,40 @@
             </section>
 
             <section *ngIf="vendor2Sect"
-            class="z-50 fixed inset-0 bg-[#514c4c35] px-12 opacity-100 flex justify-center items-center">
-            <div
-                class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
-                <div class="flex flex-col p-5 rounded-lg shadow bg-white">
-                    <div class="flex flex-col items-center text-center">
+                class="z-50 fixed inset-0 bg-[#514c4c35] px-12 opacity-100 flex justify-center items-center">
+                <div
+                    class="w-full h-full md:w-1/4 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+                    <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+                        <div class="flex flex-col items-center text-center">
 
-                        <h2 class="mt-2 font-semibold text-gray-800">Vendor Data!</h2>
-                        <div class="p-2">
-                            <input type="text"
-                                class="pl-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-2 leading-tight focus:outline-none focus:border-gray-300"
-                                placeholder="Search here.." name="search" [(ngModel)]="searchText" />
+                            <h2 class="mt-2 font-semibold text-gray-800">Vendor Data!</h2>
+                            <div class="p-2">
+                                <input type="text"
+                                    class="pl-2 appearance-none block w-full bg-gray-200 text-gray-700 border rounded-lg border-gray-200 py-2 leading-tight focus:outline-none focus:border-gray-300"
+                                    placeholder="Search here.." name="search" [(ngModel)]="searchText" />
+                            </div>
+                            <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
+                            <button (click)="vendor2Name(data.NAME1)"
+                                class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg"
+                                *ngFor="let data of vendor2List | filter : searchText  | paginate: { id: 'pagination2', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
+                                <h1>{{data.NAME1}}</h1>
+                            </button>
                         </div>
-                        <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
-                        <button (click)="vendor2Name(data.NAME1)"
-                            class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg"
-                            *ngFor="let data of vendor2List | filter : searchText  | paginate: { id: 'pagination2', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
-                            <h1>{{data.NAME1}}</h1>
-                        </button>
-                    </div>
-                    <div class="p-3">
-                        <pagination-controls class="text-center" id="pagination2"
-                            (pageChange)="currentPage = $event">
-                        </pagination-controls>
-                    </div>
+                        <div class="p-3">
+                            <pagination-controls class="text-center" id="pagination2"
+                                (pageChange)="currentPage = $event">
+                            </pagination-controls>
+                        </div>
 
-                    <div class="flex items-center mt-3">
-                        <button (click)="cancelVendor2()"
-                            class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
-                            Cancel
-                        </button>
+                        <div class="flex items-center mt-3">
+                            <button (click)="cancelVendor2()"
+                                class="text-center flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md">
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
             <!-- component -->
             <section class="container mx-auto rounded-lg">
@@ -270,7 +270,7 @@
                                                     Name
                                                 </label>
                                                 <div (click)="vendorSection()" class="flex">
-                                                    <div formControlName="funcloc" [attr.disabled]="true"
+                                                    <div formControlName="v_name" [attr.disabled]="true" 
                                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                         id="grid-password">{{v_name}}</div>
                                                 </div>
@@ -322,7 +322,7 @@
                                                     Name
                                                 </label>
                                                 <div (click)="vendor2Section()" class="flex">
-                                                    <div formControlName="funcloc" [attr.disabled]="true"
+                                                    <div formControlName="v2_name" [attr.disabled]="true"
                                                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-4 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                                         id="grid-password">{{v2_name}}</div>
                                                 </div>

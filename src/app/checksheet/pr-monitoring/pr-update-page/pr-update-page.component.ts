@@ -229,9 +229,9 @@ export class PrUpdatePageComponent implements OnInit {
     this.router.navigateByUrl('/pr_list', { state: { successAlert: true }, })
   }
 
-  errorSubmit(){
+  errorSubmit() {
     //console.log(this.error);
-    
+
     this.error = !this.error
   }
 
@@ -239,7 +239,7 @@ export class PrUpdatePageComponent implements OnInit {
     this.validateSubmit = !this.validateSubmit
   }
 
-  validateError(){
+  validateError() {
     this.error = false
   }
 
@@ -260,23 +260,95 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event;
   }
 
-  vendorChange(nameVendor : any) {
+  vendorChange(nameVendor: any) {
     // console.log(this.vName.length);
     if (nameVendor.length >= 3) {
       this.vDate = moment().format("YYYY-MM-DD");
-    } 
+    }
     // console.log(this.vDate);
 
   }
 
-  vendor2Change(name2 : any) {
+  vendor2Change(name2: any) {
     // console.log(name2.length);
     if (name2.length >= 3) {
       this.v2Date = moment().format("YYYY-MM-DD");
-    } 
+    }
     //console.log(this.v2Date);
   }
+
+  vendorData: any
+  vendorList: any[] = []
+  vendorSect: boolean = false
+  searchText: any
+  v_name: any
+  vendorSelect() {
+    this.service.getVendorData().subscribe(data => {
+      this.vendorData = data
+      this.vendorData.forEach((element: any) => {
+        if (element.id_area == this.area) {
+          this.vendorList.push(element)
+        }
+      });
+      console.log(this.vendorList);
+
+    })
+  }
+
+  vendorSection() {
+    this.vendorSect = !this.vendorSect
+  }
+
+  cancelVendor() {
+    this.vendorSect = false
+  }
+
+  vendorName($event: any) {
+    console.log($event);
+    if (this.v_name != '') {
+      this.v_name = $event
+    }
+    this.vendorSect = false
+  }
+  vendor2Data: any
+  vendor2List: any[] = []
+  vendor2Sect: boolean = false
+  v2_name: any
+  vendor2Select() {
+    this.service.getVendorData().subscribe(data => {
+      this.vendor2Data = data
+      this.vendor2Data.forEach((element: any) => {
+        if (element.id_area == this.area) {
+          this.vendor2List.push(element)
+        }
+      });
+      console.log(this.vendorList);
+
+    })
+  }
+
+  vendor2Section() {
+    this.vendor2Sect = !this.vendor2Sect
+  }
+
+  cancelVendor2() {
+    this.vendor2Sect = false
+  }
+
+  vendor2Name($event: any) {
+    if (this.v2_name != '') {
+      this.v2_name = $event
+    }
+    console.log($event);
+
+    this.vendor2Sect = false
+  }
+
+  currentPage = 0
+
   ngOnInit() {
+    this.vendorSelect()
+    this.vendor2Select()
     this.user = this.authService.getUser()
     //console.log(this.user[0].lg_nik);
 
@@ -308,10 +380,12 @@ export class PrUpdatePageComponent implements OnInit {
     }
     this.idState = history.state.id
     this.service.getPrbyId(this.idState).subscribe(data => {
-     
-      
+
+
       this.byIdData.push(data)
       // console.log(this.byIdData[0].v_name);
+      this.v_name = this.byIdData[0].v_name
+      this.v2_name = this.byIdData[0].v2_name
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
       this.form.controls.pic.setValue(this.byIdData[0].pic)
@@ -375,7 +449,7 @@ export class PrUpdatePageComponent implements OnInit {
     if (this.form.valid) {
       const formData = new FormData();
       if (this.imageFile) {
-         formData.append('item_desc_img', this.imageFile, this.imageFile.name);
+        formData.append('item_desc_img', this.imageFile, this.imageFile.name);
       }
       if (this.attachFile) {
         formData.append('attachment', this.attachFile, this.attachFile.name);
@@ -384,6 +458,8 @@ export class PrUpdatePageComponent implements OnInit {
       if (this.attach2File) {
         formData.append('attachment2', this.attach2File, this.attach2File.name);
       }
+      this.form.value.v_name = this.v_name
+      this.form.value.v2_name = this.v2_name
       formData.append('req_date', this.form.value.req_date),
         formData.append('item_desc', this.form.value.item_desc),
         formData.append('pic', this.form.value.pic),
@@ -402,19 +478,19 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('keterangan', this.form.value.keterangan),
         //console.log(formData);
 
-      this.service.updatePrData(formData, this.idState).subscribe(
-        (response) => {
-          ////////console.log('Upload successful:', response);
-          this.submitted()
-          
-          // Handle success
-        },
-        (error) => {
-          // console.error('Upload failed:', error);
-          this.errorSubmit()
-          // Handle error
-        }
-      );
+        this.service.updatePrData(formData, this.idState).subscribe(
+          (response) => {
+            ////////console.log('Upload successful:', response);
+            this.submitted()
+
+            // Handle success
+          },
+          (error) => {
+            // console.error('Upload failed:', error);
+            this.errorSubmit()
+            // Handle error
+          }
+        );
     }
   }
 }

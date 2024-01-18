@@ -191,7 +191,7 @@ export class PrInputPageComponent implements OnInit {
   vendorList : any[] = []
   vendorSect : boolean = false
   searchText : any
-  v_name: any
+  v_name = ''
   vendorSelect(){
     this.service.getVendorData().subscribe(data => {
       console.log(data);
@@ -215,13 +215,15 @@ export class PrInputPageComponent implements OnInit {
   }
 
   vendorName($event : any){
+    console.log($event);
+    
     this.v_name = $event
     this.vendorSect = false
   }
   vendor2Data : any
   vendor2List : any[] = []
   vendor2Sect : boolean = false
-  v2_name: any
+  v2_name = ''
   vendor2Select(){
     this.service.getVendorData().subscribe(data => {
       console.log(data);
@@ -246,6 +248,8 @@ export class PrInputPageComponent implements OnInit {
 
   vendor2Name($event : any){
     this.v2_name = $event
+    console.log(this.v2_name);
+    
     this.vendor2Sect = false
   }
 
@@ -293,11 +297,11 @@ export class PrInputPageComponent implements OnInit {
       due_date: new FormControl('', [Validators.required]),
       reason: new FormControl('', [Validators.required]),
       pr_number: new FormControl(''),
-      v_name: new FormControl(''),
+      v_name: new FormControl(this.v_name),
       v_value: new FormControl(''),
       v_inputDate: new FormControl(''),
       attachment: new FormControl(''),
-      v2_name: new FormControl(''),
+      v2_name: new FormControl(this.v2_name),
       v2_value: new FormControl(''),
       v2_inputDate: new FormControl(''),
       attachment2: new FormControl(''),
@@ -392,6 +396,8 @@ export class PrInputPageComponent implements OnInit {
   }
 
   onUpload() {
+    console.log(this.form);
+    
     if (this.form.valid) {
       const formData = new FormData();
       if (this.imageFile) {
