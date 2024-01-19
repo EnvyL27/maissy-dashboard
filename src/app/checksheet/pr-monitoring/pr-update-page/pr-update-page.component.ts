@@ -321,7 +321,9 @@ export class PrUpdatePageComponent implements OnInit {
 
   vendorName($event: any) {
     console.log($event);
-    if (this.v_name != '') {
+    if ($event != '') {
+      console.log('sini');
+      
       this.v_name = $event
       this.vendorChange(this.v_name)
     }
@@ -353,7 +355,8 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   vendor2Name($event: any) {
-    if (this.v2_name != '') {
+    
+    if ($event != '') {
       this.v2_name = $event
       this.vendor2Change(this.v2_name)
     }
