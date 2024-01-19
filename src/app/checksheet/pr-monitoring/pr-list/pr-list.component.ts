@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountService } from '../../../service/master/count.service';
+import { AuthService } from '../../../service/auth/auth.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -35,12 +36,19 @@ export class PrListComponent implements OnInit {
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
+  user = this.authService.getUser()
+  adminLevel: boolean = false
+  plannerLevel: boolean = false
+  purchasingLevel: boolean = false
+  user_level: any
+  byId: any[] = []
   absoluteIndex(indexOnPage: number): number {
     return this.itemsPerPage * (this.currentPage - 1) + indexOnPage;
   }
 
   constructor(
     private service: CountService,
+    private authService: AuthService,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
@@ -115,46 +123,6 @@ export class PrListComponent implements OnInit {
       this.spinner.hide()
       this.resolved = true
     })
-    // this.isOc = false
-    // this.prData = []   
-    // this.sectionData = []
-    // this.sectionFiltered = []
-    //   this.service.getPrAllData().subscribe(data => {
-    //     this.dataFilter = data
-    //     this.dataFilter.forEach((element : any) => {
-    //       if(element.area == this.area){
-    //         this.prData.push(element)
-    //       }
-    //     });
-
-    //     if(this.area == 1 || this.area == 2){
-    //       this.isOc = true
-    //     }
-        
-    //     ////console.log(this.prData);
-
-    //     this.service.getPrAllSection().subscribe(data => {
-    //       this.sectionData = data
-    //       ////console.log(this.area + ' hah');
-          
-    //       this.sectionData.forEach((element : any) => {
-    //         ////console.log('sini si');
-    //         ////console.log(element.id_area);
-            
-    //         if(element.id_area == this.area){
-    //           this.sectionFiltered.push(element)
-    //         }
-    //       });
-          
-    //       ////console.log(this.sectionFiltered);
-          
-          
-          
-    //     })
-        
-    //     this.spinner.hide()
-    //     this.resolved = true
-      // })
     
   }
 
@@ -200,6 +168,32 @@ export class PrListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.authService.getUser()
+    //console.log(this.user[0].lg_nik);
+
+    if (this.user[0].user_level == 99) {
+      this.adminLevel = true
+    } else {
+      this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
+        console.log(data);
+        this.byId.push(data)
+        console.log(this.byId);
+        
+        this.user_level = this.byId[0].user_level
+        console.log(this.user_level);
+        
+        if (this.user_level == 3) {
+          this.plannerLevel = true
+        } else if (this.user_level == 8) {
+          this.purchasingLevel = true
+        }
+        else if (this.user_level == 99) {
+          this.adminLevel = true
+        }
+        console.log(this.purchasingLevel);
+      })     
+    }
+
     this.spinner.show()
     ////////console.log(history.state);
     this.successAlert = history.state.successAlert
