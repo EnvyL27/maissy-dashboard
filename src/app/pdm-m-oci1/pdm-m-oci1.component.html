@@ -1462,7 +1462,7 @@
                     </div>
                   </div>
                   <!-- <p class="text-center" style="color: red;">Device Name : {{funloc}}</p> -->
-                  <div *ngIf="each" class="flex flex-wrap -mx-1 lg:-mx-3">
+                  <div *ngIf="each" class="flex flex-wrap -mx-1 lg:-mx-3 overflow-x-auto">
                     <div *ngIf="monthlytotalchart">
                       <!-- <canvas id="valuepermonthchart"></canvas> -->
                       <div>
@@ -1481,7 +1481,7 @@
                   </div>
                   <div *ngIf="combine" class="mx-4">
                     <div class="w-full max-w-full md:w-full">
-                      <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
+                      <div class="flex items-center text-center mt-4 mb-4 flex-wrap overflow-x-auto">
                         <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2" height="250">
                           <apx-chart [series]="monthlytotal.series" [chart]="monthlytotal.chart2" [dataLabels]="monthlytotal.dataLabels"
                         [plotOptions]="monthlytotal.plotOptions" [yaxis]="monthlytotal.yaxis" [legend]="monthlytotal.legend"
