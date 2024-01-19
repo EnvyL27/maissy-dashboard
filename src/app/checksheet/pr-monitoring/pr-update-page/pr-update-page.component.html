@@ -82,7 +82,7 @@
                                 placeholder="Search here.." name="search" [(ngModel)]="searchText" />
                         </div>
                         <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
-                        <button (click)="vendorName(data.NAME1)"
+                        <button (click)="clickV(data.NAME1)"
                             class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg"
                             *ngFor="let data of vendorList | filter : searchText  | paginate: { id: 'pagination1', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
                             <h1>{{data.NAME1}}</h1>
@@ -118,7 +118,7 @@
                                 placeholder="Search here.." name="search" [(ngModel)]="searchText" />
                         </div>
                         <!-- <p class="mt-2 text-sm text-gray-600 leading-relaxed">cok.</p> -->
-                        <button (click)="vendor2Name(data.NAME1)"
+                        <button (click)="clickV2(data.NAME1)"
                             class="w-full text-left py-4 px-4 whitespace-nowrap mt-2 text-sm hover:bg-indigo-400 hover:text-gray-200 duration-200 rounded-lg"
                             *ngFor="let data of vendor2List | filter : searchText  | paginate: { id: 'pagination2', currentPage: currentPage, itemsPerPage: 10 }; let i = index">
                             <h1>{{data.NAME1}}</h1>

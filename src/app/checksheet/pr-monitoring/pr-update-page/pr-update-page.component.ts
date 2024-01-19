@@ -260,19 +260,35 @@ export class PrUpdatePageComponent implements OnInit {
     this.section = $event;
   }
 
+  vClick : boolean = false
+  v2Click : boolean = false
+
+  clickV($event : any){
+    this.vClick = !this.vClick
+    this.vendorName($event);
+  }
+
+  clickV2($event : any){
+    this.v2Click = !this.v2Click
+    this.vendor2Name($event)
+  }
+
   vendorChange(nameVendor: any) {
     // console.log(this.vName.length);
-    if (nameVendor.length >= 3) {
-      this.vDate = moment().format("YYYY-MM-DD");
+    if(this.vClick){
+      if (nameVendor.length >= 3) {
+        this.vDate = moment().format("YYYY-MM-DD");
+      }
     }
     // console.log(this.vDate);
-
   }
 
   vendor2Change(name2: any) {
     // console.log(name2.length);
-    if (name2.length >= 3) {
-      this.v2Date = moment().format("YYYY-MM-DD");
+    if(this.v2Click){
+      if (name2.length >= 3) {
+        this.v2Date = moment().format("YYYY-MM-DD");
+      }
     }
     //console.log(this.v2Date);
   }
@@ -462,8 +478,13 @@ export class PrUpdatePageComponent implements OnInit {
       }
       this.form.value.v_name = this.v_name
       this.form.value.v2_name = this.v2_name
-      this.form.value.v_inputDate = this.vDate
-      this.form.value.v2_inputDate = this.v2Date
+      if(this.vClick == true){
+        this.form.value.v_inputDate = this.vDate
+      }
+      if(this.v2Click == true){
+        this.form.value.v2_inputDate = this.v2Date
+      }
+      
       formData.append('req_date', this.form.value.req_date),
         formData.append('item_desc', this.form.value.item_desc),
         formData.append('pic', this.form.value.pic),
