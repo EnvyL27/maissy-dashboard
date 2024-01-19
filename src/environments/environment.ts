@@ -8,8 +8,8 @@ export const environment = {
   baseUrlApi: 'http://192.168.9.47:3887/',
   // baseUrlApi: 'http://192.168.153.227:3887/',
   // baseUrlApi: 'http://192.168.152.47:3000/',
-  baseUrlApiAM: 'http://localhost:3777',
-  // baseUrlApiAM: 'http://192.168.9.47:3777',
+  // baseUrlApiAM: 'http://localhost:3777',
+  baseUrlApiAM: 'http://192.168.9.47:3777',
   // baseUrlApiAM: 'http://192.168.153.227:3777',
   // baseUrlApiAM: 'http://192.168.152.47:3000/',
 };

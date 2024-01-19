@@ -59,7 +59,7 @@ export class SidebarComponent implements OnInit {
     }else{
       this.isAllowed = false;
     }
-    //////////console.log(this.isAllowed);
+    ////////////console.log(this.isAllowed);
     
     setInterval(() => {
       this.currentDate = new Date();

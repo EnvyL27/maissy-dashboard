@@ -41,10 +41,10 @@ export class Navbar2Component implements OnInit{
   
   ngOnInit(){
     this.user = this.authService.getUser()
-    // ////////console.log(this.user);
+    // //////////console.log(this.user);
     
     this.username =  this.user[0]?.lg_name
-    // ////////console.log(this.username);
+    // //////////console.log(this.username);
     
   }
 

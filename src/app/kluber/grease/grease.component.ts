@@ -22,12 +22,12 @@ export class GreaseComponent implements OnInit {
     this.greaseproduct = this.service.getGreaseProduct().subscribe(data => {
       this.grease = data;
       Object.values(this.grease).forEach(data => {
-        // // //////////////////////console.log(data);
+        // // ////////////////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
 
-        // // //////////////////////console.log(array);
+        // // ////////////////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.greaselist.splice(this.greaselist.lenght, 0, array[i]);
         }

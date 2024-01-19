@@ -70,38 +70,38 @@ export class TemuanInputComponent implements OnInit {
   }
 
   selectFuncLoc(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.funclocShow = id
     this.listFuncloc = false
   }
 
   selectObj(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.objShow = id
     this.listObj = false
   }
   selectObjDetail(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.objShowDetail = id
     this.listObjDetail = false
   }
   selectDmg(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.dmgShow = id
     this.listDmg = false
   }
   selectDmgDetail(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.dmgShowDetail = id
     this.listDmgDetail = false
   }
   selectCc(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.ccShow = id
     this.listCc = false
   }
   selectCcDetail(id: any) {
-    //console.log(id);
+    ////console.log(id);
     this.ccShowDetail = id
     this.listCcDetail = false
   }
@@ -132,53 +132,53 @@ export class TemuanInputComponent implements OnInit {
   }
   funcloc() {
     this.listFuncloc = !this.listFuncloc
-    //console.log(this.filteriflotxarea);
+    ////console.log(this.filteriflotxarea);
 
   }
   object() {
     this.listObj = !this.listObj
     this.qpgtSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
   objectDetail() {
     this.listObjDetail = !this.listObjDetail
     this.qpctSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
   damage() {
     this.listDmg = !this.listDmg
     this.dmgSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
   damageDetail() {
     this.listDmgDetail = !this.listDmgDetail
     this.dmgDetailSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
   causeCode() {
     this.listCc = !this.listCc
     this.ccSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
   ccDetail() {
     this.listCcDetail = !this.listCcDetail
     this.ccDetailSelect()
-    // //console.log(this.filteriflotxarea);
+    // ////console.log(this.filteriflotxarea);
 
   }
 
   areaSelect($event: any) {
     this.sectionlist = []
     this.area = $event;
-    //console.log(this.area);
+    ////console.log(this.area);
 
     this.service.getPrAllSection().subscribe(data => {
-      ////////console.log(data);
+      //////////console.log(data);
 
       this.prData = data
       this.prData.forEach((element: any) => {
@@ -194,10 +194,10 @@ export class TemuanInputComponent implements OnInit {
   levelSelect($event: any) {
     this.sectionlist = []
     this.area = $event;
-    //console.log(this.area);
+    ////console.log(this.area);
 
     this.service.getPrAllSection().subscribe(data => {
-      ////////console.log(data);
+      //////////console.log(data);
 
       this.prData = data
       this.prData.forEach((element: any) => {
@@ -254,7 +254,7 @@ export class TemuanInputComponent implements OnInit {
 
           }
         });
-        //console.log(this.ifloxtdata);
+        ////console.log(this.ifloxtdata);
       }
     })
   }
@@ -285,10 +285,10 @@ export class TemuanInputComponent implements OnInit {
 
     // Get the first word (trimmed to remove leading/trailing spaces)
     const firstWord = parts[0].trim();
-    //console.log(firstWord);
+    ////console.log(firstWord);
 
     this.service.getqpctData().subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
 
       this.qgctData = data
       this.qgctData.forEach((element: any) => {
@@ -298,7 +298,7 @@ export class TemuanInputComponent implements OnInit {
           }
         }
       });
-      //console.log(this.qgctDataFiltered);
+      ////console.log(this.qgctDataFiltered);
 
     })
 
@@ -332,15 +332,15 @@ export class TemuanInputComponent implements OnInit {
 
     // Get the first word (trimmed to remove leading/trailing spaces)
     const firstWord = parts[0].trim();
-    //console.log(firstWord);
+    ////console.log(firstWord);
 
     this.service.getqpctData().subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
       this.dmgDetailData = data
       this.dmgDetailDataFiltered = this.dmgDetailData.filter((element: any) => {
         return element.CODEGRUPPE == firstWord
       })
-      //console.log(this.dmgDetailDataFiltered.length);
+      ////console.log(this.dmgDetailDataFiltered.length);
       if (this.dmgDetailDataFiltered.length < 10) {
         this.dmgDetailLength = this.dmgDetailDataFiltered.length
       }else if(this.dmgDetailDataFiltered.length > 10){
@@ -377,15 +377,15 @@ export class TemuanInputComponent implements OnInit {
 
     // Get the first word (trimmed to remove leading/trailing spaces)
     const firstWord = parts[0].trim();
-    //console.log(firstWord);
+    ////console.log(firstWord);
 
     this.service.getqpctData().subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
       this.ccDetailData = data
       this.ccDetailDataFiltered = this.ccDetailData.filter((element: any) => {
         return element.CODEGRUPPE == firstWord
       })
-      //console.log(this.ccDetailDataFiltered.length);
+      ////console.log(this.ccDetailDataFiltered.length);
       if (this.ccDetailDataFiltered.length < 10) {
         this.ccDetailLength = this.ccDetailDataFiltered.length
       }else if(this.ccDetailDataFiltered.length > 10){
@@ -460,16 +460,16 @@ export class TemuanInputComponent implements OnInit {
     })
 
     this.service.getIflotxData().subscribe((data: any) => {
-      //console.log(data);
+      ////console.log(data);
 
     })
   }
 
   onFileChanged(event: any) {
-    // ////////console.log(event);
+    // //////////console.log(event);
 
     this.selectedFile = event.target.files[0]
-    // ////////console.log(file);
+    // //////////console.log(file);
 
   }
 
@@ -499,7 +499,7 @@ export class TemuanInputComponent implements OnInit {
         formData.append('keterangan', this.form.value.keterangan),
         this.service.postPrData(formData).subscribe(
           (response) => {
-            ////////console.log('Upload successful:', response);
+            //////////console.log('Upload successful:', response);
             this.submitted()
             // Handle success
           },
@@ -525,7 +525,7 @@ export class TemuanInputComponent implements OnInit {
         formData.append('keterangan', this.form.value.keterangan),
         this.service.postPrData(formData).subscribe(
           (response) => {
-            ////////console.log('Upload successful:', response);
+            //////////console.log('Upload successful:', response);
             this.submitted()
             // Handle success
           },
