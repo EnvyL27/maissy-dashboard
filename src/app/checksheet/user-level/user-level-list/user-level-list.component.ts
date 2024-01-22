@@ -24,6 +24,7 @@ export class UserLevelListComponent implements OnInit {
   itemsPerPage: number = 0;
   math = Math;
   currentPage: number = 1;
+  userlevel: any
   absoluteIndex(indexOnPage: number): number {
     return this.itemsPerPage * (this.currentPage - 1) + indexOnPage;
   }
@@ -82,7 +83,6 @@ export class UserLevelListComponent implements OnInit {
     this.successAlert = history.state.successAlert
     this.service.getTableUser().subscribe(data => {
       this.prData = data
-      //////////console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })

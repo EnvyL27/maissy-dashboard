@@ -67,12 +67,14 @@ export class UserLevelUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.idState = history.state.id
-    //////////console.log(this.idState);
-
+    console.log(history.state);
+    console.log(this.idState)
     this.service.getTableUserById(this.idState).subscribe(data => {
-      //////////console.log(data);
+      console.log(data);
 
       this.byIdData.push(data)
+      console.log(this.byIdData[0]);
+      
       this.form.controls.lg_nik.setValue(this.byIdData[0].lg_nik)
       this.form.controls.lg_name.setValue(this.byIdData[0].lg_name)
       this.form.controls.user_level.setValue(this.byIdData[0].user_level.toString())

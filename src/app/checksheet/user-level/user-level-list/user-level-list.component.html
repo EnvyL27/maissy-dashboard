@@ -149,7 +149,14 @@
                                             </td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.lg_nik}}</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.lg_name}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.user_level}}</td>
+                                            <td *ngIf="data.user_level == 1" class="whitespace-nowrap px-4 py-2 text-gray-700">Operator</td>
+                                            <td *ngIf="data.user_level == 2" class="whitespace-nowrap px-4 py-2 text-gray-700">Supervisor</td>
+                                            <td *ngIf="data.user_level == 3" class="whitespace-nowrap px-4 py-2 text-gray-700">Planner</td>
+                                            <td *ngIf="data.user_level == 4" class="whitespace-nowrap px-4 py-2 text-gray-700">Dept Head</td>
+                                            <td *ngIf="data.user_level == 5" class="whitespace-nowrap px-4 py-2 text-gray-700">PDM</td>
+                                            <td *ngIf="data.user_level == 6" class="whitespace-nowrap px-4 py-2 text-gray-700">SPV Planner</td>
+                                            <td *ngIf="data.user_level == 7" class="whitespace-nowrap px-4 py-2 text-gray-700">Koordinator PDM</td>
+                                            <td *ngIf="data.user_level == 8" class="whitespace-nowrap px-4 py-2 text-gray-700">Purchasing</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700 group">
                                                 <div class="flex items-center justify-center text-center">
                                                     <a (click)="navigateUpdate(data.id)" 
