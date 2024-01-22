@@ -74,7 +74,7 @@ export class UserLevelListComponent implements OnInit {
   }
 
   navigateUpdate(idData: any) {
-    this.router.navigateByUrl('/user_level_update', { state: { id: idData }, })
+    this.router.navigateByUrl('/user_level_update', { state: { lg_nik: idData }, })
   }
 
   ngOnInit() {

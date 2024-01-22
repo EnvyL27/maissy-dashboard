@@ -36,7 +36,7 @@ export class Sidebar2Component implements OnInit {
 
     this.user = this.authService.getUser()
 
-    ////console.log(this.user[0].user_level);
+    console.log(this.user[0].user_level);
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
     } else {

@@ -66,7 +66,7 @@ export class UserLevelUpdateComponent implements OnInit {
 
 
   ngOnInit() {
-    this.idState = history.state.id
+    this.idState = history.state.lg_nik
     console.log(history.state);
     console.log(this.idState)
     this.service.getTableUserById(this.idState).subscribe(data => {
