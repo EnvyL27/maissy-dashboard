@@ -5,6 +5,8 @@ import { AuthService } from '../../../service/auth/auth.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { elementAt } from 'rxjs';
 
 @Component({
@@ -31,6 +33,7 @@ export class PrListComponent implements OnInit {
   successAlert: boolean = false
   deleteAlert: boolean = false
   imagePopUp: boolean = false
+  pdfpreview: boolean = false
   imageUrl: any
   prDataArray: any = []
   itemsPerPage: number = 0;
@@ -52,12 +55,31 @@ export class PrListComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private spinner: NgxSpinnerService) { }
+    private spinner: NgxSpinnerService,
+    ) { }
+
+    // url = 'http://127.0.0.1:3777/%7B%7BpdfSelect%7D%7D'
 
   filterButton() {
     this.filter = !this.filter
     //////console.log(this.filter);
    
+  }
+
+  pdfSelect : any
+  pdfNull : boolean = false
+  previewUp($event : any){
+    console.log($event);
+    if($event == ''){
+      this.pdfNull = true
+    }
+    this.pdfpreview = !this.pdfpreview
+    this.pdfSelect = 'http://192.168.9.47:3777/'+$event
+  }
+
+  previewClose(){
+    this.pdfNull = false
+    this.pdfpreview = false
   }
 
   areaFilter(){

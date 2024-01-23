@@ -126,6 +126,7 @@ import  * as FilePondPluginFileValidateType from 'filepond-plugin-file-validate-
 import  * as FilepondPluginImageEdit from 'filepond-plugin-image-edit';
 import  * as FilepondPluginImagePreview from 'filepond-plugin-image-preview';
 import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
@@ -256,6 +257,7 @@ registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPl
     NgApexchartsModule,
     NgxCaptureModule,
     BrowserAnimationsModule,
+    NgxExtendedPdfViewerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
