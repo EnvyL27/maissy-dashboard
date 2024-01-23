@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { NavigationEnd, Router } from '@angular/router'
 
 @Component({
   selector: 'app-apps-link',
@@ -8,7 +9,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppsLinkComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    public router: Router,) { }
   public resolved: boolean = false;
   public loaddata: any;
   deskripsi: any = 'Loading..';
