@@ -58,7 +58,9 @@
                 </div>
 
             </div>
+            {{pdfSelect}}
             <div class="flex items-center mt-3">
+               
                 <button (click)="previewClose()"
                     class="flex-1 px-4 py-2 ml-2 bg-red-500 hover:bg-red-600 text-white text-sm font-medium rounded-md">
                     Close Preview
@@ -210,7 +212,7 @@
                                 </a>
                             </div> -->
                         </div>
-                        <div *ngIf="plannerLevel" class="flex justify-end py-2">
+                        <div [ngClass]="{'pointer-events-none': !plannerLevel, 'appearance-none': !plannerLevel}" [ngStyle]="{'opacity': plannerLevel ? 1 : 0}" class="flex justify-end py-2">
                             <a routerLink="/pr_input"
                                 class="block rounded-lg bg-gray-400 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
                                 Add Data
