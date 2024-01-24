@@ -53,56 +53,56 @@ export class ChecksheetDashboardComponent implements OnInit {
         this.service.getTotalVendor1(),
         this.service.getTotalVendor2(),
       ]).subscribe(([dataReq, dataNum, dataV1, dataV2]) => {
-        //console.log(dataReq);
-        //console.log(dataNum);
-        //console.log(dataV1);
-        //console.log(dataV2);
+        ////console.log(dataReq);
+        ////console.log(dataNum);
+        ////console.log(dataV1);
+        ////console.log(dataV2);
         this.totalkategori = dataReq
         this.const = dataNum
         this.totalvendr1 = dataV1
         this.totalvend2 = dataV2
         Object.values(this.totalkategori).forEach(data => {
-          ////console.log(data);
+          //////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalReq++
           });
-          ////console.log(this.totalReq);
+          //////console.log(this.totalReq);
 
         })
         Object.values(this.const).forEach(data => {
-          ////console.log(data);
+          //////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalReqNum++
           });
-          ////console.log(this.totalReqNum);
+          //////console.log(this.totalReqNum);
         })
 
         Object.values(this.totalvendr1).forEach(data => {
-          ////console.log(data);
+          //////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalv1++
           });
-          ////console.log(this.totalv1);
+          //////console.log(this.totalv1);
           
       })
         Object.values(this.totalvend2).forEach(data => {
-          ////console.log(data);
+          //////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalv2++
           });
-          ////console.log(this.totalv2);
+          //////console.log(this.totalv2);
           
       })
 
@@ -190,7 +190,7 @@ export class ChecksheetDashboardComponent implements OnInit {
       });
 
     });
-    //// ////////////////////////console.log("1");
+    //// //////////////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

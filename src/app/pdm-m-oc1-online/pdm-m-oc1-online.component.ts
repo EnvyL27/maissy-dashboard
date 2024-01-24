@@ -97,8 +97,8 @@ export class PdmMOc1OnlineComponent implements OnInit {
   exportexcel(): void {
     /* pass here the table id */
     let element = document.getElementById('excel-table');
-    //////////////////////////////////console.log(this.findingpending2);
-    //////////////////////console.log(this.findingpending2);
+    ////////////////////////////////////console.log(this.findingpending2);
+    ////////////////////////console.log(this.findingpending2);
 
 
     const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.cvpackobj);
@@ -127,7 +127,7 @@ export class PdmMOc1OnlineComponent implements OnInit {
     this.loaddata = new Promise(resolve => {
       this.service.getCvPack1().subscribe(data => {
         this.cvpackobj = data;
-        ////////////console.log(this.cvpackobj);
+        //////////////console.log(this.cvpackobj);
         this.cvpackobj.forEach((mappedData: any) => {
           this.Current_M01.push(mappedData.Current_M01);
           this.Current_M01B.push(mappedData.Current_M01B);
@@ -177,7 +177,7 @@ export class PdmMOc1OnlineComponent implements OnInit {
           this.Current_MG2.push(mappedData.Current_MG2);
 
         });
-        ////////////console.log(this.Current_M01);
+        //////////////console.log(this.Current_M01);
 
         // this.packingChart();
         this.spinner.hide();
@@ -185,7 +185,7 @@ export class PdmMOc1OnlineComponent implements OnInit {
       }
       );
     });
-    //// ////////////////////////console.log("1");
+    //// //////////////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

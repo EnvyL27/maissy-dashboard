@@ -23,12 +23,12 @@ export class PasteComponent implements OnInit {
     this.pasteproduct = this.service.getPasteProduct().subscribe(data => {
       this.paste = data;
       Object.values(this.paste).forEach(data => {
-        // // ////////////////////////console.log(data);
+        // // //////////////////////////console.log(data);
         var array = Object.keys(data).map(function (key) {
           return data[key];
         });
 
-        // // ////////////////////////console.log(array);
+        // // //////////////////////////console.log(array);
         for (let i = 0; i < array.length; i++) {
           this.pastelist.splice(this.pastelist.lenght, 0, array[i]);
         }

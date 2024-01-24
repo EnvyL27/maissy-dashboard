@@ -29,14 +29,14 @@ export class Sidebar2Component implements OnInit {
     private authService: AuthService,
     private countService: CountService,
     public router: Router) {
-    // //////////console.log(this.router.url)
+    // ////////////console.log(this.router.url)
   }
 
   ngOnInit() {
 
     this.user = this.authService.getUser()
 
-    console.log(this.user[0].user_level);
+    //console.log(this.user[0].user_level);
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
     } else {
@@ -56,13 +56,13 @@ export class Sidebar2Component implements OnInit {
 
   onMouseEnter() {
     this.hideElement = false;
-    //////////console.log(this.hideElement);
+    ////////////console.log(this.hideElement);
   }
   onMouseOut() {
-    //////////console.log('out');
+    ////////////console.log('out');
     this.boolDropdown = false;
     this.hideElement = true;
-    //////////console.log(this.hideElement);
+    ////////////console.log(this.hideElement);
   }
 
   dropdown() {
@@ -73,14 +73,14 @@ export class Sidebar2Component implements OnInit {
   }
 
   falseAll(event: any) {
-    // //////////console.log(this.menuList.nativeElement);
-    // //////////console.log(event.target);
+    // ////////////console.log(this.menuList.nativeElement);
+    // ////////////console.log(event.target);
 
     if (
       this.ModalElement &&
       this.ModalElement.nativeElement.contains(event.target)
     ) {
-      // //////////console.log('test1');
+      // ////////////console.log('test1');
     }
   }
   signOutModal() {

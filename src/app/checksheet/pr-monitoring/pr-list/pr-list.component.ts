@@ -62,14 +62,14 @@ export class PrListComponent implements OnInit {
 
   filterButton() {
     this.filter = !this.filter
-    //////console.log(this.filter);
+    ////////console.log(this.filter);
    
   }
 
   pdfSelect : any
   pdfNull : boolean = false
   previewUp($event : any){
-    console.log($event);
+    //console.log($event);
     if($event == ''){
       this.pdfNull = true
     }
@@ -102,22 +102,22 @@ export class PrListComponent implements OnInit {
           this.isOc = false
         }
         
-        //////console.log(this.prData);
+        ////////console.log(this.prData);
 
         this.service.getPrAllSection().subscribe(data => {
           this.sectionData = data
-          //////console.log(this.area + ' hah');
+          ////////console.log(this.area + ' hah');
           
           this.sectionData.forEach((element : any) => {
-            //////console.log('sini si');
-            //////console.log(element.id_area);
+            ////////console.log('sini si');
+            ////////console.log(element.id_area);
             
             if(element.id_area == this.area){
               this.sectionFiltered.push(element)
             }
           });
           
-          //////console.log(this.sectionFiltered);
+          ////////console.log(this.sectionFiltered);
           
           
           
@@ -131,7 +131,7 @@ export class PrListComponent implements OnInit {
 
   sectionFilter(){
     this.prData = []   
-    //////console.log(this.section);
+    ////////console.log(this.section);
     this.service.getPrAllData().subscribe(data => {
       this.dataFilter = data
       this.dataFilter.forEach((element : any) => {
@@ -140,7 +140,7 @@ export class PrListComponent implements OnInit {
         }
       });
       
-      //////console.log(this.prData);
+      ////////console.log(this.prData);
       
       this.spinner.hide()
       this.resolved = true
@@ -151,7 +151,7 @@ export class PrListComponent implements OnInit {
   popUp(url: any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
-    //////////console.log(this.imageUrl);
+    ////////////console.log(this.imageUrl);
 
   }
 
@@ -162,7 +162,7 @@ export class PrListComponent implements OnInit {
   oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
-    //////////console.log(history.state);
+    ////////////console.log(history.state);
   }
 
   delete(id: any) {
@@ -191,18 +191,18 @@ export class PrListComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.getUser()
-    ////console.log(this.user[0].lg_nik);
+    //////console.log(this.user[0].lg_nik);
 
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
     } else {
       this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
-        //console.log(data);
+        ////console.log(data);
         this.byId.push(data)
-        //console.log(this.byId);
+        ////console.log(this.byId);
         
         this.user_level = this.byId[0].user_level
-        //console.log(this.user_level);
+        ////console.log(this.user_level);
         
         if (this.user_level == 3) {
           this.plannerLevel = true
@@ -212,22 +212,22 @@ export class PrListComponent implements OnInit {
         else if (this.user_level == 99) {
           this.adminLevel = true
         }
-        //console.log(this.purchasingLevel);
+        ////console.log(this.purchasingLevel);
       })     
     }
 
     this.spinner.show()
-    //////////console.log(history.state);
+    ////////////console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getPrAllData().subscribe(data => {
       this.prData = data
-      //////////console.log(this.prData);
+      ////////////console.log(this.prData);
       this.spinner.hide()
       this.resolved = true
     })
 
     
-    // //////console.log(this.sectionData);
+    // ////////console.log(this.sectionData);
     
 
   }
