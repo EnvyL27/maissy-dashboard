@@ -42,8 +42,9 @@
                 </div>
                 <div *ngIf="pdfNull" class="w-full p-4 rounded-full">
                     <div class="inline-block p-4 bg-yellow-50 rounded-full">
-                        <svg class="w-12 h-12 text-yellow-500" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                        <svg class="w-12 h-12 text-yellow-500" version="1.1" id="Layer_1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0 0 512 512" xml:space="preserve">
                             <g>
                                 <path fill="currentColor" d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472
             c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z" />
@@ -58,9 +59,8 @@
                 </div>
 
             </div>
-            {{pdfSelect}}
             <div class="flex items-center mt-3">
-               
+
                 <button (click)="previewClose()"
                     class="flex-1 px-4 py-2 ml-2 bg-red-500 hover:bg-red-600 text-white text-sm font-medium rounded-md">
                     Close Preview
@@ -212,7 +212,8 @@
                                 </a>
                             </div> -->
                         </div>
-                        <div [ngClass]="{'pointer-events-none': !plannerLevel, 'appearance-none': !plannerLevel}" [ngStyle]="{'opacity': plannerLevel ? 1 : 0}" class="flex justify-end py-2">
+                        <div [ngClass]="{'pointer-events-none': !plannerLevel, 'appearance-none': !plannerLevel}"
+                            [ngStyle]="{'opacity': plannerLevel ? 1 : 0}" class="flex justify-end py-2">
                             <a routerLink="/pr_input"
                                 class="block rounded-lg bg-gray-400 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring">
                                 Add Data
@@ -311,8 +312,7 @@
                                                 class="whitespace-nowrap px-4 py-2 font-medium ">
                                                 Due Date
                                             </th>
-                                            <th scope="col" rowspan="2"
-                                                class=" px-4 py-2 font-medium ">
+                                            <th scope="col" rowspan="2" class=" px-4 py-2 font-medium ">
                                                 Reason
                                             </th>
                                             <th scope="col" rowspan="2"
@@ -420,9 +420,9 @@
                                             <td *ngIf="data.v_inputDate == '0000-00-00'"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
                                             <td *ngIf="data.attachment" (click)="previewUp(data.attachment)"
-                                                class="whitespace-nowrap px-4 py-2 text-gray-700">
-                                                <svg fill="#000000" height="35px" width="40px" version="1.1"
-                                                    id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                class="whitespace-nowrap px-4 py-2 text-red-700">
+                                                <svg class="fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
+                                                    xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 58"
                                                     xml:space="preserve">
                                                     <g>
@@ -461,7 +461,8 @@
                                                     </g>
                                                 </svg>
                                             </td>
-                                            <td *ngIf="!data.attachment" class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
+                                            <td *ngIf="!data.attachment"
+                                                class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_name}}</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_value}}</td>
                                             <td *ngIf="data.v2_inputDate != '0000-00-00'"
@@ -469,11 +470,12 @@
                                             </td>
                                             <td *ngIf="data.v2_inputDate == '0000-00-00'"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
-                                            <td *ngIf="!data.attachment2" class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
+                                            <td *ngIf="!data.attachment2"
+                                                class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
                                             <td *ngIf="data.attachment2" (click)="previewUp(data.attachment2)"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">
-                                                <svg fill="#000000" height="35px" width="40px" version="1.1"
-                                                    id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                <svg class="fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
+                                                    xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 58"
                                                     xml:space="preserve">
                                                     <g>

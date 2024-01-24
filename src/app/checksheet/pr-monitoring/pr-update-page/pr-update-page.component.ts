@@ -366,7 +366,7 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   currentPage = 0
-
+  imgpath : any
   ngOnInit() {
     this.vendorSelect()
     this.vendor2Select()
@@ -407,6 +407,7 @@ export class PrUpdatePageComponent implements OnInit {
       // //console.log(this.byIdData[0].v_name);
       this.v_name = this.byIdData[0].v_name
       this.v2_name = this.byIdData[0].v2_name
+      this.imgpath = this.byIdData[0].item_desc_img
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
       this.form.controls.pic.setValue(this.byIdData[0].pic)
