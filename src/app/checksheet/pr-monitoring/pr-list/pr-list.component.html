@@ -146,7 +146,7 @@
                     <div class="grid grid-cols-2">
                         <div class="flex justify-start pt-1">
                             <div (click)="filterButton()" class="w-12 h-12 rounded-lg px-4 bg-gray-200 text-gray-400">
-                                <svg class="pr-2 h-8 w-8 mr-8 mt-2" viewBox="0 0 24 24" fill="none"
+                                <svg class="cursor-pointer pr-2 h-8 w-8 mr-8 mt-2" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z"
@@ -156,7 +156,7 @@
                             </div>
                             <div
                                 class="w-16 h-14 rounded-full hover:w-full duration-500 px-2 relative text-gray-400 focus-within:text-cyan-500 block">
-                                <svg class="pointer-events-none w-8 h-8 absolute pt-2 pl-2 top-1 transform left-3"
+                                <svg class="cursor-pointer pointer-events-none w-8 h-8 absolute pt-2 pl-2 top-1 transform left-3"
                                     viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
@@ -372,7 +372,7 @@
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.req_date |
                                                 date:'yyyy-MM-dd'}}</td>
                                             <td *ngIf="data.item_desc_img != '' && data.item_desc == ''"
-                                                class="whitespace-nowrap px-8 py-8 text-gray-700 hover:scale-125 hover:z-10 duration-200">
+                                                class="cursor-pointer whitespace-nowrap px-8 py-8 text-gray-700 hover:scale-125 hover:z-10 duration-200">
                                                 <img (click)="popUp(data.item_desc_img)"
                                                     src="http://192.168.9.47:3777{{data.item_desc_img}}" class="center"
                                                     style="width: 100%;
@@ -420,8 +420,8 @@
                                             <td *ngIf="data.v_inputDate == '0000-00-00'"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700"></td>
                                             <td *ngIf="data.attachment" (click)="previewUp(data.attachment)"
-                                                class="whitespace-nowrap px-4 py-2 text-red-700">
-                                                <svg class="fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
+                                                class=" whitespace-nowrap px-4 py-2 text-red-700">
+                                                <svg class="cursor-pointer fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 58"
                                                     xml:space="preserve">
@@ -474,7 +474,7 @@
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
                                             <td *ngIf="data.attachment2" (click)="previewUp(data.attachment2)"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">
-                                                <svg class="fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
+                                                <svg class="cursor-pointer fill-current text-gray-700 hover:text-red-600 duration-200 transform hover:scale-125" fill-rule="evenodd" height="35px" width="40px" version="1.1" id="Capa_1"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58 58"
                                                     xml:space="preserve">
@@ -522,7 +522,7 @@
                                                     <a (click)="navigateUpdate(data.id)"
                                                         class="whitespace-nowrap px-4 py-2  hover:-mt-3 duration-200">
                                                         <svg width="40px" height="40px"
-                                                            class="text-gray-700 hover:text-indigo-700 duration-200"
+                                                            class="cursor-pointer text-gray-700 hover:text-indigo-700 duration-200"
                                                             viewBox="0 -0.5 25 25" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -537,7 +537,7 @@
                                                     <a (click)="delete(data.id)"
                                                         class="whitespace-nowrap px-4 py-2  hover:-mt-3 duration-200">
                                                         <svg width="35px" height="35px"
-                                                            class="text-gray-700 hover:text-red-700 duration-200"
+                                                            class="cursor-pointer text-gray-700 hover:text-red-700 duration-200"
                                                             viewBox="0 0 24 24" fill="none"
                                                             xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10 11V17" stroke="currentColor" stroke-width="2"
