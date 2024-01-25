@@ -367,6 +367,16 @@ export class PrUpdatePageComponent implements OnInit {
 
   currentPage = 0
   imgpath : any
+  imagePopUp : boolean = false
+
+  popUp() {
+    this.imagePopUp = !this.imagePopUp    
+  }
+
+  cancelPopUp() {
+    this.imagePopUp = !this.imagePopUp
+  }
+
   ngOnInit() {
     this.vendorSelect()
     this.vendor2Select()

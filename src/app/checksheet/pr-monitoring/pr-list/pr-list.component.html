@@ -413,7 +413,7 @@
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.pr_number}}
                                             </td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v_name}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v_value}}</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp. {{data.v_value | number: '1.0-0'}}</td>
                                             <td *ngIf="data.v_inputDate != '0000-00-00'"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v_inputDate}}
                                             </td>
@@ -464,7 +464,7 @@
                                             <td *ngIf="!data.attachment"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">-</td>
                                             <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_name}}</td>
-                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_value}}</td>
+                                            <td class="whitespace-nowrap px-4 py-2 text-gray-700">Rp. {{data.v2_value | number: '1.0-0'}}</td>
                                             <td *ngIf="data.v2_inputDate != '0000-00-00'"
                                                 class="whitespace-nowrap px-4 py-2 text-gray-700">{{data.v2_inputDate}}
                                             </td>
@@ -534,7 +534,7 @@
                                                                 fill="currentColor" />
                                                         </svg>
                                                     </a>
-                                                    <a (click)="delete(data.id)"
+                                                    <a *ngIf="!purchasingLevel" (click)="delete(data.id)"
                                                         class="whitespace-nowrap px-4 py-2  hover:-mt-3 duration-200">
                                                         <svg width="35px" height="35px"
                                                             class="cursor-pointer text-gray-700 hover:text-red-700 duration-200"
