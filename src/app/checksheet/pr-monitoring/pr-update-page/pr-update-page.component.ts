@@ -368,6 +368,8 @@ export class PrUpdatePageComponent implements OnInit {
   currentPage = 0
   imgpath : any
   imagePopUp : boolean = false
+  attachment : any
+  attachment2 : any
 
   popUp() {
     this.imagePopUp = !this.imagePopUp    
@@ -375,6 +377,23 @@ export class PrUpdatePageComponent implements OnInit {
 
   cancelPopUp() {
     this.imagePopUp = !this.imagePopUp
+  }
+
+  pdfSelect : any
+  pdfNull : boolean = false
+  pdfpreview : boolean = false
+  previewUp($event : any){
+    //console.log($event);
+    if($event == ''){
+      this.pdfNull = true
+    }
+    this.pdfpreview = !this.pdfpreview
+    this.pdfSelect = 'http://192.168.9.47:3777/'+$event
+  }
+
+  previewClose(){
+    this.pdfNull = false
+    this.pdfpreview = false
   }
 
   ngOnInit() {
@@ -418,6 +437,10 @@ export class PrUpdatePageComponent implements OnInit {
       this.v_name = this.byIdData[0].v_name
       this.v2_name = this.byIdData[0].v2_name
       this.imgpath = this.byIdData[0].item_desc_img
+      console.log(this.imgpath);
+      
+      this.attachment = this.byIdData[0].attachment
+      this.attachment2 = this.byIdData[0].attachment2
       this.form.controls.req_date.setValue(this.byIdData[0].req_date)
       this.form.controls.item_desc.setValue(this.byIdData[0].item_desc)
       this.form.controls.pic.setValue(this.byIdData[0].pic)

@@ -477,12 +477,8 @@ export class PdmMFsbComponent implements OnInit {
 
   changeDate(){
     this.totalfinishtoday2 = [];
-    // //////////////////console.log(this.tgl1);
     
     this.service.getReadHistoryCheckfsb(this.tgl2, this.tgl3).subscribe(data => {
-      ////////////////console.log(this.tgl2 + '  ' + this.tgl3);
-      
-      ////////////////console.log(data);
       this.totalfinishtoday = data;
 
       Object.values(this.totalfinishtoday).forEach(data => {
@@ -490,7 +486,6 @@ export class PdmMFsbComponent implements OnInit {
           return data[key];
         });
         for (let i = 0; i < array.length; i++) {
-          // this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
           this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
         }
         // this.spinner.hide();
@@ -498,10 +493,10 @@ export class PdmMFsbComponent implements OnInit {
       })
     })
 
+
     this.service.getReadFinishTodayfsb(this.tgl1).subscribe(data => {
 
       this.totalfinishtoday = data;
-      // //////////////////console.log(data);
       
       Object.values(this.totalfinishtoday).forEach(data => {
         var array = Object.keys(data).map(function (key) {
@@ -509,38 +504,40 @@ export class PdmMFsbComponent implements OnInit {
         });
         for (let i = 0; i < array.length; i++) {
           this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
-          // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+        }
+        this.resolved = true;
+      })
+
+    }
+    );
+  }
+
+  deviceName : any
+
+  changeDeviceName($event : any) {
+    
+  if($event == ''){
+    
+    this.changeDate();
+  }
+    this.totalfinishtoday2 = [];
+    const trim = $event.trim()
+
+    this.service.getReadFinishTodayoci1ByName(trim).subscribe(data => {
+
+      this.totalfinishtoday = data;
+
+      Object.values(this.totalfinishtoday).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+          this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
         }
         // this.spinner.hide();
         this.resolved = true;
       })
-      // //////////////////console.log(this.totalfinishtoday2);
-      
-      // Object.values(this.totalfinishtdy).forEach(data => {
-      //   // // ////////////////////////////////console.log(data);
-      //   var array = Object.keys(data).map(function (key) {
-      //     return data[key];
-      //   });
-      //   // // ////////////////////////////////console.log(array);
-      //   for (let i = 0; i < array.length; i++) {
-      //     this.totalfinishtdy2.splice(this.totalfinishtdy2.lenght, 0, array[i]);
-      //     // this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
-      //   }
-      // })
-
-      // // //////////////////////////////console.log(this.totalfinishtoday2);
-      // //////////////////////////////console.log(this.totalfinishtdy2);
-      // for (let i = 0; i < this.totalfinishtoday2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtoday2[i].device_name] = this.totalfinishtoday2[i];
-      // }
-
-      // for (let i = 0; i < this.totalfinishtdy2.length; i++) {
-      //   this.totalfinishresult[this.totalfinishtdy2[i].device_name] = this.totalfinishtdy2[i];
-      // }
-
-      //////////////////////////////console.log(this.totalfinishresult);
-
-
 
     }
     );

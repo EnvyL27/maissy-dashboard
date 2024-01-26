@@ -414,6 +414,43 @@ export class PdmMOci1Component implements OnInit {
     );
   }
 
+  deviceName : any
+
+  changeDeviceName($event : any) {
+    console.log($event);
+    
+  if($event == ''){
+    console.log('kosong masuk sini');
+    console.log(this.tgl1);
+    
+    this.changeDate();
+  }
+    this.totalfinishtoday2 = [];
+    console.log(this.deviceName); 
+    const trim = $event.trim()
+console.log(trim);
+
+    this.service.getReadFinishTodayoci1ByName(trim).subscribe(data => {
+
+      this.totalfinishtoday = data;
+      console.log(data);
+
+      Object.values(this.totalfinishtoday).forEach(data => {
+        var array = Object.keys(data).map(function (key) {
+          return data[key];
+        });
+        for (let i = 0; i < array.length; i++) {
+          this.totalfinishtoday2.splice(this.totalfinishtoday2.lenght, 0, array[i]);
+          this.totalfinishtoday2down.splice(this.totalfinishtoday2down.lenght, 0, array[i]);
+        }
+        // this.spinner.hide();
+        this.resolved = true;
+      })
+
+    }
+    );
+  }
+
 
   public resolved: boolean = false;
   public exportdata: boolean = false;
