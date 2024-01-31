@@ -40,7 +40,7 @@ export class TemuanListComponent implements OnInit {
   popUp(url: any) {
     this.imagePopUp = !this.imagePopUp
     this.imageUrl = url
-    ////////////console.log(this.imageUrl);
+    //////////////console.log(this.imageUrl);
 
   }
 
@@ -51,7 +51,7 @@ export class TemuanListComponent implements OnInit {
   oke() {
     this.successAlert = !this.successAlert
     history.replaceState({ ...history.state, successAlert: null }, '');
-    ////////////console.log(history.state);
+    //////////////console.log(history.state);
   }
 
   delete(id: any) {
@@ -80,11 +80,11 @@ export class TemuanListComponent implements OnInit {
 
   ngOnInit() {
     this.spinner.show()
-    ////////////console.log(history.state);
+    //////////////console.log(history.state);
     this.successAlert = history.state.successAlert
     this.service.getTemuanHdata().subscribe((dataH: any) => {
       this.prData = dataH;
-      //////console.log(dataH);
+      ////////console.log(dataH);
 
       // Filter the data based on matching id and id_temuan
       this.prDataArray = this.prData.filter((element: any) => { // assuming id represents the related id in TemuanDdata
@@ -94,12 +94,12 @@ export class TemuanListComponent implements OnInit {
         );
       });
       
-      //////console.log(this.prDataArray);
+      ////////console.log(this.prDataArray);
       this.spinner.hide();
       this.resolved = true;
     });
 
-    ////////////console.log(this.successAlert);
+    //////////////console.log(this.successAlert);
 
   }
 

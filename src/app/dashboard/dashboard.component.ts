@@ -39,15 +39,15 @@ export class DashboardComponent implements OnInit {
     window.scrollTo(0, 0); 
     this.loaddata = new Promise(resolve => {
       this.service.getCountTotalFinding().subscribe(data => {
-        //////////////console.log(data);
+        ////////////////console.log(data);
         
         this.totalkategori = data;
         Object.values(this.totalkategori).forEach(data => {
-          // // //////////////////////////console.log(data);
+          // // ////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////////////console.log(array);
+          // // ////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit {
       }
       );
     });
-    //// //////////////////////////console.log("1");
+    //// ////////////////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit{
   maissyLogin(){
     this.maissy = !this.maissy
     this.am = false
-    ////////////console.log(this.maissy);
-    ////////////console.log(this.am);
+    //////////////console.log(this.maissy);
+    //////////////console.log(this.am);
   }
 
   amLogin(){
     this.am = !this.am
     this.maissy = false
-    ////////////console.log(this.maissy);
-    ////////////console.log(this.am);
+    //////////////console.log(this.maissy);
+    //////////////console.log(this.am);
   }
 
   showSuccess() {
@@ -110,10 +110,10 @@ export class LoginComponent implements OnInit{
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
         (data: any) => {
-          console.log(data);
+          //console.log(data);
           
-          console.log(this.f['nik'].value);
-          console.log(this.f);
+          //console.log(this.f['nik'].value);
+          //console.log(this.f);
           
           this.name = data.user[0].lg_name;
           localStorage.setItem('nikLogged', this.f['nik'].value)

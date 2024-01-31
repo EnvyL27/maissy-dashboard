@@ -47,15 +47,15 @@ export class PrMOci1Component implements OnInit {
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getCountTotalFinding().subscribe(data => {
-        //////////////console.log(data);
+        ////////////////console.log(data);
 
         // this.totalkategori = data;
         Object.values(this.totalkategori).forEach(data => {
-          // // //////////////////////////console.log(data);
+          // // ////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // //////////////////////////console.log(array);
+          // // ////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
@@ -199,56 +199,56 @@ export class PrMOci1Component implements OnInit {
         this.service.getTotalVendor1(),
         this.service.getTotalVendor2(),
       ]).subscribe(([dataReq, dataNum, dataV1, dataV2]) => {
-        ////console.log(dataReq);
-        ////console.log(dataNum);
-        ////console.log(dataV1);
-        ////console.log(dataV2);
+        //////console.log(dataReq);
+        //////console.log(dataNum);
+        //////console.log(dataV1);
+        //////console.log(dataV2);
         this.totalkategori = dataReq
         this.const = dataNum
         this.totalvendr1 = dataV1
         this.totalvend2 = dataV2
         Object.values(this.totalkategori).forEach(data => {
-          //////console.log(data);
+          ////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalReq++
           });
-          //////console.log(this.totalReq);
+          ////////console.log(this.totalReq);
 
         })
         Object.values(this.const).forEach(data => {
-          //////console.log(data);
+          ////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalReqNum++
           });
-          //////console.log(this.totalReqNum);
+          ////////console.log(this.totalReqNum);
         })
 
         Object.values(this.totalvendr1).forEach(data => {
-          //////console.log(data);
+          ////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalv1++
           });
-          //////console.log(this.totalv1);
+          ////////console.log(this.totalv1);
           
       })
         Object.values(this.totalvend2).forEach(data => {
-          //////console.log(data);
+          ////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
           array.forEach(element => {
             this.totalv2++
           });
-          //////console.log(this.totalv2);
+          ////////console.log(this.totalv2);
           
       })
 
@@ -331,7 +331,7 @@ export class PrMOci1Component implements OnInit {
       });
 
     });
-    //// //////////////////////////console.log("1");
+    //// ////////////////////////////console.log("1");
     this.spinner.show();
     this.loaddata = await this.loaddata;
   }

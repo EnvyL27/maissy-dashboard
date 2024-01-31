@@ -67,18 +67,18 @@ export class UserLevelUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.idState = history.state.lg_nik
-    //console.log(history.state);
-    //console.log(this.idState)
+    ////console.log(history.state);
+    ////console.log(this.idState)
     this.service.getTableUserById(this.idState).subscribe(data => {
-      //console.log(data);
+      ////console.log(data);
 
       this.byIdData.push(data)
-      //console.log(this.byIdData[0]);
+      ////console.log(this.byIdData[0]);
       
       this.form.controls.lg_nik.setValue(this.byIdData[0].lg_nik)
       this.form.controls.lg_name.setValue(this.byIdData[0].lg_name)
       this.form.controls.user_level.setValue(this.byIdData[0].user_level.toString())
-      ////////////console.log(this.form.value);
+      //////////////console.log(this.form.value);
       this.form.updateValueAndValidity();
     })
 
@@ -89,10 +89,10 @@ export class UserLevelUpdateComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    // ////////////console.log(event);
+    // //////////////console.log(event);
 
     this.selectedFile = event.target.files[0]
-    // ////////////console.log(file);
+    // //////////////console.log(file);
 
   }
 
@@ -101,7 +101,7 @@ export class UserLevelUpdateComponent implements OnInit {
     const userLevel = this.form.value.user_level
     this.service.updateTableUser(this.form.value, this.idState).subscribe(
       (response) => {
-        ////////////console.log('Upload successful:', response);
+        //////////////console.log('Upload successful:', response);
         this.submitted()
         // Handle success
       },

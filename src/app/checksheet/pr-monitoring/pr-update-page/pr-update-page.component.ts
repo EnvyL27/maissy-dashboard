@@ -34,47 +34,47 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   pondHandleInit() {
-    //////console.log("FilePond has initialised", this.myPond);
+    ////////console.log("FilePond has initialised", this.myPond);
   }
 
   pondHandleAddFile(event: any, id: any) {
-    //////console.log("A file was added", event);
+    ////////console.log("A file was added", event);
     const coba = event.pond.getFiles()
-    //////console.log(coba);
-    //////console.log(id);
+    ////////console.log(coba);
+    ////////console.log(id);
 
     this.uploadFiles(event.pond, id)
   }
 
   pondHandleActivateFile(event: any) {
-    //////console.log("A file was activated", event);
+    ////////console.log("A file was activated", event);
     const coba = event.pond.getFiles()
 
-    //////console.log(coba);
+    ////////console.log(coba);
 
 
   }
   pondHandleRemoveFile(event: any) {
-    //////console.log('File removed:', event);
+    ////////console.log('File removed:', event);
 
     const removedFile: FilePondFile = event.file;
 
     const removedFileName: string = removedFile.filename;
 
-    //////console.log('Removed file name:', removedFileName);
+    ////////console.log('Removed file name:', removedFileName);
 
     this.fileDataArray = this.fileDataArray.map(innerArray => {
       return innerArray.filter((item: any) => item.file.name !== removedFileName);
     }).filter(innerArray => innerArray.length > 0);
 
-    //////console.log('Updated fileDataArray:', this.fileDataArray);
+    ////////console.log('Updated fileDataArray:', this.fileDataArray);
   }
 
   pondHandleAddFileProgress(event: any) {
     const file: FilePondFile = event.file;
     const progress: number = event.progress;
 
-    //////console.log(`File '${file.filename}' is ${progress}% loaded.`);
+    ////////console.log(`File '${file.filename}' is ${progress}% loaded.`);
   }
 
   fileDataArray: any[] = []
@@ -117,7 +117,7 @@ export class PrUpdatePageComponent implements OnInit {
       console.warn('No files added or files array is empty.');
     }
 
-    //////console.log(this.fileDataArray);
+    ////////console.log(this.fileDataArray);
     this.clusterFilesByInput()
     // this.sendToBackend(fileDataArray);
   }
@@ -154,10 +154,10 @@ export class PrUpdatePageComponent implements OnInit {
       }
     });
 
-    //////console.log(this.clusteredFile);
-    //////console.log(this.imageFile);
-    //////console.log(this.attachFile.name);
-    //////console.log(this.attach2File);
+    ////////console.log(this.clusteredFile);
+    ////////console.log(this.imageFile);
+    ////////console.log(this.attachFile.name);
+    ////////console.log(this.attach2File);
 
 
 
@@ -167,7 +167,7 @@ export class PrUpdatePageComponent implements OnInit {
 
 
   sendToBackend(fileDataArray: any[]) {
-    //////console.log(fileDataArray[0].file);
+    ////////console.log(fileDataArray[0].file);
     this.selectedFile = fileDataArray[0].file
   }
 
@@ -230,7 +230,7 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   errorSubmit() {
-    //////console.log(this.error);
+    ////////console.log(this.error);
 
     this.error = !this.error
   }
@@ -274,23 +274,23 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   vendorChange(nameVendor: any) {
-    // ////console.log(this.vName.length);
+    // //////console.log(this.vName.length);
     if(this.vClick){
       if (nameVendor.length >= 3) {
         this.vDate = moment().format("YYYY-MM-DD");
       }
     }
-    // ////console.log(this.vDate);
+    // //////console.log(this.vDate);
   }
 
   vendor2Change(name2: any) {
-    // ////console.log(name2.length);
+    // //////console.log(name2.length);
     if(this.v2Click){
       if (name2.length >= 3) {
         this.v2Date = moment().format("YYYY-MM-DD");
       }
     }
-    //////console.log(this.v2Date);
+    ////////console.log(this.v2Date);
   }
 
   vendorData: any
@@ -306,7 +306,7 @@ export class PrUpdatePageComponent implements OnInit {
           this.vendorList.push(element)
         }
       });
-      ////console.log(this.vendorList);
+      //////console.log(this.vendorList);
 
     })
   }
@@ -320,9 +320,9 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   vendorName($event: any) {
-    ////console.log($event);
+    //////console.log($event);
     if ($event != '') {
-      ////console.log('sini');
+      //////console.log('sini');
       
       this.v_name = $event
       this.vendorChange(this.v_name)
@@ -341,7 +341,7 @@ export class PrUpdatePageComponent implements OnInit {
           this.vendor2List.push(element)
         }
       });
-      ////console.log(this.vendorList);
+      //////console.log(this.vendorList);
 
     })
   }
@@ -360,7 +360,7 @@ export class PrUpdatePageComponent implements OnInit {
       this.v2_name = $event
       this.vendor2Change(this.v2_name)
     }
-    ////console.log($event);
+    //////console.log($event);
 
     this.vendor2Sect = false
   }
@@ -383,7 +383,7 @@ export class PrUpdatePageComponent implements OnInit {
   pdfNull : boolean = false
   pdfpreview : boolean = false
   previewUp($event : any){
-    //console.log($event);
+    ////console.log($event);
     if($event == ''){
       this.pdfNull = true
     }
@@ -400,17 +400,17 @@ export class PrUpdatePageComponent implements OnInit {
     this.vendorSelect()
     this.vendor2Select()
     this.user = this.authService.getUser()
-    //////console.log(this.user[0].lg_nik);
+    ////////console.log(this.user[0].lg_nik);
 
     if (this.user[0].user_level == 99) {
       this.adminLevel = true
     } else {
       this.service.getTableUserById(this.user[0].lg_nik).subscribe(data => {
-        //////console.log(data);
+        ////////console.log(data);
 
         this.byId.push(data)
         this.user_level = this.byId[0].user_level
-        //////console.log(this.user_level);
+        ////////console.log(this.user_level);
 
         // see also 
         if (this.user_level == 3) {
@@ -421,11 +421,11 @@ export class PrUpdatePageComponent implements OnInit {
         else if (this.user_level == 99) {
           this.adminLevel = true
         }
-        //////console.log(this.user_level);
+        ////////console.log(this.user_level);
 
-        //////console.log(this.plannerLevel);
-        //////console.log(this.purchasingLevel);
-        //////console.log(this.adminLevel);
+        ////////console.log(this.plannerLevel);
+        ////////console.log(this.purchasingLevel);
+        ////////console.log(this.adminLevel);
       })
     }
     this.idState = history.state.id
@@ -433,11 +433,11 @@ export class PrUpdatePageComponent implements OnInit {
 
 
       this.byIdData.push(data)
-      // ////console.log(this.byIdData[0].v_name);
+      // //////console.log(this.byIdData[0].v_name);
       this.v_name = this.byIdData[0].v_name
       this.v2_name = this.byIdData[0].v2_name
       this.imgpath = this.byIdData[0].item_desc_img
-      console.log(this.imgpath);
+      //console.log(this.imgpath);
       
       this.attachment = this.byIdData[0].attachment
       this.attachment2 = this.byIdData[0].attachment2
@@ -478,10 +478,10 @@ export class PrUpdatePageComponent implements OnInit {
   }
 
   onFileChanged(event: any) {
-    // ////////////console.log(event);
+    // //////////////console.log(event);
 
     this.selectedFile = event.target.files[0]
-    // ////////////console.log(file);
+    // //////////////console.log(file);
 
   }
 
@@ -494,9 +494,9 @@ export class PrUpdatePageComponent implements OnInit {
     this.isV1Filled()
     if (this.form.valid) {
       // Your form submission logic here
-      //////console.log('Form is valid and can be submitted.');
+      ////////console.log('Form is valid and can be submitted.');
     } else {
-      //////console.log('Form is invalid.');
+      ////////console.log('Form is invalid.');
     }
   }
 
@@ -538,11 +538,11 @@ export class PrUpdatePageComponent implements OnInit {
         formData.append('v2_inputDate', this.form.value.v2_inputDate),
         formData.append('bidding', this.form.value.bidding),
         formData.append('keterangan', this.form.value.keterangan),
-        //////console.log(formData);
+        ////////console.log(formData);
 
         this.service.updatePrData(formData, this.idState).subscribe(
           (response) => {
-            ////////////console.log('Upload successful:', response);
+            //////////////console.log('Upload successful:', response);
             this.submitted()
 
             // Handle success

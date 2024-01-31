@@ -277,11 +277,11 @@ export class CostMOci2Component implements OnInit {
       this.service.getCountTotalFinding().subscribe(data => {
         this.totalkategori = data;
         Object.values(this.totalkategori).forEach(data => {
-          // // ////////////////////////////////console.log(data);
+          // // //////////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////////////////////////////console.log(array);
+          // // //////////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.totalkategoriarr.splice(this.totalkategoriarr.lenght, 0, array[i]);
           }
@@ -301,7 +301,7 @@ export class CostMOci2Component implements OnInit {
       );
 
       this.service.getCountTotalFinding().subscribe(data => {
-        //////////////////////////console.log(data);
+        ////////////////////////////console.log(data);
 
         this.const = data;
         Object.values(this.const).forEach(data => {
@@ -337,19 +337,19 @@ export class CostMOci2Component implements OnInit {
       );
       forkJoin(this.service.getCostOci2(),
         this.service.getCostOci1Past()).subscribe(([data, data2]) => {
-          // //////////////////////////////console.log(data);
-          // //////////////////////////////console.log(data2);
+          // ////////////////////////////////console.log(data);
+          // ////////////////////////////////console.log(data2);
           this.cost = data;
           this.cost2 = data2;
-          ////////////////console.log(this.cost);
-          ////////////////console.log(this.cost2);
+          //////////////////console.log(this.cost);
+          //////////////////console.log(this.cost2);
           
 
           this.cost.forEach((element: any, index: number) => {
-            // //////////////////////////////console.log(element.budget);
+            // ////////////////////////////////console.log(element.budget);
 
             element.budget = parseInt(element.budget);
-            // ////////////////console.log(element);
+            // //////////////////console.log(element);
 
             if (element.year == '2023') {
               if (element.category == "Corrective Maintenance") {
@@ -814,7 +814,7 @@ export class CostMOci2Component implements OnInit {
                   }
                 }
               }
-              ////////////////console.log(this.totalindexokt);
+              //////////////////console.log(this.totalindexokt);
 
             }
           });
@@ -920,11 +920,11 @@ export class CostMOci2Component implements OnInit {
       forkJoin(this.service.getCostOci2(),
         this.service.getFgOci2()).subscribe(([datacost, datafg]) => {
           this.datafg = datafg;
-          ////////////console.log(this.totalindexjan);
+          //////////////console.log(this.totalindexjan);
           
           this.dataindex = datacost;
           this.datafg.forEach((element: any, index: any) => {
-            ////////////console.log(element);
+            //////////////console.log(element);
             
             element.month = parseInt(element.month);
             element.fg_eq = parseInt(element.fg_eq);
