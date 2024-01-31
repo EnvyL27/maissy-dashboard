@@ -2228,51 +2228,30 @@ else lain6
             " class="ml-2 text-sm tracking-wide truncate">Purchasing</span>
           </a>
         </li> -->
-        <div *ngIf="router.url === '/'; else lain">
+        <!--Full Screen-->
+        <div>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700"
-              routerLink="">
+            <a routerLink=""
+              class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
+              [ngClass]="{'shadow-soft-xl rounded-lg bg-white font-semibold': router.url === '/',
+            '': router.url !== '/'}">
               <div
-                class="bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"
+                [ngClass]="{'bg-gradient-to-tl from-stone-300 to-cyan-300': router.url === '/',
+              'bg-gray-100': router.url !== '/'}">
+
+                <svg [ngClass]="{'text-white': router.url === '/',
+                'text-slate-700': router.url !== '/'}" width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>AM Dashboard</title>
-                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(0.000000, 148.000000)">
-                          <path class="opacity-60"
-                            d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
-                          </path>
-                          <path class=""
-                            d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
-                          </path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none">AM Dashboard</span>
-            </a>
-          </li>
-        </div>
-        <ng-template #lain>
-          <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm my-0 mx-4 flex items-center px-4 " routerLink="">
-              <div
-                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <title>AM Dashboard</title>
-                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g stroke="none" stroke-width="1" fill-rule="evenodd">
                     <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(153.000000, 2.000000)">
-                          <path class="fill-slate-800 opacity-60"
+                          <path fill="currentColor"
                             d="M46.7199583,10.7414583 L40.8449583,0.949791667 C40.4909749,0.360605034 39.8540131,0 39.1666667,0 L7.83333333,0 C7.1459869,0 6.50902508,0.360605034 6.15504167,0.949791667 L0.280041667,10.7414583 C0.0969176761,11.0460037 -1.23209662e-05,11.3946378 -1.23209662e-05,11.75 C-0.00758042603,16.0663731 3.48367543,19.5725301 7.80004167,19.5833333 L7.81570833,19.5833333 C9.75003686,19.5882688 11.6168794,18.8726691 13.0522917,17.5760417 C16.0171492,20.2556967 20.5292675,20.2556967 23.494125,17.5760417 C26.4604562,20.2616016 30.9794188,20.2616016 33.94575,17.5760417 C36.2421905,19.6477597 39.5441143,20.1708521 42.3684437,18.9103691 C45.1927731,17.649886 47.0084685,14.8428276 47.0000295,11.75 C47.0000295,11.3946378 46.9030823,11.0460037 46.7199583,10.7414583 Z">
                           </path>
-                          <path class="fill-slate-800"
+                          <path fill="currentColor"
                             d="M39.198,22.4912623 C37.3776246,22.4928106 35.5817531,22.0149171 33.951625,21.0951667 L33.92225,21.1107282 C31.1430221,22.6838032 27.9255001,22.9318916 24.9844167,21.7998837 C24.4750389,21.605469 23.9777983,21.3722567 23.4960833,21.1018359 L23.4745417,21.1129513 C20.6961809,22.6871153 17.4786145,22.9344611 14.5386667,21.7998837 C14.029926,21.6054643 13.533337,21.3722507 13.0522917,21.1018359 C11.4250962,22.0190609 9.63246555,22.4947009 7.81570833,22.4912623 C7.16510551,22.4842162 6.51607673,22.4173045 5.875,22.2911849 L5.875,44.7220845 C5.875,45.9498589 6.7517757,46.9451667 7.83333333,46.9451667 L19.5833333,46.9451667 L19.5833333,33.6066734 L27.4166667,33.6066734 L27.4166667,46.9451667 L39.1666667,46.9451667 C40.2482243,46.9451667 41.125,45.9498589 41.125,44.7220845 L41.125,22.2822926 C40.4887822,22.4116582 39.8442868,22.4815492 39.198,22.4912623 Z">
                           </path>
                         </g>
@@ -2281,29 +2260,33 @@ else lain6
                   </g>
                 </svg>
               </div>
-              <span class="ml-1 duration-300 opacity-100 text-gray-500 pointer-events-none ">AM Dashboard</span>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">AM Dashboard</span>
             </a>
           </li>
-        </ng-template>
-        <!--rounded-lg bg-white px-4 (a) for active-->
-        <!--bg-gradient-to-tl from-stone-300 to-cyan-300 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5-->
-        <div *ngIf="router.url === '/pdm_dashboard'; else lain2">
+        </div>
+        <div>
           <li class="mt-0.5 w-full">
-            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
-              routerLink="pdm_dashboard">
+            <a routerLink="pdm_dashboard"
+              class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
+              [ngClass]="{'shadow-soft-xl rounded-lg bg-white font-semibold': router.url === '/pdm_dashboard',
+            '': router.url !== '/pdm_dashboard'}">
               <div
-                class="bg-gradient-to-tl from-stone-300 to-cyan-300  shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"
+                [ngClass]="{'bg-gradient-to-tl from-stone-300 to-cyan-300': router.url === '/pdm_dashboard',
+              'bg-gray-100': router.url !== '/pdm_dashboard'}">
+
+                <svg [ngClass]="{'text-white': router.url === '/pdm_dashboard',
+              'text-slate-700': router.url !== '/pdm_dashboard'}" width="12px" height="12px" viewBox="0 0 42 42"
+                  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>PDM Dashboard</title>
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
                       <g transform="translate(1716.000000, 291.000000)">
                         <g transform="translate(153.000000, 2.000000)">
-                          <path class="opacity-60"
+                          <path fill="currentColor"
                             d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
                           </path>
-                          <path class=""
+                          <path fill="currentColor"
                             d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
                           </path>
                         </g>
@@ -2316,80 +2299,16 @@ else lain6
             </a>
           </li>
         </div>
-        <ng-template #lain2>
-          <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-              routerLink="pdm_dashboard">
-              <div
-                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <title>PDM Dashboard</title>
-                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-1869.000000, -293.000000)" fill="#FFFFFF" fill-rule="nonzero">
-                      <g transform="translate(1716.000000, 291.000000)">
-                        <g transform="translate(153.000000, 2.000000)">
-                          <path class="fill-slate-800 opacity-60"
-                            d="M12.25,17.5 L8.75,17.5 L8.75,1.75 C8.75,0.78225 9.53225,0 10.5,0 L31.5,0 C32.46775,0 33.25,0.78225 33.25,1.75 L33.25,12.25 L29.75,12.25 L29.75,3.5 L12.25,3.5 L12.25,17.5 Z">
-                          </path>
-                          <path class="fill-slate-800"
-                            d="M40.25,14 L24.5,14 C23.53225,14 22.75,14.78225 22.75,15.75 L22.75,38.5 L19.25,38.5 L19.25,22.75 C19.25,21.78225 18.46775,21 17.5,21 L1.75,21 C0.78225,21 0,21.78225 0,22.75 L0,40.25 C0,41.21775 0.78225,42 1.75,42 L40.25,42 C41.21775,42 42,41.21775 42,40.25 L42,15.75 C42,14.78225 41.21775,14 40.25,14 Z M12.25,36.75 L7,36.75 L7,33.25 L12.25,33.25 L12.25,36.75 Z M12.25,29.75 L7,29.75 L7,26.25 L12.25,26.25 L12.25,29.75 Z M35,36.75 L29.75,36.75 L29.75,33.25 L35,33.25 L35,36.75 Z M35,29.75 L29.75,29.75 L29.75,26.25 L35,26.25 L35,29.75 Z M35,22.75 L29.75,22.75 L29.75,19.25 L35,19.25 L35,22.75 Z">
-                          </path>
-                        </g>
-                      </g>
-                    </g>
-                  </g>
-                </svg>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 text-gray-500 pointer-events-none ease-soft">PDM
-                Dashboard</span>
-            </a>
-          </li>
-        </ng-template>
-        <!-- <div *ngIf="router.url === '/energy_review'; else lainenergy">
-          <li class="mt-0.5 w-full">
-            <a class="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
-              routerLink="energy_review">
-              <div
-                class="bg-gradient-to-tl from-stone-300 to-cyan-300  shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg fill="#FFFFFF" height="800px" width="800px" version="1.1" id="Icons"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
-                  xml:space="preserve">
-                  <path d="M26.9,15.7C26.8,15.3,26.4,15,26,15h-6l3.9-11.7c0.1-0.4,0-0.9-0.4-1.1c-0.4-0.3-0.8-0.2-1.2,0l-17,13
-	c-0.3,0.3-0.5,0.7-0.3,1.1C5.2,16.7,5.6,17,6,17h6L8.1,28.7c-0.1,0.4,0,0.9,0.4,1.1C8.6,29.9,8.8,30,9,30c0.2,0,0.4-0.1,0.6-0.2
-	l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
-                </svg>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">Energy what</span>
-            </a>
-          </li>
-        </div>
-        <ng-template #lainenergy>
-          <li class="mt-0.5 w-full">
-            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
-              routerLink="energy_review">
-              <div
-                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Icons"
-                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
-                  xml:space="preserve">
-                  <path d="M26.9,15.7C26.8,15.3,26.4,15,26,15h-6l3.9-11.7c0.1-0.4,0-0.9-0.4-1.1c-0.4-0.3-0.8-0.2-1.2,0l-17,13
-	c-0.3,0.3-0.5,0.7-0.3,1.1C5.2,16.7,5.6,17,6,17h6L8.1,28.7c-0.1,0.4,0,0.9,0.4,1.1C8.6,29.9,8.8,30,9,30c0.2,0,0.4-0.1,0.6-0.2
-	l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
-                </svg>
-              </div>
-              <span class="ml-1 duration-300 opacity-100 text-gray-500 pointer-events-none ease-soft">Energy
-                what</span>
-            </a>
-          </li>
-        </ng-template> -->
-        <div *ngIf="
-      router.url === '/energy_review' ||
+        <div>
+          <li
+            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
+            [ngClass]=" 
+        router.url === '/energy_review' ||
         router.url === '/energy_usage_monthly' ||
         router.url === '/energy_usage_yearly' ||
         router.url === '/energy_overview' ||
         router.url === '/energy_report/daily' ||
-        router.url === '/energy_report/weekly' ||
+        router.url === '/energy_report/weekly' || 
         router.url === '/energy_report/monthly' ||
         router.url === '/seu/daily'||
         router.url === '/seu/yearly_2022'||
@@ -2398,17 +2317,44 @@ else lain6
         router.url === '/renew/solar_pv' ||
         router.url === '/emission' ||
         router.url === '/energy/ton-oil-eqv' 
-        ;
-      else lainEnergy
-    ">
-          <li
-            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
+        ? 'shadow-soft-xl rounded-lg bg-white font-semibold' : ''">
             <div
-              class="bg-gradient-to-tl from-stone-300 to-cyan-300  shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-              <svg fill="#FFFFFF" height="800px" width="800px" version="1.1" id="Icons"
+              class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"
+              [ngClass]="
+               router.url === '/energy_review' ||
+        router.url === '/energy_usage_monthly' ||
+        router.url === '/energy_usage_yearly' ||
+        router.url === '/energy_overview' ||
+        router.url === '/energy_report/daily' ||
+        router.url === '/energy_report/weekly' || 
+        router.url === '/energy_report/monthly' ||
+        router.url === '/seu/daily'||
+        router.url === '/seu/yearly_2022'||
+        router.url === '/seu/yearly_2023' ||
+        router.url === '/renew/rec' ||
+        router.url === '/renew/solar_pv' ||
+        router.url === '/emission' ||
+        router.url === '/energy/ton-oil-eqv' 
+        ? 'bg-gradient-to-tl from-stone-300 to-cyan-300' : 'bg-gray-100'">
+              <svg [ngClass]="
+              router.url === '/energy_review' ||
+        router.url === '/energy_usage_monthly' ||
+        router.url === '/energy_usage_yearly' ||
+        router.url === '/energy_overview' ||
+        router.url === '/energy_report/daily' ||
+        router.url === '/energy_report/weekly' || 
+        router.url === '/energy_report/monthly' ||
+        router.url === '/seu/daily'||
+        router.url === '/seu/yearly_2022'||
+        router.url === '/seu/yearly_2023' ||
+        router.url === '/renew/rec' ||
+        router.url === '/renew/solar_pv' ||
+        router.url === '/emission' ||
+        router.url === '/energy/ton-oil-eqv' 
+        ? 'text-white': 'text-slate-700'" height="800px" width="800px" version="1.1" id="Icons"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
                 xml:space="preserve">
-                <path d="M26.9,15.7C26.8,15.3,26.4,15,26,15h-6l3.9-11.7c0.1-0.4,0-0.9-0.4-1.1c-0.4-0.3-0.8-0.2-1.2,0l-17,13
+                <path fill="currentColor" d="M26.9,15.7C26.8,15.3,26.4,15,26,15h-6l3.9-11.7c0.1-0.4,0-0.9-0.4-1.1c-0.4-0.3-0.8-0.2-1.2,0l-17,13
 c-0.3,0.3-0.5,0.7-0.3,1.1C5.2,16.7,5.6,17,6,17h6L8.1,28.7c-0.1,0.4,0,0.9,0.4,1.1C8.6,29.9,8.8,30,9,30c0.2,0,0.4-0.1,0.6-0.2
 l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
               </svg>
@@ -2421,127 +2367,74 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
           </li>
           <li *ngIf="energySub" class="ml-6">
             <ul>
-              <div *ngIf="router.url === '/energy_review'; else kategori1">
                 <li class="ml-6">
                   <a routerLink="energy_review"
-                    class="flex  shadow-soft-md bg-white items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  px-8">Energy
-                    Review</a>
+                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group  px-8"
+                    [ngClass]="router.url === '/energy_review' ? 'shadow-soft-md bg-white':''">Energy Review</a>
                 </li>
-              </div>
-              <ng-template #kategori1>
-                <li class="ml-6">
-                  <a routerLink="energy_review"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                    Review</a>
-                </li>
-              </ng-template>
-              <div *ngIf=" router.url === '/energy_usage_yearly' ||
-              router.url === '/energy_usage_monthly';
-              else lainEnus
-              ">
                 <li class="ml-6">
                   <a (click)="ensrcmonitoringsub()">
                     <span
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
+                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
+                    [ngClass]="router.url === '/energy_usage_yearly' || router.url === '/energy_usage_monthly' || router.url === 'energy_overview' ? ' shadow-soft-md bg-white':''">Energy
                       Source</span>
                   </a>
                 </li>
-              </div>
-              <ng-template #lainEnus>
-                <li class="ml-6">
-                  <a (click)="ensrcmonitoringsub()">
-                    <span
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                      Source</span>
-                  </a>
-                </li>
-              </ng-template>
               <div *ngIf="energySrcSub" class="ml-6">
                 <li class="ml-6">
                   <a (click)="enusmonitoringsub()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy
+                    class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition cursor-pointer duration-75 rounded-lg group pl-8">Energy
                     Usage</a>
                 </li>
               </div>
               <div *ngIf="energyUsgSub && energySrcSub" class="ml-6">
-                <div *ngIf="router.url === '/energy_usage_monthly'; else kategori2">
+                <div>
                   <li class="ml-6">
                     <a routerLink="energy_usage_monthly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
+                      class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
+                      [ngClass]="router.url === '/energy_usage_monthly' ? 'rounded-lg shadow-soft-md bg-white ':''">Monthly</a>
                   </li>
                 </div>
-                <ng-template #kategori2>
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_monthly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriyear">
+                <div>
                   <li class="ml-6">
                     <a routerLink="energy_usage_yearly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
+                      class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
+                      [ngClass]="router.url === '/energy_usage_yearly' ? 'rounded-lg shadow-soft-md bg-white ':''">Yearly</a>
                   </li>
                 </div>
-                <ng-template #kategoriyear>
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_yearly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
-                  </li>
-                </ng-template>
               </div>
               <div *ngIf="energySrcSub" class="ml-6">
-                <div *ngIf="router.url === '/energy_overview'; else kategoriovr">
+                <div>
                   <li class="ml-6">
                     <a routerLink="energy_overview"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
+                      class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
+                      [ngClass]="router.url === '/energy_overview' ? 'rounded-lg shadow-soft-md bg-white ':''">Overview</a>
                   </li>
                 </div>
-                <ng-template #kategoriovr>
-                  <li class="ml-6">
-                    <a routerLink="energy_overview"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
-                  </li>
-                </ng-template>
               </div>
-              <div *ngIf="router.url === '/energy_usage_yearly'; else kategori3">
+              <div>
                 <li class="ml-6">
                   <a (click)="dailyreport()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
+                  class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
+                  [ngClass]="router.url === '/energy_report/daily' || router.url === '/energy_report/weekly' || router.url === '/energy_report/monthly' || router.url === '/energy_usage_yearly' ? ' shadow-soft-md bg-white':''">Energy
                     Report</a>
                 </li>
               </div>
-              <ng-template #kategori3>
-                <li class="ml-6">
-                  <a (click)="dailyreport()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                    Report</a>
-                </li>
-              </ng-template>
               <div *ngIf="energyDaily" class="ml-6">
-                <div *ngIf="router.url === '/energy_report/daily'; else kategoriDaily">
+                <div>
                   <li class="ml-6">
                     <a routerLink="/energy_report/daily"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
+                      class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
+                      [ngClass]="router.url === '//energy_report/daily' ? 'rounded-lg shadow-soft-md bg-white ':''">Daily</a>
                   </li>
                 </div>
-                <ng-template #kategoriDaily>
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/daily"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/energy_report/weekly'; else kategoriMonthly">
+                <div>
                   <li class="ml-6">
                     <a routerLink="/energy_report/weekly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
+                      class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
+                      [ngClass]="router.url === '//energy_report/weekly' ? 'rounded-lg shadow-soft-md bg-white ':''">Weekly</a>
                   </li>
                 </div>
-                <ng-template #kategoriMonthly>
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/weekly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
-                  </li>
-                </ng-template>
                 <div *ngIf="router.url === '/energy_report/monthly'; else kategorimonthly">
                   <li class="ml-6">
                     <a routerLink="/energy_report/monthly"
@@ -2681,321 +2574,9 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
                     (Ton Oil Eqv)</a>
                 </li>
               </ng-template>
-              <!-- <div *ngIf="router.url === '/am_m_utileng'; else kategori4">
-                <li class="ml-6">
-                  <a routerLink="am_m_utileng"
-                    class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">UTIL
-                    - ENG</a>
-                </li>
-              </div>
-              <ng-template #kategori4>
-                <li class="ml-6">
-                  <a routerLink="am_m_utileng"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">UTIL
-                    - ENG</a>
-                </li>
-              </ng-template> -->
             </ul>
           </li>
         </div>
-        <ng-template #lainEnergy>
-          <li
-            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-            <div
-              class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
-              <svg fill="#000000" height="800px" width="800px" version="1.1" id="Icons"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
-                xml:space="preserve">
-                <path d="M26.9,15.7C26.8,15.3,26.4,15,26,15h-6l3.9-11.7c0.1-0.4,0-0.9-0.4-1.1c-0.4-0.3-0.8-0.2-1.2,0l-17,13
-c-0.3,0.3-0.5,0.7-0.3,1.1C5.2,16.7,5.6,17,6,17h6L8.1,28.7c-0.1,0.4,0,0.9,0.4,1.1C8.6,29.9,8.8,30,9,30c0.2,0,0.4-0.1,0.6-0.2
-l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
-              </svg>
-            </div>
-            <button type="button" (click)="enmonitoringsub()">
-              <span class="ml-1 duration-200 text-gray-600 opacity-100 pointer-events-none ease-soft">Energy
-                Monitoring</span>
-            </button>
-            <br />
-          </li>
-          <li *ngIf="energySub" class="ml-6">
-            <ul>
-              <div *ngIf="router.url === '/energy_review'; else kategori1">
-                <li class="ml-6">
-                  <a routerLink="energy_review"
-                    class="flex  shadow-soft-md bg-white items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  px-8">Energy
-                    Review</a>
-                </li>
-              </div>
-              <ng-template #kategori1>
-                <li class="ml-6">
-                  <a routerLink="energy_review"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                    Review</a>
-                </li>
-              </ng-template>
-              <div *ngIf=" router.url === '/energy_usage_yearly' ||
-            router.url === '/energy_usage_monthly';
-            else lainEnus
-            ">
-                <li class="ml-6">
-                  <a (click)="ensrcmonitoringsub()">
-                    <span
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                      Source</span>
-                  </a>
-                </li>
-              </div>
-              <ng-template #lainEnus>
-                <li class="ml-6">
-                  <a (click)="ensrcmonitoringsub()">
-                    <span
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                      Source</span>
-                  </a>
-                </li>
-              </ng-template>
-              <div *ngIf="energySrcSub" class="ml-6">
-                <li class="ml-6">
-                  <a (click)="enusmonitoringsub()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-500 transition duration-75 rounded-lg group pl-8">Energy
-                    Usage</a>
-                </li>
-              </div>
-              <div *ngIf="energyUsgSub && energySrcSub" class="ml-6">
-                <div *ngIf="router.url === '/energy_usage_monthly'; else kategori2">
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_monthly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
-                  </li>
-                </div>
-                <ng-template #kategori2>
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_monthly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriyear">
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_yearly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
-                  </li>
-                </div>
-                <ng-template #kategoriyear>
-                  <li class="ml-6">
-                    <a routerLink="energy_usage_yearly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly</a>
-                  </li>
-                </ng-template>
-              </div>
-              <div *ngIf="energySrcSub" class="ml-6">
-                <div *ngIf="router.url === '/energy_overview'; else kategoriovr">
-                  <li class="ml-6">
-                    <a routerLink="energy_overview"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
-                  </li>
-                </div>
-                <ng-template #kategoriovr>
-                  <li class="ml-6">
-                    <a routerLink="energy_overview"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-8">Overview</a>
-                  </li>
-                </ng-template>
-              </div>
-              <div *ngIf="router.url === '/energy_usage_yearly'; else kategori3">
-                <li class="ml-6">
-                  <a (click)="dailyreport()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                    Report</a>
-                </li>
-              </div>
-              <ng-template #kategori3>
-                <li class="ml-6">
-                  <a (click)="dailyreport()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Energy
-                    Report</a>
-                </li>
-              </ng-template>
-              <div *ngIf="energyDaily" class="ml-6">
-                <div *ngIf="router.url === '/energy_report/daily'; else kategoriDaily">
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/daily"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
-                  </li>
-                </div>
-                <ng-template #kategoriDaily>
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/daily"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/energy_report/weekly'; else kategoriMonthly">
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/weekly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
-                  </li>
-                </div>
-                <ng-template #kategoriMonthly>
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/weekly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Weekly</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/energy_report/monthly'; else kategorimonthly">
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/monthly"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
-                  </li>
-                </div>
-                <ng-template #kategorimonthly>
-                  <li class="ml-6">
-                    <a routerLink="/energy_report/monthly"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Monthly</a>
-                  </li>
-                </ng-template>
-              </div>
-              <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriSeu">
-                <li class="ml-6">
-                  <a (click)="seu()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Machine
-                    SEU</a>
-                </li>
-              </div>
-              <ng-template #kategoriSeu>
-                <li class="ml-6">
-                  <a (click)="seu()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Machine
-                    SEU</a>
-                </li>
-              </ng-template>
-              <div *ngIf="seuSub" class="ml-6">
-                <div *ngIf="router.url === '/seu/daily'; else seuDaily">
-                  <li class="ml-6">
-                    <a routerLink="/seu/daily"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
-                  </li>
-                </div>
-                <ng-template #seuDaily>
-                  <li class="ml-6">
-                    <a routerLink="/seu/daily"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Daily</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/seu/yearly_2022'; else seuYear">
-                  <li class="ml-6">
-                    <a routerLink="/seu/yearly_2022"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly
-                      2022</a>
-                  </li>
-                </div>
-                <ng-template #seuYear>
-                  <li class="ml-6">
-                    <a routerLink="/seu/yearly_2022"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly
-                      2022</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/seu/yearly_2023'; else seuYear2">
-                  <li class="ml-6">
-                    <a routerLink="/seu/yearly_2023"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly
-                      2023</a>
-                  </li>
-                </div>
-                <ng-template #seuYear2>
-                  <li class="ml-6">
-                    <a routerLink="/seu/yearly_2023"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Yearly
-                      2023</a>
-                  </li>
-                </ng-template>
-              </div>
-              <div *ngIf="router.url === '/energy_usage_yearly'; else kategoriRenew">
-                <li class="ml-6">
-                  <a (click)="renew()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Renewable
-                    Energy</a>
-                </li>
-              </div>
-              <ng-template #kategoriRenew>
-                <li class="ml-6">
-                  <a (click)="renew()"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Renewable
-                    Energy</a>
-                </li>
-              </ng-template>
-              <div *ngIf="renewSub" class="ml-6">
-                <div *ngIf="router.url === '/renew/rec'; else seuDaily">
-                  <li class="ml-6">
-                    <a routerLink="/renew/rec"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">REC
-                      (RE Certificate)</a>
-                  </li>
-                </div>
-                <ng-template #seuDaily>
-                  <li class="ml-6">
-                    <a routerLink="/renew/rec"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">REC
-                      (RE Certificate)</a>
-                  </li>
-                </ng-template>
-                <div *ngIf="router.url === '/renew/solar_pv'; else seuYear">
-                  <li class="ml-6">
-                    <a routerLink="/renew/solar_pv"
-                      class="rounded-lg shadow-soft-md bg-white flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Solar
-                      Pv</a>
-                  </li>
-                </div>
-                <ng-template #seuYear>
-                  <li class="ml-6">
-                    <a routerLink="/renew/solar_pv"
-                      class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11">Solar
-                      Pv</a>
-                  </li>
-                </ng-template>
-              </div>
-              <div *ngIf="router.url === '/emission'; else emission">
-                <li class="ml-6">
-                  <a routerLink="/emission"
-                    class="flex  shadow-soft-md bg-white items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  px-8">Emission</a>
-                </li>
-              </div>
-              <ng-template #emission>
-                <li class="ml-6">
-                  <a routerLink="/emission"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">Emission</a>
-                </li>
-              </ng-template>
-              <div *ngIf="router.url === '/energy/ton-oil-eqv'; else toe">
-                <li class="ml-6">
-                  <a routerLink="/energy/ton-oil-eqv"
-                    class="flex  shadow-soft-md bg-white items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  px-8">TOE
-                    (Ton Oil Eqv)</a>
-                </li>
-              </div>
-              <ng-template #toe>
-                <li class="ml-6">
-                  <a routerLink="/energy/ton-oil-eqv"
-                    class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group  pl-8">TOE
-                    (Ton Oil Eqv)</a>
-                </li>
-              </ng-template>
-              <!-- <div *ngIf="router.url === '/am_m_utileng'; else kategori4">
-              <li class="ml-6">
-                <a routerLink="am_m_utileng"
-                  class="rounded-lg shadow-soft-md bg-white flex items-center w-1/2 p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">UTIL
-                  - ENG</a>
-              </li>
-            </div>
-            <ng-template #kategori4>
-              <li class="ml-6">
-                <a routerLink="am_m_utileng"
-                  class="flex items-center w-full p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg pl-11">UTIL
-                  - ENG</a>
-              </li>
-            </ng-template> -->
-            </ul>
-          </li>
-        </ng-template>
 
         <div *ngIf="
       router.url === '/am_m_oci1' ||
@@ -3754,7 +3335,7 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
           </li>
         </ng-template> -->
 
-      <div *ngIf="
+        <div *ngIf="
         router.url === '/apps_link'
           else lain5
       ">

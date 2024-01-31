@@ -109,7 +109,12 @@ export class LoginComponent implements OnInit{
     this.authService
       .login(this.f['nik'].value, this.f['password'].value)
       .subscribe(
-        (data: { user: { lg_name: any; }[]; access_token: any; }) => {
+        (data: any) => {
+          console.log(data);
+          
+          console.log(this.f['nik'].value);
+          console.log(this.f);
+          
           this.name = data.user[0].lg_name;
           localStorage.setItem('nikLogged', this.f['nik'].value)
           this.authService.saveToken(data.access_token);
