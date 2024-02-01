@@ -127,6 +127,7 @@ import  * as FilepondPluginImageEdit from 'filepond-plugin-image-edit';
 import  * as FilepondPluginImagePreview from 'filepond-plugin-image-preview';
 import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { KrmDashboardComponent } from './krm-dashboard/krm-dashboard.component';
 registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
@@ -239,6 +240,7 @@ registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPl
     CiltInputComponent,
     TemuanInputComponent,
     PrMOci1Component,
+    KrmDashboardComponent,
   ],
   imports: [
     BrowserModule,

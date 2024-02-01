@@ -350,14 +350,14 @@ export class CountService {
   getTotalPartReporting(no_wo:any){
     return this.httpClient.post(api + 'am/' + "totalpartreporting",{no_wo: no_wo});
   }
+  getKrmData() {
+    return this.httpClient.get(api + 'am/' + "krmreport");
+  }
   ////////////////////////////
 
   /////////////////////////////
   // ROUTE FOR DASHBOARD PDM //
   /////////////////////////////
-  dimas() {
-    return this.httpClient.get(api + 'pdm/' + "dimas");
-  }
   getTemperatureLineoci1() {
     return this.httpClient.get(api + 'pdm/' + "temperaturelineoci1");
   }

@@ -2370,19 +2370,19 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
           </li>
           <li *ngIf="energySub" class="ml-6">
             <ul>
-                <li class="ml-6">
-                  <a routerLink="energy_review"
-                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group  px-8"
-                    [ngClass]="router.url === '/energy_review' ? 'shadow-soft-md bg-white':''">Energy Review</a>
-                </li>
-                <li class="ml-6">
-                  <a (click)="ensrcmonitoringsub()">
-                    <span
+              <li class="ml-6">
+                <a routerLink="energy_review"
+                  class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group  px-8"
+                  [ngClass]="router.url === '/energy_review' ? 'shadow-soft-md bg-white':''">Energy Review</a>
+              </li>
+              <li class="ml-6">
+                <a (click)="ensrcmonitoringsub()">
+                  <span
                     class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
                     [ngClass]="router.url === '/energy_usage_yearly' || router.url === '/energy_usage_monthly' || router.url === 'energy_overview' ? ' shadow-soft-md bg-white':''">Energy
-                      Source</span>
-                  </a>
-                </li>
+                    Source</span>
+                </a>
+              </li>
               <div *ngIf="energySrcSub" class="ml-6">
                 <li class="ml-6">
                   <a (click)="enusmonitoringsub()"
@@ -2418,8 +2418,8 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
               <div>
                 <li class="ml-6">
                   <a (click)="dailyreport()"
-                  class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
-                  [ngClass]="router.url === '/energy_report/daily' || router.url === '/energy_report/weekly' || router.url === '/energy_report/monthly' || router.url === '/energy_usage_yearly' ? ' shadow-soft-md bg-white':''">Energy
+                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
+                    [ngClass]="router.url === '/energy_report/daily' || router.url === '/energy_report/weekly' || router.url === '/energy_report/monthly' || router.url === '/energy_usage_yearly' ? ' shadow-soft-md bg-white':''">Energy
                     Report</a>
                 </li>
               </div>
@@ -2449,8 +2449,8 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
               <div>
                 <li class="ml-6">
                   <a (click)="seu()"
-                  class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
-                  [ngClass]="router.url === '/seu/daily' || router.url === '/seu/yearly_2022' || router.url === '/seu/yearly_2023' ? ' shadow-soft-md bg-white':''">Machine
+                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
+                    [ngClass]="router.url === '/seu/daily' || router.url === '/seu/yearly_2022' || router.url === '/seu/yearly_2023' ? ' shadow-soft-md bg-white':''">Machine
                     SEU</a>
                 </li>
               </div>
@@ -2466,22 +2466,24 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
                   <li class="ml-6">
                     <a routerLink="/seu/yearly_2022"
                       class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
-                      [ngClass]="router.url === '/seu/yearly_2022' ? 'rounded-lg shadow-soft-md bg-white ':''">Yearly 2022</a>
+                      [ngClass]="router.url === '/seu/yearly_2022' ? 'rounded-lg shadow-soft-md bg-white ':''">Yearly
+                      2022</a>
                   </li>
                 </div>
                 <div>
                   <li class="ml-6">
                     <a routerLink="/seu/yearly_2023"
                       class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
-                      [ngClass]="router.url === '/seu/yearly_2023' ? 'rounded-lg shadow-soft-md bg-white ':''">Yearly 2023</a>
+                      [ngClass]="router.url === '/seu/yearly_2023' ? 'rounded-lg shadow-soft-md bg-white ':''">Yearly
+                      2023</a>
                   </li>
                 </div>
               </div>
               <div>
                 <li class="ml-6">
                   <a (click)="renew()"
-                  class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
-                  [ngClass]="router.url === '/renew/rec' || router.url === '/renew/solar_pv' || router.url === '/seu/yearly_2023' ? ' shadow-soft-md bg-white':''">Renewable
+                    class="flex items-center w-full p-1 text-base font-normal text-slate-700 transition duration-75 rounded-lg group cursor-pointer px-8"
+                    [ngClass]="router.url === '/renew/rec' || router.url === '/renew/solar_pv' || router.url === '/seu/yearly_2023' ? ' shadow-soft-md bg-white':''">Renewable
                     Energy</a>
                 </li>
               </div>
@@ -2490,14 +2492,16 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
                   <li class="ml-6">
                     <a routerLink="/renew/rec"
                       class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
-                      [ngClass]="router.url === '/renew/rec' ? 'rounded-lg shadow-soft-md bg-white ':''">REC (RE Certificate)</a>
+                      [ngClass]="router.url === '/renew/rec' ? 'rounded-lg shadow-soft-md bg-white ':''">REC (RE
+                      Certificate)</a>
                   </li>
                 </div>
                 <div>
                   <li class="ml-6">
                     <a routerLink="/renew/solar_pv"
                       class="flex items-center p-1 text-base font-normal text-gray-600 transition duration-75 rounded-lg group pl-11"
-                      [ngClass]="router.url === '/renew/solar_pv' ? 'rounded-lg shadow-soft-md bg-white ':''">Solar PV</a>
+                      [ngClass]="router.url === '/renew/solar_pv' ? 'rounded-lg shadow-soft-md bg-white ':''">Solar
+                      PV</a>
                   </li>
                 </div>
               </div>
@@ -2528,8 +2532,8 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
       else lain3
     ">
           <li
-          class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
-          [ngClass]=" 
+            class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
+            [ngClass]=" 
       router.url === '/am_m_oci1' ||
         router.url === '/am_m_oci2' ||
         router.url === '/am_m_fsb' ||
@@ -3078,6 +3082,34 @@ l17-13C26.9,16.5,27.1,16.1,26.9,15.7z" />
             </ul>
           </li>
         </ng-template>
+
+        <div>
+          <li class="mt-0.5 w-full">
+            <a routerLink="krm"
+              class="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors text-slate-700"
+              [ngClass]="{'shadow-soft-xl rounded-lg bg-white font-semibold': router.url === '/krm',
+            '': router.url !== '/krm'}">
+              <div
+                class="shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5"
+                [ngClass]="{'bg-gradient-to-tl from-stone-300 to-cyan-300': router.url === '/krm',
+              'bg-gray-100': router.url !== '/krm'}">
+
+                <svg [ngClass]="{'text-white': router.url === '/krm',
+                'text-slate-700': router.url !== '/krm'}" width="800px" height="800px" viewBox="0 0 24 24" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/2000/svg"> 
+                  <title>KRM Dashboard</title>
+                  <path fill="currentcolor" d="M3.92969 15.8792L15.8797 3.9292" stroke="#292D32" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill="currentcolor" d="M11.1013 18.2791L12.3013 17.0791" stroke="#292D32" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill="currentcolor" d="M13.793 15.5887L16.183 13.1987" stroke="#292D32" stroke-width="1" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill="currentcolor" d="M3.60127 10.239L10.2413 3.599C12.3613 1.479 13.4213 1.469 15.5213 3.569L20.4313 8.479C22.5313 10.579 22.5213 11.639 20.4013 13.759L13.7613 20.399C11.6413 22.519 10.5813 22.529 8.48127 20.429L3.57127 15.519C1.47127 13.419 1.47127 12.369 3.60127 10.239Z" stroke="#292D32" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path fill="currentcolor" d="M2 21.9985H22" stroke="#292D32" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                  
+                </svg>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">KRM Dashboard</span>
+            </a>
+          </li>
+        </div>
 
         <div *ngIf="
       router.url === '/cost_m_oci1' ||
