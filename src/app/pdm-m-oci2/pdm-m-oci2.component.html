@@ -11,12 +11,12 @@
       </div>
       <div class="flex flex-wrap -mx-3">
         <!-- card1 -->
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div  data-aos="fade-down" data-aos-duration="1000" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
               <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
-                  <div (click)="totalAsset()">
+                  <div (click)="totalAsset()"  class="cursor-pointer">
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                       Total Asset
                     </p>
@@ -37,12 +37,12 @@
             </div>
           </div>
         </div>
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div data-aos="fade-down" data-aos-duration="1300" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
               <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
-                  <div (click)="totalgood()">
+                  <div (click)="totalgood()"  class="cursor-pointer">
                     <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                       Total Good
                     </p>
@@ -63,12 +63,12 @@
             </div>
           </div>
         </div>
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div data-aos="fade-down" data-aos-duration="1600" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
               <div class="flex flex-row -mx-3">
                 <div class="flex-none w-2/3 max-w-full px-3">
-                  <div (click)="totalSatisfactory();">
+                  <div (click)="totalSatisfactory();" class="cursor-pointer">
                     <p class="mb-0 font-sans font-semibold leading-normal text-xs">
                       Total Satisfactory
                     </p>
@@ -89,7 +89,7 @@
             </div>
           </div>
         </div>
-        <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+        <div data-aos="fade-down" data-aos-duration="1900" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
           <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
             <div class="flex-auto p-4">
               <div class="flex flex-row -mx-3">
@@ -117,7 +117,7 @@
         </div>
       </div>
   
-      <div [ngClass]="!listoftotalsatisfactory ? '': 'hidden'" class="my-1 w-full md:w-full">
+      <div data-aos="fade-down" data-aos-duration="1000" *ngIF="!listoftotalsatisfactory" class="my-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
             <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Satisfactory</p>
@@ -188,7 +188,7 @@
         </div>
       </div>
   
-      <div [ngClass]="listoftotalgood ? '': 'hidden'" class="my-1 w-full md:w-full">
+      <div data-aos="fade-down" data-aos-duration="1000" *ngIf="listoftotalgood" class="my-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
             <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Good</p>
@@ -251,7 +251,7 @@
         </div>
       </div>
   
-      <div [ngClass]="listoftotalasset ? '': 'hidden'" class="py-1 w-full md:w-full">
+      <div data-aos="fade-down" data-aos-duration="1000" *ngIF="listoftotalasset" class="py-1 w-full md:w-full">
         <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
             <p class="text-center py-4 text-gray-800 font-semibold text-xl">Total Asset</p>
@@ -320,7 +320,7 @@
       </div>
   
       <div id="ss" #ss>
-        <div class="flex flex-wrap">
+        <div data-aos="fade-down" data-aos-duration="1500" class="flex flex-wrap">
           <div class="w-full py-1 px-3 mx-auto">
             <div class="flex flex-wrap -mx-1 lg:-mx-3">
               <div class="w-full max-w-full">
@@ -752,7 +752,7 @@
         <div class="flex flex-wrap px-1">
           <div class="w-full px-1 py-1 mx-auto">
             <div class="flex flex-wrap lg:-mx-3">
-              <div class="w-full max-w-full md:w-1/2 pr-1">
+              <div data-aos="fade-down" data-aos-duration="1000" class="w-full max-w-full md:w-1/2 pr-1">
                 <div
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                   <div class="flex-auto p-6">
@@ -783,7 +783,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-full max-w-full md:w-1/2 pl-1">
+              <div data-aos="fade-down" data-aos-duration="1500" class="w-full max-w-full md:w-1/2 pl-1">
                 <div
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                   <div class="flex-auto p-4">
@@ -850,10 +850,10 @@
               </div>
               <!--Card of chart abnormal asset start-->
               <div class="w-full px-1 py-1 mx-auto">
-                <div
+                <div data-aos="fade-down" data-aos-duration="1000"
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                   <div class="flex-auto p-4">
-                    <div (click)="abnormalAsset()">
+                    <div (click)="abnormalAsset()" class="cursor-pointer">
                       <div
                         class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                         <div class="flex-auto p-4">
@@ -903,9 +903,9 @@
               <!--end of card-->
   
               <div [ngClass]="!forcapture ? '' : 'hidden'" class="px-1 w-full max-w-full md:w-full">
-                <div
+                <div data-aos="fade-down" data-aos-duration="1000"
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
-                  <div (click)="listAbnormalAsset()">
+                  <div (click)="listAbnormalAsset()" class="cursor-pointer">
                     <div
                       class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                       <div class="flex-auto p-4">
@@ -984,9 +984,9 @@
                 <!--end of card-->
               </div>
               <div [ngClass]="!forcapture ? '' : 'hidden'" class="w-full px-1 py-1 mx-auto">
-                <div
+                <div data-aos="fade-down" data-aos-duration="1000"
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
-                  <div (click)="finishNotYet()">
+                  <div (click)="finishNotYet()" class="cursor-pointer">
                     <div
                       class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                       <div class="flex-auto p-4">
@@ -1394,9 +1394,9 @@
               <!--end of list-->
   
               <div [ngClass]="!forcapture ? '' : 'hidden'" class="w-full px-1 py-1 mx-auto">
-                <div
+                <div data-aos="fade-down" data-aos-duration="1000"
                   class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
-                  <div (click)="dataCurrentYear()">
+                  <div (click)="dataCurrentYear()" class="cursor-pointer">
                     <div
                       class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
                       <div class="flex-auto p-4">
