@@ -9,12 +9,12 @@
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 duration-2000">
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1000" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
             <div class="flex-none w-2/3 max-w-full px-3">
-              <div (click)="showFinding()">
+              <div (click)="showFinding()" class="cursor-pointer">
                 <div>
                   <p class="mb-0 font-sans font-semibold leading-normal text-sm">
                     Total Finding
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1300" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1600" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1900" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -127,7 +127,7 @@
     </div>
 
 
-    <div [ngClass]="!totalfindinglist ? '': 'hidden'" class="my-1 w-full md:w-full">
+    <div data-aos="fade-down" data-aos-duration="1000" *ngIf="!totalfindinglist" class="my-1 w-full md:w-full"> 
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
 
@@ -205,7 +205,7 @@
 
 
     <div class="flex flex-wrap w-full py-4">
-      <div class="w-1/5 lg:flex-none px-3">
+      <div data-aos="fade-down" data-aos-duration="2200" class="w-1/5 lg:flex-none px-3">
         <div
           class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
           style="background-color: #f4b8a5;">
@@ -216,7 +216,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/5 lg:flex-none  px-3">
+      <div data-aos="fade-down" data-aos-duration="2400" class="w-1/5 lg:flex-none  px-3">
         <div
           class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
           style="background-color: #86b0de;">
@@ -227,7 +227,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/5 lg:flex-none  px-3">
+      <div data-aos="fade-down" data-aos-duration="2600" class="w-1/5 lg:flex-none  px-3">
         <div
           class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
           style="background-color: #f4b8a5;">
@@ -236,7 +236,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/5 lg:flex-none  px-3">
+      <div data-aos="fade-down" data-aos-duration="2800" class="w-1/5 lg:flex-none  px-3">
         <div
           class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
           style="background-color: #86b0de;">
@@ -247,7 +247,7 @@
           </div>
         </div>
       </div>
-      <div class="w-1/5 lg:flex-none  px-3">
+      <div data-aos="fade-down" data-aos-duration="3000" class="w-1/5 lg:flex-none  px-3">
         <div
           class="relative flex flex-col min-w-0 break-words border-0 border-transparent border-solid shadow-soft-xl rounded-2xl bg-clip-border"
           style="background-color: #f4b8a5;">
@@ -260,7 +260,7 @@
     </div>
 
     <div class="w-full px-1 mx-auto">
-      <div (click)="showMonthlyReport()">
+      <div data-aos="zoom-in" data-aos-duration="1000" (click)="showMonthlyReport()">
         <div class="relative flex flex-col min-w-0 break-words bg-white mb-1 shadow-soft-lg rounded-2xl bg-clip-border">
           <div class="flex-auto p-6">
             <h5 class="text-center text-2xl font-semibold">
@@ -268,7 +268,7 @@
           </div>
         </div>
       </div>
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
+      <div data-aos="zoom-in" data-aos-duration="1000" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
         *ngIf="!listofMonthlyReport ? '': 'hidden'">
         <div class="flex-auto p-6">
           <div class="w-full max-w-full md:w-full">
@@ -1787,7 +1787,7 @@
                 Capture Table</button>
             </div>
           </div>
-          <div class="w-full max-w-full md:w-full" id="ss2" #ss2>
+          <div data-aos="fade-down" data-aos-duration="1000" class="w-full max-w-full md:w-full" id="ss2" #ss2>
             <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
               <div class="w-full max-w-full md:w-1/2 xl:w-1/2 xs:w-1/2">
                 <h4 class="text-center" style="color: blue;">WORK ORDER MONTH DATE</h4>
@@ -1911,9 +1911,9 @@
         </div>
       </div>
     </div>
-    <div class="my-1 px-1 w-full max-w-full md:w-full">
+    <div data-aos="fade-down" data-aos-duration="1000" class="my-1 px-1 w-full max-w-full md:w-full">
       <div (click)="showTotalData()"
-        class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+        class="cursor-pointer relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="mx-4">
           <div class="w-full max-w-full md:w-full">
             <div class="flex items-center text-center mt-4 mb-4 flex-wrap">
@@ -2013,8 +2013,8 @@
       <div class="w-full ">
         <div class="flex flex-wrap ">
           <div class="px-1 w-full max-w-full">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-              <div class="flex-auto p-6">
+            <div data-aos="fade-down" data-aos-duration="1000" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+              <div class="flex-auto p-6 cursor-pointer">
                 <h5 (click)="showTemuanPerDay()" class="text-center font-semibold text-2xl">Grafik Jumlah Temuan</h5>
               </div>
             </div>
@@ -2952,8 +2952,8 @@
       <div class="w-full mx-auto">
         <div class="flex flex-wrap">
           <!--Start of Button for finding pending-->
-          <div class="my-1 px-1 w-full md:w-full ">
-            <div (click)="showFindingPending()">
+          <div data-aos="fade-down" data-aos-duration="1000" class="my-1 px-1 w-full md:w-full ">
+            <div (click)="showFindingPending()" class="cursor-pointer">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div class="flex-auto p-6">
@@ -3133,8 +3133,8 @@
           <!--End of finding pending card-->
 
           <!--Button for history finding-->
-          <div class="w-full px-1 md:w-full">
-            <div (click)="showHistoryPending()">
+          <div data-aos="fade-down" data-aos-duration="1000" class="w-full px-1 md:w-full">
+            <div (click)="showHistoryPending()" class="cursor-pointer">
               <div
                 class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                 <div id="target" #target class="flex-auto p-6">
@@ -3271,9 +3271,9 @@
 
           <!--End of history finding card-->
 
-          <div class="my-1 px-1 w-full max-w-full md:w-full">
+          <div data-aos="fade-down" data-aos-duration="1000" class="my-1 px-1 w-full max-w-full md:w-full">
             <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
-              <div (click)="showListJobFinish()">
+              <div (click)="showListJobFinish()" class="cursor-pointer">
                 <div
                   class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
                   <div class="flex-auto p-6">
