@@ -1,40 +1,160 @@
-<section class="z-50 fixed inset-0 bg-[#514c4c35] opacity-100 flex justify-center items-center">
-    <div class="bg-white">
-        <div class="flex flex-wrap bg-gray-100">
-            
-            <div class="w-1/3">
-              
-                <div class="border border-gray-300">
-                    <img src="assets/img/otsukalogo.png" alt="Otsuka Logo" class="p-4 w-200 h-200 object-contain">
+<section *ngIf="cardShow" class="z-50 fixed inset-0 bg-[#514c4c78] opacity-100 flex justify-center items-center ">
+    <div data-aos="fade-down" 
+        class="w-full h-full md:w-1/2 py-8 flex items-center justify-center transition-opacity duration-300 ease-in-out">
+        <div class="flex flex-col p-5 rounded-lg shadow bg-white">
+            <div class="bg-white">
+                <div class="flex flex-wrap bg-gray-100 shadow-md rounded-xl">
+                    
+                    <div class="w-1/3">
+                      
+                        <div class="border border-gray-300 flex justify-center items-center">
+                            <img src="assets/img/otsukalogo.png" height="200px" width="200px" alt="Otsuka Logo" class="p-4 w-50 h-50 object-contain">
+                        </div>
+                        
+                
+                       
+                        <div class="border border-gray-300 text-gray-800 object-fill flex text-center justify-center">
+                            <p class="flex-1">Department Produksi</p>
+                        </div>
+                    </div>
+                
+                    
+                    <div class="w-2/3 text-gray-800 border border-gray-300 mx-auto flex items-center justify-center">
+                        <p class="font-bold">REPORT KARTU RIWAYAT MESIN</p>
+                    </div>
+                
+                   
+                    <div class="text-gray-800 py-8 px-2 w-1/3">
+                        Tanggal : 
+                    </div>
+                
+                    <div class="text-gray-800 py-8 px-2 w-1/3">
+                        Section : 
+                    </div>
+                
+                    <div class="text-gray-800 py-8 px-2 w-1/3">
+                        PIC : 
+                    </div>
+        
+                    <div class="text-gray-800 py-8 px-2 w-2/4 flex border border-gray-300">
+                        <div class="w-full">
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Issue / Activity
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Component Category
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Machine
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Equipment No.
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Root Cause
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                CAPA
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Change Part ?
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                No. Work Order
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                No. Parts
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Status
+                            </div>
+                        </div>
+                        
+                        <div class="w-fit">
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                : 
+                            </div>
+                        </div>
+        
+                        <div class="w-full">
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Issue / Activity
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Component Category
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Machine
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Equipment No.
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Root Cause
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                CAPA
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Change Part ?
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                No. Work Order
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                No. Parts
+                            </div>
+                            <div class="text-gray-800 py-2 px-2 border border-gray-300">
+                                Status
+                            </div>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="text-gray-800 text-center py-8 px-2 border border-gray-300 w-2/4">
+                        Picture
+                    </div>
                 </div>
-        
-               
-                <div class="border border-gray-300 text-gray-800 object-fill flex text-center justify-center">
-                    <p class="flex-1">Department Produksi</p>
-                </div>
+                
             </div>
-        
-            
-            <div class="w-2/3 text-gray-800 border border-gray-300 mx-auto flex items-center justify-center">
-                <p class="font-bold">REPORT KARTU RIWAYAT MESIN</p>
-            </div>
-        
-           
-            <div class="text-gray-800 py-8 px-2 w-1/3">
-                Tanggal : 
-            </div>
-        
-            <div class="text-gray-800 py-8 px-2 w-1/3">
-                Section : 
-            </div>
-        
-            <div class="text-gray-800 py-8 px-2 w-1/3">
-                PIC : 
-            </div>
-        </div>
-        
-    </div>
+            <div class="flex items-center mt-3">
 
+                <button (click)="cardClose()"
+                    class="flex-1 px-4 py-2 ml-2 bg-red-500 hover:bg-red-600 duration-300 text-white text-sm font-medium rounded-md">
+                    Close
+
+                </button>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <div class="lg:pl-72 max-sm:pl-6 md:pl-6 pr-6">
@@ -95,10 +215,7 @@
                                 </div>
                             </div>
 
-                            <div [ngClass]="filter
-                            ? 'text-gray-100'
-                            : 'text-gray-600 hidden'
-                          ">
+                            <div data-aos="fade-down" *ngIf="filter">
                                 <div class="flex flex-wrap -mx-3 mb-6">
                                     <div class="w-1/2 px-3">
                                         <label
@@ -132,7 +249,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div *ngIf="sectionShow" class="flex flex-wrap -mx-3 mb-6">
+                                <div data-aos="fade-down" *ngIf="sectionShow" class="flex flex-wrap -mx-3 mb-6">
                                     <div class="w-full px-3">
                                         <label
                                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -220,7 +337,7 @@
                                             {{data.executor}}
                                         </td>
                                         <td class="py-4 px-6">
-                                            <div
+                                            <div (click)="cardOpen()" 
                                                 class="cursor-pointer text-slate-800 transform transition-transform duration-300 hover:text-sky-500 hover:scale-110">
                                                 <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">

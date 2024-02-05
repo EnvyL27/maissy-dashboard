@@ -37,7 +37,7 @@
               "./node_modules/filepond/dist/filepond.min.css",
               "./node_modules/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css"
             ],
-            "scripts": []
+            "scripts": ["node_modules/aos/dist/aos.js"]
           },
           "configurations": {
             "production": {

@@ -3,6 +3,7 @@ import { CountService } from '../service/master/count.service';
 import { Chart } from 'chart.js/auto';
 import { NgxSpinnerService } from 'ngx-spinner';
 
+
 @Component({
   selector: 'app-krm-dashboard',
   templateUrl: './krm-dashboard.component.html',
@@ -26,8 +27,13 @@ export class KrmDashboardComponent implements OnInit {
   sectionData: any = []
   sectionFiltered: any = []
   sectionShow: boolean = false
-  closeSuccessAlert() {
+  cardShow : boolean = false
 
+  cardOpen() {
+    this.cardShow = !this.cardShow
+  }
+  cardClose(){
+    this.cardShow = false
   }
   constructor(private service: CountService, private spinner: NgxSpinnerService) { }
 

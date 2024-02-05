@@ -2,14 +2,14 @@ import { Component, Input, OnInit,EventEmitter, Injectable, Output, HostListener
 import { NgxSpinnerService } from 'ngx-spinner';
 // import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { Router,NavigationEnd  } from '@angular/router';
-
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public isShow: boolean = false;
   topPosToStartShowing = 100;
   name = 'Get Current Url Route Demo';
@@ -20,10 +20,14 @@ export class AppComponent {
    
   
   }
+  ngOnInit() {
+    AOS.init()
+    AOS.refresh()
+  }
 
   isLoginRoute() {
     return this.router.url === '/login';
-  }
+  } 
 
   isChecksheetRoute(){
     return this.router.url === '/am_checksheet' ||
