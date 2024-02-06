@@ -21,6 +21,8 @@ export class AppsLinkComponent implements OnInit {
     this.loaddata = await this.loaddata;
     var count = 0;
     this.loaddata = new Promise(resolve => {
+      console.log('oi');
+      
       var a = setInterval(()=>{
         count ++;
         this.spinner.hide();

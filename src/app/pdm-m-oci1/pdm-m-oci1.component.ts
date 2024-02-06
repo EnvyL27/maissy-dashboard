@@ -1536,7 +1536,7 @@ export class PdmMOci1Component implements OnInit {
                   this.temuanperday_data_temp.push(elem)
                 }
               }
-              //console.log(this.januari);
+              console.log(this.januari);
               //console.log(this.totalasset);
               const satu = this.januari * 100
               //console.log(satu);
@@ -1553,9 +1553,6 @@ export class PdmMOci1Component implements OnInit {
               date.forEach((element: any) => {
 
                 this.temuanperday_data_temp.forEach((elem: any) => {
-                  // ////////////////console.log(elem.bulan);
-                  // ////////////////console.log(this.month);
-
 
                   if (elem.bulan == this.month) {
                     if (elem.do_date == element) {
@@ -1567,76 +1564,30 @@ export class PdmMOci1Component implements OnInit {
               });
               dummytemuan.forEach((element: any) => {
                 this.temuanperday_label.push(element.do_date)
-                // this.temuanperday_data.push(this.temuanperday_dum)
               });
               const uniqueLabel = this.removeDuplicatesFromArray(this.temuanperday_label)
-              // Object.values(uniqueLabel).forEach(data => {
-              //   var arrayLabel = Object.keys(data).map(function (key) {
-              //     return data[key];
-              //   });
-              //   ////////////////console.log(arrayLabel);
-              // });
 
               this.temuanperday_label = []
               this.temuanperday_label = uniqueLabel
 
-              ////////////////console.log(uniqueLabel.length);
               var dataTotal: number = 0
               for (let j = 0; j < uniqueLabel.length; j++) {
                 for (let i = 0; i < this.temuanperday_data_temp.length; i++) {
 
                   if (uniqueLabel[j] === this.temuanperday_data_temp[i].do_date) {
-                    // ////////////////console.log(this.temuanperday_data_temp[i]);
-                    // ////////////////console.log('aha');
                     dataTotal++
                   }
 
                 }
-                // ////////////////console.log(this.temuanperday_data_temp[i].do_date);
-                // ////////////////console.log(uniqueLabel[i]);
-                ////////////////console.log(dataTotal);
                 this.temuanperday_data.push(dataTotal)
                 dataTotal = 0
-
-
-
               };
 
-              ////////////////console.log(this.totalasset);
-
-              this.totaldatayear = new Chart("valuepermonthchart", {
-                type: "bar",
-                data: {
-                  labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                  datasets: [
-                    {
-                      "label": "Total Data OCI1 Data %",
-                      "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
-                      "backgroundColor": "#34568B"
-                    },
-                  ]
-
-                },
-                options: {
-                  // scales: {
-                  //   yAxes: {
-                  //     min: 0,
-                  //     ticks: {
-
-                  //       callback: function (value) { return value + "%" },
-                  //       //beginAtZero: true
-                  //     },
-                  //     // scaleLabel: {
-                  //     //   display: true,
-                  //     //   labelString: "Percentage"
-                  //     // }
-                  //   }
-                  // }
-                }
-              });
             })
 
             this.dailyChart();
+            console.log(this.januari);
+            
             this.monthlyChart();
 
           }

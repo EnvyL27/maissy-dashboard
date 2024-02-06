@@ -31,6 +31,7 @@ export class KrmDashboardComponent implements OnInit {
   imagePopUp : boolean = false
   imageUrl : any
   getEmployee : any
+  cardData : any[] = []
 
   imageOpen($event : any){
     this.imageUrl = $event
@@ -41,8 +42,18 @@ export class KrmDashboardComponent implements OnInit {
     this.imagePopUp = false
   }
 
-  cardOpen() {
+  cardOpen($event : any) {
+    this.cardData = []
     this.cardShow = !this.cardShow
+    console.log(this.krmList);
+    
+    this.krmList.forEach(element => {
+      if(element.id == $event){
+        this.cardData.push(element)
+      }
+    });
+    console.log(this.cardData);
+    
   }
   cardClose(){
     this.cardShow = false

@@ -1544,36 +1544,6 @@ export class PdmMFsbComponent implements OnInit {
 
               ////////////////console.log(this.totalasset);
 
-              this.totaldatayear = new Chart("valuepermonthchart", {
-                type: "bar",
-                data: {
-                  labels: ["January", "February", "Maret", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                  datasets: [
-                    {
-                      "label": "Total Data OCI1 Data %",
-                      "data": [Math.round(this.januari * 100 / (this.totalasset / 2)), Math.round(this.febuari * 100 / (this.totalasset / 2)), Math.round(this.maret * 100 / (this.totalasset / 2)), Math.round(this.april * 100 / (this.totalasset / 2)), Math.round(this.mei * 100 / (this.totalasset / 2)), Math.round(this.juni * 100 / (this.totalasset / 2)), Math.round(this.juli * 100 / (this.totalasset / 2)), Math.round(this.agustus * 100 / (this.totalasset / 2)), Math.round(this.september * 100 / (this.totalasset / 2)), Math.round(this.oktober * 100 / (this.totalasset / 2)), Math.round(this.november * 100 / (this.totalasset / 2)), Math.round(this.desember * 100 / (this.totalasset / 2))],
-                      "backgroundColor": "#34568B"
-                    },
-                  ]
-
-                },
-                options: {
-                  // scales: {
-                  //   yAxes: {
-                  //     min: 0,
-                  //     ticks: {
-
-                  //       callback: function (value) { return value + "%" },
-                  //       //beginAtZero: true
-                  //     },
-                  //     // scaleLabel: {
-                  //     //   display: true,
-                  //     //   labelString: "Percentage"
-                  //     // }
-                  //   }
-                  // }
-                }
-              });
             })
 
             this.dailyChart();
