@@ -1508,6 +1508,8 @@ export class AmMFsbComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
+  currentYear = moment().format("YYYY");
+
   jumlahTemuanChange(){
     var bulanPilihan = 0;
     this.termuanperday_jan =
@@ -1522,29 +1524,29 @@ export class AmMFsbComponent implements OnInit {
     this.termuanperday_okt =
     this.termuanperday_nov =
     this.termuanperday_des = 0;
-    if(this.month == '2023-01'){
+    if(this.month == this.currentYear + '-01'){
       bulanPilihan = 1;
-    }else if(this.month == '2023-02'){
+    }else if(this.month == this.currentYear + '-02'){
       bulanPilihan = 2;
-    }else if(this.month == '2023-03'){
+    }else if(this.month == this.currentYear + '-03'){
       bulanPilihan = 3;
-    }else if(this.month == '2023-04'){
+    }else if(this.month == this.currentYear + '-04'){
       bulanPilihan = 4;
-    }else if(this.month == '2023-05'){
+    }else if(this.month == this.currentYear + '-05'){
       bulanPilihan = 5;
-    }else if(this.month == '2023-06'){
+    }else if(this.month == this.currentYear + '-06'){
       bulanPilihan = 6;
-    }else if(this.month == '2023-07'){
+    }else if(this.month == this.currentYear + '-07'){
       bulanPilihan = 7;
-    }else if(this.month == '2023-08'){
+    }else if(this.month == this.currentYear + '-08'){
       bulanPilihan = 8;
-    }else if(this.month == '2023-09'){
+    }else if(this.month == this.currentYear + '-09'){
       bulanPilihan = 9;
-    }else if(this.month == '2023-10'){
+    }else if(this.month == this.currentYear + '-10'){
       bulanPilihan = 10;
-    }else if(this.month == '2023-11'){
+    }else if(this.month == this.currentYear + '-11'){
       bulanPilihan = 11;
-    }else if(this.month == '2023-12'){
+    }else if(this.month == this.currentYear + '-12'){
       bulanPilihan = 12;
     }
     //////////////////console.log(bulanPilihan);

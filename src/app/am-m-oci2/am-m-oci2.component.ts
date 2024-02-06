@@ -1480,29 +1480,29 @@ export class AmMOci2Component implements OnInit {
     this.termuanperday_okt =
     this.termuanperday_nov =
     this.termuanperday_des = 0;
-    if(this.month == '2023-01'){
+    if(this.month == '2024-01'){
       bulanPilihan = 1;
-    }else if(this.month == '2023-02'){
+    }else if(this.month == '2024-02'){
       bulanPilihan = 2;
-    }else if(this.month == '2023-03'){
+    }else if(this.month == '2024-03'){
       bulanPilihan = 3;
-    }else if(this.month == '2023-04'){
+    }else if(this.month == '2024-04'){
       bulanPilihan = 4;
-    }else if(this.month == '2023-05'){
+    }else if(this.month == '2024-05'){
       bulanPilihan = 5;
-    }else if(this.month == '2023-06'){
+    }else if(this.month == '2024-06'){
       bulanPilihan = 6;
-    }else if(this.month == '2023-07'){
+    }else if(this.month == '2024-07'){
       bulanPilihan = 7;
-    }else if(this.month == '2023-08'){
+    }else if(this.month == '2024-08'){
       bulanPilihan = 8;
-    }else if(this.month == '2023-09'){
+    }else if(this.month == '2024-09'){
       bulanPilihan = 9;
-    }else if(this.month == '2023-10'){
+    }else if(this.month == '2024-10'){
       bulanPilihan = 10;
-    }else if(this.month == '2023-11'){
+    }else if(this.month == '2024-11'){
       bulanPilihan = 11;
-    }else if(this.month == '2023-12'){
+    }else if(this.month == '2024-12'){
       bulanPilihan = 12;
     }
     //////////////////console.log(bulanPilihan);
@@ -3039,7 +3039,7 @@ export class AmMOci2Component implements OnInit {
 
       this.service.getTotalFeeding().subscribe(data => {
         this.totalfm = data;
-        ////////////////////console.log(data);
+        console.log(data);
         
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
@@ -3135,10 +3135,13 @@ export class AmMOci2Component implements OnInit {
                 }
   
                 this.temuanperday_data_temp.push(elem)
+                
+                
               }
             }
+            console.log(this.pendingexecute);
           })
-
+          console.log(this.pendingexecute);
           this.temuanperday_data_temp.forEach((element: any) => {
             if (element.bulan == this.bulan) {
               this.listoftotalfinding.push(element)

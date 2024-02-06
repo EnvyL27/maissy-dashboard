@@ -1392,7 +1392,6 @@ export class AmMOci1Component implements OnInit {
     this.boolJanBulan = this.boolFebBulan = this.boolMarBulan = this.boolAprBulan = this.boolMayBulan = this.boolJunBulan = this.boolJulBulan = this.boolSepBulan = this.boolOktBulan = this.boolNovBulan = this.boolDesBulan = false;
     this.boolAguBulan = !this.boolAguBulan;
     this.cdr.detectChanges();
-    //////////////////////////////console.log(this.boolAguBulan);
 
   }
   changeSepBulan() {
@@ -1495,20 +1494,16 @@ export class AmMOci1Component implements OnInit {
   }
 
   cobaGantiTaun(){
-    ////////console.log(this.temuanFilter1);
     const yearFromTemuanFilter1 = moment(this.temuanFilter1).year();
-    ////////console.log(yearFromTemuanFilter1);
-    ////////console.log(this.currentYear);
     
     if(yearFromTemuanFilter1 != this.currentYear){
 
     }
   }
 
+
   jumlahTemuanChange(){
-    ////////console.log(this.currentYear);
     const yearFromTemuanFilter1 = moment(this.month).month()
-    ////////console.log(yearFromTemuanFilter1);
     
     var bulanPilihan = 0;
     this.termuanperday_jan =
@@ -1523,29 +1518,29 @@ export class AmMOci1Component implements OnInit {
     this.termuanperday_okt =
     this.termuanperday_nov =
     this.termuanperday_des = 0;
-    if(this.month == '2023-01'){
+    if(this.month == this.currentYear + '-01'){
       bulanPilihan = 1;
-    }else if(this.month == '2023-02'){
+    }else if(this.month == this.currentYear + '-02'){
       bulanPilihan = 2;
-    }else if(this.month == '2023-03'){
+    }else if(this.month == this.currentYear + '-03'){
       bulanPilihan = 3;
-    }else if(this.month == '2023-04'){
+    }else if(this.month == this.currentYear + '-04'){
       bulanPilihan = 4;
-    }else if(this.month == '2023-05'){
+    }else if(this.month == this.currentYear + '-05'){
       bulanPilihan = 5;
-    }else if(this.month == '2023-06'){
+    }else if(this.month == this.currentYear + '-06'){
       bulanPilihan = 6;
-    }else if(this.month == '2023-07'){
+    }else if(this.month == this.currentYear + '-07'){
       bulanPilihan = 7;
-    }else if(this.month == '2023-08'){
+    }else if(this.month == this.currentYear + '-08'){
       bulanPilihan = 8;
-    }else if(this.month == '2023-09'){
+    }else if(this.month == this.currentYear + '-09'){
       bulanPilihan = 9;
-    }else if(this.month == '2023-10'){
+    }else if(this.month == this.currentYear + '-10'){
       bulanPilihan = 10;
-    }else if(this.month == '2023-11'){
+    }else if(this.month == this.currentYear + '-11'){
       bulanPilihan = 11;
-    }else if(this.month == '2023-12'){
+    }else if(this.month == this.currentYear + '-12'){
       bulanPilihan = 12;
     }
     ////////////////////console.log(bulanPilihan);
@@ -1557,7 +1552,6 @@ export class AmMOci1Component implements OnInit {
 
     this.service.getTotalFeeding().subscribe(data => {
       this.totalfm = data;
-      ////////////////console.log(data);
       
       var date: any = [];
       Object.values(this.totalfm).forEach(data => {
@@ -1623,7 +1617,6 @@ export class AmMOci1Component implements OnInit {
           this.temuanperday_data_temp.forEach((elem: any) => {
             
             if (elem.bulan == bulanPilihan) {
-              ////////////////////console.log(elem);
               
               if (elem.tanggal_temuan == element) {
                 this.temuanperday_dum++
@@ -1638,9 +1631,6 @@ export class AmMOci1Component implements OnInit {
           this.temuanperday_dum = 0
 
         });
-
-        // ////////////////////console.log(this.temuanperday_data_temp);
-        ////////////////console.log(this.listoftotalfinding);
 
          this.temuanperday_data_temp.forEach((element: any) => {
           
@@ -1661,15 +1651,12 @@ export class AmMOci1Component implements OnInit {
               } else if (element.bulan <= bulanPilihan && element.bulan == 5) {
                 this.meielembulan.push(element)
                 this.termuanperday_mei++
-                ////////////////////console.log(this.termuanperday_mei);
               } else if (element.bulan <= bulanPilihan && element.bulan == 6) {
                 this.junielembulan.push(element)
                 this.termuanperday_jun++
-                ////////////////////console.log(this.termuanperday_jun);
               } else if (element.bulan <= bulanPilihan && element.bulan == 7) {
                 this.julielembulan.push(element)
                 this.termuanperday_jul++
-                ////////////////////console.log(this.termuanperday_jul);
               } else if (element.bulan <= bulanPilihan && element.bulan == 8) {
                 this.agustuselembulan.push(element)
                 this.termuanperday_ags++
@@ -1721,8 +1708,6 @@ export class AmMOci1Component implements OnInit {
         height: 500,
         events: {
           click: (event: any, chartContext: any, config: any) => {
-            // //////////////////////////////////////console.log(config);
-            // //////////////////////////////console.log(this.maretcloseelem);
             if (config.dataPointIndex == '0' && config.seriesIndex == '0') {
               this.changeJanBulan();
             }
@@ -2926,50 +2911,34 @@ export class AmMOci1Component implements OnInit {
       this.service.getOrder().subscribe(data => {
         this.orderobj = data;
         Object.values(this.orderobj).forEach(data => {
-          ////////////////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // // ////////////////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.orderarr.splice(this.orderarr.lenght, 0, array[i]);
           }
-          ////////////////////////////////////////console.log(this.orderarr);
-
-          // // ////////////////////////////////////////console.log(this.findingpending2);
         });
 
       });
       this.service.getReadfpSection().subscribe(data => {
         this.fpsect = data;
         Object.values(this.fpsect).forEach(data => {
-          // // ////////////////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             this.fpsectarr.splice(this.fpsectarr.lenght, 0, array[i]);
           }
-          // ////////////////////////////////////////console.log(this.fpsectarr);
-
-          // // ////////////////////////////////////////console.log(this.findingpending2);
         })
-        //////////////////////////console.log('getReadfpSection');
 
       });
       this.service.getTotalFeeding().subscribe(data => {
         this.totallevel = data;
-        ////////////////////////////////console.log(this.totallevel);
 
         Object.values(this.totallevel).forEach(data => {
-          // // ////////////////////////////////////////console.log(data);
           var array = Object.keys(data).map(function (key) {
             return data[key];
           });
-          // ////////////////////////////////////////console.log(array);
-
-          // // ////////////////////////////////////////console.log(array);
           for (let i = 0; i < array.length; i++) {
             if (data[i].id_area == 1)
               this.totallevel2.splice(this.totallevel2.lenght, 0, array[i]);
@@ -3089,10 +3058,9 @@ export class AmMOci1Component implements OnInit {
       );
 
       this.service.getTotalFeeding().subscribe(data => {
-        //////////////////console.log(this.month);
-        // ////////////////console.log(data);
         this.totalfm = data;
-
+        console.log(this.totalfm);
+        
         var date: any = [];
         Object.values(this.totalfm).forEach(data => {
           var array = Object.keys(data).map(function (key) {
@@ -3101,7 +3069,6 @@ export class AmMOci1Component implements OnInit {
           for (let i = 0; i < array.length; i++) {
             this.totalfm2.splice(this.totalfm2.lenght, 0, array[i]);
           }
-          //////////////////console.log(this.totalfm2);
           
           this.totalfm2.forEach((elem: any, i: number) => {
             if (elem.id_area == 1 && elem.tanggal_temuan != this.totalfm2[i + 1]?.tanggal_temuan) {
@@ -3110,7 +3077,7 @@ export class AmMOci1Component implements OnInit {
             
             
 
-            if (elem.id_area == 3) {
+            if (elem.id_area == 1) {
 
 
               if (elem.status_pengerjaan == 'Done') {
@@ -3193,8 +3160,6 @@ export class AmMOci1Component implements OnInit {
             }
           })
 
-          // ////////////////console.log(this.temuanperday_data_temp);
-          // ////////////////console.log(this.month);
           
 
           this.temuanperday_data_temp.forEach((element: any) => {

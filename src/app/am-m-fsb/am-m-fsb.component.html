@@ -9,7 +9,8 @@
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 duration-2000">
-    <div data-aos="fade-down" data-aos-duration="1000" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1000"
+      class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -39,7 +40,8 @@
       </div>
     </div>
 
-    <div data-aos="fade-down" data-aos-duration="1300" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1300"
+      class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -50,9 +52,13 @@
                 </p>
                 <h5 class="mb-0 font-bold">
                   {{pendingexecute}}
-                  <span class="text-lime-500 ml-1">({{(pendingexecute * 100 / (pendingexecute + finishexecute +
+                  <span *ngIf="pendingexecute + finishexecute +
+                  readyexecute != 0" class="text-lime-500 ml-1">({{(pendingexecute * 100 / (pendingexecute +
+                    finishexecute +
                     readyexecute)).toFixed(1)}}
                     %)</span>
+                  <span *ngIf="pendingexecute + finishexecute +
+                    readyexecute == 0" class="text-lime-500 ml-1">(0 %)</span>
                 </h5>
               </div>
             </div>
@@ -68,7 +74,8 @@
         </div>
       </div>
     </div>
-    <div data-aos="fade-down" data-aos-duration="1600" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1600"
+      class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -79,8 +86,12 @@
                 </p>
                 <h5 class="mb-0 font-bold">
                   {{readyexecute}}
-                  <span class="text-lime-500 ml-1">({{(readyexecute * 100 / (pendingexecute + finishexecute +
+                  <span *ngIf="pendingexecute + finishexecute +
+                  readyexecute != 0" class="text-lime-500 ml-1">({{(readyexecute * 100 / (pendingexecute +
+                    finishexecute +
                     readyexecute)).toFixed(1)}} %)</span>
+                  <span *ngIf="pendingexecute + finishexecute +
+                    readyexecute == 0" class="text-lime-500 ml-1">(0 %)</span>
                 </h5>
               </div>
             </div>
@@ -96,7 +107,8 @@
         </div>
       </div>
     </div>
-    <div data-aos="fade-down" data-aos-duration="1900" class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+    <div data-aos="fade-down" data-aos-duration="1900"
+      class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-4">
           <div class="flex flex-row -mx-3">
@@ -107,9 +119,13 @@
                 </p>
                 <h5 class="mb-0 font-bold">
                   {{finishexecute}}
-                  <span class="text-lime-500 ml-1">({{(finishexecute * 100 / (pendingexecute + finishexecute +
+                  <span *ngIf="pendingexecute + finishexecute +
+                  readyexecute != 0" class="text-lime-500 ml-1">({{(finishexecute * 100 / (pendingexecute +
+                    finishexecute +
                     readyexecute)).toFixed(1)}}
                     %)</span>
+                  <span *ngIf="pendingexecute + finishexecute +
+                  readyexecute == 0" class="text-lime-500 ml-1">(0 %)</span>
                 </h5>
               </div>
             </div>
@@ -127,7 +143,7 @@
     </div>
 
 
-    <div data-aos="fade-down" data-aos-duration="1000" *ngIf="!totalfindinglist" class="my-1 w-full md:w-full"> 
+    <div data-aos="fade-down" data-aos-duration="1000" *ngIf="!totalfindinglist" class="my-1 w-full md:w-full">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
         <div class="flex-auto p-6">
 
@@ -268,7 +284,8 @@
           </div>
         </div>
       </div>
-      <div data-aos="zoom-in" data-aos-duration="1000" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
+      <div data-aos="zoom-in" data-aos-duration="1000"
+        class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border"
         *ngIf="!listofMonthlyReport ? '': 'hidden'">
         <div class="flex-auto p-6">
           <div class="w-full max-w-full md:w-full">
@@ -2013,7 +2030,8 @@
       <div class="w-full ">
         <div class="flex flex-wrap ">
           <div class="px-1 w-full max-w-full">
-            <div data-aos="fade-down" data-aos-duration="1000" class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
+            <div data-aos="fade-down" data-aos-duration="1000"
+              class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-lg rounded-2xl bg-clip-border">
               <div class="flex-auto p-6 cursor-pointer">
                 <h5 (click)="showTemuanPerDay()" class="text-center font-semibold text-2xl">Grafik Jumlah Temuan</h5>
               </div>
