@@ -26,7 +26,7 @@
                         Total Asset
                       </p>
                       <h5 class="mb-0 font-bold">
-                        {{totalasset}}
+                        {{this.good + this.goodoci1 + this.goodfsb + this.satisoci1 + this.satis + this.satisfsb + this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb}}
                         <span>device</span>
                       </h5>
                     </div>
@@ -55,7 +55,7 @@
                       </p>
                       <h5 class="mb-0 font-bold">
                         {{(this.good + this.goodoci1 + this.goodfsb)}}
-                        <span class="text-lime-500 ml-1">({{((this.good + this.goodoci1 + this.goodfsb) * 100 / totalasset).toFixed(1)}} %)</span>
+                        <span class="text-lime-500 ml-1">({{((this.good + this.goodoci1 + this.goodfsb) * 100 / (this.good + this.goodoci1 + this.goodfsb + this.satisoci1 + this.satis + this.satisfsb + this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb)).toFixed(1)}} %)</span>
                       </h5>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
                       </p>
                       <h5 class="mb-0 font-bold">
                         {{(this.satisoci1 + this.satis + this.satisfsb)}}
-                        <span class="text-lime-500 ml-1">({{((this.satisoci1 + this.satis + this.satisfsb) * 100 / totalasset).toFixed(1)}} %)</span>
+                        <span class="text-lime-500 ml-1">({{((this.satisoci1 + this.satis + this.satisfsb) * 100 / (this.good + this.goodoci1 + this.goodfsb + this.satisoci1 + this.satis + this.satisfsb + this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb)).toFixed(1)}} %)</span>
                       </h5>
                     </div>
                   </div>
@@ -111,7 +111,7 @@
                       </p>
                       <h5 class="mb-0 font-bold">
                         {{(this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb)}}
-                        <span class="text-lime-500 ml-1">({{((this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb) * 100 / totalasset).toFixed(1)}} %)</span>
+                        <span class="text-lime-500 ml-1">({{((this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb) * 100 / (this.good + this.goodoci1 + this.goodfsb + this.satisoci1 + this.satis + this.satisfsb + this.unsatisfoci1 + this.unsatisf + this.unacc + this.unaccoci1 + this.unsatisffsb + this.unaccfsb)).toFixed(1)}} %)</span>
                       </h5>
                     </div>
                   </div>

@@ -826,4 +826,9 @@ export class CountService {
   getVendorData(){
     return this.httpClient.get(apiAM + '/pr/vendor');
   }
+
+  //USERS SERVICE//
+  getEmployeeData(){
+    return this.httpClient.get(apiAM + '/users/')
+  }
 };

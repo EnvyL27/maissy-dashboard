@@ -28,6 +28,18 @@ export class KrmDashboardComponent implements OnInit {
   sectionFiltered: any = []
   sectionShow: boolean = false
   cardShow : boolean = false
+  imagePopUp : boolean = false
+  imageUrl : any
+  getEmployee : any
+
+  imageOpen($event : any){
+    this.imageUrl = $event
+    this.imagePopUp = !this.imagePopUp
+  }
+
+  cancelPopUp(){
+    this.imagePopUp = false
+  }
 
   cardOpen() {
     this.cardShow = !this.cardShow
@@ -75,7 +87,8 @@ export class KrmDashboardComponent implements OnInit {
           }
         });
 
-        // Assuming this.sectionFiltered is your array of data
+        console.log(this.krmList);
+        
 
       })
 
@@ -86,6 +99,7 @@ export class KrmDashboardComponent implements OnInit {
   }
 
   sectionFilter() {
+    this.currentPage = 0
     this.krmList = []
     console.log(this.section);
     this.service.getKrmData().subscribe(data => {
@@ -96,7 +110,6 @@ export class KrmDashboardComponent implements OnInit {
         }
       });
 
-      //////////console.log(this.prData);
 
       this.spinner.hide()
       this.resolved = true
@@ -137,6 +150,10 @@ export class KrmDashboardComponent implements OnInit {
         this.resolved = true
       }
       );
+
+      this.service.getEmployeeData().subscribe(data => {
+        this.getEmployee.push(data)
+      })
 
     });
     this.spinner.show();
