@@ -100,6 +100,7 @@ import { CiltInputComponent } from './checksheet/cilt/cilt-input/cilt-input.comp
 import { TemuanInputComponent } from './checksheet/input-temuan/temuan-input/temuan-input.component';
 import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
 import { KrmDashboardComponent } from './krm-dashboard/krm-dashboard.component';
+import { ActivityEndComponent } from './activity-end/activity-end.component';
 
 const routes: Routes = [
   //CHECKSHEET ROUTE//
@@ -204,6 +205,7 @@ const routes: Routes = [
   {path: 'snakeladder', component: SnkComponent, canActivate: [AuthGuard]},
   {path: 'energy', component: EnergyIndexComponent, canActivate: [AuthGuard]},
   {path: 'krm', component: KrmDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'activity-end', component: ActivityEndComponent, canActivate: [AuthGuard]},
 
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]},
 
