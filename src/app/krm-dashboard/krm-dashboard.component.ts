@@ -43,12 +43,14 @@ export class KrmDashboardComponent implements OnInit {
   }
 
   cardOpen($event : any) {
+    console.log($event);
+    
     this.cardData = []
     this.cardShow = !this.cardShow
     console.log(this.krmList);
     
     this.krmList.forEach(element => {
-      if(element.id == $event){
+      if(element.id_data == $event){
         this.cardData.push(element)
       }
     });
