@@ -205,7 +205,7 @@ const routes: Routes = [
   {path: 'snakeladder', component: SnkComponent, canActivate: [AuthGuard]},
   {path: 'energy', component: EnergyIndexComponent, canActivate: [AuthGuard]},
   {path: 'krm', component: KrmDashboardComponent, canActivate: [AuthGuard]},
-  {path: 'activity-end', component: ActivityEndComponent, canActivate: [AuthGuard]},
+  {path: 'schedule', component: ActivityEndComponent, canActivate: [AuthGuard]},
 
   {path: '**', component: NotFoundComponent, canActivate: [AuthGuard]},
 
