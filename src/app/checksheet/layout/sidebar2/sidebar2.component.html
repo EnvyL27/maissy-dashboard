@@ -26,7 +26,7 @@
 
         </a>
       </li>
-      <!-- <li *ngIf="adminLevel">
+      <li *ngIf="adminLevel">
         <a [ngClass]="
         router.url == '/temuan_list' ||
         router.url == '/temuan_input' 
@@ -46,7 +46,7 @@
             : 'text-gray-600'
           " class="ml-2 text-sm tracking-wide truncate">Input Temuan</span>
         </a>
-      </li> -->
+      </li>
       <li *ngIf="plannerLevel || purchasinLevel || adminLevel">
         <a [ngClass]="
         router.url == '/pr_list' ||
