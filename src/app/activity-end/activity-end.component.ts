@@ -29,9 +29,50 @@ export class ActivityEndComponent implements OnInit {
   sectionShow: boolean = false
   cardShow : boolean = false
   imagePopUp : boolean = false
+  addPopUp : boolean = false
   imageUrl : any
   getEmployee : any
   cardData : any[] = []
+  
+  selectedColor: string = "#9C27B0";
+  colorToAdd: string = "#EC407A";
+  colorPalette: Array<any> = [
+    {
+      preview: "#9c27b0e0",
+      variants: [
+        "#9c27b0",
+        "#9c27b0de",
+        "#9c27b0bd",
+        "#9c27b09c",
+        "#9c27b075",
+        "#9c27b047",
+      ],
+    },
+    "#00BCD4",
+    "#03A9F4",
+    "#B2F35C",
+  ];
+
+  public addToPalette() {
+    this.colorPalette.push(this.colorToAdd);
+  }
+
+  logColor($event : any){
+    console.log($event);
+    console.log(this.colorToAdd);
+    
+    
+  }
+
+  
+
+  addOpen(){
+    this.addPopUp = !this.addPopUp
+  }
+
+  cancelAdd(){
+    this.addPopUp = false
+  }
 
   imageOpen($event : any){
     this.imageUrl = $event
@@ -150,6 +191,8 @@ export class ActivityEndComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    
+    
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
       this.service.getKrmData().subscribe(data => {

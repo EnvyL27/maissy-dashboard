@@ -129,6 +129,7 @@ import { PrMOci1Component } from './pr-m-oci1/pr-m-oci1.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { KrmDashboardComponent } from './krm-dashboard/krm-dashboard.component';
 import { ActivityEndComponent } from './activity-end/activity-end.component';
+import { NgxColorsModule } from 'ngx-colors';
 registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPluginImagePreview);
 
 
@@ -252,6 +253,7 @@ registerPlugin(FilePondPluginFileValidateType,FilepondPluginImageEdit,FilepondPl
       preventDuplicates: true,}),
     NgxSpinnerModule,
     NgxPaginationModule,
+    NgxColorsModule,
     CommonModule,
     FormsModule,
     FilePondModule,
