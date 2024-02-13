@@ -195,10 +195,15 @@ export class ActivityEndComponent implements OnInit {
     
     window.scrollTo(0, 0);
     this.loaddata = new Promise(resolve => {
-      this.service.getKrmData().subscribe(data => {
+      this.service.getSchedule().subscribe(data => {
+        console.log(data);
+        
         this.krmData = data
         this.krmData.forEach((element: any) => {
-          this.krmList.push(element)
+          if(element.id_header == 1){
+            this.krmList.push(element)
+          }
+         
         });
         console.log(this.krmList);
 

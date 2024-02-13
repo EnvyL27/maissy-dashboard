@@ -605,6 +605,19 @@ export class CountService {
   }
   ////////////////////////////
 
+  ///////////////////////////////////
+  // ROUTE FOR DASHBOARD SCHEDULE //
+  //////////////////////////////////
+  getActicity(){
+    return this.httpClient.get(apiAM + '/act');
+  }
+
+  getSchedule(){
+    return this.httpClient.get(apiAM + '/act/sch');
+  }
+
+
+
   //////////////////////////////
   // ROUTE FOR DASHBOARD CILT //
   //////////////////////////////
