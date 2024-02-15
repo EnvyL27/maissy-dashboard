@@ -278,9 +278,8 @@
 	}
 }
 img.animasihf {
-  --s: 250px;   /* the size of the image */
+  --s: 500px;   /* the size of the image */
   --b: 8px;     /* the border thickness*/
-  --g: 14px;    /* the gap */
   --c: #4ECDC4; /* the color */
 
   width: var(--s);
