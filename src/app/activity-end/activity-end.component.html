@@ -254,7 +254,7 @@
                                         <!-- component -->
                                         <div [ngClass]=" isOc
                                         ? ' grid-cols-7 w-[90rem]'
-                                        : ' grid-cols-5 w-[50rem]'
+                                        : ' grid-cols-5 w-[50rem]' 
                                       " class="grid py-4 gap-2 rounded-xl bg-gray-200 p-2">
                                             <div *ngFor="let data of sectionFiltered" (change)="sectionFilter()">
                                                 <div>
@@ -273,25 +273,30 @@
                                 <table class="w-full text-sm text-left text-gray-500">
                                     <thead class="text-xs text-gray-700 uppercase bg-gray-400 text-center">
                                         <tr>
-                                            <th scope="col" rowspan="3" class="py-3 px-2 text-white border border-gray-100">
+                                            <th scope="col" rowspan="3"
+                                                class="py-3 px-2 text-white border border-gray-100">
                                                 No
                                             </th>
-                                            <th scope="col" rowspan="3" class="py-3 px-6 text-white border border-gray-100">
+                                            <th scope="col" rowspan="3"
+                                                class="py-3 px-6 text-white border border-gray-100">
                                                 Activity
                                             </th>
                                             <th colspan="2" class="py-3 px-6 text-white border border-gray-100">
                                                 Plan
                                             </th>
-                                            <th scope="col" rowspan="3" class="py-3 px-6 text-white border border-gray-100">
+                                            <th scope="col" rowspan="3"
+                                                class="py-3 px-6 text-white border border-gray-100">
                                                 Duration
                                             </th>
-                                            <th scope="col" rowspan="3" class="py-3 px-6 text-white border border-gray-100">
+                                            <th scope="col" rowspan="3"
+                                                class="py-3 px-6 text-white border border-gray-100">
                                                 Date
                                             </th>
-                                            <th *ngFor="let data of dates" colspan="3" class="py-3 px-6 text-white border border-gray-100">
+                                            <th *ngFor="let data of dates" colspan="3"
+                                                class="py-3 px-6 text-white border border-gray-100">
                                                 {{data | date: 'EEEE'}}
                                             </th>
-    
+
                                         </tr>
                                         <tr>
                                             <th scope="col" rowspan="2"
@@ -300,9 +305,10 @@
                                             <th scope="col" rowspan="2"
                                                 class="whitespace-nowrap px-4 py-2 text-white border border-gray-100 font-medium ">
                                                 Finish</th>
-                                                <th *ngFor="let data of dates" colspan="3" class="py-3 px-6 text-white border border-gray-100">
-                                                    {{data}}
-                                                </th>
+                                            <th *ngFor="let data of dates" colspan="3"
+                                                class="py-3 px-6 text-white border border-gray-100">
+                                                {{data}}
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th *ngFor="let data of shiftArray" colspan="1"
@@ -328,25 +334,28 @@
                                             <td class="py-4 px-6 border border-gray-400">
                                                 {{data.duration}}
                                             </td>
-                                            <td *ngIf="data.date_start == data.date_finish" class="py-4 px-6 border border-gray-400 whitespace-nowrap">
+                                            <td *ngIf="data.date_start == data.date_finish"
+                                                class="py-4 px-6 border border-gray-400 whitespace-nowrap">
                                                 {{data.date_start | date:'dd-MM-yyyy'}}
                                             </td>
-                                            <td *ngIf="data.date_start != data.date_finish" class="py-4 px-6 border border-gray-400 whitespace-nowrap">
-                                                {{data.date_start | date:'dd-MM-yyyy'}} - {{data.date_finish | date:'dd-MM-yyyy'}}
+                                            <td *ngIf="data.date_start != data.date_finish"
+                                                class="py-4 px-6 border border-gray-400 whitespace-nowrap">
+                                                {{data.date_start | date:'dd-MM-yyyy'}} - {{data.date_finish |
+                                                date:'dd-MM-yyyy'}}
                                             </td>
-                                            <td [ngClass]="checkShift(data, dataShift) == 'S1' ? 'bg-red-500' : '' || checkShift(data, dataShift) == 'S2' ? 'bg-green-500' : '' || checkShift(data, dataShift) == 'S3' ? 'bg-blue-500' : ''" *ngFor="let dataShift of shiftArray" class="py-4 px-6 border border-gray-400">
-                                             
+                                            <td [style.background-color]="
+                                                (checkShift(data, dataShift, i) === 'S1') ? data.color :
+                                                (checkShift(data, dataShift, i) === 'S2') ? data.color :
+                                                (checkShift(data, dataShift, i) === 'S3') ? data.color :
+                                                'inherit'" *ngFor="let dataShift of shiftArray" class="py-4 px-6 border border-gray-400">
+                                                {{dataShift}}
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                           
                         </div>
-                        <pagination-controls class="text-center" id="pagination" (pageChange)="currentPage = $event">
-                        </pagination-controls>
                     </div>
-
                 </div>
             </div>
         </div>

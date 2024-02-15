@@ -616,8 +616,7 @@ export class CountService {
     return this.httpClient.get(apiAM + '/act/sch');
   }
 
-
-
+ 
   //////////////////////////////
   // ROUTE FOR DASHBOARD CILT //
   //////////////////////////////

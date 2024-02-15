@@ -187,43 +187,107 @@ export class ActivityEndComponent implements OnInit {
 
   }
 
+  changeDate() {
+    console.log(this.shiftArray);
+  } 
 
-  checkShift(date_shift: any, date_activity: any) {
+  dateBefore: any = ''
+  dateNow: any = ''
+  afrerChange: boolean = false
 
-    const [startHours, startMinutes, startSeconds] = date_shift.plan_start.split(':').map(Number);
-    const [endHours, endMinutes, endSeconds] = date_shift.plan_end.split(':').map(Number);
+  checkShift(date_shift: any, date_activity: any, index : any) {
+    if (date_shift.date_before != null) {
+      console.log(index);
+      
+      const prevDate = date_shift.date_finish
 
-    const totalStartMinutes = (startHours * 60) + startMinutes + (startSeconds / 60);
-    const totalEndMinutes = (endHours * 60) + endMinutes + (endSeconds / 60);
-    const totalDuration = totalEndMinutes - totalStartMinutes;
-    console.log( date_shift.plan_start);
-    console.log(totalStartMinutes);
-    
-    
-    // console.log(totalDuration);
+      const [startHours, startMinutes, startSeconds] = date_shift.plan_start.split(':').map(Number);
+      const [endHours, endMinutes, endSeconds] = date_shift.plan_end.split(':').map(Number);
 
-    let returnVar: any;
+      const totalStartMinutes = (startHours * 60) + startMinutes + (startSeconds / 60);
+      const totalEndMinutes = (endHours * 60) + endMinutes + (endSeconds / 60);
+      const totalDuration = totalEndMinutes - totalStartMinutes;
 
-    if (date_activity[1] === date_shift.date_start) {
+      let returnVar: any;
 
-      if (totalStartMinutes > 420 && totalStartMinutes < 900 && date_activity[0] == 'S1') {
-        returnVar = 'S1';
-      } else if (totalStartMinutes > 900 && totalStartMinutes < 1380 && date_activity[0] == 'S2') {
-        returnVar = 'S2';
-      } else if (((totalStartMinutes > 0 && totalStartMinutes < 420) || (totalStartMinutes > 1380 && totalStartMinutes < 1440))  && date_activity[0] == 'S3') {
-        returnVar = 'S3';
+      let date = new Date(date_activity[1]); // Convert the date string to a Date object
+
+      // Adjust the date to yesterday
+      date.setDate(date.getDate() - 1);
+
+      // Format the date as a string
+      let yesterday = date.toISOString().split('T')[0]; // This will give you the date in YYYY-MM-DD format
+
+
+      if (yesterday == date_shift.date_before) {
+
+        if (totalStartMinutes > 420 && totalStartMinutes < 900 && date_activity[0] == 'S1') {
+          returnVar = 'S1';
+        } else if (totalStartMinutes > 900 && totalStartMinutes < 1380 && date_activity[0] == 'S2') {
+          returnVar = 'S2';
+        } else if (((totalStartMinutes > 0 && totalStartMinutes < 420) || (totalStartMinutes > 1380 && totalStartMinutes < 1440)) && date_activity[0] == 'S3') {
+          returnVar = 'S3';
+        }
+        console.log(date_shift.id);
+        console.log(date_activity);
+        // this.changeDate()/
+        
+        console.log(returnVar);
+        
       }
-      console.log(returnVar);
+
+    } else {
+      const prevDate = date_shift.date_finish
+
+      const [startHours, startMinutes, startSeconds] = date_shift.plan_start.split(':').map(Number);
+      const [endHours, endMinutes, endSeconds] = date_shift.plan_end.split(':').map(Number);
+
+      const totalStartMinutes = (startHours * 60) + startMinutes + (startSeconds / 60);
+      const totalEndMinutes = (endHours * 60) + endMinutes + (endSeconds / 60);
+      const totalDuration = totalEndMinutes - totalStartMinutes;
+
+      let returnVar: any;
+
+      if (this.dateBefore == '' && this.dateNow == '') {
+        this.dateBefore = date_shift.date_start
+        this.dateNow = date_shift.date_finish
+      }
+
+      if ((date_shift.date_start != date_shift.date_finish) && (this.dateBefore == '' && this.dateNow == '')) {
+        this.dateBefore = date_shift.date_start
+        this.dateNow = date_shift.date_finish
+        this.afrerChange = true
+      }
+
+      if (this.dateBefore == this.dateNow) {
+        if (date_activity[1] === date_shift.date_start) {
+          if (totalStartMinutes > 420 && totalStartMinutes < 900 && date_activity[0] == 'S1') {
+            returnVar = 'S1';
+          } else if (totalStartMinutes > 900 && totalStartMinutes < 1380 && date_activity[0] == 'S2') {
+            returnVar = 'S2';
+          } else if (((totalStartMinutes > 0 && totalStartMinutes < 420) || (totalStartMinutes > 1380 && totalStartMinutes < 1440)) && date_activity[0] == 'S3') {
+            returnVar = 'S3';
+          }
+        }
+      }
+
+      if (this.dateBefore != this.dateNow) {
+
+        if (date_activity[1] === date_shift.date_start) {
+          if (totalStartMinutes > 420 && totalStartMinutes < 900 && date_activity[0] == 'S1') {
+            returnVar = 'S1';
+          } else if (totalStartMinutes > 900 && totalStartMinutes < 1380 && date_activity[0] == 'S2') {
+            returnVar = 'S2';
+          } else if (((totalStartMinutes > 0 && totalStartMinutes < 420) || (totalStartMinutes > 1380 && totalStartMinutes < 1440)) && date_activity[0] == 'S3') {
+            returnVar = 'S3';
+          }
+        }
+      }
+      return returnVar;
     }
-
-    
-    
-
-    return returnVar;
   }
 
 
-  shift = ['S1', 'S2', 'S3']
   shiftArray: any[] = []
   getDateRange = (firstDate: any, lastDate: any) => {
 
