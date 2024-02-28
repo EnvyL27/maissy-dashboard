@@ -4,7 +4,7 @@ import { UrlHandlingStrategy } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs';
 
-var api = environment.baseUrlApi;
+var apiMaissy = environment.baseUrlApi;
 var apiAM = environment.baseUrlApiAM;
 
 @Injectable({
